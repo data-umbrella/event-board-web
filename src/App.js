@@ -45,6 +45,7 @@ export default function App() {
         <Route path="/events/calendar" element={<EventCalendarPage />} />
         <Route path="/events/confirmation" element={<PostEventSuccessPage />} />
         <Route path="/events/new" element={<NewEventPage />} />
+        <Route path="/events/review" element={<ReviewEventPage />} />
         <Route path="/events/:eventId/details" element={<EventPage />} />
         <Route path="/events/:eventId/edit" element={<EditEventPage />} />
         <Route path="/donate" element={<DonatePage />} />
