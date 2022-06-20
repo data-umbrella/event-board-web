@@ -1,14 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 import './App.css';
 
-function App() {
+import HomePage from './components/pages/HomePage';
+import LoginPage from './components/pages/LoginPage';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Data Umbrella Community Events</h1>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
