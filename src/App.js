@@ -7,15 +7,15 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-import HomePage from './components/pages/HomePage';
-import SignInPage from './components/pages/SignInPage';
-import EventPage from './components/pages/EventPage';
-import NewEventPage from './components/pages/NewEventPage';
-import EditEventPage from './components/pages/EditEventPage';
-import ReviewEventPage from './components/pages/ReviewEventPage';
-import PostEventSuccessPage from './components/pages/PostEventSuccessPage';
-import EventCalendarPage from './components/pages/EventCalendarPage';
-import DonatePage from './components/pages/DonatePage';
+import HomePage from 'components/pages/HomePage';
+import SignInPage from 'components/pages/SignInPage';
+import EventPage from 'components/pages/EventPage';
+import NewEventPage from 'components/pages/NewEventPage';
+import EditEventPage from 'components/pages/EditEventPage';
+import ReviewEventPage from 'components/pages/ReviewEventPage';
+import PostEventSuccessPage from 'components/pages/PostEventSuccessPage';
+import EventCalendarPage from 'components/pages/EventCalendarPage';
+import DonatePage from 'components/pages/DonatePage';
 
 import mainLogo from'./logo.png';
 
