@@ -1,7 +1,7 @@
-function LoginPage() {
+function SignInPage() {
   return (
     <div>
-      <h2>Login</h2>
+      <h2>Sign In</h2>
 
       <label>Email</label>
       <input type="text"></input>
@@ -12,4 +12,4 @@ function LoginPage() {
   )
 }
 
-export default LoginPage;
+export default SignInPage;
