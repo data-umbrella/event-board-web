@@ -16,7 +16,7 @@ import PostEventSuccessPage from 'components/pages/PostEventSuccessPage';
 import ReviewEventPage from 'components/pages/ReviewEventPage';
 import SignInPage from 'components/pages/SignInPage';
 import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
-
+import SponsorsPage from 'components/pages/SponsorsPage';
 
 // Elements
 import NavigationBar from 'components/elements/NavigationBar';
@@ -40,6 +40,7 @@ export default function App() {
         <Route path="/events/:eventId/details" element={<EventPage />} />
         <Route path="/events/:eventId/edit" element={<EditEventPage />} />
         <Route path="/donate" element={<DonatePage />} />
+        <Route path="/sponsors" element={<SponsorsPage />} />
       </Routes>
     </Router>
   );
