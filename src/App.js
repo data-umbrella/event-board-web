@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // Pages
 import DonatePage from 'components/pages/DonatePage';
@@ -16,7 +12,7 @@ import PostEventSuccessPage from 'components/pages/PostEventSuccessPage';
 import ReviewEventPage from 'components/pages/ReviewEventPage';
 import SignInPage from 'components/pages/SignInPage';
 import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
-
+import SponsorsPage from 'components/pages/SponsorsPage';
 
 // Elements
 import NavigationBar from 'components/elements/NavigationBar';
@@ -26,7 +22,7 @@ import './App.css';
 
 export default function App() {
   return (
-    <Router>
+    <>
       <NavigationBar />
 
       <Routes>
@@ -40,7 +36,8 @@ export default function App() {
         <Route path="/events/:eventId/details" element={<EventPage />} />
         <Route path="/events/:eventId/edit" element={<EditEventPage />} />
         <Route path="/donate" element={<DonatePage />} />
+        <Route path="/sponsors" element={<SponsorsPage />} />
       </Routes>
-    </Router>
+    </>
   );
 }
