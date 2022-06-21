@@ -26,7 +26,7 @@ import './App.css';
 
 export default function App() {
   return (
-    <Router>
+    <>
       <NavigationBar />
 
       <Routes>
@@ -42,6 +42,6 @@ export default function App() {
         <Route path="/donate" element={<DonatePage />} />
         <Route path="/sponsors" element={<SponsorsPage />} />
       </Routes>
-    </Router>
+    </>
   );
 }
