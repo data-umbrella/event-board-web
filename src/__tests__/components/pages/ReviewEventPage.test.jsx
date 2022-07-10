@@ -6,6 +6,6 @@ describe('Review event page', () => {
   it('renders placeholder text', () => {
     render(<ReviewEventPage />);
 
-    expect(screen.getByText(/Review Event/i)).toBeInTheDocument();
+    expect(screen.getByText(/Citizen Science/i)).toBeInTheDocument();
   });
 });
