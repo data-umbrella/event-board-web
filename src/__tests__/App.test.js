@@ -15,8 +15,8 @@ describe('Navigating to the login page', () => {
 
     await userEvent.click(linkElement);
 
-    expect(screen.getByText(/Email/i)).toBeInTheDocument();
-    expect(screen.getByText(/Password/i)).toBeInTheDocument();
+    expect(screen.getByText(/Login/i)).toBeInTheDocument();
+    expect(screen.getByText(/Create Account/i)).toBeInTheDocument();
   });
 
   describe('Sponsors route', () => {
