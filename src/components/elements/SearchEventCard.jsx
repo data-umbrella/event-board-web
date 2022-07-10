@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from 'assets/thumbnail.png';
 
 const styleClasses = {
@@ -22,7 +23,7 @@ const styleClasses = {
 
 function SearchEventCard({ eventData }) {
   return (
-    <div className={styleClasses.searchEventCard}>
+    <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
       <img src={logo} className={styleClasses.searchEventThumbnail} />
 
       <div className="p-8">
@@ -35,7 +36,7 @@ function SearchEventCard({ eventData }) {
           <p className="mt-6 font-bold text-xl">{ eventData.title }</p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

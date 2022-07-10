@@ -20,7 +20,7 @@ export const eventProperties = {
   'volunteeringNotes': '',
 }
 
-const today = 'Friday July, 1, 2022';
+export const today = 'Friday July, 1, 2022';
 
 export const MOCK_EVENT = {
   title: 'Citizen Science and Engineering',
@@ -239,4 +239,19 @@ export const MOCK_EVENTS = [
     start: new Date(2022, 3, 14, 18, 30, 0),
     end: new Date(2022, 3, 14, 20, 0, 0),
   },
+]
+
+let todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
+
+export const CALENDAR_EVENTS = [
+  {
+    id: 100,
+    title: 'Example All-Day Event',
+    start: todayStr
+  },
+  {
+    id: 101,
+    title: 'Example Timed event',
+    start: todayStr + 'T12:00:00'
+  }
 ]

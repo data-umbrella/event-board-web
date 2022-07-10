@@ -6,6 +6,15 @@ const formStyleClasses = {
     w-full
     rounded
     h-8
+    p-2
+  `,
+  select: `
+    block
+    border
+    border-black
+    w-full
+    rounded
+    h-8
   `,
   inputContainer: 'py-2',
   button: `

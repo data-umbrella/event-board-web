@@ -21,8 +21,9 @@ import RequireAuth from 'components/elements/RequireAuth';
 
 import { AuthProvider } from 'hooks/authentication';
 
-// Styles
+// Styles and assets
 import './App.css';
+import logoImg from 'assets/logo.png';
 
 export default function App() {
   return (
@@ -51,6 +52,37 @@ export default function App() {
             <Route path="/sponsors" element={<SponsorsPage />} />
           </Routes>
         </div>
+        <footer className="block bg-indigo-900 h-60">
+          <div className="grid grid-cols-4 text-white px-32 pt-12 pb-24 text-left">
+            <div>
+              <img src={logoImg} alt="logo" />
+            </div>
+
+            <div>
+              <ul className="grid grid-rows-3 gap-4">
+                <li>About us</li>
+                <li>Meet the team</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul className="grid grid-rows-3 gap-4">
+                <li>Donate</li>
+                <li>Sponsors</li>
+                <li>FAQ's</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul className="grid grid-rows-3 gap-4">
+                <li>Data Umbrella</li>
+                <li>Privacy</li>
+                <li>Terms & Conditions</li>
+              </ul>
+            </div>
+          </div>
+        </footer>
       </AuthProvider>
     </div>
   );

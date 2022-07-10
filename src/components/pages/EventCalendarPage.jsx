@@ -5,27 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 
-import { MOCK_EVENTS } from 'constants/events';
-
-let eventGuid = 0
-let todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
-
-export const INITIAL_EVENTS = [
-  {
-    id: createEventId(),
-    title: 'All-day event',
-    start: todayStr
-  },
-  {
-    id: createEventId(),
-    title: 'Timed event',
-    start: todayStr + 'T12:00:00'
-  }
-]
-
-export function createEventId() {
-  return String(eventGuid++)
-}
+import { MOCK_EVENTS, CALENDAR_EVENTS } from 'constants/events';
 
 function EventContent({ eventInfo }) {
   const navigate = useNavigate();
@@ -164,12 +144,14 @@ function renderSidebarEvent(event) {
 
 function EventCalendarPage() {
   return (
-    <FullCalendar
-      plugins={[ dayGridPlugin ]}
-      initialView="dayGridMonth"
-      events={INITIAL_EVENTS}
-      eventContent={renderEventContent}
-    />
+    <div className="mt-4">
+      <FullCalendar
+        plugins={[ dayGridPlugin ]}
+        initialView="dayGridMonth"
+        events={CALENDAR_EVENTS}
+        eventContent={renderEventContent}
+      />
+    </div>
   )
 }
 

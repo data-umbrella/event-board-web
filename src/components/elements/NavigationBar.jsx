@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 
 const styleClasses = {
-  navLink: 'inline-block mr-6 mt-6',
+  navLink: 'inline-block mr-4 mt-6',
   navContainer: 'grid grid-cols-12 mb-4',
 }
 
@@ -17,7 +17,7 @@ function NavigationBar() {
         <div className="col-span-1"></div>
         <div className="col-span-9">
           <div className={styleClasses.navLink}><Link to="/events/calendar">Event Calendar</Link></div>
-          <div className={styleClasses.navLink}><Link to="/events/new">Post</Link></div>
+          <div className={styleClasses.navLink}><Link to="/events/new">Post Event</Link></div>
           <div className={styleClasses.navLink}><Link to="/events/weekly-digest">Weekly Digest</Link></div>
           <div className={styleClasses.navLink}>
             <a
