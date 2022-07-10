@@ -10,16 +10,24 @@ const styleClasses = {
     sm:grid-cols-none
     mb-10
   `,
+  searchResultsHeading: 'font-bold text-lg mb-2',
 }
 
 function SearchEvents({ events }) {
   return (
-    <div className={styleClasses.searchEventGroup}>
-      {events.map(eventData => {
-        return (
-          <SearchEventCard key={eventData.id} eventData={eventData} />
-        )
-      })}
+    <div>
+      <div>
+        <h1 className={styleClasses.searchResultsHeading}>
+          Search Results
+        </h1>
+      </div>
+      <div className={styleClasses.searchEventGroup}>
+        {events.map(eventData => {
+          return (
+            <SearchEventCard key={eventData.id} eventData={eventData} />
+          )
+        })}
+      </div>
     </div>
   )
 }

@@ -2,15 +2,17 @@ import logo from 'assets/thumbnail.png';
 
 const styleClasses = {
   searchEventCard: `
-    bg-zinc-300
+    bg-white
     block
-    border-slate-50
+    border
+    border-slate-300
     border-solid
     mh-120
     rounded
   `,
   searchEventThumbnail: `
     w-full
+    rounded-t
   `,
   searchEventCardDetail: `
     grid
@@ -30,7 +32,7 @@ function SearchEventCard({ eventData }) {
         </div>
 
         <div>
-          <p className="mt-6 text-xl">{ eventData.title }</p>
+          <p className="mt-6 font-bold text-xl">{ eventData.title }</p>
         </div>
       </div>
     </div>
