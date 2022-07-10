@@ -3,6 +3,10 @@ import CitySelect from 'components/elements/CitySelect';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+/**
+ * Defines the form component for the weekly digest
+ * @returns {React.Component} - returns a react component
+ */
 function WeeklyDigestFormComponent() {
   return (
     <Form>
