@@ -1,25 +1,42 @@
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 
+const styleClasses = {
+  navLink: 'inline-block mr-6 mt-6',
+  navContainer: 'grid grid-cols-12 mb-4',
+}
+
 function NavigationBar() {
   return (
-    <nav>
-      <ul>
-        <li><Link to="/"><img src={logoImg} alt="logo"/></Link></li>
-        <li><Link to="/events/calendar">Event Calendar</Link></li>
-        <li><Link to="/events/weekly-digest">Weekly Digest</Link></li>
-        <li>
-          <a
-            href="https://www.dataumbrella.org"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Data Umbrella
-          </a>
-        </li>
-        <li><Link to="/sponsors">Sponsors</Link></li>
-        <li><Link to="/sign-in">Sign In</Link></li>
-      </ul>
+    <nav className="border-b border-black container mx-auto hidden lg:block">
+      <div className={styleClasses.navContainer}>
+        <div className="col-span-2">
+          <Link to="/"><img src={logoImg} alt="logo"/></Link>
+        </div>
+
+        <div className="col-span-1"></div>
+        <div className="col-span-9">
+          <div className={styleClasses.navLink}><Link to="/events/calendar">Event Calendar</Link></div>
+          <div className={styleClasses.navLink}><Link to="/events/new">Post</Link></div>
+          <div className={styleClasses.navLink}><Link to="/events/weekly-digest">Weekly Digest</Link></div>
+          <div className={styleClasses.navLink}>
+            <a
+              href="https://www.dataumbrella.org"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Data Umbrella
+            </a>
+          </div>
+          <div className={styleClasses.navLink}><Link to="/sponsors">Sponsors</Link></div>
+          <div className={styleClasses.navLink}>
+            <Link to="/sign-in">Sign In</Link>
+          </div>
+          <div className={styleClasses.navLink}>
+            Dark Mode
+          </div>
+        </div>
+      </div>
     </nav>
   )
 }

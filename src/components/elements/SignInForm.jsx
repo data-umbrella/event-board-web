@@ -1,13 +1,28 @@
-import formStyleClasses from 'styles/forms';
+// React dependencies
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// Custom hooks
+import { useAuth } from 'hooks/authentication';
+// Styles
+import formStyleClasses from 'styles/forms';
 
 function SignInForm () {
+  const auth = useAuth();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
 
-  function handleSubmit(e) {
+  function handleInputChange (e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    navigate('/events/new');
+    const { email, password } = formData;
+
+    auth.signin(email, () => {
+      navigate('/events/new', { replace: true });
+    });
   }
 
   return (
@@ -17,19 +32,21 @@ function SignInForm () {
         <div className="py-2">
           <label className="block" htmlFor="email">Username or email</label>
           <input
-            id="email"
-            type="text"
             autoComplete="off"
             className={formStyleClasses.input}
+            name="email"
+            onChange={handleInputChange}
+            type="text"
           />
         </div>
 
         <div className="py-2">
           <label className="block" htmlFor="password">Password</label>
             <input
-              id="password"
-              type="text"
               className={formStyleClasses.input}
+              name="password"
+              onChange={handleInputChange}
+              type="password"
             />
         </div>
 

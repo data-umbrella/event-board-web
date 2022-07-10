@@ -8,7 +8,8 @@ module.exports = {
       colors: {
         'du-purple': {
           50: '#9951B8',
-        }
+        },
+        'du-gray': '#F7FAFC',
       }
     },
   },

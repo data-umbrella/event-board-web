@@ -14,6 +14,77 @@
       "id": 3,
       "title": "My first event",
       "featured": true
+    },
+    {
+      "id": 4
+    },
+    {
+      "cfpDeadline": "",
+      "city": "",
+      "description": "",
+      "endDate": "2022-07-10T04:01:08.670Z",
+      "endTime": "",
+      "eventName": "234234",
+      "eventType": "",
+      "imageAltText": "",
+      "imageUrl": "",
+      "organization": "234324",
+      "registrationEndDate": "",
+      "registrationStartDate": "",
+      "startDate": "2022-07-10T04:01:08.670Z",
+      "startTime": "",
+      "state": "",
+      "timezone": "",
+      "volunteeringNotes": "",
+      "id": 5
+    },
+    {
+      "cfpDeadline": "",
+      "city": "",
+      "description": "",
+      "endDate": "2022-07-10T04:03:49.638Z",
+      "endTime": "",
+      "eventName": "Torreggiani",
+      "eventType": "",
+      "imageAltText": "",
+      "imageUrl": "",
+      "organization": "Joe",
+      "registrationEndDate": "",
+      "registrationStartDate": "",
+      "startDate": "2022-07-10T04:03:49.638Z",
+      "startTime": "",
+      "state": "",
+      "timezone": "",
+      "volunteeringNotes": "",
+      "id": 6
+    },
+    {
+      "cfpDeadline": "",
+      "city": "",
+      "description": "",
+      "endDate": "2022-07-10T04:04:04.520Z",
+      "endTime": "",
+      "eventName": "23423423",
+      "eventType": "",
+      "imageAltText": "",
+      "imageUrl": "",
+      "organization": "234234",
+      "registrationEndDate": "",
+      "registrationStartDate": "",
+      "startDate": "2022-07-10T04:04:04.520Z",
+      "startTime": "",
+      "state": "",
+      "timezone": "",
+      "volunteeringNotes": "",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "joetorreggiani@gmail.com",
+      "password": "password",
+      "name": "Joe Torreggiani"
     }
   ]
 }
