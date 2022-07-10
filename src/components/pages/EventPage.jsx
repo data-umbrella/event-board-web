@@ -1,5 +1,5 @@
 import { useEffect, useState  } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
 import { eventStyleClasses } from 'styles/events';
 
@@ -56,6 +56,7 @@ function AccessibilitySection({ evt }) {
 
 function EventPage() {
   const [evt, setEvent] = useState();
+  const navigate = useNavigate();
 
   const { eventId } = useParams();
   // const evt = MOCK_EVENT;
@@ -70,10 +71,21 @@ function EventPage() {
     fetchEvent()
   }, [eventId]);
 
+  function editEvent () {
+    navigate(`/events/${eventId}/edit`)
+  }
+
   if (!evt) return 'Loading...'
 
   return (
     <div className="container mx-auto pt-16">
+      <div className="text-right">
+        <button className="p-2 bg-blue-600 text-white rounded mb-2" onClick={editEvent}>
+          Edit Event
+        </button>
+      </div>
+
+
       <ReviewEventMainSection evt={evt} />
       <DescriptionSection evt={evt} />
       <SpeakersSection evt={evt} />

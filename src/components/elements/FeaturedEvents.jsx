@@ -20,6 +20,8 @@ const styleClasses = {
   `,
 }
 
+const API_URL = 'http://localhost:3333/events';
+
 function FeaturedEvents ({ events }) {
   return (
     <div className="mt-10">
