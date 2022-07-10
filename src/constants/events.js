@@ -59,3 +59,26 @@ export const MOCK_EVENT = {
     'Keyboard Shortcuts',
   ]
 }
+
+export const MOCK_EVENTS = [
+  {
+    id: 1,
+    title: 'Event Title',
+  },
+  {
+    id: 2,
+    title: 'Event Title',
+  },
+  {
+    id: 3,
+    title: 'Event Title',
+  },
+  {
+    id: 4,
+    title: 'Event Title',
+  },
+  {
+    id: 5,
+    title: 'Event Title',
+  }
+]

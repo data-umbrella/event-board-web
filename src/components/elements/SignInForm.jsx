@@ -18,9 +18,7 @@ function SignInForm () {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const { email, password } = formData;
-
-    auth.signin(email, () => {
+    auth.signin(formData, () => {
       navigate('/events/new', { replace: true });
     });
   }

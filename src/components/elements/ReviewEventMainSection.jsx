@@ -1,5 +1,4 @@
 import logo from 'assets/thumbnail.png';
-import { MOCK_EVENT } from 'constants/events';
 
 const styleClasses = {
   mainSectionContainer: 'grid md:grid-cols-2 lg:gap-24 rounded mb-4 lg:mb-16 bg-white grid-cols-none text-center lg:text-left',
@@ -12,7 +11,7 @@ function ReviewEventMainSection({ evt }) {
   return (
     <div className={styleClasses.mainSectionContainer}>
       <div className={styleClasses.imageContainer}>
-        <img src={logo} className="w-full" />
+        <img src={logo} className="w-full" alt="logo" />
       </div>
 
       <div>

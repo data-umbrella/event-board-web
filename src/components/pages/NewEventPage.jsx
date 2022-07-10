@@ -1,14 +1,18 @@
+// React dependencies
 import { useNavigate } from 'react-router-dom';
-import { withFormik, Form, Field, useFormikContext, useField } from 'formik';
+
+// Third-party dependencies
+import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+// Constants
 import usStates from 'constants/us-states';
 import timezones from 'constants/timezones';
 import timeSlots from 'constants/time-slots';
-
-import DatePickerField from 'components/elements/DatePickerField';
-
 import { eventProperties } from 'constants/events';
+
+// Components
+import DatePickerField from 'components/elements/DatePickerField';
 
 /**
  * Defines an object with mappings to CSS classes to map Formik props to form values
@@ -75,7 +79,7 @@ export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required('Field is required'),
 });
 
-function CustomInput({
+function ValidatedInput({
   field, // { name, value, onChange, onBlur }
   form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props
@@ -92,26 +96,6 @@ function CustomInput({
      </label>
      <input {...field} {...props} />
    </div>
-  )
-}
-
-function RequiredTextInput(props) {
-  const { name, label, touched, errors } = props
-  return (
-    <>
-      <label>
-        <span className="pr-2">{ label }</span>
-        { touched && errors && <span className="text-red-600">{errors}</span> }
-      </label>
-
-      <Field
-        element="input"
-        name={name}
-        type="text"
-        className={styleClasses.imageInput}
-        autoComplete="off"
-      />
-    </>
   )
 }
 
@@ -151,7 +135,7 @@ function EventForm({ touched, errors }) {
             <Field
               autoComplete="new-password"
               className={styleClasses.imageInput}
-              component={CustomInput}
+              component={ValidatedInput}
               label="Name of Organization"
               name="organization"
               type="text"
@@ -162,7 +146,7 @@ function EventForm({ touched, errors }) {
             <Field
               autoComplete="new-password"
               className={styleClasses.imageInput}
-              component={CustomInput}
+              component={ValidatedInput}
               label="Event Name"
               name="eventName"
               type="text"

@@ -1,6 +1,6 @@
-import logo from 'assets/thumbnail.png';
-import { MOCK_EVENT } from 'constants/events';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
+
+import { MOCK_EVENT } from 'constants/events';
 
 const styleClasses = {
   mainSectionContainer: 'grid md:grid-cols-2 gap-24 mb-16 bg-white grid-cols-none',
