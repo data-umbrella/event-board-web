@@ -5,12 +5,16 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
+    "formik": "^2.2.9",
     "json-server": "^0.17.0",
     "react": "^18.0.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-select-search": "^3.0.10",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
