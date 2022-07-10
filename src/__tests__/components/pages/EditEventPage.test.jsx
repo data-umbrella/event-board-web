@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import EditEventPage from 'components/pages/EditEventPage';
 
 jest.mock('react-router-dom', () => ({

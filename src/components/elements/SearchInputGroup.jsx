@@ -29,10 +29,6 @@ const styleClasses = {
 }
 
 function SearchInputGroup() {
-  const popularSearches = [
-    'Python', 'Data Science', 'Machine Learning',
-  ]
-
   return (
     <div className={styleClasses.searchInputGroup}>
       <div className="p-10">

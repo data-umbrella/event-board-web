@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import FullCalendar, { formatDate } from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction'
+import { useNavigate } from 'react-router-dom';
+import FullCalendar from '@fullcalendar/react';
+// import FullCalendar, { formatDate } from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid';
+// import timeGridPlugin from '@fullcalendar/timegrid'
+// import interactionPlugin from '@fullcalendar/interaction'
 
-import { MOCK_EVENTS, CALENDAR_EVENTS } from 'constants/events';
+import { CALENDAR_EVENTS } from 'constants/events';
 
 function EventContent({ eventInfo }) {
   const navigate = useNavigate();
@@ -26,14 +27,14 @@ function renderEventContent(eventInfo) {
   return <EventContent eventInfo={eventInfo} />
 }
 
-function renderSidebarEvent(event) {
-  return (
-    <li key={event.id}>
-      <b>{formatDate(event.start, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
-      <i>{event.title}</i>
-    </li>
-  )
-}
+// function renderSidebarEvent(event) {
+//   return (
+//     <li key={event.id}>
+//       <b>{formatDate(event.start, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
+//       <i>{event.title}</i>
+//     </li>
+//   )
+// }
 
 // class EventCalendarPage extends React.Component {
 //

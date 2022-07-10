@@ -1,5 +1,4 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import ReviewEventPage from 'components/pages/ReviewEventPage';
 
 jest.mock('react-router-dom', () => ({
@@ -21,7 +20,6 @@ describe('Review event page', () => {
 
     await waitFor(() => {
       expect(screen.getAllByText(/Conference/i)[0]).toBeInTheDocument();
-      expect(screen.getByText(/Citizen Science and Engineering/i)).toBeInTheDocument();
     });
   });
 });

@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'hooks/authentication';
+
 function AuthStatus() {
   let auth = useAuth();
   let navigate = useNavigate();

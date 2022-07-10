@@ -14,7 +14,7 @@ function WeeklyDigestFormComponent() {
         <div className="col-span-1">
           <div className={formStyleClasses.inputContainer}>
             <label className="block" htmlFor="name">Name</label>
-            <input
+            <Field
               type="text"
               name="name"
               autoComplete="new-password"
@@ -24,7 +24,7 @@ function WeeklyDigestFormComponent() {
 
           <div className={formStyleClasses.inputContainer}>
             <label className="block" htmlFor="email">Email</label>
-            <input
+            <Field
               type="text"
               email="email"
               className={formStyleClasses.input}

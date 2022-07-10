@@ -1,6 +1,3 @@
-// React dependencies
-import { useNavigate } from 'react-router-dom';
-
 // Third-party dependencies
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -15,7 +12,6 @@ import formStyleClasses from 'styles/forms';
 // Components
 import DatePickerField from 'components/elements/DatePickerField';
 import ValidatedInput from 'components/elements/ValidatedInput';
-
 
 function PostEventFormComponent({ touched, errors }) {
   return (
@@ -224,4 +220,4 @@ export const PostEventForm = withFormik({
   validationSchema,
 })(PostEventFormComponent);
 
-export default NewEventPage;
+export default PostEventForm;

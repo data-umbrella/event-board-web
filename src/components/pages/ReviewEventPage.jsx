@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
 import EventPlanningSection from 'components/elements/EventPlanningSection';
@@ -45,7 +44,7 @@ function ReviewEventPage() {
     if (response.status === 200) {
       navigate('/events/confirmation');
     } else {
-      console.log("something wen't wrong");
+      console.log("something wen't wrong", response, json);
     }
   }
 

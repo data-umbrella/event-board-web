@@ -24,7 +24,7 @@ const styleClasses = {
 function SearchEventCard({ eventData }) {
   return (
     <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
-      <img src={logo} className={styleClasses.searchEventThumbnail} />
+      <img src={logo} className={styleClasses.searchEventThumbnail} alt="logo" />
 
       <div className="p-8">
         <div className={styleClasses.searchEventCardDetail}>

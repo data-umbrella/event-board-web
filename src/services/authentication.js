@@ -16,6 +16,4 @@ export async function authenticateUser(email, password) {
   } else {
     return null;
   }
-
-  return null;
 }

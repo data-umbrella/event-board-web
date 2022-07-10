@@ -1,9 +1,7 @@
 import { useEffect, useState  } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
-import EventPlanningSection from 'components/elements/EventPlanningSection';
 import { eventStyleClasses } from 'styles/events';
-import { MOCK_EVENT } from 'constants/events';
 
 function DescriptionSection({ evt }) {
   return (
@@ -70,7 +68,7 @@ function EventPage() {
       setEvent(json);
     }
     fetchEvent()
-  }, []);
+  }, [eventId]);
 
   if (!evt) return 'Loading...'
 
