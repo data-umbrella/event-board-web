@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "My first event",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "My first event",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "My first event",
+      "featured": true
+    }
+  ]
+}
