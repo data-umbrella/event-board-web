@@ -16,37 +16,6 @@ import formStyleClasses from 'styles/forms';
 import DatePickerField from 'components/elements/DatePickerField';
 import ValidatedInput from 'components/elements/ValidatedInput';
 
-/**
- * Defines an object with mappings to CSS classes to map Formik props to form values
- */
-const styleClasses = {
-  imageInput: `
-    block
-    border
-    border-black
-    w-full
-    rounded
-    h-12
-    pl-2
-  `,
-  textarea: `
-    block
-    border
-    border-black
-    w-full
-    h-40
-    rounded
-  `,
-  reviewButton: `
-    bg-du-purple-50
-    text-white
-    p-1
-    rounded
-    text-lg
-    font-normal
-  `
-}
-
 function EventForm({ touched, errors }) {
   return (
     <Form className="container mx-auto p-10 mb-10">
@@ -147,7 +116,7 @@ function EventForm({ touched, errors }) {
 
             <div className="pb-6 col-span-2">
               <label>State</label>
-              <Field name="state" component="select" className={formStyleClasses.input}>
+              <Field name="state" component="select" className={formStyleClasses.select}>
                 <option value={null}>Select a state</option>
                 {usStates.map(({ name, abbreviation }) => {
                   return <option key={abbreviation} value={abbreviation}>{name}</option>
@@ -160,7 +129,7 @@ function EventForm({ touched, errors }) {
         <div>
           <div className="mb-6">
             <label>Event Type</label>
-            <Field name="eventType" component="select" className={formStyleClasses.input}>
+            <Field name="eventType" component="select" className={formStyleClasses.select}>
               <option value="Tech Talk">Tech Talk</option>
               <option value="Speaker Panel">Speaker Panel</option>
             </Field>
@@ -189,7 +158,7 @@ function EventForm({ touched, errors }) {
           component="textarea"
           id="description"
           name="description"
-          className={styleClasses.textarea}
+          className={formStyleClasses.textarea}
         />
       </div>
 
@@ -199,13 +168,13 @@ function EventForm({ touched, errors }) {
           component="textarea"
           id="volunteeringNotes"
           name="volunteeringNotes"
-          className={styleClasses.textarea}
+          className={formStyleClasses.textarea}
         />
       </div>
 
       <div className="grid grid-cols-2 w-1/2 float-right gap-1">
         <button className="p-2 underline">Clear Form</button>
-        <button className={styleClasses.reviewButton} type="submit">Review</button>
+        <button className={formStyleClasses.reviewButton} type="submit">Review</button>
       </div>
     </Form>
   )

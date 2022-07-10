@@ -25,6 +25,22 @@ const formStyleClasses = {
     rounded
     p-1
     font-medium
+  `,
+  textarea: `
+    block
+    border
+    border-black
+    w-full
+    h-40
+    rounded
+  `,
+  reviewButton: `
+    bg-du-purple-50
+    text-white
+    p-1
+    rounded
+    text-lg
+    font-normal
   `
 }
 

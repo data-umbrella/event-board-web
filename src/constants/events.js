@@ -1,6 +1,7 @@
 const now = new Date()
 
 export const eventProperties = {
+  'accessibilityDetails': [],
   'cfpDeadline': '',
   'city': '',
   'description': '',
@@ -8,16 +9,24 @@ export const eventProperties = {
   'endTime': '',
   'eventName': '',
   'eventType': '',
+  'featured': false,
   'imageAltText': '',
   'imageUrl': '',
+  'notes': '',
   'organization': '',
+  'organizationUrl': '',
   'registrationEndDate': '',
   'registrationStartDate': '',
+  'speakers': [],
   'startDate': new Date(),
   'startTime': '',
   'state': '',
+  'tags': [],
   'timezone': '',
   'volunteeringNotes': '',
+  'socialMediaHashTag': '',
+  'discount': '',
+  'location': '',
 }
 
 export const today = 'Friday July, 1, 2022';

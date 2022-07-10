@@ -7,6 +7,6 @@ describe('New Event Page', () => {
   it('renders form heading', () => {
     render(<MemoryRouter><NewEventPage /></MemoryRouter>);
 
-    expect(screen.getByText(/Event Submission Form/i)).toBeInTheDocument();
+    expect(screen.getByText(/Name of Organization/i)).toBeInTheDocument();
   });
 });

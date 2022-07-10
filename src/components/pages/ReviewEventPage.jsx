@@ -9,6 +9,23 @@ import NotesSection from 'components/elements/NotesSection';
 import { eventStyleClasses } from 'styles/events';
 import { useEvent } from 'hooks/events';
 
+function ReviewEventActionsSection({
+  handleSubmit,
+  editEvent,
+}) {
+  return (
+    <div className="grid grid-cols-2 w-1/2 float-right gap-1">
+      <button className="p-2 underline underline-offset-4 text-xl">Edit Event</button>
+      <button
+        className={eventStyleClasses.submitButton}
+        onClick={handleSubmit}
+      >
+        Publish
+      </button>
+    </div>
+  )
+}
+
 function ReviewEventPage() {
   const { eventId } = useParams();
   const navigate = useNavigate();
@@ -32,6 +49,10 @@ function ReviewEventPage() {
     }
   }
 
+  function editEvent () {
+
+  }
+
   if (!evt) return 'Loading...'
 
   return (
@@ -42,16 +63,10 @@ function ReviewEventPage() {
       <SpeakersSection evt={evt} />
       <NotesSection evt={evt} />
       <AccessibilitySection evt={evt} />
-
-      <div className="grid grid-cols-2 w-1/2 float-right gap-1">
-        <button className="p-2 underline underline-offset-4 text-xl">Edit Event</button>
-        <button
-          className={eventStyleClasses.submitButton}
-          onClick={handleSubmit}
-        >
-          Publish
-        </button>
-      </div>
+      <ReviewEventActionsSection
+        handleSubmit={handleSubmit}
+        editEvent={editEvent}
+      />
     </div>
   )
 }
