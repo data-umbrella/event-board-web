@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import SignInPage from 'components/pages/SignInPage';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Sign In Page', () => {
   it('renders authentication action buttons', () => {
-    render(<SignInPage />);
+    render(
+      <MemoryRouter>
+        <SignInPage />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText(/Login/i)).toBeInTheDocument();
     expect(screen.getByText(/Create Account/i)).toBeInTheDocument();

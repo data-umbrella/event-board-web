@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import SignUpForm from 'components/elements/SignUpForm';
 
 describe('Sign Up Form', () => {
   it('renders correct copy', () => {
     render(
-      <Router>
+      <MemoryRouter>
         <SignUpForm />
-      </Router>
+      </MemoryRouter>
     );
 
     expect(screen.getByText(/Username or email/i)).toBeInTheDocument();

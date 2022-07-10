@@ -1,9 +1,18 @@
 import formStyleClasses from 'styles/forms';
+import { useNavigate } from 'react-router-dom'
 
-function SignInForm () {
+function SignUpForm () {
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    navigate('/events/new');
+  }
+
   return (
     <div className="flex justify-center">
-      <form className="basis-1/2">
+      <form className="basis-1/2" onSubmit={handleSubmit}>
         <div className={formStyleClasses.inputContainer}>
           <label className="block" htmlFor="name">Name</label>
           <input
@@ -41,4 +50,4 @@ function SignInForm () {
   )
 }
 
-export default SignInForm;
+export default SignUpForm;
