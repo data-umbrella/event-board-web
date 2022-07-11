@@ -33,6 +33,7 @@ const formStyleClasses = {
     w-full
     h-40
     rounded
+    p-2
   `,
   reviewButton: `
     bg-du-purple-50
@@ -41,7 +42,27 @@ const formStyleClasses = {
     rounded
     text-lg
     font-normal
-  `
+  `,
+  searchInputGroup: `
+    block
+    container
+    mh-60
+    mx-auto
+    rounded
+    mb-10
+    bg-violet-200
+    border
+    border-fuchsia-800
+  `,
+  searchInputColumns: `
+    container
+    gap-6
+    grid
+    mb-6
+    md:grid-cols-4
+    mx-auto
+    sm:grid-cols-none
+  `,
 }
 
 export default formStyleClasses;

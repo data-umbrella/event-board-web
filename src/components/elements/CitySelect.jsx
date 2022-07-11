@@ -4,7 +4,7 @@ import formStyleClasses from 'styles/forms';
 
 function CitySelect () {
   return (
-    <div className="grid grid-cols-4 gap-12 pb-6">
+    <div className="grid grid-cols-4 gap-6">
       <div className="col-span-2">
         <label>City</label>
         <Field
@@ -14,7 +14,7 @@ function CitySelect () {
         />
       </div>
 
-      <div className="pb-6 col-span-2">
+      <div className="col-span-2">
         <label>State</label>
         <Field name="state" component="select" className={formStyleClasses.select}>
           <option value={null}>Select a state</option>

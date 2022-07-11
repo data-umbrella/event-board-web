@@ -7,11 +7,18 @@ export function useEvent(eventId) {
 
   useEffect(() => {
     async function fetchEvent() {
-      const response = await fetch(`${API_URL}/events/${eventId}`);
-      const json = await response.json();
+      let json;
+
+      if (localStorage.getItem(eventId)) {
+        json = JSON.parse(localStorage.getItem(eventId));
+      } else {
+        const response = await fetch(`${API_URL}/events/${eventId}`);
+        json = await response.json();
+      }
+
       setEvent(json);
     }
-    fetchEvent()
+    fetchEvent();
   }, [eventId]);
 
   return evt;

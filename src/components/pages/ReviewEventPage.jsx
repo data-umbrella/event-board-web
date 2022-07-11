@@ -1,29 +1,16 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
-import EventPlanningSection from 'components/elements/EventPlanningSection';
+
 import AccessibilitySection from 'components/elements/AccessibilitySection';
 import DescriptionSection from 'components/elements/DescriptionSection';
-import SpeakersSection from 'components/elements/SpeakersSection';
+import EventPlanningSection from 'components/elements/EventPlanningSection';
 import NotesSection from 'components/elements/NotesSection';
+import ReviewEventActionsSection from 'components/elements/ReviewEventActionsSection';
+import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
+import SpeakersSection from 'components/elements/SpeakersSection';
+
 import { eventStyleClasses } from 'styles/events';
 import { useEvent } from 'hooks/events';
-
-function ReviewEventActionsSection({
-  handleSubmit,
-  editEvent,
-}) {
-  return (
-    <div className="grid grid-cols-2 w-1/2 float-right gap-1">
-      <button className="p-2 underline underline-offset-4 text-xl">Edit Event</button>
-      <button
-        className={eventStyleClasses.submitButton}
-        onClick={handleSubmit}
-      >
-        Publish
-      </button>
-    </div>
-  )
-}
+import { api } from 'services/api';
 
 function ReviewEventPage() {
   const { eventId } = useParams();
@@ -31,25 +18,31 @@ function ReviewEventPage() {
   const evt = useEvent(eventId);
 
   async function handleSubmit () {
-    const response = await fetch(`http://localhost:3333/events/${eventId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ featured: true }),
-    });
+    const eventData = JSON.parse(localStorage.getItem(eventId));
 
-    const json = await response.json();
-
-    if (response.status === 200) {
-      navigate('/events/confirmation');
+    if (evt.id) {
+      try {
+        const updatedEvent = await api('PATCH', `events/${evt.id}`, eventData);
+        navigate(`/events/${evt.id}/details`);
+      } catch (e) {
+        console.log(e);
+        return;
+      }
     } else {
-      console.log("something wen't wrong", response, json);
+      try {
+        const newEvent = await api('POST', 'events', { ...eventData, published: true });
+        navigate('/events/confirmation');
+      } catch (e) {
+        console.log(e)
+        return;
+      }
     }
+
+    localStorage.removeItem(eventId);
   }
 
   function editEvent () {
-
+    navigate(`/events/${eventId}/edit`)
   }
 
   if (!evt) return 'Loading...'
@@ -65,6 +58,7 @@ function ReviewEventPage() {
       <ReviewEventActionsSection
         handleSubmit={handleSubmit}
         editEvent={editEvent}
+        evt={evt}
       />
     </div>
   )
