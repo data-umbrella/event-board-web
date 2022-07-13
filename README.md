@@ -1,16 +1,26 @@
 # Data Umbrella Community Events Board
 
-Front-end web application for Data Umbrella's community event board.
+Front-end web application for Data Umbrella's community event board. This is built with [ReactJS](https://reactjs.org/) and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting started
 
-## Available Scripts
+### `git clone git@github.com:data-umbrella/event-board-web.git`
 
-In the project directory, you can run:
+You can simply clone the repository to the get code with the command above. To make code contributions there are two options.
+
+1. If you have joined our community and already added as a contributor to the project, then you can can clone the code as described above.
+2. If have an an idea for a feature or solution to a bug, and want to make open source contribution you can fork the repository and open a pull request. See Github's [Fork a Repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) tutorial for more information about forking repositories.
+
+## `npm run dev:api`
+
+Runs the development API.\
+Open [http://localhost:3333](http://localhost:3333) to view it in your browser.
+
+This API is needed to be able to run the React web app.
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the React app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
@@ -29,13 +39,13 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information about building apps built with create-react-app. Issues with failing to minify builds can be found [On the CRA trouble shooting page](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `npm run lint`
+
+Runs [ESlist](https://eslint.org/docs/latest/user-guide/command-line-interface) for static code analysis. Particularly helpful when you are debugging react-scripts build issues due to linter errors.
 
 ### Deployment
 
 This application is deployed to Digital Ocean App Platform as a static application. For more information about deploying React applications on DO App Platform see
 This section has moved here: [How To Deploy a React Application to DigitalOcean App Platform](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-to-digitalocean-app-platform)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
