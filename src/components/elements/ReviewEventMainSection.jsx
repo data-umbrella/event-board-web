@@ -1,5 +1,3 @@
-import logo from 'assets/thumbnail.png';
-
 const styleClasses = {
   mainSectionContainer: 'grid md:grid-cols-2 lg:gap-12 rounded mb-4 lg:mb-16 bg-white grid-cols-none text-center lg:text-left',
   imageContainer: 'col-span-1',

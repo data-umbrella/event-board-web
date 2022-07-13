@@ -1,4 +1,3 @@
-import { Field } from 'formik';
 import formStyleClasses from 'styles/forms';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +6,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
   const [link, setLink] = useState(socialMediaLink);
 
   function handleKeyPress(e) {
-    if (e.key == 'Enter' && link.type !== '') {
+    if (e.key === 'Enter' && link.type !== '') {
       e.preventDefault();
       onChange(link);
     }
@@ -50,7 +49,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
         className={`${formStyleClasses.input} h-10 col-span-4`}
       />
 
-      <button onClick={removeItem}>Remove</button> 
+      <button onClick={removeItem}>Remove</button>
     </div>
   )
 }

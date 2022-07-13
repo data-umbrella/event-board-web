@@ -3,9 +3,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 // Constants
-import usStates from 'constants/us-states';
 import timezones from 'constants/timezones';
-import timeSlots from 'constants/time-slots';
 import { eventProperties } from 'constants/events';
 import formStyleClasses from 'styles/forms';
 
@@ -24,7 +22,7 @@ import SocialMediaField from 'components/elements/SocialMediaField';
 
 
 function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/g);
 
   return (res !== null);
 }
@@ -34,11 +32,11 @@ function ImagePreview({ url }) {
     <div className="text-center mt-12">Add Image</div>
   )
 
-  return <img src={url} alt="preview image" />
+  return <img src={url} alt="preview" />
 }
 
 function PostEventFormComponent(props) {
-  const { touched, errors, eventId, values, setFieldValue } = props;
+  const { values, setFieldValue } = props;
 
   return (
     <Form className="container mx-auto pl-10 pr-10 mb-10 pb-10">

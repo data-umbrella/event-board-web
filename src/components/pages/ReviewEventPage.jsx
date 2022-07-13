@@ -8,7 +8,6 @@ import ReviewEventActionsSection from 'components/elements/ReviewEventActionsSec
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
 import SpeakersSection from 'components/elements/SpeakersSection';
 
-import { eventStyleClasses } from 'styles/events';
 import { useEvent } from 'hooks/events';
 import { api } from 'services/api';
 
@@ -23,6 +22,7 @@ function ReviewEventPage() {
     if (evt.id) {
       try {
         const updatedEvent = await api('PATCH', `events/${evt.id}`, eventData);
+        console.log(updatedEvent);
         navigate(`/events/${evt.id}/details`);
       } catch (e) {
         console.log(e);
@@ -31,6 +31,7 @@ function ReviewEventPage() {
     } else {
       try {
         const newEvent = await api('POST', 'events', { ...eventData, published: true });
+        console.log(newEvent);
         navigate('/events/confirmation');
       } catch (e) {
         console.log(e)

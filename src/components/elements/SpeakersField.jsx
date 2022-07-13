@@ -1,14 +1,12 @@
-import { Field } from 'formik';
 import formStyleClasses from 'styles/forms';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 function SpeakerPillbox ({ speaker, onChange, onRemove }) {
   const [text, setText] = useState(speaker);
   const [editing, setEditing] = useState(speaker === '');
 
   function handleKeyPress(e) {
-    if (e.key == 'Enter') {
+    if (e.key === 'Enter') {
       e.preventDefault();
       setEditing(false);
       onChange(text);
@@ -84,7 +82,7 @@ function SpeakersField ({ value, onChange }) {
           const key = speaker === '' ? 'editing' : speaker
           return (
             <SpeakerPillbox
-              key={speaker}
+              key={key}
               speaker={speaker}
               speakers={speakers}
               onChange={updateSpeaker}

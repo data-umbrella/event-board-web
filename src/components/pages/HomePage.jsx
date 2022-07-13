@@ -8,17 +8,10 @@ import SearchEvents from 'components/elements/SearchEvents';
 import SearchForm from 'components/elements/SearchForm';
 
 // Constants
-import { MOCK_EVENTS } from 'constants/events';
 import { API_URL } from 'constants/urls';
 
-function HomePage() {
-  const [searchFilters, setSearchFilters] = useState({
-    startDate: moment().format('YYYY-MM-DD'),
-    endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
-    search: '',
-  });
+function useFeaturedEvents() {
   const [featuredEvents, setFeaturedEvents] = useState([]);
-  const [searchResultEvents, setSearchResultEvents] = useState([]);
 
   useEffect(() => {
     async function fetchFeaturedEvents() {
@@ -28,6 +21,18 @@ function HomePage() {
     }
     fetchFeaturedEvents();
   }, []);
+
+  return featuredEvents;
+}
+
+function HomePage() {
+  const [searchFilters, setSearchFilters] = useState({
+    startDate: moment().format('YYYY-MM-DD'),
+    endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
+    search: '',
+  });
+  const featuredEvents = useFeaturedEvents();
+  const [searchResultEvents, setSearchResultEvents] = useState([]);
 
   useEffect(() => {
     const { search } = searchFilters;

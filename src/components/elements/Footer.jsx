@@ -1,13 +1,5 @@
 import logoImg from 'assets/logo.png';
 
-const styleClasses = {
-  footer: `
-    block
-    bg-indigo-900
-    h-40
-  `,
-}
-
 function Footer() {
   return (
     <footer className="block bg-indigo-900 min-h-60">

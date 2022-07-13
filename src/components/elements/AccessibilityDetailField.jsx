@@ -1,4 +1,3 @@
-import { eventStyleClasses } from 'styles/events';
 import { ACCESSIBILITY_OPTIONS } from 'constants/events';
 
 function AccessibilityDetailField({ value, onChange }) {

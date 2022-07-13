@@ -17,7 +17,7 @@ export async function api(method, resource, body) {
     json = await response.json();
 
     if (response.status === 400) {
-      throw('Bad Request');
+      throw(new Error('Bad Request'));
     }
   } catch (e) {
     throw(e.message);

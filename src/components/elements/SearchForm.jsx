@@ -3,15 +3,10 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 // Constants
-import usStates from 'constants/us-states';
-import timezones from 'constants/timezones';
-import timeSlots from 'constants/time-slots';
-import { eventProperties } from 'constants/events';
 import formStyleClasses from 'styles/forms';
 
 // Components
 import DatePickerField from 'components/elements/DatePickerField';
-import ValidatedInput from 'components/elements/ValidatedInput';
 import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
 import CategoryField from 'components/elements/CategoryField';

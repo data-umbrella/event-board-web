@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import formStyleClasses from 'styles/forms';
 import EventForm from 'components/elements/EventForm';
-import { API_URL } from 'constants/urls';
 import { v4 as uuidv4 } from 'uuid';
 
 function NewEventPage() {

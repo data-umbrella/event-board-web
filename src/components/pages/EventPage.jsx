@@ -5,7 +5,6 @@ import AccessibilitySection from 'components/elements/AccessibilitySection';
 import DescriptionSection from 'components/elements/DescriptionSection';
 import SpeakersSection from 'components/elements/SpeakersSection';
 import NotesSection from 'components/elements/NotesSection';
-import { eventStyleClasses } from 'styles/events';
 import { useEvent } from 'hooks/events';
 
 function EventDetailsPage() {
