@@ -1,18 +1,26 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, waitFor } from '@testing-library/react';
 import EditEventPage from 'components/pages/EditEventPage';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
   useParams: () => ({
-    eventId: 'example-event-id',
+    eventId: 100,
   }),
 }));
 
-describe('Edit Event Page', () => {
-  it('renders placeholder text', () => {
-    render(<EditEventPage />);
+const { MemoryRouter } = jest.requireActual('react-router-dom');
 
-    expect(screen.getByText(/Edit Event #example-event-id/i)).toBeInTheDocument();
+describe('Edit Event Page', () => {
+  it('renders placeholder text', async () => {
+    render(
+      <MemoryRouter>
+        <EditEventPage />
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByLabelText(/Name of Organization/i).value)
+        .toEqual('Sustainable Progress and Equality Collective');
+    });
   });
 });
