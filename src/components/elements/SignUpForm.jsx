@@ -7,7 +7,7 @@ function SignUpForm () {
   function handleSubmit(e) {
     e.preventDefault();
 
-    navigate('/confirm-email');
+    navigate('/registration/confirmation');
   }
 
   return (
