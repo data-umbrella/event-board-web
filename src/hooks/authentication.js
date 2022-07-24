@@ -4,11 +4,11 @@ const AuthContext = createContext();
 
 export const authProvider = {
   isAuthenticated: false,
-  signin(callback: VoidFunction) {
+  signin(callback) {
     authProvider.isAuthenticated = true;
     setTimeout(callback, 100);
   },
-  signout(callback: VoidFunction) {
+  signout(callback) {
     authProvider.isAuthenticated = false;
     setTimeout(callback, 100);
   },

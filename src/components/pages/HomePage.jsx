@@ -15,7 +15,9 @@ function useFeaturedEvents() {
 
   useEffect(() => {
     async function fetchFeaturedEvents() {
-      const response = await fetch(`${API_URL}/events?featured=true`);
+      const response = await fetch(`${API_URL}/events?featured=true`, {
+        mode: 'cors',
+      });
       const json = await response.json();
       setFeaturedEvents(json);
     }

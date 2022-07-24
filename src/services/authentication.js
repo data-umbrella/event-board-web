@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3333';
+import { API_URL } from 'constants/urls';
 
 // NOTE: This a mock implementation. This will be related with code to talk
 // to the Django backend.

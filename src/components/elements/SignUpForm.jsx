@@ -7,7 +7,7 @@ function SignUpForm () {
   function handleSubmit(e) {
     e.preventDefault();
 
-    navigate('/events/new');
+    navigate('/confirm-email');
   }
 
   return (
@@ -24,22 +24,13 @@ function SignUpForm () {
         </div>
 
         <div className={formStyleClasses.inputContainer}>
-          <label className="block" htmlFor="email">Username or email</label>
+          <label className="block" htmlFor="email">Email</label>
           <input
             id="email"
             type="text"
             autoComplete="off"
             className={formStyleClasses.input}
           />
-        </div>
-
-        <div className={formStyleClasses.inputContainer}>
-          <label className="block" htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="text"
-              className={formStyleClasses.input}
-            />
         </div>
 
         <div className={formStyleClasses.inputContainer}>
