@@ -25,7 +25,7 @@ describe('Edit Event Page', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByLabelText(/Name of Organization/i).value)
+    expect(screen.getByLabelText(/Organization Name/i).value)
         .toEqual('Example Org');
   });
 });

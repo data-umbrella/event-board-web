@@ -6,26 +6,10 @@ import FeaturedEvents from 'components/elements/FeaturedEvents';
 import IntroductionSection from 'components/elements/IntroductionSection';
 import SearchEvents from 'components/elements/SearchEvents';
 import SearchForm from 'components/elements/SearchForm';
+import { useFeaturedEvents } from 'hooks/events';
 
 // Constants
 import { API_URL } from 'constants/urls';
-
-function useFeaturedEvents() {
-  const [featuredEvents, setFeaturedEvents] = useState([]);
-
-  useEffect(() => {
-    async function fetchFeaturedEvents() {
-      const response = await fetch(`${API_URL}/api/v1/events?featured=true`, {
-        mode: 'cors',
-      });
-      const json = await response.json();
-      setFeaturedEvents(json);
-    }
-    fetchFeaturedEvents();
-  }, []);
-
-  return featuredEvents;
-}
 
 function HomePage() {
   const [searchFilters, setSearchFilters] = useState({
@@ -38,14 +22,14 @@ function HomePage() {
 
   useEffect(() => {
     const { search } = searchFilters;
-    const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
-    const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
+    // const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
+    // const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
 
     async function fetchSearchEvents() {
-      const dateQuery = `startDate_gte=${startDate}&endDate_lte=${endDate}`;
-      const fullTextQuery = `q=${search}`;
+      // const dateQuery = `startDate_gte=${startDate}&endDate_lte=${endDate}`;
+      const fullTextQuery = `search=${search}`;
       const response = await fetch(
-        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`,
+        `${API_URL}/api/v1/events?${fullTextQuery}`,
       );
       const json = await response.json();
       setSearchResultEvents(json);
@@ -58,7 +42,7 @@ function HomePage() {
   }
 
   return (
-    <div>
+    <div className="mb-10">
       <IntroductionSection />
       <FeaturedEvents events={featuredEvents} />
       <SearchForm handleFormSubmit={handleSearch} />

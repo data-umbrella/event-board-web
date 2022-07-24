@@ -4,7 +4,7 @@ const formStyleClasses = {
     border
     border-black
     w-full
-    rounded
+    rounded-md
     h-8
     p-2
   `,
@@ -36,7 +36,7 @@ const formStyleClasses = {
     p-2
   `,
   reviewButton: `
-    bg-du-purple-50
+    bg-du-purple-500
     text-white
     p-1
     rounded

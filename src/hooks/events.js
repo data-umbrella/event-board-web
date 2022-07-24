@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { EVENTS_URL } from 'constants/urls';
+import { EVENTS_URL, API_URL } from 'constants/urls';
 import camelcaseKeys from 'camelcase-keys';
 
 export function useEvent(eventId) {
@@ -28,4 +28,19 @@ export function useEvent(eventId) {
   }, [eventId]);
 
   return evt;
+}
+
+export function useFeaturedEvents() {
+  const [featuredEvents, setFeaturedEvents] = useState([]);
+
+  useEffect(() => {
+    async function fetchFeaturedEvents() {
+      const response = await fetch(`${API_URL}/api/v1/events?featured=true`);
+      const json = await response.json();
+      setFeaturedEvents(json);
+    }
+    fetchFeaturedEvents();
+  }, []);
+
+  return featuredEvents;
 }

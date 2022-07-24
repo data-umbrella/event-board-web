@@ -5,7 +5,7 @@ const styleClasses = {
     mb-10
   `,
   eventBoardHeading: `
-    text-5xl
+    text-4xl
     font-bold
   `,
 }
@@ -17,7 +17,9 @@ function IntroductionSection() {
         <h1 className={styleClasses.eventBoardHeading}>
           Data Events Board
         </h1>
-        <small>A Data Umbrella Initiative</small>
+        <small className="pl-36 italic text-du-purple-600">
+          A Data Umbrella Initiative
+        </small>
       </div>
     </div>
   )

@@ -28,8 +28,7 @@
       ],
       "description": "Ha! et tellus vitae varius vestibulum tellus et tempor accumsan. Massa eget est pharetra, ultrices et enim, est eget enim. Fermentum tempus feugiat eget elementum. Lobortis duis magna feugiat dictum et quis. At aliquet sagittis nibh sagittis faucibus imperdiet euismod ultricies quam. Volutpat platea donec porttitor eget sed pellentesque metus, eu. Facilisi scelerisque porttitor feugiat odio neque. Nibh purus sed faucibus mi aliquam morbi. Enim, libero odio risus, posuere urna. Vivamus nulla amet, egestas vulputate.",
       "speakers": [
-        "John Smith",
-        "Yoline"
+        "John Smith"
       ],
       "volunteeringNotes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
       "notes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
@@ -54,9 +53,14 @@
       "discountValue": "",
       "socialMediaLinks": [
         {
-          "url": "jtorreggiani",
+          "url": "specollective",
           "type": "twitter",
           "id": "0ff0d3c0-a52f-4b57-90cb-cabb1aad1ead"
+        },
+        {
+          "url": "specollective",
+          "type": "linkedin",
+          "id": "a6293197-df6c-40ac-b566-b6a81add0f51"
         }
       ]
     },
@@ -442,7 +446,13 @@
       "discount": "Discount: 10% off, code: 10K12DS22",
       "location": "http://video-call.link",
       "published": true,
-      "id": 114
+      "id": 114,
+      "discountUnit": "",
+      "discountCode": "",
+      "discountValue": "",
+      "socialMediaLinks": [],
+      "eventRegistrationUrl": "",
+      "codeOfConductUrl": ""
     },
     {
       "accessibilityDetails": [
@@ -554,7 +564,7 @@
       "imageAltText": "",
       "imageUrl": "",
       "notes": "",
-      "organizationName": "23424234",
+      "organizationName": "Example Inc",
       "organizationUrl": "",
       "registrationEndDate": "",
       "registrationStartDate": "",
@@ -572,6 +582,87 @@
       "location": "",
       "published": true,
       "id": 117
+    },
+    {
+      "accessibilityDetails": [
+        "live-transcription",
+        "nursing-room"
+      ],
+      "cfpDeadline": "",
+      "city": "",
+      "description": "",
+      "endDate": "2022-07-13T20:15:46.010Z",
+      "endTime": "",
+      "eventName": "Introduction to Data Science with Python",
+      "eventType": "conference",
+      "featured": false,
+      "discountUnit": "",
+      "discountCode": "",
+      "discountValue": "",
+      "socialMediaLinks": [],
+      "imageAltText": "",
+      "imageUrl": "",
+      "notes": "",
+      "organizationName": "Data Umbrella",
+      "organizationUrl": "https://dataumbrella.org",
+      "registrationEndDate": "",
+      "registrationStartDate": "",
+      "eventRegistrationUrl": "",
+      "codeOfConductUrl": "",
+      "speakers": [],
+      "startDate": "2022-07-13T20:15:46.010Z",
+      "startTime": "",
+      "state": "",
+      "tags": [],
+      "timezone": "",
+      "volunteeringNotes": "",
+      "socialMediaHashTag": "",
+      "discount": "",
+      "location": "",
+      "published": true,
+      "id": 118
+    },
+    {
+      "accessibilityDetails": [],
+      "cfpDeadline": "",
+      "city": "",
+      "description": "",
+      "endDate": "2022-07-14T16:18:59.907Z",
+      "endTime": "",
+      "eventName": "2432432",
+      "eventType": "",
+      "featured": false,
+      "discountUnit": "",
+      "discountCode": "",
+      "discountValue": "",
+      "socialMediaLinks": [
+        {
+          "url": "jtorreggiani",
+          "type": "twitter",
+          "id": "c67fbe8e-ba76-4fed-81ca-4eed783f82a3"
+        }
+      ],
+      "imageAltText": "",
+      "imageUrl": "",
+      "notes": "",
+      "organizationName": "234324",
+      "organizationUrl": "",
+      "registrationEndDate": "",
+      "registrationStartDate": "",
+      "eventRegistrationUrl": "",
+      "codeOfConductUrl": "",
+      "speakers": [],
+      "startDate": "2022-07-14T16:18:59.907Z",
+      "startTime": "",
+      "state": "",
+      "tags": [],
+      "timezone": "",
+      "volunteeringNotes": "",
+      "socialMediaHashTag": "",
+      "discount": "",
+      "location": "",
+      "published": true,
+      "id": 119
     }
   ],
   "users": [
