@@ -22,7 +22,7 @@ function ReviewEventMainSection({ evt }) {
           </div>
 
           <h1 className="font-bold text-3xl mb-4">
-            { evt.eventName }
+            { evt.title }
           </h1>
 
           <h2 className="mb-2">{ evt.organizationName }</h2>

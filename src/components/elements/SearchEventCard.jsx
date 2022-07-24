@@ -33,7 +33,7 @@ function SearchEventCard({ eventData }) {
         </div>
 
         <div>
-          <p className="mt-6 font-bold text-xl">{ eventData.eventName }</p>
+          <p className="mt-6 font-bold text-xl">{ eventData.title }</p>
         </div>
       </div>
     </Link>
