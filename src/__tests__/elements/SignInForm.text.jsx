@@ -10,8 +10,7 @@ describe('Sign In Form', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText(/Username or email/i)).toBeInTheDocument();
-    expect(screen.getByText(/Password/i)).toBeInTheDocument();
+    expect(screen.getByText(/Email/i)).toBeInTheDocument();
     expect(screen.getByText(/Login/i)).toBeInTheDocument();
   });
 });

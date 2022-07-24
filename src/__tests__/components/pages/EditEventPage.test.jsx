@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import EditEventPage from 'components/pages/EditEventPage';
 
 jest.mock('react-router-dom', () => ({

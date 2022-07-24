@@ -15,7 +15,7 @@ function useFeaturedEvents() {
 
   useEffect(() => {
     async function fetchFeaturedEvents() {
-      const response = await fetch(`${API_URL}/events?featured=true`, {
+      const response = await fetch(`${API_URL}/api/v1/events?featured=true`, {
         mode: 'cors',
       });
       const json = await response.json();
@@ -45,7 +45,7 @@ function HomePage() {
       const dateQuery = `startDate_gte=${startDate}&endDate_lte=${endDate}`;
       const fullTextQuery = `q=${search}`;
       const response = await fetch(
-        `${API_URL}/events?${fullTextQuery}&${dateQuery}`,
+        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`,
       );
       const json = await response.json();
       setSearchResultEvents(json);
