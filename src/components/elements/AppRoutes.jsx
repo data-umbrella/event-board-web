@@ -13,6 +13,7 @@ import ReviewEventPage from 'components/pages/ReviewEventPage';
 import SignInPage from 'components/pages/SignInPage';
 import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
 import SponsorsPage from 'components/pages/SponsorsPage';
+import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
@@ -38,6 +39,7 @@ function AppRoutes() {
       <Route path="/events/:eventId/edit" element={<EditEventPage />} />
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
+      <Route path="/registration/confirmation" element={<ConfirmRegistrationPage />} />
     </Routes>
   );
 }
