@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from 'react';
-import { MAGIC_LINK_URL, VERIFY_URL } from 'constants/urls';
+import { MAGIC_LINK_URL, VERIFY_URL, CURRENT_USER_URL } from 'constants/urls';
 
 const AuthContext = createContext();
 
@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
     const email = window.localStorage.getItem('USERNAME');
 
     try {
-      const response = await fetch(VERIFY_URL, {
+      const verifyResponse = await fetch(VERIFY_URL, {
         method: 'POST',
         body: JSON.stringify({ token, email }),
         headers: {
@@ -52,13 +52,29 @@ export function AuthProvider({ children }) {
         },
       });
 
-      if (response.status !== 200) {
+      if (verifyResponse.status !== 200) {
         throw(new Error('Bad request'));
       }
 
-      const json = await response.json();
-      const newUser = { email, token: json.token };
-      setCurrentUser({ ...{ newUser } });
+      const verifyJson = await verifyResponse.json();
+      const currentUserResponse = await fetch(CURRENT_USER_URL, {
+        method: 'POST',
+        credentials: 'include',
+        mode: 'cors',
+        body: JSON.stringify({}),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${verifyJson.token}`,
+        },
+      });
+
+      if (verifyResponse.status !== 200) {
+        throw(new Error('Bad request'));
+      }
+
+      const user = await currentUserResponse.json();
+
+      setCurrentUser({ ...user });
       callback(true);
     } catch (e) {
       callback(false, e.message);

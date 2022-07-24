@@ -1,3 +1,5 @@
+import defaultThumbNail from 'assets/thumbnail.png';
+
 const styleClasses = {
   mainSectionContainer: 'grid md:grid-cols-2 lg:gap-12 rounded mb-4 lg:mb-16 bg-white grid-cols-none text-center lg:text-left',
   imageContainer: 'col-span-1',
@@ -6,10 +8,11 @@ const styleClasses = {
 }
 
 function ReviewEventMainSection({ evt }) {
+  const imageUrl = evt.imageUrl || defaultThumbNail;
   return (
     <div className={styleClasses.mainSectionContainer}>
       <div className={styleClasses.imageContainer}>
-        <img src={evt.imageUrl} className="w-full" alt="logo" />
+        <img src={imageUrl} className="w-full" alt="logo" />
       </div>
 
       <div className="col-span-1">

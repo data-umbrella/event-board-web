@@ -11,13 +11,6 @@ You can simply clone the repository to the get code with the command above. To m
 1. If you have joined our community and already added as a contributor to the project, then you can can clone the code as described above.
 2. If have an an idea for a feature or solution to a bug, and want to make open source contribution you can fork the repository and open a pull request. See Github's [Fork a Repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) tutorial for more information about forking repositories.
 
-## `npm run dev:api`
-
-Runs the development API.\
-Open [http://localhost:3333](http://localhost:3333) to view it in your browser.
-
-This API is needed to be able to run the React web app.
-
 ### `npm start`
 
 Runs the React app in the development mode.\
@@ -44,6 +37,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run lint`
 
 Runs [ESlist](https://eslint.org/docs/latest/user-guide/command-line-interface) for static code analysis. Particularly helpful when you are debugging react-scripts build issues due to linter errors.
+
+### Backend API
+
+This application depends on an API defined by [https://github.com/data-umbrella/event-board-api](https://github.com/data-umbrella/event-board-api) which has instructions for running the application locally via docker.
 
 ### Deployment
 
