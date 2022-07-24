@@ -1,17 +1,14 @@
 import SignInForm from 'components/elements/SignInForm';
-import SignUpForm from 'components/elements/SignUpForm';
 
 function SignInPage() {
   return (
     <div className="container mx-auto p-20">
-      <div className="container mx-auto pb-12">
-        <h1 className="text-3xl">Post Event</h1>
-        <p>To post an event on this Event Board, please sign in or create an account.</p>
+      <div className="container mx-auto text-center pb-6 font-bold">
+        <h1 className="text-3xl">Welcome Back</h1>
       </div>
 
-      <div className="container mx-auto grid grid-cols-2 divide-x divide-black">
+      <div className="container mx-auto w-2/3">
         <SignInForm />
-        <SignUpForm />
       </div>
     </div>
   )

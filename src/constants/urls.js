@@ -1,3 +1,3 @@
-// export const API_URL = 'http://localhost:8000/api/v1';
-
-export const API_URL = 'http://localhost:3333';
+export const API_URL = process.env.REACT_APP_API_URL;
+export const VERIFY_URL = `${API_URL}/auth/token/`;
+export const MAGIC_LINK_URL = `${API_URL}/auth/email/`;

@@ -11,6 +11,5 @@ describe('Sign In Page', () => {
     );
 
     expect(screen.getByText(/Login/i)).toBeInTheDocument();
-    expect(screen.getByText(/Create Account/i)).toBeInTheDocument();
   });
 });

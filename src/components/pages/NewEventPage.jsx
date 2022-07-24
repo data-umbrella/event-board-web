@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import EventForm from 'components/elements/EventForm';
 import { v4 as uuidv4 } from 'uuid';
+import { useAuth } from 'hooks/authentication';
 
 function NewEventPage() {
   const navigate = useNavigate();
+  const auth = useAuth();
 
   async function handleFormSubmit(values) {
     const tempID = uuidv4();

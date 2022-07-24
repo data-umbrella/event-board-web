@@ -1,58 +1,97 @@
-// React dependencies
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// Custom hooks
-import { useAuth } from 'hooks/authentication';
-// Styles
 import formStyleClasses from 'styles/forms';
+import { withFormik, Form, Field } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from 'constants/urls';
+import * as Yup from 'yup';
+import { useAuth } from 'hooks/authentication';
+
+function BaseSignInForm ({ touched, errors }) {
+  return (
+    <div className="flex justify-center">
+      <Form className="basis-1/2">
+        <div className={formStyleClasses.inputContainer}>
+          <label className="block" htmlFor="email">Email</label>
+          <Field
+            name="email"
+            type="text"
+            autoComplete="off"
+            className={formStyleClasses.input}
+          />
+        </div>
+
+        <div className={formStyleClasses.inputContainer}>
+          <button
+            type="submit"
+            className={formStyleClasses.button}
+          >
+            Login
+          </button>
+        </div>
+      </Form>
+    </div>
+  )
+}
+
+/**
+ * Defines a function to map Formik props to form values
+ * Function name matches Formik option key mapPropsToValues
+ * @param {} props - includes email and password
+ * @returns {object} - formatted field values
+ */
+export function mapPropsToValues (props) {
+  return {
+    email: props.email || '',
+    name: props.name || '',
+  }
+}
+
+/**
+ * Defines the logic for handling form submission
+ * Function name matches Formik option key handleSubmit
+ * @param {} values - email and password
+ * @returns {Response} - fetch response object
+ */
+export function handleSubmit(values, { props }) {
+  props.handleFormSubmit(values);
+}
+
+/**
+ * Defines a schema for form validations
+ * Constant name matches Formik option key validationSchema
+ * @constant
+ * @type {object}
+ */
+export const validationSchema = Yup.object().shape({
+  email: Yup.string().required('Field is required'),
+});
+
+/**
+ * Wraps SendAccessCodeForm with the withFormik Higher-order component
+ */
+const SignInFormWithFormik = withFormik({
+  enableReinitialize: true,
+  mapPropsToValues,
+  handleSubmit,
+  validationSchema,
+})(BaseSignInForm);
 
 function SignInForm () {
-  const auth = useAuth();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const auth = useAuth();
 
-  function handleInputChange (e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    auth.signin(formData, () => {
-      navigate('/events/new', { replace: true });
+  async function handleFormSubmit(values) {
+    auth.sendMagicLink(values.email, (success, error) => {
+      if (success) {
+        navigate('/registration/confirmation');
+      } else {
+        // TODO: Handle error cases gracefully.
+        console.log(error);
+      }
     });
   }
 
   return (
-    <div className="flex justify-center">
-      <form className="basis-1/2" onSubmit={handleSubmit}>
-
-        <div className="py-2">
-          <label className="block" htmlFor="email">Username or email</label>
-          <input
-            autoComplete="off"
-            className={formStyleClasses.input}
-            name="email"
-            onChange={handleInputChange}
-            type="text"
-          />
-        </div>
-
-        <div className="py-2">
-          <label className="block" htmlFor="password">Password</label>
-            <input
-              className={formStyleClasses.input}
-              name="password"
-              onChange={handleInputChange}
-              type="password"
-            />
-        </div>
-
-        <div className="py-2">
-          <button type="submit" className={formStyleClasses.button}>Login</button>
-        </div>
-      </form>
-    </div>
+    <SignInFormWithFormik handleFormSubmit={handleFormSubmit} />
   )
 }
 
