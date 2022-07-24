@@ -25,8 +25,8 @@ function WeeklyDigestFormComponent() {
           <div className={formStyleClasses.inputContainer}>
             <label className="block" htmlFor="email">Email</label>
             <Field
-              type="text"
-              email="email"
+              type="email"
+              name="email"
               className={formStyleClasses.input}
             />
           </div>

@@ -21,15 +21,26 @@ const styleClasses = {
   `
 }
 
+      // <img src={imageSrc} className={styleClasses.searchEventThumbnail} alt="logo" />
+
 function SearchEventCard({ eventData }) {
+  console.log(eventData.imageUrl)
+  const imageSrc = eventData.imageUrl === '' || !eventData.imageUrl
+    ? logo
+    : eventData.imageUrl
+
   return (
     <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
-      <img src={logo} className={styleClasses.searchEventThumbnail} alt="logo" />
+      <div className="card-img" style={{ backgroundImage: `url('${imageSrc}')` }}></div>
 
-      <div className="p-8">
+      <div className="p-8 h-40">
         <div className={styleClasses.searchEventCardDetail}>
-          <time className="text-neutral-500" dateTime="2018-07-07">July 7, 2022</time>
-          <p className="text-right text-neutral-500 pr-2">Free</p>
+          <time className="text-neutral-500" dateTime="2018-07-07">
+            July 7, 2022
+          </time>
+          <p className="text-right text-neutral-500 pr-2">
+            Free
+          </p>
         </div>
 
         <div>

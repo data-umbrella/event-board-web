@@ -1,4 +1,6 @@
 // Third-party dependencies
+import moment from 'moment';
+import { useState } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -11,68 +13,99 @@ import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
 import CategoryField from 'components/elements/CategoryField';
 import PriceField from 'components/elements/PriceField';
-
-import moment from 'moment';
+import RegionField from 'components/elements/RegionField';
 
 function SearchFormComponent() {
+  const [showFilters, setShowFilters] = useState(false);
+
+  function toggleFilters () {
+    setShowFilters(!showFilters);
+  }
+
   return (
     <Form className={formStyleClasses.searchInputGroup}>
       <div className="p-10">
         <div className="container mx-auto mb-4">
-          <Field
-            autoComplete="new-password"
-            type="text"
-            placeholder="Data Science"
-            className={formStyleClasses.input}
-            name="search"
-          />
+          <div className="relative text-gray-600 focus-within:text-gray-400">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <button type="submit" className="p-1 focus:outline-none focus:shadow-outline text-du-purple-500 font-bold">
+                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" viewBox="0 0 24 24" className="w-6 h-6">
+                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </button>
+            </span>
+
+            <Field
+              type="search"
+              name="search"
+              className={`${formStyleClasses.input} pl-10 focus:outline-none p1-10`}
+              placeholder="Search"
+              autoComplete="off"
+            />
+          </div>
         </div>
 
         <div className="container mx-auto mb-4">
           <p>Popular searches: Python Online Rstats Django</p>
         </div>
 
-        <label className="block font-bold mb-4">Filter By:</label>
+        <label
+          className="block font-bold mb-4 underline"
+          onClick={toggleFilters}
+        >
+          Advanced Filters
+        </label>
 
-        <div className={formStyleClasses.searchInputColumns}>
-          <div>
-            <label>Start Date</label>
-            <DatePickerField name="startDate" className={formStyleClasses.input} />
+        <div className="expandable" aria-expanded={showFilters}>
+          <div className={formStyleClasses.searchInputColumns}>
+            <div>
+              <label>Start Date</label>
+              <DatePickerField name="startDate" className={formStyleClasses.input} />
+            </div>
+
+            <div>
+              <label>End Date</label>
+              <DatePickerField name="endDate" className={formStyleClasses.input} />
+            </div>
+
+            <div>
+              <LanguageField />
+            </div>
+
+            <div>
+              <RegionField />
+            </div>
           </div>
 
-          <div>
-            <label>End Date</label>
-            <DatePickerField name="endDate" className={formStyleClasses.input} />
+          <div className={formStyleClasses.searchInputColumns}>
+            <div>
+              <EventTypeField />
+            </div>
+
+            <div>
+              <CategoryField/>
+            </div>
+
+            <div>
+              <PriceField />
+            </div>
           </div>
 
-          <div>
-            <LanguageField />
-          </div>
+          <div className="text-right">
+            <button
+              className="p-2 text-black rounded mb-2 mr-2 font-semibold"
+            >
+              Clear Filters
+            </button>
 
-          <div>
-            <label htmlFor="region">Region</label>
-            <Field name="region" type="text" className={formStyleClasses.input} />
+            <button
+              type="submit"
+              className="bg-du-purple-500 p-2 text-white rounded mb-2 mr-2 font-semibold"
+            >
+              Apply Filters
+            </button>
           </div>
         </div>
-
-        <div className={formStyleClasses.searchInputColumns}>
-          <div>
-            <EventTypeField />
-          </div>
-
-          <div>
-            <CategoryField/>
-          </div>
-
-          <div>
-            <PriceField />
-          </div>
-        </div>
-      </div>
-
-      <div className="text-right">
-        <button className="p-2 text-black rounded mb-2 mr-2 font-semibold">Clear Filters</button>
-        <button type="submit" className="bg-purple-500 p-2 text-white rounded mb-2 mr-2 font-semibold">Apply Filters</button>
       </div>
     </Form>
   )

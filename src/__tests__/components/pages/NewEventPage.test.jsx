@@ -10,6 +10,6 @@ describe('New Event Page', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText(/Name of Organization/i)).toBeInTheDocument();
+    expect(screen.getByText(/Organization Name/i)).toBeInTheDocument();
   });
 });

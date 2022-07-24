@@ -1,5 +1,16 @@
 import SignInForm from 'components/elements/SignInForm';
 
+// const styleClasses = {
+//   signin: `
+//     container
+//     mx-auto
+//     grid
+//     grid-cols-2
+//     divide-x
+//     divide-black
+//   `
+// }
+
 function SignInPage() {
   return (
     <div className="container mx-auto p-20">

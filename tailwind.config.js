@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         'du-purple': {
-          50: '#9951B8',
+          500: '#6B26FF',
+          600: '#783D86',
         },
         'du-gray': '#F7FAFC',
       }

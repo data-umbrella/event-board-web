@@ -49,7 +49,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
         className={`${formStyleClasses.input} h-10 col-span-4`}
       />
 
-      <button onClick={removeItem}>Remove</button>
+      <button type="button" onClick={removeItem}>Remove</button>
     </div>
   )
 }
