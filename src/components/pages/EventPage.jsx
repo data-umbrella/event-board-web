@@ -1,10 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
-import EventPlanningSection from 'components/elements/EventPlanningSection';
-import AccessibilitySection from 'components/elements/AccessibilitySection';
-import DescriptionSection from 'components/elements/DescriptionSection';
-import SpeakersSection from 'components/elements/SpeakersSection';
-import NotesSection from 'components/elements/NotesSection';
+// import EventPlanningSection from 'components/elements/EventPlanningSection';
+// import AccessibilitySection from 'components/elements/AccessibilitySection';
+// import DescriptionSection from 'components/elements/DescriptionSection';
+// import SpeakersSection from 'components/elements/SpeakersSection';
+// import NotesSection from 'components/elements/NotesSection';
 import { useEvent } from 'hooks/events';
 
 function EventDetailsPage() {
