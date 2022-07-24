@@ -8,18 +8,28 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
-const { MemoryRouter } = jest.requireActual('react-router-dom');
+jest.mock('hooks/events', () => ({
+  useEvent: (eventId) => ({
+    id: eventId,
+    organizationName: 'Example Org',
+    tags: [],
+    speakers: [],
+    accessibilityDetails: [],
+  })
+}));
+
+const { BrowserRouter } = jest.requireActual('react-router-dom');
 
 describe('Review event page', () => {
   it('renders placeholder text', async () => {
     render(
-      <MemoryRouter>
+      <BrowserRouter>
         <ReviewEventPage />
-      </MemoryRouter>
+      </BrowserRouter>
     );
 
     await waitFor(() => {
-      expect(screen.getAllByText(/Conference/i)[0]).toBeInTheDocument();
+      expect(screen.getAllByText(/Example Org/i)[0]).toBeInTheDocument();
     });
   });
 });

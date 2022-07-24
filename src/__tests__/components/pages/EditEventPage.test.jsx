@@ -8,19 +8,24 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
-const { MemoryRouter } = jest.requireActual('react-router-dom');
+jest.mock('hooks/events', () => ({
+  useEvent: () => ({
+    id: 1,
+    organizationName: 'Example Org',
+  })
+}));
+
+const { BrowserRouter } = jest.requireActual('react-router-dom');
 
 describe('Edit Event Page', () => {
   it('renders placeholder text', async () => {
     render(
-      <MemoryRouter>
+      <BrowserRouter>
         <EditEventPage />
-      </MemoryRouter>
+      </BrowserRouter>
     );
 
-    await waitFor(() => {
-      expect(screen.getByLabelText(/Name of Organization/i).value)
-        .toEqual('Sustainable Progress and Equality Collective');
-    });
+    expect(screen.getByLabelText(/Name of Organization/i).value)
+        .toEqual('Example Org');
   });
 });

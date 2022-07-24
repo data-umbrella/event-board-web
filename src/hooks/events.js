@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-const API_URL = 'http://localhost:3333';
+import { API_URL } from 'constants/urls';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -12,8 +11,13 @@ export function useEvent(eventId) {
       if (localStorage.getItem(eventId)) {
         json = JSON.parse(localStorage.getItem(eventId));
       } else {
-        const response = await fetch(`${API_URL}/events/${eventId}`);
-        json = await response.json();
+        try {
+          const requestURL = `${API_URL}/events/${eventId}`
+          const response = await fetch(requestURL);
+          json = await response.json();
+        } catch (e) {
+          console.log(e.message);
+        }
       }
 
       setEvent(json);
