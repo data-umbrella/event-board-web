@@ -94,9 +94,9 @@ function PostEventFormComponent(props) {
               className={formStyleClasses.input}
               component={ValidatedInput}
               label="Event Name"
-              name="eventName"
+              name="title"
               type="text"
-              id="eventName"
+              id="title"
             />
           </div>
 

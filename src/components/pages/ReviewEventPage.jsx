@@ -21,7 +21,7 @@ function ReviewEventPage() {
 
     if (evt.id) {
       try {
-        await api('PATCH', `/events/${evt.id}`, eventData);
+        await api('PUT', `events/${evt.id}`, eventData);
         navigate(`/events/${evt.id}/details`);
       } catch (e) {
         console.log(e);

@@ -27,11 +27,11 @@ function EventDetailsPage() {
       </div>
 
       <ReviewEventMainSection evt={evt} />
-      <EventPlanningSection evt={evt} />
-      <DescriptionSection evt={evt} />
-      <SpeakersSection evt={evt} />
-      <NotesSection evt={evt} />
-      <AccessibilitySection evt={evt} />
+      {/* <EventPlanningSection evt={evt} /> */}
+      {/* <DescriptionSection evt={evt} /> */}
+      {/* <SpeakersSection evt={evt} /> */}
+      {/* <NotesSection evt={evt} /> */}
+      {/* <AccessibilitySection evt={evt} /> */}
     </div>
   )
 }

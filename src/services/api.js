@@ -1,4 +1,5 @@
 import { API_URL } from 'constants/urls';
+import snakecaseKeys from 'snakecase-keys';
 
 const headers = {
   'Content-Type': 'application/json',
@@ -31,9 +32,10 @@ export async function api(method, resource, body) {
   let json;
 
   const payload = {}
+  const formattedBody = snakecaseKeys(body);
 
   EVENT_ATTRIBUTES.forEach(attributeKey => {
-    payload[attributeKey] = body[attributeKey];
+    payload[attributeKey] = formattedBody[attributeKey];
   });
 
   try {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { API_URL } from 'constants/urls';
+import { EVENTS_URL } from 'constants/urls';
+import camelcaseKeys from 'camelcase-keys';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -12,7 +13,7 @@ export function useEvent(eventId) {
         json = JSON.parse(localStorage.getItem(eventId));
       } else {
         try {
-          const requestURL = `${API_URL}/events/${eventId}`
+          const requestURL = `${EVENTS_URL}/${eventId}`;
           const response = await fetch(requestURL);
           json = await response.json();
         } catch (e) {
@@ -20,7 +21,8 @@ export function useEvent(eventId) {
         }
       }
 
-      setEvent(json);
+      const result = camelcaseKeys(json);
+      setEvent(result);
     }
     fetchEvent();
   }, [eventId]);

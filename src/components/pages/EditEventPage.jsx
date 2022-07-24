@@ -18,9 +18,6 @@ function EditEventPage() {
   async function handleFormSubmit(values) {
     const tempID = uuidv4();
     localStorage.setItem(tempID, JSON.stringify({ ...values, id: evt.id }));
-
-    // console.log(currentUser);
-
     navigate(`/events/${tempID}/review`);
   }
 

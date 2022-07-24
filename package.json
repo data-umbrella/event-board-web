@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/runtime": "^7.18.9",
     "@fullcalendar/daygrid": "^5.11.0",
     "@fullcalendar/interaction": "^5.11.0",
     "@fullcalendar/react": "^5.11.1",
     "@fullcalendar/timegrid": "^5.11.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
+    "babel-jest": "^28.1.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "camelcase-keys": "^8.0.1",
     "eslint": "^8.19.0",
     "formik": "^2.2.9",
     "json-server": "^0.17.0",
+    "kebabcase-keys": "^1.0.0",
     "moment": "^2.29.4",
     "react": "^18.0.0",
     "react-datepicker": "^4.8.0",
@@ -19,6 +26,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-select-search": "^3.0.10",
+    "snakecase-keys": "^5.4.2",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
@@ -26,7 +34,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!camelcase-keys)/\"",
     "eject": "react-scripts eject",
     "dev:api": "json-server bin/dev-api.json --port=8000",
     "lint": "node_modules/.bin/eslint --ext js,jsx src",
@@ -51,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.9",
     "@testing-library/dom": "^8.14.0",
     "@testing-library/user-event": "^14.2.1",
     "autoprefixer": "^10.4.7",
