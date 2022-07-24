@@ -7,7 +7,7 @@ export const eventProperties = {
   'description': '',
   'endDate': new Date(),
   'endTime': '',
-  'eventName': '',
+  'title': '',
   'eventType': '',
   'featured': false,
   'discountUnit': '',
