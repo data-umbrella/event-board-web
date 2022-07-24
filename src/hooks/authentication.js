@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
       });
 
       if (response.status !== 200) {
-        throw('Bad request');
+        throw(new Error('Bad request'));
       }
 
       const newUser = { email };
@@ -53,8 +53,9 @@ export function AuthProvider({ children }) {
       });
 
       if (response.status !== 200) {
-        throw('Bad request');
+        throw(new Error('Bad request'));
       }
+
       const json = await response.json();
       const newUser = { email, token: json.token };
       setCurrentUser({ ...{ newUser } });

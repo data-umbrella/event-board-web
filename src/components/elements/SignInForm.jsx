@@ -1,7 +1,6 @@
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from 'constants/urls';
 import * as Yup from 'yup';
 import { useAuth } from 'hooks/authentication';
 

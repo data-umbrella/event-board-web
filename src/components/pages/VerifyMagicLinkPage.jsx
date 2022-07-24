@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { VERIFY_URL } from 'constants/urls';
 import { useAuth } from 'hooks/authentication';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +17,7 @@ function VerifyMagicLinkPage() {
         console.log(error);
       }
     });
-  }, [token]);
+  }, [token, auth, navigate]);
 
   return (
     <div className="container mx-auto p-40 text-center">
