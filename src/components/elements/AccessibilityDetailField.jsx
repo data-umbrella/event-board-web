@@ -10,7 +10,7 @@ function AccessibilityDetailField({ value, onChange }) {
       optionSet.delete(e.target.name);
     }
 
-    onChange('accessibilityDetails', Array.from(optionSet));
+    onChange('accessibilityOptions', Array.from(optionSet));
   }
 
   return (

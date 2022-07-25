@@ -5,8 +5,8 @@ import formStyleClasses from 'styles/forms';
 function EventTypeField () {
   return (
     <>
-      <label>Category</label>
-      <Field name="category" component="select" className={formStyleClasses.select}>
+      <label>Topics</label>
+      <Field name="topic" component="select" className={formStyleClasses.select}>
         <option>All</option>
         { CATEGORY_OPTIONS.map(({ value, label }) => {
           return <option key={value} value={value}>{ label }</option>

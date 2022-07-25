@@ -8,7 +8,7 @@ export const REGION_OPTIONS = [
 ]
 
 export const eventProperties = {
-  'accessibilityDetails': [],
+  'accessibilityOptions': [],
   'cfpDeadline': '',
   'city': '',
   'description': '',
