@@ -3,6 +3,16 @@ import { useEffect, useState } from 'react';
 import { EVENTS_URL, API_URL } from 'constants/urls';
 import camelcaseKeys from 'camelcase-keys';
 
+function arrayifyTags(tags) {
+  if (!tags) return [];
+
+  if (typeof tags === 'string') {
+    return tags.split(',');
+  } else {
+    return tags;
+  }
+}
+
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
 
@@ -23,6 +33,11 @@ export function useEvent(eventId) {
       }
 
       const result = camelcaseKeys(json);
+
+      result.tags = arrayifyTags(result.tags);
+      result.speakers = arrayifyTags(result.speakers);
+      result.accessibilityOptions = arrayifyTags(result.accessibilityOptions);
+
       setEvent(result);
     }
     fetchEvent();
@@ -56,13 +71,14 @@ export function useSearchEvents() {
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
   useEffect(() => {
-    const { search } = searchFilters;
+    const { search, topic } = searchFilters;
     const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
     const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
+    const topicQuery = topic ? `,${topic}` : '';
 
     async function fetchSearchEvents() {
       const dateQuery = `start_date__gte=${startDate}&start_date__lte=${endDate}`;
-      const fullTextQuery = `search=${search}`;
+      const fullTextQuery = `search=${search}${topicQuery}`;
       const response = await fetch(
         `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`,
       );

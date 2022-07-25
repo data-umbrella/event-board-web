@@ -32,7 +32,7 @@
       ],
       "volunteeringNotes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
       "notes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "keyboard-shortcuts",
         "sign-language",
         "closed-captions",
@@ -97,7 +97,7 @@
       ],
       "volunteeringNotes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
       "notes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "featured": true,
       "city": "",
       "imageAltText": "",
@@ -162,13 +162,13 @@
       ],
       "volunteeringNotes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
       "notes": "Rhoncus nulla venenatis diam at quis. Condimentum augue adipiscing lectus lorem et, at rhoncus eget integer. Enim diam vulputate ultrices amet at etiam pretium, ac. Facilisis egestas amet, faucibus ut nibh vitae euismod habitasse at.",
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "closed-captions"
       ],
       "featured": true
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -209,7 +209,7 @@
       "id": 106
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -239,7 +239,7 @@
       "id": 108
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -269,7 +269,7 @@
       "id": 109
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -299,7 +299,7 @@
       "id": 110
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -329,7 +329,7 @@
       "id": 111
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -359,7 +359,7 @@
       "id": 112
     },
     {
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "sign-language"
       ],
       "cfpDeadline": "Friday July, 1, 2022",
@@ -407,7 +407,7 @@
       "codeOfConductUrl": ""
     },
     {
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "screen-reader"
       ],
       "cfpDeadline": "Friday July, 1, 2022",
@@ -455,7 +455,7 @@
       "codeOfConductUrl": ""
     },
     {
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "keyboard-shortcuts",
         "sign-language",
         "nursing-room",
@@ -503,7 +503,7 @@
       "id": 115
     },
     {
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "keyboard-shortcuts",
         "sign-language"
       ],
@@ -548,7 +548,7 @@
       "id": 116
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",
@@ -584,7 +584,7 @@
       "id": 117
     },
     {
-      "accessibilityDetails": [
+      "accessibilityOptions": [
         "live-transcription",
         "nursing-room"
       ],
@@ -623,7 +623,7 @@
       "id": 118
     },
     {
-      "accessibilityDetails": [],
+      "accessibilityOptions": [],
       "cfpDeadline": "",
       "city": "",
       "description": "",

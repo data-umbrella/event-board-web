@@ -124,7 +124,7 @@ export function mapPropsToValues (props) {
     endDate: props.endDate || moment().add(6, 'months').format('MM/DD/YYYY'),
     price: props.price || '',
     eventType: props.eventType || '',
-    category: props.category || '',
+    topic: props.topic || '',
     language: props.language || '',
   }
 }

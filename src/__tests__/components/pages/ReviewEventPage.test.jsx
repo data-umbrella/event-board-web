@@ -14,7 +14,7 @@ jest.mock('hooks/events', () => ({
     organizationName: 'Example Org',
     tags: [],
     speakers: [],
-    accessibilityDetails: [],
+    accessibilityOptions: [],
   })
 }));
 

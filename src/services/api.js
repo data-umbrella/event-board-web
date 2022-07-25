@@ -6,27 +6,41 @@ const headers = {
 }
 
 const EVENT_ATTRIBUTES = [
-  'title',
+  'acronym',
+  'cfp_due_date',
+  'code_of_conduct_url',
+  'conference_name',
   'description',
+  'endDate',
+  'endtime',
+  'event_url',
   'featured',
   'hash_tag',
-  'conference_name',
+  'in_person',
+  'language',
+  'location',
   'organization_name',
-  // 'acronym',
-  // 'event_url',
-  // 'organization_url',
-  // 'startDate',
-  // 'endDate',
-  // 'startTime',
-  // 'endtime',
-  // 'location',
-  // 'region',
-  // 'in_person',
-  // 'virtual',
-  // 'cfp_due_date',
-  // 'language',
-  // 'code_of_conduct_url',
+  'organization_url',
+  'region',
+  'startDate',
+  'startTime',
+  'title',
+  'virtual',
+  'event_type',
+  'accessibility_options',
+  'volunteer_notes',
+  'event_notes',
 ]
+
+function stringifyTags(tags) {
+  if (typeof tags === 'Array') {
+    return tags.join(',')
+  } else if (typeof tags === 'string') {
+    return tags;
+  } else {
+    return '';
+  }
+}
 
 export async function api(method, resource, body) {
   let json;
@@ -37,6 +51,10 @@ export async function api(method, resource, body) {
   EVENT_ATTRIBUTES.forEach(attributeKey => {
     payload[attributeKey] = formattedBody[attributeKey];
   });
+
+  payload.tags = stringifyTags(payload.tags);
+  payload.speakers = stringifyTags(payload.speakers);
+  payload.accessibility_options = stringifyTags(payload.accessibility_options);
 
   try {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {

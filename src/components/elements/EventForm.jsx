@@ -259,7 +259,7 @@ function PostEventFormComponent(props) {
 
       <div className="pt-6 pb-6">
         <AccessibilityDetailField
-          value={values.accessibilityDetails}
+          value={values.accessibilityOptions}
           onChange={setFieldValue}
         />
       </div>
