@@ -33,7 +33,7 @@ const EVENT_ATTRIBUTES = [
 ]
 
 function stringifyTags(tags) {
-  if (typeof tags === 'Array') {
+  if (typeof tags === 'object') {
     return tags.join(',')
   } else if (typeof tags === 'string') {
     return tags;
