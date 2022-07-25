@@ -29,6 +29,8 @@ function SearchEventCard({ eventData }) {
     ? logo
     : eventData.imageUrl
 
+  console.log(eventData)
+
   return (
     <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
       <div className="card-img" style={{ backgroundImage: `url('${imageSrc}')` }}></div>
@@ -36,7 +38,7 @@ function SearchEventCard({ eventData }) {
       <div className="p-8 h-40">
         <div className={styleClasses.searchEventCardDetail}>
           <time className="text-neutral-500" dateTime="2018-07-07">
-            July 7, 2022
+            {eventData.startDate}
           </time>
           <p className="text-right text-neutral-500 pr-2">
             Free
