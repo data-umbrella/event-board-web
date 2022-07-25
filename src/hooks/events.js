@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { EVENTS_URL, API_URL } from 'constants/urls';
 import camelcaseKeys from 'camelcase-keys';
@@ -37,10 +38,40 @@ export function useFeaturedEvents() {
     async function fetchFeaturedEvents() {
       const response = await fetch(`${API_URL}/api/v1/events?featured=true`);
       const json = await response.json();
-      setFeaturedEvents(json);
+      const result = camelcaseKeys(json);
+      setFeaturedEvents(result);
     }
     fetchFeaturedEvents();
   }, []);
 
   return featuredEvents;
+}
+
+export function useSearchEvents() {
+  const [searchFilters, setSearchFilters] = useState({
+    startDate: moment().format('YYYY-MM-DD'),
+    endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
+    search: '',
+  });
+  const [searchResultEvents, setSearchResultEvents] = useState([]);
+
+  useEffect(() => {
+    const { search } = searchFilters;
+    const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
+    const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
+
+    async function fetchSearchEvents() {
+      const dateQuery = `start_date__gte=${startDate}&start_date__lte=${endDate}`;
+      const fullTextQuery = `search=${search}`;
+      const response = await fetch(
+        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`,
+      );
+      const json = await response.json();
+      const result = camelcaseKeys(json);
+      setSearchResultEvents(result);
+    }
+    fetchSearchEvents();
+  }, [searchFilters]);
+
+  return [searchResultEvents, setSearchFilters];
 }

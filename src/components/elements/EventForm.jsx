@@ -81,10 +81,10 @@ function PostEventFormComponent(props) {
               autoComplete="new-password"
               className={formStyleClasses.input}
               component={ValidatedInput}
-              label="Organization Name"
-              name="organizationName"
+              label="Event Title"
+              name="title"
               type="text"
-              id="organizationName"
+              id="title"
             />
           </div>
 
@@ -93,10 +93,10 @@ function PostEventFormComponent(props) {
               autoComplete="new-password"
               className={formStyleClasses.input}
               component={ValidatedInput}
-              label="Event Title"
-              name="title"
+              label="Organization Name"
+              name="organizationName"
               type="text"
-              id="title"
+              id="organizationName"
             />
           </div>
 
