@@ -20,7 +20,6 @@ import CitySelect from 'components/elements/CitySelect';
 import TimeSlotField from 'components/elements/TimeSlotField';
 import SocialMediaField from 'components/elements/SocialMediaField';
 
-
 function isValidURL(string) {
   var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/g);
 
@@ -28,7 +27,7 @@ function isValidURL(string) {
 }
 
 function ImagePreview({ url }) {
-  if (!isValidURL(url)) return (
+  if (!url) return (
     <div className="text-center mt-12">Add Image</div>
   )
 
@@ -37,6 +36,10 @@ function ImagePreview({ url }) {
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
+
+  function handleImageChange (e) {
+    setFieldValue('image_file', e.target.files[0]);
+  }
 
   return (
     <Form className="container mx-auto pl-10 pr-10 mb-10 pb-10">
@@ -69,6 +72,16 @@ function PostEventFormComponent(props) {
               type="text"
               className={formStyleClasses.input}
               autoComplete="new-password"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label>Image Alt Text</label>
+            <input
+              type="file"
+              id="image"
+              accept="image/png, image/jpeg"
+              onChange={handleImageChange}
             />
           </div>
         </div>

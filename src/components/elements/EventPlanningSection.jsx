@@ -3,18 +3,6 @@ export function EventPlanningSection({ evt }) {
     <div className="grid md:grid-cols-2 mb-10">
       <div className="grid grid-rows-3 gap-1 mb-6">
         <div>
-          Call for Proposal Deadline: { evt.cfpDeadline }
-        </div>
-
-        <div>
-          Call for Proposal Link: { evt.cfpLink }
-        </div>
-
-        <div>
-          Registration Deadline: { evt.registrationDeadline }
-        </div>
-
-        <div>
           Start Date: { evt.startDate }
         </div>
 
@@ -27,17 +15,26 @@ export function EventPlanningSection({ evt }) {
         </div>
 
         <div>
+          Registration Deadline: { evt.registrationDeadline }
+        </div>
+
+        <div>
+          Call for Proposal Deadline: { evt.cfpDeadline }
+        </div>
+
+        <div>
+          Call for Proposal Link: { evt.cfpLink }
+        </div>
+        <div>
           Location: { evt.location }
         </div>
       </div>
 
       <div className="grid grid-rows-3 gap-1">
-        <div>
-          Discount: { evt.discount }
-        </div>
+        { evt.discount && <div>Discount: { evt.discount }</div> }
 
         <div>
-          Language: { evt.language }
+          Language: { evt.language || 'English' }
         </div>
 
         <div>

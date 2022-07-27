@@ -11,6 +11,15 @@ import SpeakersSection from 'components/elements/SpeakersSection';
 import { useEvent } from 'hooks/events';
 import { api } from 'services/api';
 
+function dataURLtoFile(dataUrl, fileName) {
+  var arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+  bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+  while(n--){
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], fileName, {type:mime});
+}
+
 function ReviewEventPage() {
   const { eventId } = useParams();
   const navigate = useNavigate();
@@ -21,6 +30,14 @@ function ReviewEventPage() {
 
     if (evt.id) {
       try {
+        const imageFile = eventData.imageUrl ? dataURLtoFile(eventData.imageUrl, 'example.png') : null;
+
+        if (imageFile) {
+          eventData.image_file = imageFile;
+        }
+
+        console.log(eventData.image_file);
+
         await api('PUT', `events/${evt.id}/`, eventData);
         navigate(`/events/${evt.id}/details`);
       } catch (e) {

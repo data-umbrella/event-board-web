@@ -2,7 +2,7 @@ import { API_URL } from 'constants/urls';
 import snakecaseKeys from 'snakecase-keys';
 
 const headers = {
-  'Content-Type': 'application/json',
+  'Content-Type': 'multipart/form-data',
 }
 
 const EVENT_ATTRIBUTES = [
@@ -30,6 +30,7 @@ const EVENT_ATTRIBUTES = [
   'accessibility_options',
   'volunteer_notes',
   'event_notes',
+  // 'image_file',
 ]
 
 function stringifyTags(tags) {
@@ -45,8 +46,12 @@ function stringifyTags(tags) {
 export async function api(method, resource, body) {
   let json;
 
-  const payload = {}
+  const payload = {};
   const formattedBody = snakecaseKeys(body);
+
+  if (body.image_file) {
+    formattedBody.image_file = body.image_file;
+  }
 
   EVENT_ATTRIBUTES.forEach(attributeKey => {
     payload[attributeKey] = formattedBody[attributeKey];
@@ -56,12 +61,24 @@ export async function api(method, resource, body) {
   payload.speakers = stringifyTags(payload.speakers);
   payload.accessibility_options = stringifyTags(payload.accessibility_options);
 
+  const formData = new FormData();
+
+  EVENT_ATTRIBUTES.forEach(attributeKey => {
+    if (payload[attributeKey]) {
+      formData.append(attributeKey, payload[attributeKey]);
+    }
+  });
+
+  if (body.image_file) {
+    console.log(body.image_file)
+    formData.append("image_file", body.image_file, body.image_file.name);
+  }
+
   try {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {
       method,
-      headers,
       credentials: 'include',
-      body: JSON.stringify(payload),
+      body: formData,
     });
 
     json = await response.json();
