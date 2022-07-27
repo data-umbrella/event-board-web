@@ -3,6 +3,7 @@ import SearchResultViewSelector from 'components/elements/SearchResultViewSelect
 import EventListView from 'components/elements/EventListView';
 import EventGridView from 'components/elements/EventGridView';
 import EventCalendarView from 'components/elements/EventCalendarView';
+import EventMapView from 'components/elements/EventMapView';
 
 const styleClasses = {
   searchResultsHeading: 'font-bold text-lg mb-2',
@@ -16,6 +17,8 @@ export function SearchView({ events, viewName }) {
     return <EventListView events={events} />
   case 'CALENDAR':
     return <EventCalendarView events={events} />
+  case 'MAP':
+    return <EventMapView events={events} />
   default:
     return <EventGridView events={events} />
   }
