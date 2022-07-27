@@ -21,15 +21,13 @@ const styleClasses = {
   `
 }
 
-      // <img src={imageSrc} className={styleClasses.searchEventThumbnail} alt="logo" />
+// <img src={imageSrc} className={styleClasses.searchEventThumbnail} alt="logo" />
 
 function SearchEventCard({ eventData }) {
   console.log(eventData.imageUrl)
   const imageSrc = eventData.imageUrl === '' || !eventData.imageUrl
     ? logo
     : eventData.imageUrl
-
-  console.log(eventData)
 
   return (
     <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
