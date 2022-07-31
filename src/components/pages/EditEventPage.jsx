@@ -7,37 +7,19 @@ import { v4 as uuidv4 } from 'uuid';
 // Components
 import EventForm from 'components/elements/EventForm';
 import { useEvent } from 'hooks/events';
-// import { useAuth } from 'hooks/authentication';
 
-function readFileAsync(file) {
-  return new Promise((resolve, reject) => {
-    let reader = new FileReader();
-
-    reader.onloadend = () => {
-      resolve(reader.result);
-    };
-
-    reader.onerror = reject;
-
-    reader.readAsDataURL(file);
-  })
-}
+// Utils
+import { imageFileToDataURL } from 'utils/files';
+import { api, buildFormDataObject } from 'services/api';
 
 function EditEventPage() {
   const navigate = useNavigate();
   const { eventId } = useParams();
-  // const { currentUser } = useAuth();
   const evt = useEvent(eventId);
 
   async function handleFormSubmit(values) {
-    const tempID = uuidv4();
-    const reader = new FileReader();
-    const imageUrl = values.image_file && await readFileAsync(values.image_file);
-    if (imageUrl) {
-      values.imageUrl = imageUrl;
-    }
-    localStorage.setItem(tempID, JSON.stringify({ ...values, id: evt.id }));
-    navigate(`/events/${tempID}/review`);
+    sessionStorage.setItem(eventId, JSON.stringify(values));
+    navigate(`/events/${eventId}/review`);
   }
 
   if (!evt) return 'Loading...'

@@ -11,51 +11,33 @@ import SpeakersSection from 'components/elements/SpeakersSection';
 import { useEvent } from 'hooks/events';
 import { api } from 'services/api';
 
-function dataURLtoFile(dataUrl, fileName) {
-  var arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-  bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-  while(n--){
-    u8arr[n] = bstr.charCodeAt(n);
-  }
-  return new File([u8arr], fileName, {type:mime});
-}
-
 function ReviewEventPage() {
   const { eventId } = useParams();
   const navigate = useNavigate();
   const evt = useEvent(eventId);
 
+  console.log(evt);
+
   async function handleSubmit () {
-    const eventData = JSON.parse(localStorage.getItem(eventId));
+    const eventData = JSON.parse(sessionStorage.getItem(eventId));
 
-    if (evt.id) {
+    if (eventData.id) {
       try {
-        const imageFile = eventData.imageUrl ? dataURLtoFile(eventData.imageUrl, 'example.png') : null;
-
-        if (imageFile) {
-          eventData.image_file = imageFile;
-        }
-
-        console.log(eventData.image_file);
-
-        await api('PUT', `events/${evt.id}/`, eventData);
-        navigate(`/events/${evt.id}/details`);
+        await api('PUT', `events/${eventData.id}/`, eventData);
+        navigate(`/events/${eventData.id}/details`);
       } catch (e) {
         console.log(e);
         return;
       }
     } else {
       try {
-        const newEvent = await api('POST', 'events', { ...eventData, published: true });
-        console.log(newEvent);
+        await api('POST', 'events', eventData);
         navigate('/events/confirmation');
       } catch (e) {
-        console.log(e)
+        console.log(e);
         return;
       }
     }
-
-    localStorage.removeItem(eventId);
   }
 
   function editEvent () {

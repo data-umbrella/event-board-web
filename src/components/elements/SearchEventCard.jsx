@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from 'assets/thumbnail.png';
+import defaultThumbNail from 'assets/thumbnail.png';
 
 const styleClasses = {
   searchEventCard: `
@@ -21,13 +21,10 @@ const styleClasses = {
   `
 }
 
-// <img src={imageSrc} className={styleClasses.searchEventThumbnail} alt="logo" />
-
 function SearchEventCard({ eventData }) {
-  console.log(eventData.imageUrl)
-  const imageSrc = eventData.imageUrl === '' || !eventData.imageUrl
-    ? logo
-    : eventData.imageUrl
+  const imageSrc = eventData.imageFile === '' || !eventData.imageFile
+    ? defaultThumbNail
+    : eventData.imageFile
 
   return (
     <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>

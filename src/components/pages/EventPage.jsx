@@ -6,6 +6,8 @@ import DescriptionSection from 'components/elements/DescriptionSection';
 import SpeakersSection from 'components/elements/SpeakersSection';
 import NotesSection from 'components/elements/NotesSection';
 import { useEvent } from 'hooks/events';
+import { sessionStore } from 'utils/sessions';
+import { v4 as uuidv4 } from 'uuid';
 
 function EventDetailsPage() {
   const { eventId } = useParams();
@@ -13,7 +15,9 @@ function EventDetailsPage() {
   const evt = useEvent(eventId);
 
   function editEvent () {
-    navigate(`/events/${eventId}/edit`)
+    const tmpId = uuidv4();
+    sessionStore(tmpId, evt);
+    navigate(`/events/${tmpId}/edit`);
   }
 
   if (!evt) return 'Loading...'

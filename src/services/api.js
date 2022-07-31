@@ -1,84 +1,61 @@
+import { EVENT_ATTRIBUTES } from 'constants/events';
 import { API_URL } from 'constants/urls';
 import snakecaseKeys from 'snakecase-keys';
+import { stringifyTags } from 'utils/strings';
+import { dataURLtoImageFile } from 'utils/files';
+import moment from 'moment';
 
-const headers = {
-  'Content-Type': 'multipart/form-data',
+function formatDate(date) {
+  if (!date || date === '') return '';
+
+  return moment(date).format('YYYY-MM-DD');
 }
 
-const EVENT_ATTRIBUTES = [
-  'acronym',
-  'cfp_due_date',
-  'code_of_conduct_url',
-  'conference_name',
-  'description',
-  'endDate',
-  'endtime',
-  'event_url',
-  'featured',
-  'hash_tag',
-  'in_person',
-  'language',
-  'location',
-  'organization_name',
-  'organization_url',
-  'region',
-  'startDate',
-  'startTime',
-  'title',
-  'virtual',
-  'event_type',
-  'accessibility_options',
-  'volunteer_notes',
-  'event_notes',
-  // 'image_file',
-]
+export function buildFormDataObject(body) {
+  body.tags = stringifyTags(body.tags);
+  body.speakers = stringifyTags(body.speakers);
+  body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
 
-function stringifyTags(tags) {
-  if (typeof tags === 'object') {
-    return tags.join(',')
-  } else if (typeof tags === 'string') {
-    return tags;
-  } else {
-    return '';
-  }
+  const formDataPayload = snakecaseKeys(body);
+
+  formDataPayload.image_file = dataURLtoImageFile(body.imageFile, 'new-name.png');
+  formDataPayload.event_url = formDataPayload.event_url || '';
+  formDataPayload.start_date = formatDate(formDataPayload.start_date);
+  formDataPayload.end_date = formatDate(formDataPayload.end_date);
+  formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
+  formDataPayload.in_person = null
+  formDataPayload.virtual = null
+
+  return formDataPayload;
+}
+
+export function buildFormData(rawData) {
+  const formData = new FormData();
+  const formDataPayload = buildFormDataObject(rawData);
+
+  EVENT_ATTRIBUTES.forEach(attributeKey => {
+    if (attributeKey === 'image_file' && formDataPayload.image_file) {
+      formData.append(
+        'image_file',
+        formDataPayload.image_file,
+        formDataPayload.image_file.name,
+      );
+    } else if (formDataPayload[attributeKey]) {
+      formData.append(attributeKey, formDataPayload[attributeKey]);
+    }
+  });
+
+  return formData;
 }
 
 export async function api(method, resource, body) {
   let json;
 
-  const payload = {};
-  const formattedBody = snakecaseKeys(body);
-
-  if (body.image_file) {
-    formattedBody.image_file = body.image_file;
-  }
-
-  EVENT_ATTRIBUTES.forEach(attributeKey => {
-    payload[attributeKey] = formattedBody[attributeKey];
-  });
-
-  payload.tags = stringifyTags(payload.tags);
-  payload.speakers = stringifyTags(payload.speakers);
-  payload.accessibility_options = stringifyTags(payload.accessibility_options);
-
-  const formData = new FormData();
-
-  EVENT_ATTRIBUTES.forEach(attributeKey => {
-    if (payload[attributeKey]) {
-      formData.append(attributeKey, payload[attributeKey]);
-    }
-  });
-
-  if (body.image_file) {
-    console.log(body.image_file)
-    formData.append("image_file", body.image_file, body.image_file.name);
-  }
-
   try {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {
       method,
       credentials: 'include',
-      body: formData,
+      body: buildFormData(body),
     });
 
     json = await response.json();
