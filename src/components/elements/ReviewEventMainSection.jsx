@@ -8,7 +8,7 @@ const styleClasses = {
 }
 
 function ReviewEventMainSection({ evt, editEvent }) {
-  const imageUrl = evt.imageUrl || defaultThumbNail;
+  const imageUrl = evt.imageFile || defaultThumbNail;
   return (
     <div className={styleClasses.mainSectionContainer}>
       <div className={styleClasses.imageContainer}>

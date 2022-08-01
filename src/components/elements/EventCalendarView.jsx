@@ -5,28 +5,12 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 // import timeGridPlugin from '@fullcalendar/timegrid';
 // import interactionPlugin from '@fullcalendar/interaction';
-
-const truncate = (str, len) => {
-   if (str.length > len) {
-      if (len <= 3) {
-         return str.slice(0, len - 3) + "...";
-      }
-      else {
-         return str.slice(0, len) + "...";
-      };
-   }
-   else {
-      return str;
-   };
-};
+import { truncate } from 'utils/strings';
 
 function EventContent({ eventInfo }) {
   const navigate = useNavigate();
 
-
-
   function handleNavigate () {
-    console.log(eventInfo.event.id)
     navigate(`/events/${eventInfo.event.id}/details`);
   }
 

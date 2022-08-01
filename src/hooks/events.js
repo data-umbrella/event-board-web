@@ -1,17 +1,8 @@
-import moment from 'moment';
 import { useEffect, useState } from 'react';
-import { EVENTS_URL, API_URL } from 'constants/urls';
+import moment from 'moment';
 import camelcaseKeys from 'camelcase-keys';
-
-function arrayifyTags(tags) {
-  if (!tags) return [];
-
-  if (typeof tags === 'string') {
-    return tags.split(',');
-  } else {
-    return tags;
-  }
-}
+import { EVENTS_URL, API_URL } from 'constants/urls';
+import { arrayifyTags } from 'utils/strings';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -20,8 +11,8 @@ export function useEvent(eventId) {
     async function fetchEvent() {
       let json;
 
-      if (localStorage.getItem(eventId)) {
-        json = JSON.parse(localStorage.getItem(eventId));
+      if (sessionStorage.getItem(eventId)) {
+        json = JSON.parse(sessionStorage.getItem(eventId));
       } else {
         try {
           const requestURL = `${EVENTS_URL}/${eventId}`;
@@ -33,7 +24,6 @@ export function useEvent(eventId) {
       }
 
       const result = camelcaseKeys(json);
-
       result.tags = arrayifyTags(result.tags);
       result.speakers = arrayifyTags(result.speakers);
       result.accessibilityOptions = arrayifyTags(result.accessibilityOptions);
