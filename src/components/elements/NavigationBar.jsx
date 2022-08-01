@@ -8,7 +8,7 @@ const styleClasses = {
 
 function NavigationBar() {
   return (
-    <nav className="border-b border-black container mx-auto hidden lg:block">
+    <nav className="border-b border-black container mx-auto lg:block">
       <div className={styleClasses.navContainer}>
         <div className="col-span-2">
           <Link to="/"><img src={logoImg} alt="logo"/></Link>
