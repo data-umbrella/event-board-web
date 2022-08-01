@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import EventMapView from 'components/elements/EventMapView';
 
-describe('Donate page', () => {
+describe('Event map view', () => {
   it('renders expected copy', () => {
     render(<EventMapView />);
 
