@@ -15,6 +15,7 @@ function EventMapView({ events }) {
 
   return (
     <div>
+      <p>Placeholder Title</p>
       <Map height={500} center={position.center} zoom={position.zoom} onBoundsChanged={({ newCenter, newZoom }) => setPosition({center: newCenter, zoom: newZoom})}>
         {mockEvents.map((marker) => {
           return (
