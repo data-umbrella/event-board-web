@@ -16,8 +16,6 @@ function ReviewEventPage() {
   const navigate = useNavigate();
   const evt = useEvent(eventId);
 
-  console.log(evt);
-
   async function handleSubmit () {
     const eventData = JSON.parse(sessionStorage.getItem(eventId));
 

@@ -1,24 +1,18 @@
 // React dependencies
 import { useNavigate, useParams } from 'react-router-dom';
 
-// Third-party dependencies
-import { v4 as uuidv4 } from 'uuid';
-
 // Components
 import EventForm from 'components/elements/EventForm';
 import { useEvent } from 'hooks/events';
-
-// Utils
-import { imageFileToDataURL } from 'utils/files';
-import { api, buildFormDataObject } from 'services/api';
+import { sessionStore } from 'utils/sessions';
 
 function EditEventPage() {
   const navigate = useNavigate();
   const { eventId } = useParams();
   const evt = useEvent(eventId);
 
-  async function handleFormSubmit(values) {
-    sessionStorage.setItem(eventId, JSON.stringify(values));
+  function handleFormSubmit(values) {
+    sessionStore(eventId, values);
     navigate(`/events/${eventId}/review`);
   }
 

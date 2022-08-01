@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import camelcaseKeys from 'camelcase-keys';
-import { dataURLtoImageFile } from 'utils/files';
-
 import { EVENTS_URL, API_URL } from 'constants/urls';
 import { arrayifyTags } from 'utils/strings';
 
