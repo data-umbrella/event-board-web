@@ -7,7 +7,7 @@ function Sponsors() {
         <div className={sponsorsStyleClasses.sponsorsGrid}>
             {sponsorsList.map(sponsorInfo => {
                 return (
-                    <div> {sponsorInfo}</div>
+                    <div key={sponsorInfo}> {sponsorInfo}</div>
                 )
             })}
         </div>
