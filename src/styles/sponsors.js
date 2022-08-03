@@ -8,9 +8,11 @@ const sponsorsStyleClasses = {
         gap-6
         grid
         mb-6
-        md:grid-cols-4
+        md:grid-cols-3
         mx-auto
         sm:grid-cols-none
+        text-center
+        mt-15
     `,
     hyperlinks:`
         text-blue-500
