@@ -2,7 +2,7 @@ import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 // import contact from 'src/assets/contact.png';
-import contact from 'assets/contact.png';
+import contact from 'assets/contact-image.png';
 
 /**
  * Defines the form component for the weekly digest
