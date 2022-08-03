@@ -91,3 +91,14 @@ export const ACCESSIBILITY_OPTIONS = [
   { label: 'Keyboard shortcuts', value: 'keyboard-shortcuts' },
   { label: 'Live transcription', value: 'live-transcription' },
 ]
+
+export const TOPIC_TYPES = [
+  { label: 'Please select below', value: 'none-selected' },
+  { label: 'Technical Issue', value: 'technical-issue' },
+  { label: 'Sponsorship', value: 'sponsorship' },
+  { label: 'Feedback', value: 'feedback' },
+  { label: 'Other', value: 'other' },
+]
+
+
+

@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 // import contact from 'src/assets/contact.png';
 import contact from 'assets/contact-image.png';
+import ContactTopicField from 'components/elements/ContactTopicField';
 
 /**
  * Defines the form component for the weekly digest
@@ -20,7 +21,7 @@ function ContactUsFormComponent() {
 
         <Form>
         <div >
-            <div className="col-span-1">
+            <div>
             <div className={formStyleClasses.inputContainer}>
                 <label className="block" htmlFor="name">Name*</label>
                 <Field
@@ -39,22 +40,10 @@ function ContactUsFormComponent() {
                 />
             </div>
 
-            <div className={formStyleClasses.inputContainer}>
-                <label className="block" htmlFor="name">Topic</label>
-                <Field
-                type="text"
-                name="topic"
-                className={formStyleClasses.input}
-                />
+            <div>
+              <label className="block" htmlFor="name">Topic</label>
+                <ContactTopicField/>
             </div>
-
-            <label>Event Type</label>
-      {/* <Field name="eventType" component="select" className={formStyleClasses.select}>
-        <option>All</option>
-        { EVENT_TYPES.map(({ value, label }) => {
-          return <option key={value} value={value}>{ label }</option>
-        })}
-      </Field> */}
 
             <div className={formStyleClasses.inputContainer}>
                 <label className="block" htmlFor="name">How did you find out about this Event Board?*</label>
@@ -70,7 +59,7 @@ function ContactUsFormComponent() {
                 <Field
                 type="text"
                 name="message"
-                className={formStyleClasses.input}
+                className={formStyleClasses.textarea}
                 />
             </div>
             
@@ -81,8 +70,7 @@ function ContactUsFormComponent() {
                     All communication must adhere to our <a className={formStyleClasses.hyperlinks} href="/pages">Code of Conduct</a>*
                 </label>
                 </div>
-
-                    
+    
                 <div className="actions">
                   <button type="submit" className={formStyleClasses.sendButton}>Send</button>
                 </div>
