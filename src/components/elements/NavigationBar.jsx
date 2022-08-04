@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
+import { NAVBAR_EVENT_OPTIONS, NAVBAR_SUPPORT_OPTIONS } from 'constants/navbar';
+import formStyleClasses from 'styles/forms';
 
 const styleClasses = {
   navLink: 'inline-block mr-4 mt-6',
@@ -16,6 +18,13 @@ function NavigationBar() {
 
         <div className="col-span-1"></div>
         <div className="col-span-9">
+          <div>
+              <div name="navbarEventType" component="select" className={formStyleClasses.select}>
+              { NAVBAR_EVENT_OPTIONS.map(({ value, label }) => {
+                return <option key={value} value={value} className={styleClasses.navLink}><Link to="/events/calendar">{ label }</Link></option>
+              })}
+              </div>
+            </div>
           <div className={styleClasses.navLink}><Link to="/events/calendar">Event Calendar</Link></div>
           <div className={styleClasses.navLink}><Link to="/events/new">Post Event</Link></div>
           <div className={styleClasses.navLink}><Link to="/events/weekly-digest">Weekly Digest</Link></div>
@@ -42,23 +51,3 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
-
-// import { Field } from 'formik';
-// import { EVENT_TYPES } from 'constants/events';
-// import formStyleClasses from 'styles/forms';
-
-// function EventTypeField () {
-//   return (
-//     <>
-//       <label>Event Type</label>
-//       <Field name="eventType" component="select" className={formStyleClasses.select}>
-//         <option>All</option>
-//         { EVENT_TYPES.map(({ value, label }) => {
-//           return <option key={value} value={value}>{ label }</option>
-//         })}
-//       </Field>
-//     </>
-//   )
-// }
-
-// export default EventTypeField;
