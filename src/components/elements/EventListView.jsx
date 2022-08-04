@@ -1,6 +1,14 @@
 import logo from 'assets/thumbnail.png';
+import moment from 'moment';
 
-function EventListView({ events }) {
+function EventListView(events) {
+  events = [{id: 1, imageUrl: "", organizationName: "hello", title: "test", eventType: "Conference", startDate: "July 12, 2022", endDate: "July 14, 2022"}]
+  
+  const formatDate = (startDate, endDate) => {
+    const start = moment(startDate)
+    const end = moment(endDate)
+    return `${start.date()} - ${end.date()}`
+  }
   return (
     <div>
       {events.map(eventData => {
@@ -28,7 +36,12 @@ function EventListView({ events }) {
             </div>
             <div className="flex-1">
               <p className="text-xl lg:text-base text-black">
-                July 12, 2022
+                {formatDate(eventData.startDate, eventData.endDate)}
+              </p>
+            </div>
+            <div className="flex-1">
+              <p className="text-xl lg:text-base text-black">
+                {eventData.endDate}
               </p>
             </div>
           </div>
