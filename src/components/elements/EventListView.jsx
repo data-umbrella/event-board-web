@@ -39,11 +39,6 @@ function EventListView(events) {
                 {formatDate(eventData.startDate, eventData.endDate)}
               </p>
             </div>
-            <div className="flex-1">
-              <p className="text-xl lg:text-base text-black">
-                {eventData.endDate}
-              </p>
-            </div>
           </div>
         )
       })}
