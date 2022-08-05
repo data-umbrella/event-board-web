@@ -8,8 +8,8 @@ const sponsorsStyleClasses = {
         gap-6
         grid
         mb-6
-        md:grid-cols-3
         mx-auto
+        md:grid-cols-3
         sm:grid-cols-none
         text-center
         mt-15

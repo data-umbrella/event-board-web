@@ -14,6 +14,7 @@ import SignInPage from 'components/pages/SignInPage';
 import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
 import SponsorsPage from 'components/pages/SponsorsPage';
 import FAQsPage from 'components/pages/FAQsPage';
+import AboutPage from 'components/pages/AboutPage';
 import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
 
@@ -42,6 +43,7 @@ function AppRoutes() {
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
       <Route path="/FAQs" element={<FAQsPage />} />
+      <Route path="/about" element={<AboutPage />} />
       <Route
         path="/registration/confirmation"
         element={<ConfirmRegistrationPage />}
