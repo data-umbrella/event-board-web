@@ -19,7 +19,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2">Donate</li>
-            <li className="mb-2">Sponsors</li>
+            <li className="mb-2"><a href="/sponsors">Sponsors</a></li>
             <li className="mb-2"><a href="/faqs">FAQ's</a></li>
           </ul>
         </div>
