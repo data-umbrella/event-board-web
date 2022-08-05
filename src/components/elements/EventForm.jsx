@@ -19,24 +19,16 @@ import TextField from 'components/elements/TextField';
 import CitySelect from 'components/elements/CitySelect';
 import TimeSlotField from 'components/elements/TimeSlotField';
 import SocialMediaField from 'components/elements/SocialMediaField';
-
-
-function isValidURL(string) {
-  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/g);
-
-  return (res !== null);
-}
-
-function ImagePreview({ url }) {
-  if (!isValidURL(url)) return (
-    <div className="text-center mt-12">Add Image</div>
-  )
-
-  return <img src={url} alt="preview" />
-}
+import ImagePreview from 'components/elements/ImagePreview';
+import { imageFileToDataURL } from 'utils/files';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
+
+  async function handleImageChange (e) {
+    const imageFile = e.target.files[0];
+    setFieldValue('imageFile', await imageFileToDataURL(imageFile));
+  }
 
   return (
     <Form className="container mx-auto pl-10 pr-10 mb-10 pb-10">
@@ -49,16 +41,19 @@ function PostEventFormComponent(props) {
 
       <div className="grid grid-cols-3 gap-24 bg-white rounded border border-slate-300 p-6">
         <div className="col-span-1 rounded">
-          <ImagePreview url={values.imageUrl} />
+          <ImagePreview url={values.imageFile} />
         </div>
+
         <div className="col-span-2 rounded">
           <div className="mb-6">
-            <label>Enter Image URL</label>
-            <Field
-              name="imageUrl"
-              type="text"
-              className={formStyleClasses.input}
-              autoComplete="new-password"
+            <label>Upload Image</label>
+            <br/>
+            <input
+              type="file"
+              name="imageFile"
+              id="image"
+              accept="image/png, image/jpeg"
+              onChange={handleImageChange}
             />
           </div>
 
@@ -66,6 +61,16 @@ function PostEventFormComponent(props) {
             <label>Image Alt Text</label>
             <Field
               name="imageAltText"
+              type="text"
+              className={formStyleClasses.input}
+              autoComplete="new-password"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label>Enter Image URL</label>
+            <Field
+              name="imageUrl"
               type="text"
               className={formStyleClasses.input}
               autoComplete="new-password"

@@ -17,28 +17,25 @@ function ReviewEventPage() {
   const evt = useEvent(eventId);
 
   async function handleSubmit () {
-    const eventData = JSON.parse(localStorage.getItem(eventId));
+    const eventData = JSON.parse(sessionStorage.getItem(eventId));
 
-    if (evt.id) {
+    if (eventData.id) {
       try {
-        await api('PUT', `events/${evt.id}/`, eventData);
-        navigate(`/events/${evt.id}/details`);
+        await api('PUT', `events/${eventData.id}/`, eventData);
+        navigate(`/events/${eventData.id}/details`);
       } catch (e) {
         console.log(e);
         return;
       }
     } else {
       try {
-        const newEvent = await api('POST', 'events', { ...eventData, published: true });
-        console.log(newEvent);
+        await api('POST', 'events', eventData);
         navigate('/events/confirmation');
       } catch (e) {
-        console.log(e)
+        console.log(e);
         return;
       }
     }
-
-    localStorage.removeItem(eventId);
   }
 
   function editEvent () {

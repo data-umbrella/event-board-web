@@ -13,6 +13,7 @@ import ReviewEventPage from 'components/pages/ReviewEventPage';
 import SignInPage from 'components/pages/SignInPage';
 import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
 import SponsorsPage from 'components/pages/SponsorsPage';
+import FAQsPage from 'components/pages/FAQsPage';
 import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
 import ContactPage from 'components/pages/ContactPage';
@@ -42,6 +43,7 @@ function AppRoutes() {
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
+      <Route path="/FAQs" element={<FAQsPage />} />
       <Route
         path="/registration/confirmation"
         element={<ConfirmRegistrationPage />}
