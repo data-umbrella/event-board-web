@@ -1,4 +1,5 @@
 // React dependencies
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // Components

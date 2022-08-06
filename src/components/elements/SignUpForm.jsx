@@ -1,10 +1,12 @@
+import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'constants/urls';
 import * as Yup from 'yup';
 
-function BaseSignUpForm ({ touched, errors }) {
+// TODO: Use the touched, errors props to implement validations
+function BaseSignUpForm () {
   return (
     <div className="flex justify-center">
       <Form className="basis-1/2">
@@ -101,7 +103,7 @@ function SignUpForm () {
       navigate('/registration/confirmation');
     } else {
       // TODO: Handle error cases gracefully.
-      console.log('Something went wrong!');
+      window.alert('Something went wrong!');
     }
   }
 

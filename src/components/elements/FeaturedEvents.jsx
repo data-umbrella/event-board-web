@@ -1,3 +1,4 @@
+import React from 'react';
 import SearchEventCard from 'components/elements/SearchEventCard';
 import Carousel from 'react-multi-carousel';
 

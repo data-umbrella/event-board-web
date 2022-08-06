@@ -77,7 +77,7 @@ const formStyleClasses = {
     text-lg
     font-normal
     float-right
-  `,
-}
+  `
+};
 
 export default formStyleClasses;

@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from 'react';
+import React, { useContext, createContext, useState } from 'react';
 import { MAGIC_LINK_URL, VERIFY_URL, CURRENT_USER_URL } from 'constants/urls';
 
 const AuthContext = createContext();
@@ -83,7 +83,11 @@ export function AuthProvider({ children }) {
 
   const value = { currentUser, sendMagicLink, verifyOneTimePassCode };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      { children }
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {

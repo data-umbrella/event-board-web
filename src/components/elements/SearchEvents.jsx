@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SearchResultViewSelector from 'components/elements/SearchResultViewSelector';
 import EventListView from 'components/elements/EventListView';
 import EventGridView from 'components/elements/EventGridView';
@@ -7,7 +7,7 @@ import EventMapView from 'components/elements/EventMapView';
 
 const styleClasses = {
   searchResultsHeading: 'font-bold text-lg mb-2',
-}
+} 
 
 export function SearchView({ events, viewName }) {
   switch(viewName) {

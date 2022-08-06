@@ -1,3 +1,4 @@
+import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -12,73 +13,85 @@ import ContactTopicField from 'components/elements/ContactTopicField';
 function ContactUsFormComponent() {
   return (
     <div className="container p-20 mb-10">
+      <div>
+        For feature suggestions, bug reports, etc for the Event Board, please open up an issue here:
+        <a className={formStyleClasses.hyperlinks} href="/https://github.com/data-umbrella/event-board-web">
+          https://github.com/data-umbrella/event-board-web
+        </a>
+      </div>
+
+      <div className="pt-5 pb-5">
+        <p>For inquiries related to sponsorship, technical issues, or other, please complete this form:</p>
+      </div>
+
+      <Form>
         <div>
-          For feature suggestions, bug reports, etc for the Event Board, please open up an issue here: <a className={formStyleClasses.hyperlinks} href="/https://github.com/data-umbrella/event-board-web">https://github.com/data-umbrella/event-board-web</a>
+          <div className={formStyleClasses.inputContainer}>
+            <label className="block" htmlFor="name">
+              Name*
+            </label>
+            <Field
+              type="text"
+              name="name"
+              className={formStyleClasses.input}
+            />
+          </div>
+
+          <div className={formStyleClasses.inputContainer}>
+            <label className="block" htmlFor="email">
+              Email*
+            </label>
+            <Field
+              type="email"
+              name="email"
+              className={formStyleClasses.input}
+            />
+          </div>
+
+          <div>
+            <label className="block" htmlFor="name">Topic</label>
+            <ContactTopicField/>
+          </div>
+
+          <div className={formStyleClasses.inputContainer}>
+            <label className="block" htmlFor="name">
+              How did you find out about this Event Board?*
+            </label>
+            <Field
+              type="text"
+              name="reference"
+              className={formStyleClasses.input}
+            />
+          </div>
+
+          <div className={formStyleClasses.inputContainer}>
+            <label className="block" htmlFor="name">Message*</label>
+            <Field
+              type="text"
+              name="message"
+              className={formStyleClasses.textarea}
+            />
+          </div>
+
+          <div>
+            <label>
+              <Field type="checkbox" name="toggle" />
+              All communication must adhere to our
+              <a className={formStyleClasses.hyperlinks} href="/pages">
+                Code of Conduct
+              </a>*
+            </label>
+          </div>
+
+          <div className="actions">
+            <button type="submit" className={formStyleClasses.sendButton}>
+              Send
+            </button>
+          </div>
         </div>
-        <div className="pt-5 pb-5">
-            <p>For inquiries related to sponsorship, technical issues, or other, please complete this form:</p>
-        </div>
-
-        <Form>
-        <div >
-            <div>
-            <div className={formStyleClasses.inputContainer}>
-                <label className="block" htmlFor="name">Name*</label>
-                <Field
-                type="text"
-                name="name"
-                className={formStyleClasses.input}
-                />
-            </div>
-
-            <div className={formStyleClasses.inputContainer}>
-                <label className="block" htmlFor="email">Email*</label>
-                <Field
-                type="email"
-                name="email"
-                className={formStyleClasses.input}
-                />
-            </div>
-
-            <div>
-              <label className="block" htmlFor="name">Topic</label>
-                <ContactTopicField/>
-            </div>
-
-            <div className={formStyleClasses.inputContainer}>
-                <label className="block" htmlFor="name">How did you find out about this Event Board?*</label>
-                <Field
-                type="text"
-                name="reference"
-                className={formStyleClasses.input}
-                />
-            </div>
-
-            <div className={formStyleClasses.inputContainer}>
-                <label className="block" htmlFor="name">Message*</label>
-                <Field
-                type="text"
-                name="message"
-                className={formStyleClasses.textarea}
-                />
-            </div>
-            
-            <div>
-            
-                <label>
-                    <Field type="checkbox" name="toggle" />
-                    All communication must adhere to our <a className={formStyleClasses.hyperlinks} href="/pages">Code of Conduct</a>*
-                </label>
-                </div>
-    
-                <div className="actions">
-                  <button type="submit" className={formStyleClasses.sendButton}>Send</button>
-                </div>
-            </div>
-        </div>
-        </Form>
+      </Form>
     </div>
-  )
+  );
 }
 
 /**
