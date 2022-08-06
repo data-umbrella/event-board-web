@@ -1,4 +1,5 @@
 // Elements
+import React from 'react';
 import FeaturedEvents from 'components/elements/FeaturedEvents';
 import IntroductionSection from 'components/elements/IntroductionSection';
 import SearchEvents from 'components/elements/SearchEvents';

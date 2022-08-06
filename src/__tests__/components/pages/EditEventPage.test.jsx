@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import EditEventPage from 'components/pages/EditEventPage';
 
@@ -25,7 +26,6 @@ describe('Edit Event Page', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByLabelText(/Organization Name/i).value)
-        .toEqual('Example Org');
+    expect(screen.getByLabelText(/Organization Name/i).value).toEqual('Example Org');
   });
 });

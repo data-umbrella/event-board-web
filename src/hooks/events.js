@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import moment from 'moment';
+import { API_URL, EVENTS_URL } from 'constants/urls';
 import camelcaseKeys from 'camelcase-keys';
-import { EVENTS_URL, API_URL } from 'constants/urls';
+import moment from 'moment';
+import { useEffect, useState } from 'react';
 import { arrayifyTags } from 'utils/strings';
 
 export function useEvent(eventId) {
@@ -19,7 +19,8 @@ export function useEvent(eventId) {
           const response = await fetch(requestURL);
           json = await response.json();
         } catch (e) {
-          console.log(e.message);
+          // TODO: Add graceful error states
+          // console.error(e.message);
         }
       }
 
@@ -56,7 +57,7 @@ export function useSearchEvents() {
   const [searchFilters, setSearchFilters] = useState({
     startDate: moment().format('YYYY-MM-DD'),
     endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
-    search: '',
+    search: ''
   });
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
@@ -70,7 +71,7 @@ export function useSearchEvents() {
       const dateQuery = `start_date__gte=${startDate}&start_date__lte=${endDate}`;
       const fullTextQuery = `search=${search}${topicQuery}`;
       const response = await fetch(
-        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`,
+        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`
       );
       const json = await response.json();
       const result = camelcaseKeys(json);
