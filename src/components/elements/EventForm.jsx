@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Third-party dependencies
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -122,7 +124,7 @@ function PostEventFormComponent(props) {
               <label>Time Zone</label>
               <Field name="timezone" component="select" className={formStyleClasses.select}>
                 <option value={null}>Select a time zone</option>
-                {timezones.map(({ name, abbreviation, text }) => {
+                {timezones.map(({ name, text }) => {
                   return <option key={text} value={text}>{name}</option>
                 })}
               </Field>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
 import EventPlanningSection from 'components/elements/EventPlanningSection';

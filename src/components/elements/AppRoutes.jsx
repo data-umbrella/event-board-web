@@ -17,6 +17,7 @@ import FAQsPage from 'components/pages/FAQsPage';
 import AboutPage from 'components/pages/AboutPage';
 import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
+import ContactPage from 'components/pages/ContactPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
@@ -41,6 +42,7 @@ function AppRoutes() {
       <Route path="/events/:eventId/details" element={<EventPage />} />
       <Route path="/events/:eventId/edit" element={<EditEventPage />} />
       <Route path="/donate" element={<DonatePage />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
       <Route path="/FAQs" element={<FAQsPage />} />
       <Route path="/about" element={<AboutPage />} />

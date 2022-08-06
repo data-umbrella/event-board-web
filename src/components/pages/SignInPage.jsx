@@ -1,15 +1,5 @@
+import React from 'react';
 import SignInForm from 'components/elements/SignInForm';
-
-// const styleClasses = {
-//   signin: `
-//     container
-//     mx-auto
-//     grid
-//     grid-cols-2
-//     divide-x
-//     divide-black
-//   `
-// }
 
 function SignInPage() {
   return (

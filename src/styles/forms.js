@@ -67,7 +67,17 @@ const formStyleClasses = {
     text-blue-500
     hover:text-blue-700
     underline
+  `,
+  sendButton: `
+    bg-du-purple-500
+    text-white
+    mb-3
+    p-2
+    rounded
+    text-lg
+    font-normal
+    float-right
   `
-}
+};
 
 export default formStyleClasses;

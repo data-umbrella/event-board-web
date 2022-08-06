@@ -731,4 +731,4 @@ export const LANGUAGE_OPTIONS = [
     "value": "za",
     "label": "Zhuang, Chuang"
   }
-]
+];

@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
-import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
@@ -13,13 +13,11 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
   }
 
   function removeItem() {
-    console.log('removeItem', link.id)
     onRemove(link);
   }
 
   function handleSocialMediaChange(e) {
     const newLink = { ...link, type: e.target.value };
-    console.log(newLink)
     setLink(newLink);
     onChange(newLink);
   }
@@ -43,7 +41,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
         id="socialMediaLink"
         name="socialMediaLink"
         value={link.url}
-        onChange={(e) => setLink({ ...link, url: e.target.value})}
+        onChange={(e) => setLink({ ...link, url: e.target.value })}
         onKeyPress={handleKeyPress}
         onBlur={() => onChange(link)}
         className={`${formStyleClasses.input} h-10 col-span-4`}
