@@ -31,3 +31,5 @@ const aboutStyleClasses = {
         underline
 `,
 }
+
+export default aboutStyleClasses;
