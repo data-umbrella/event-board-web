@@ -1,3 +1,4 @@
+import React from 'react';
 import aboutStyleClasses from 'styles/about';
 // import DUlogo from 'assets/data-umbr-full-transp-logo.png';
 // import SPEC from 'assets/spec-logo.png';
@@ -20,6 +21,6 @@ function AboutUs() {
       })}; */}
     </div>
   )
-};
+}
 
 export default AboutUs
