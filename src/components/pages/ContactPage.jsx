@@ -6,7 +6,7 @@ import contact from 'assets/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
 
 /**
- * Defines the form component for the weekly digest
+ * Defines the form component for the contact page
  * @returns {React.Component} - returns a react component
  */
 function ContactUsFormComponent() {
