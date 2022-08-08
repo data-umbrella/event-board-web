@@ -9,11 +9,13 @@ import NotesSection from 'components/elements/NotesSection';
 import { useEvent } from 'hooks/events';
 import { sessionStore } from 'utils/sessions';
 import { v4 as uuidv4 } from 'uuid';
+import { useAuth } from 'hooks/authentication';
 
 function EventDetailsPage() {
   const { eventId } = useParams();
   const navigate = useNavigate();
   const evt = useEvent(eventId);
+  const auth = useAuth();
 
   function editEvent () {
     const tmpId = uuidv4();
@@ -25,11 +27,14 @@ function EventDetailsPage() {
 
   return (
     <div className="container mx-auto pt-16">
-      <div className="text-right">
-        <button className="p-2 bg-blue-600 text-white rounded mb-2" onClick={editEvent}>
-          Edit Event
-        </button>
-      </div>
+      {/* TODO: Apply permissions */}
+      {auth.currentUser.isAuthenticated && (
+        <div className="text-right">
+          <button className="p-2 bg-blue-600 text-white rounded mb-2" onClick={editEvent}>
+            Edit Event
+          </button>
+        </div>
+      )}
 
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />

@@ -13,7 +13,7 @@ function RequireAuth({ children }) {
       setLoading(false);
     }
     triggerStateChange();
-  }, [])
+  }, []);
 
   if (loading) return 'Loading...'
 
