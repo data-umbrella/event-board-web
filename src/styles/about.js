@@ -6,18 +6,10 @@ const aboutStyleClasses = {
     mb-5
   `,
   aboutUsGrid:`
-    gap-6
-    grid
-    mb-6
-    mx-auto
-    md:grid-cols-2
-    sm:grid-cols-none
-    content-center
-    mt-15
-    border-2 
-    border-black  
-    mx-auto 
-    lg:block
+    grid 
+    grid-cols-2 
+    gap-4
+    text-center
   `,
   contributorGrid:`
     gap-6
@@ -34,6 +26,7 @@ const aboutStyleClasses = {
     border-black  
     mx-auto 
     lg:block
+    px-6
   `,
 
   hyperlinks:`

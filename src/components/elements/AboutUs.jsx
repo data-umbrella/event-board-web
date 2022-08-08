@@ -23,17 +23,17 @@ function AboutUs() {
       <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsGrid}>
         {aboutUsList.map(aboutUsInfo => {
           return (
-            <div key={aboutUsInfo.name}>
-              <div className={aboutStyleClasses.aboutUsOrg}>
-                <img src={aboutUsInfo.about_img} alt="logo"/>
-                {aboutUsInfo.name}
+            <div key={aboutUsInfo.name} className={aboutStyleClasses.aboutUsOrg}>
+              <div >
+                <img src={aboutUsInfo.about_img} alt="logo" className={`mx-auto`}/>
+                
               </div>
               <div>
                 {aboutUsInfo.info}
               </div> 
             </div>
           )
-        })};
+        })}
       </div>
     </div>
   )
