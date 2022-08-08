@@ -22,8 +22,8 @@ const aboutStyleClasses = {
         mx-auto
         md:grid-cols-4
         sm:grid-cols-none
-        text-center
         mt-15
+        content-center
     `,
     hyperlinks:`
         text-blue-500
