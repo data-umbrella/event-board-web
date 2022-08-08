@@ -8,9 +8,9 @@ const aboutUsList = [
     about_img: DUlogo, 
     info: `Data Umbrella is a global non-profit community for underrepresented persons 
     in data science that organizes data science events. You can support Data Umbrella’s 
-    work by making a donation to the Data Umbrella Open Collective. `},
-    
-  { name: 'Sustainabe Progress and Equity Collective', 
+    work by making a donation to the Data Umbrella Open Collective.` },
+
+  { name: 'Sustainable Progress and Equity Collective', 
     about_img: SPEC, 
     info: `Sustainable Progress & Equality Collective (SPEC) is an open learning organization 
     that empowers individuals to be catalysts for positive change. You can support SPEC’s work 
@@ -20,7 +20,7 @@ const aboutUsList = [
 function AboutUs() {
   return (
     <div className="content-center border-solid">
-      <div className={aboutStyleClasses.aboutUsGrid}>
+      <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsGrid}>
         {aboutUsList.map(aboutUsInfo => {
           return (
             <div key={aboutUsInfo.name}>
