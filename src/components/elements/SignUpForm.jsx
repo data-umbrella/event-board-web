@@ -2,24 +2,15 @@ import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from 'constants/urls';
 import * as Yup from 'yup';
+import { useAuth } from 'hooks/authentication';
+import { Link } from 'react-router-dom';
 
 // TODO: Use the touched, errors props to implement validations
-function BaseSignUpForm () {
+function BaseSignUpForm() {
   return (
     <div className="flex justify-center">
-      <Form className="basis-1/2">
-        <div className={formStyleClasses.inputContainer}>
-          <label className="block" htmlFor="name">Name</label>
-          <Field
-            name="name"
-            type="text"
-            autoComplete="off"
-            className={formStyleClasses.input}
-          />
-        </div>
-
+      <Form className="lg:basis-1/2">
         <div className={formStyleClasses.inputContainer}>
           <label className="block" htmlFor="email">Email</label>
           <Field
@@ -31,11 +22,21 @@ function BaseSignUpForm () {
         </div>
 
         <div className={formStyleClasses.inputContainer}>
+          <label>
+            <Field className="mr-2" type="checkbox" name="acceptedTerms" />
+            <span className="mr-1">I agree with</span>
+            <Link className={formStyleClasses.hyperlinks} to="/terms-and-conditions">
+              Terms & Conditions
+            </Link>
+          </label>
+        </div>
+
+        <div className={formStyleClasses.inputContainer}>
           <button
             type="submit"
             className={formStyleClasses.button}
           >
-            Create Account
+            Sign up
           </button>
         </div>
       </Form>
@@ -49,10 +50,10 @@ function BaseSignUpForm () {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues (props) {
+export function mapPropsToValues(props) {
   return {
     email: props.email || '',
-    name: props.name || '',
+    acceptedTerms: props.acceptedTerms || false,
   }
 }
 
@@ -74,7 +75,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   email: Yup.string().required('Field is required'),
-  name: Yup.string().required('Field is required'),
+  acceptedTerms: Yup.boolean().oneOf([true], 'This field must be checked'),
 });
 
 /**
@@ -87,24 +88,19 @@ const SignUpFormWithFormik = withFormik({
   validationSchema,
 })(BaseSignUpForm);
 
-function SignUpForm () {
+function SignUpForm() {
   const navigate = useNavigate();
+  const auth = useAuth();
 
   async function handleFormSubmit(values) {
-    const response = await fetch(`${API_URL}/auth/email/`, {
-      method: 'POST',
-      body: JSON.stringify({ email: values.email }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    auth.sendMagicLink(values.email, (success, error) => {
+      if (success) {
+        navigate('/registration/confirmation');
+      } else {
+        // TODO: Handle error cases gracefully.
+        window.alert(error);
+      }
     });
-
-    if (response.status === 200) {
-      navigate('/registration/confirmation');
-    } else {
-      // TODO: Handle error cases gracefully.
-      window.alert('Something went wrong!');
-    }
   }
 
   return (
