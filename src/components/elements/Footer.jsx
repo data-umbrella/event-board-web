@@ -1,3 +1,4 @@
+import React from 'react';
 import logoImg from 'assets/logo.png';
 
 function Footer() {
@@ -12,7 +13,7 @@ function Footer() {
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2"><a href="/about">About us</a></li>
             <li className="mb-2">Meet the team</li>
-            <li className="mb-2">Contact Us</li>
+            <li className="mb-2"><a href="/contact">Contact Us</a></li>
           </ul>
         </div>
 
@@ -20,7 +21,11 @@ function Footer() {
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2">Donate</li>
             <li className="mb-2"><a href="/sponsors">Sponsors</a></li>
-            <li className="mb-2"><a href="/faqs">FAQ's</a></li>
+            <li className="mb-2">
+              <a href="/faqs">
+                { "FAQ's" }
+              </a>
+            </li>
           </ul>
         </div>
 

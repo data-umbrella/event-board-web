@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
-import { useNavigate } from 'react-router-dom';
 
 function VerifyMagicLinkPage() {
   const { token } = useParams();
@@ -13,8 +12,7 @@ function VerifyMagicLinkPage() {
       if (success) {
         navigate('/events/new');
       } else {
-        // TODO: Handle error cases gracefully.
-        console.log(error);
+        window.alert(error);
       }
     });
   }, [token, auth, navigate]);

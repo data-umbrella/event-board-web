@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react';
 // import FullCalendar, { formatDate } from '@fullcalendar/react';

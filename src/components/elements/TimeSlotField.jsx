@@ -1,3 +1,4 @@
+import React from 'react';
 import { Field } from 'formik';
 import timeSlots from 'constants/time-slots';
 import formStyleClasses from 'styles/forms';

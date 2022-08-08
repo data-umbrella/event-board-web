@@ -1,6 +1,6 @@
-function SearchResultViewSelector({ onChange, selectedView }) {
-  console.log(selectedView);
+import React from 'react';
 
+function SearchResultViewSelector({ onChange, selectedView }) {
   const viewTypes = [
     { id: 'GRID', label: 'Grid' },
     { id: 'LIST', label: 'List' },

@@ -10,7 +10,7 @@ export function arrayifyTags(tags) {
 
 export function stringifyTags(tags) {
   if (typeof tags === 'object') {
-    return tags.join(',')
+    return tags.join(',');
   } else if (typeof tags === 'string') {
     return tags;
   } else {
@@ -24,7 +24,7 @@ export function truncate(str, len) {
       return str.slice(0, len - 3) + "...";
     } else {
       return str.slice(0, len) + "...";
-    };
+    }
   } else {
     return str;
   }

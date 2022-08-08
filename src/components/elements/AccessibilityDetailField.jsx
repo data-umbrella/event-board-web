@@ -1,3 +1,4 @@
+import React from 'react';
 import { ACCESSIBILITY_OPTIONS } from 'constants/events';
 
 function AccessibilityDetailField({ value, onChange }) {
@@ -18,7 +19,7 @@ function AccessibilityDetailField({ value, onChange }) {
       <label className="block font-bold mb-2">Accessibility Options</label>
 
       <div className="grid grid-cols-3 bg-white rounded p-6">
-        { ACCESSIBILITY_OPTIONS.map(option => {
+        {ACCESSIBILITY_OPTIONS.map(option => {
           const checked = value.includes(option.value);
 
           return (
@@ -32,7 +33,7 @@ function AccessibilityDetailField({ value, onChange }) {
                 onChange={handleMultiSelectChange}
               />
 
-             <label htmlFor={option.value}>
+              <label htmlFor={option.value}>
                 {option.label}
               </label>
             </div>

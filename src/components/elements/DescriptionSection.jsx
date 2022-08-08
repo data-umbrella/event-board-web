@@ -1,3 +1,4 @@
+import React from 'react';
 import { eventStyleClasses } from 'styles/events';
 
 function DescriptionSection({ evt }) {
