@@ -11,6 +11,7 @@ import NewEventPage from 'components/pages/NewEventPage';
 import PostEventSuccessPage from 'components/pages/PostEventSuccessPage';
 import ReviewEventPage from 'components/pages/ReviewEventPage';
 import SignInPage from 'components/pages/SignInPage';
+import SignUpPage from 'components/pages/SignUpPage';
 import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
 import SponsorsPage from 'components/pages/SponsorsPage';
 import FAQsPage from 'components/pages/FAQsPage';
@@ -26,6 +27,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/events/calendar" element={<EventCalendarPage />} />
       <Route path="/events/confirmation" element={<PostEventSuccessPage />} />
       <Route
@@ -37,7 +39,14 @@ function AppRoutes() {
         }
       />
       <Route path="/events/weekly-digest" element={<WeeklyDigestPage />} />
-      <Route path="/events/:eventId/review" element={<ReviewEventPage />} />
+      <Route
+        path="/events/:eventId/review"
+        element={
+          <RequireAuth>
+            <ReviewEventPage />
+          </RequireAuth>
+        }
+      />
       <Route path="/events/:eventId/details" element={<EventPage />} />
       <Route path="/events/:eventId/edit" element={<EditEventPage />} />
       <Route path="/donate" element={<DonatePage />} />
