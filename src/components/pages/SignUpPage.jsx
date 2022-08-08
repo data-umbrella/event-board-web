@@ -16,7 +16,7 @@ function SignUpPage() {
           <div className="basis-1/2 grid grid-cols-2 mt-10">
             <span className="text-left">Have an account?</span>
             <span className="text-right">
-              <Link to="/events/calendar">Sign In →</Link>
+              <Link to="/sign-in">Sign In →</Link>
             </span>
           </div>
         </div>
