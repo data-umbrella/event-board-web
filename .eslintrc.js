@@ -68,6 +68,7 @@ module.exports = {
         code: 120
       }
     ],
+    "no-debugger": "off",
     "no-console": "warn",
     "no-duplicate-imports": "warn",
     // "no-restricted-imports": [

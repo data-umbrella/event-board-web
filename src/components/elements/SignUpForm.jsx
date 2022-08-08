@@ -1,10 +1,9 @@
 import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useAuth } from 'hooks/authentication';
-import { Link } from 'react-router-dom';
 
 // TODO: Use the touched, errors props to implement validations
 function BaseSignUpForm() {

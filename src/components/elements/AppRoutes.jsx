@@ -39,7 +39,14 @@ function AppRoutes() {
         }
       />
       <Route path="/events/weekly-digest" element={<WeeklyDigestPage />} />
-      <Route path="/events/:eventId/review" element={<ReviewEventPage />} />
+      <Route
+        path="/events/:eventId/review"
+        element={
+          <RequireAuth>
+            <ReviewEventPage />
+          </RequireAuth>
+        }
+      />
       <Route path="/events/:eventId/details" element={<EventPage />} />
       <Route path="/events/:eventId/edit" element={<EditEventPage />} />
       <Route path="/donate" element={<DonatePage />} />
