@@ -12,8 +12,12 @@ const aboutStyleClasses = {
     mx-auto
     md:grid-cols-2
     sm:grid-cols-none
-    text-center
+    content-center
     mt-15
+    border-2 
+    border-black  
+    mx-auto 
+    lg:block
   `,
   contributorGrid:`
     gap-6
@@ -25,6 +29,13 @@ const aboutStyleClasses = {
     text-center
     mt-15
   `,
+  aboutUsOrg:`
+    border 
+    border-black  
+    mx-auto 
+    lg:block
+  `,
+
   hyperlinks:`
     text-blue-500
     hover:text-blue-700
