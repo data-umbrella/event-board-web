@@ -9,6 +9,7 @@ const aboutStyleClasses = {
     grid
     grid-cols-2
     text-center
+    rounded
   `,
   contributorGrid:`
     gap-16
@@ -20,8 +21,6 @@ const aboutStyleClasses = {
     mt-15
   `,
   aboutUsOrg:`
-    border
-    border-black  
     mx-auto 
     lg:block
     px-8
