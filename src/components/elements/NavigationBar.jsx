@@ -2,11 +2,33 @@ import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 import { NAVBAR_EVENT_OPTIONS, NAVBAR_SUPPORT_OPTIONS } from 'constants/navbar';
 import formStyleClasses from 'styles/forms';
+// import { Select, Option } from "@material-tailwind/react";
+
 
 const styleClasses = {
   navLink: 'inline-block mr-4 mt-6',
   navContainer: 'grid grid-cols-12 mb-4',
 }
+
+function NavBarSelectField () {
+  return (
+    <>
+      <select
+        name="type"
+        className={`${formStyleClasses.select}`}
+        // onChange={handleSocialMediaChange}
+        // value={link.type}
+      >
+        <option>Events</option>
+        <option value="twitter">Twitter</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="facebook">Facebook</option>
+      </select>
+    </>
+  )
+}
+
+
 
 function NavigationBar() {
   return (
@@ -18,16 +40,20 @@ function NavigationBar() {
 
         <div className="col-span-1"></div>
         <div className="col-span-9">
-          <div>
-              <div name="navbarEventType" component="select" className={formStyleClasses.select}>
-              { NAVBAR_EVENT_OPTIONS.map(({ value, label }) => {
-                return <option key={value} value={value} className={styleClasses.navLink}><Link to="/events/calendar">{ label }</Link></option>
-              })}
-              </div>
-            </div>
-          <div className={styleClasses.navLink}><Link to="/events/calendar">Event Calendar</Link></div>
-          <div className={styleClasses.navLink}><Link to="/events/new">Post Event</Link></div>
-          <div className={styleClasses.navLink}><Link to="/events/weekly-digest">Weekly Digest</Link></div>
+        {/* <NavBarSelectField /> */}
+
+          <select name="navbarEventType" component="select" className="inline-block mr-4 mt-6'">
+          { NAVBAR_EVENT_OPTIONS.map(({ value, label }) => {
+            return <option key={value} value={value} className={styleClasses.navLink}><Link to="/events/calendar">{ label }</Link></option>
+          })}
+          </select>
+
+          <select name="navbarSupportType" component="select" className="inline-block mr-4 mt-6'">
+          { NAVBAR_SUPPORT_OPTIONS.map(({ value, label }) => {
+            return <option key={value} value={value} className={styleClasses.navLink}><Link to="/events/calendar">{ label }</Link></option>
+          })}
+          </select>
+
           <div className={styleClasses.navLink}>
             <a
               href="https://www.dataumbrella.org"
@@ -37,7 +63,6 @@ function NavigationBar() {
               Data Umbrella
             </a>
           </div>
-          <div className={styleClasses.navLink}><Link to="/sponsors">Sponsors</Link></div>
           <div className={styleClasses.navLink}>
             <Link to="/sign-in">Sign In</Link>
           </div>

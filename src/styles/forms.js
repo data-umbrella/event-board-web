@@ -10,8 +10,6 @@ const formStyleClasses = {
   `,
   select: `
     block
-    border
-    border-black
     w-full
     rounded
     h-8
