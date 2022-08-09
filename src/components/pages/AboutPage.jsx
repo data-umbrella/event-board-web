@@ -18,7 +18,7 @@ function AboutPage() {
       </div>
 
       <div className={aboutStyleClasses.aboutUsContainer}>
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-2xl font-bold pb-2">
           About Us
         </h1>
         <AboutUs />

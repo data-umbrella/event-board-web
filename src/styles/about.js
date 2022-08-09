@@ -8,25 +8,23 @@ const aboutStyleClasses = {
   aboutUsGrid:`
     grid 
     grid-cols-2 
-    gap-4
     text-center
   `,
   contributorGrid:`
     gap-6
     grid
     mb-6
-    mx-auto
     md:grid-cols-4
     sm:grid-cols-none
     text-center
     mt-15
   `,
   aboutUsOrg:`
-    border 
+    border
     border-black  
     mx-auto 
     lg:block
-    px-6
+    px-8
   `,
 
   hyperlinks:`

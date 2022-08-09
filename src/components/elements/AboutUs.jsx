@@ -19,7 +19,7 @@ const aboutUsList = [
 
 function AboutUs() {
   return (
-    <div className="content-center border-solid">
+    <div className="content-center border-solid bg-white">
       <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsGrid}>
         {aboutUsList.map(aboutUsInfo => {
           return (
