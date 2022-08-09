@@ -6,12 +6,12 @@ const aboutStyleClasses = {
     mb-5
   `,
   aboutUsGrid:`
-    grid 
-    grid-cols-2 
+    grid
+    grid-cols-2
     text-center
   `,
   contributorGrid:`
-    gap-6
+    gap-16
     grid
     mb-6
     md:grid-cols-4
