@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 import { NAVBAR_EVENT_OPTIONS, NAVBAR_SUPPORT_OPTIONS } from 'constants/navbar';
 import formStyleClasses from 'styles/forms';
-
+import { useAuth } from 'hooks/authentication';
 
 const styleClasses = {
   navLink: 'inline-block mr-4 mt-6',
@@ -38,6 +39,12 @@ function handleNavbarClick({route}) {
 
 
 function NavigationBar() {
+  const auth = useAuth();
+
+  function signOut() {
+    auth.signOutCurrentUser();
+  }
+
   return (
     <nav className="border-b border-black container mx-auto lg:block">
       <div className={styleClasses.navContainer}>
@@ -71,7 +78,10 @@ function NavigationBar() {
             </a>
           </div>
           <div className={styleClasses.navLink}>
-            <Link to="/sign-in">Sign In</Link>
+            { auth.currentUser.isAuthenticated 
+              ? <button onClick={signOut}>Sign Out</button>
+              : <Link to="/sign-in">Sign In</Link>
+            }
           </div>
           <div className={styleClasses.navLink}>
             Dark Mode

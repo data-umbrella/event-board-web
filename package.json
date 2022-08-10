@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.18.9",
+    "@babel/eslint-parser": "^7.18.9",
     "@babel/runtime": "^7.18.9",
     "@fullcalendar/daygrid": "^5.11.0",
     "@fullcalendar/interaction": "^5.11.0",
@@ -16,6 +17,7 @@
     "babel-preset-env": "^1.7.0",
     "camelcase-keys": "^8.0.1",
     "eslint": "^8.19.0",
+    "eslint-plugin-import": "^2.26.0",
     "formik": "^2.2.9",
     "json-server": "^0.17.0",
     "kebabcase-keys": "^1.0.0",

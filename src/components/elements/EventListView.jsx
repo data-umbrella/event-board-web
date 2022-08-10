@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from 'assets/thumbnail.png';
 
 function EventListView({ events }) {
@@ -5,9 +6,16 @@ function EventListView({ events }) {
     <div>
       {events.map(eventData => {
         return (
-          <div key={eventData.id} className="flex items-center rounded border border-gray-300 mb-3 hover:shadow bg-white">
+          <div
+            key={eventData.id}
+            className="flex items-center rounded border border-gray-300 mb-3 hover:shadow bg-white"
+          >
             <div className="w-1/5 ml-4">
-              <img src={eventData.imageUrl || logo} className="w-full mx-auto" alt={eventData.id} />
+              <img
+                src={eventData.imageUrl || logo}
+                className="w-full mx-auto"
+                alt={eventData.id}
+              />
             </div>
             <div className="w-3/4 lg:w-4/6 px-6 py-4">
               <div className="mb-2">

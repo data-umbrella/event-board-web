@@ -1,3 +1,4 @@
+import React from 'react';
 import { Field } from 'formik';
 import { REGION_OPTIONS } from 'constants/events';
 import formStyleClasses from 'styles/forms';

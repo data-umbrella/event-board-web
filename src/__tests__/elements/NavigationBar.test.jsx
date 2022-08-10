@@ -1,13 +1,17 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavigationBar from 'components/elements/NavigationBar';
+import { AuthProvider } from 'hooks/authentication';
 
 describe('Navigation bar', () => {
   it('renders expected links', () => {
     render(
-      <Router>
-        <NavigationBar />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <NavigationBar />
+        </Router>
+      </AuthProvider>
     );
 
     expect(screen.getByText(/Event Calendar/i).href).toMatch('/events/calendar');

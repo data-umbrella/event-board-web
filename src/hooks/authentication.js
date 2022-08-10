@@ -1,89 +1,64 @@
-import { useContext, createContext, useState } from 'react';
-import { MAGIC_LINK_URL, VERIFY_URL, CURRENT_USER_URL } from 'constants/urls';
+import React, { useContext, createContext, useState } from 'react';
+import { fetchCurrentUser, fetchVerification, fetchMagicLink } from 'services/authentication';
 
 const AuthContext = createContext();
 
-// export const authProvider = {
-//   isAuthenticated: false,
-//   signin(callback) {
-//     authProvider.isAuthenticated = true;
-//     callback();
-//   },
-//   signout(callback) {
-//     authProvider.isAuthenticated = false;
-//     setTimeout(callback, 100);
-//   },
-// };
-
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ isAuthenticated: false });
 
   const sendMagicLink = async (email, callback) => {
     try {
-      const response = await fetch(MAGIC_LINK_URL, {
-        method: 'POST',
-        body: JSON.stringify({ email }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (response.status !== 200) {
-        throw(new Error('Bad request'));
-      }
-
-      const newUser = { email };
-      setCurrentUser({ ...{ newUser } });
-      window.localStorage.setItem('USERNAME', email);
-
-      callback(true, '');
-    } catch (e) {
-      callback(false, e.message);
-    }
-  };
-
-  const verifyOneTimePassCode = async (token, callback) => {
-    const email = window.localStorage.getItem('USERNAME');
-
-    try {
-      const verifyResponse = await fetch(VERIFY_URL, {
-        method: 'POST',
-        body: JSON.stringify({ token, email }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (verifyResponse.status !== 200) {
-        throw(new Error('Bad request'));
-      }
-
-      const verifyJson = await verifyResponse.json();
-      const currentUserResponse = await fetch(CURRENT_USER_URL, {
-        method: 'POST',
-        credentials: 'include',
-        mode: 'cors',
-        body: JSON.stringify({}),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Token ${verifyJson.token}`,
-        },
-      });
-
-      if (verifyResponse.status !== 200) {
-        throw(new Error('Bad request'));
-      }
-
-      const user = await currentUserResponse.json();
-
-      setCurrentUser({ ...user });
+      await fetchMagicLink(email);
       callback(true);
     } catch (e) {
       callback(false, e.message);
     }
   };
 
-  const value = { currentUser, sendMagicLink, verifyOneTimePassCode };
+  const authenticateUser = async () => {
+    try {
+      const currentUserResponse = await fetchCurrentUser();
+      const currentUserJSON = await currentUserResponse.json();
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+      if (currentUserResponse.status !== 200) {
+        throw (new Error('Bad request'));
+      }
+
+      setCurrentUser({ ...currentUserJSON, isAuthenticated: true });
+    } catch (e) {
+      setCurrentUser({ isAuthenticated: false });
+    }
+  };
+
+  const verifyOneTimePassCode = async (token, callback) => {
+    try {
+      const email = window.localStorage.getItem('USERNAME');
+      const currentUserJSON = await fetchVerification(token, email);
+      setCurrentUser({ ...currentUserJSON, isAuthenticated: true });
+      callback(true);
+    } catch (e) {
+      callback(false, e.message);
+    }
+  };
+
+  const signOutCurrentUser = () => {
+    setCurrentUser({ isAuthenticated: false });
+  }
+
+  const value = {
+    currentUser,
+    sendMagicLink,
+    verifyOneTimePassCode,
+    fetchCurrentUser,
+    authenticateUser,
+    signOutCurrentUser,
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      { children }
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {

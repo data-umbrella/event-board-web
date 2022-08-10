@@ -1,4 +1,6 @@
-export function EventPlanningSection({ evt }) {
+import React from 'react';
+
+function EventPlanningSection({ evt }) {
   return (
     <div className="grid md:grid-cols-2 mb-10">
       <div className="grid grid-rows-3 gap-1 mb-6">
@@ -64,15 +66,14 @@ export function EventPlanningSection({ evt }) {
 
           { evt.tags.map(tag => {
             return (
-                <div
-                  key={tag}
-                  className="inline-block mr-1 mb-2 bg-purple-500 text-white pl-2 pr-2 rounded"
-                >
-                  {tag}
-                </div>
-              )
-            })
-          }
+              <div
+                key={tag}
+                className="inline-block mr-1 mb-2 bg-purple-500 text-white pl-2 pr-2 rounded"
+              >
+                {tag}
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

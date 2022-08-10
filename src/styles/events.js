@@ -18,4 +18,4 @@ export const eventStyleClasses = {
     text-lg
     font-normal
   `
-}
+};

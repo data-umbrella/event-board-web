@@ -1,9 +1,9 @@
 import { EVENT_ATTRIBUTES } from 'constants/events';
 import { API_URL } from 'constants/urls';
-import snakecaseKeys from 'snakecase-keys';
-import { stringifyTags } from 'utils/strings';
-import { dataURLtoImageFile } from 'utils/files';
 import moment from 'moment';
+import snakecaseKeys from 'snakecase-keys';
+import { dataURLtoImageFile } from 'utils/files';
+import { stringifyTags } from 'utils/strings';
 
 function formatDate(date) {
   if (!date || date === '') return '';
@@ -23,8 +23,8 @@ export function buildFormDataObject(body) {
   formDataPayload.start_date = formatDate(formDataPayload.start_date);
   formDataPayload.end_date = formatDate(formDataPayload.end_date);
   formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
-  formDataPayload.in_person = null
-  formDataPayload.virtual = null
+  formDataPayload.in_person = null;
+  formDataPayload.virtual = null;
 
   return formDataPayload;
 }
@@ -38,7 +38,7 @@ export function buildFormData(rawData) {
       formData.append(
         'image_file',
         formDataPayload.image_file,
-        formDataPayload.image_file.name,
+        formDataPayload.image_file.name
       );
     } else if (formDataPayload[attributeKey]) {
       formData.append(attributeKey, formDataPayload[attributeKey]);
@@ -55,7 +55,7 @@ export async function api(method, resource, body) {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {
       method,
       credentials: 'include',
-      body: buildFormData(body),
+      body: buildFormData(body)
     });
 
     json = await response.json();

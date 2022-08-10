@@ -1,19 +1,62 @@
-import { API_URL } from 'constants/urls';
+import { CURRENT_USER_URL, VERIFY_URL, MAGIC_LINK_URL } from 'constants/urls';
 
-// NOTE: This a mock implementation. This will be related with code to talk
-// to the Django backend.
-export async function authenticateUser(email, password) {
-  const response = await fetch(`${API_URL}/users?email=${email}&password=${password}`);
-  const json = await response.json();
+const DEFAULT_HEADERS = {
+  'Content-Type': 'application/json',
+}
 
-  if (json.length === 1) {
-    const user = json[0]
+export function fetchCurrentUser() {
+  return fetch(CURRENT_USER_URL, {
+    method: 'POST',
+    credentials: 'include',
+    mode: 'cors',
+    headers: DEFAULT_HEADERS,
+  });
+}
 
-    window.localStorage.setItem('USER_NAME', user.name)
-    window.localStorage.setItem('USER_AUTHENTICATED', user.name)
+export async function fetchVerification(token, email) {
+  try {
+    const verifyResponse = await fetch(VERIFY_URL, {
+      method: 'POST',
+      body: JSON.stringify({ token, email }),
+      headers: DEFAULT_HEADERS,
+    });
 
-    return user;
-  } else {
-    return null;
+    if (verifyResponse.status !== 200) {
+      throw (new Error('Bad request'));
+    }
+
+    const verificationJSON = await verifyResponse.json();
+    const currentUserResponse = await fetch(CURRENT_USER_URL, {
+      method: 'POST',
+      credentials: 'include',
+      mode: 'cors',
+      headers: {
+        ...DEFAULT_HEADERS,
+        'Authorization': `Token ${verificationJSON.token}`,
+      },
+    });
+
+    return currentUserResponse.json();
+  } catch (e) {
+    throw (new Error('Bad request'));
+  }
+}
+
+export async function fetchMagicLink(email) {
+  try {
+    const response = await fetch(MAGIC_LINK_URL, {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+      headers: DEFAULT_HEADERS,
+    });
+
+    if (response.status !== 200) {
+      throw (new Error('Bad request'));
+    }
+
+    window.localStorage.setItem('USERNAME', email);
+    return true;
+  } catch (e) {
+    throw (new Error('Bad request'));
   }
 }

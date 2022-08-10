@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
-import { useState } from 'react';
 
 function SpeakerPillbox ({ speaker, onChange, onRemove }) {
   const [text, setText] = useState(speaker);
@@ -14,7 +14,6 @@ function SpeakerPillbox ({ speaker, onChange, onRemove }) {
   }
 
   function removeItem() {
-    console.log('removeItem', text)
     onRemove(text);
   }
 
