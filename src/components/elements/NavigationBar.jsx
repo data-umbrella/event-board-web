@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 import { NAVBAR_EVENT_OPTIONS, NAVBAR_SUPPORT_OPTIONS } from 'constants/navbar';
 import formStyleClasses from 'styles/forms';
-// import { Select, Option } from "@material-tailwind/react";
 
 
 const styleClasses = {
@@ -28,6 +27,14 @@ function NavBarSelectField () {
   )
 }
 
+function handleNavbarClick({route}) {
+  return (
+    <>
+    
+    </>
+
+  )
+}
 
 
 function NavigationBar() {
@@ -42,15 +49,15 @@ function NavigationBar() {
         <div className="col-span-9">
         {/* <NavBarSelectField /> */}
 
-          <select name="navbarEventType" component="select" className="inline-block mr-4 mt-6'">
-          { NAVBAR_EVENT_OPTIONS.map(({ value, label }) => {
-            return <option key={value} value={value} className={styleClasses.navLink}><Link to="/events/calendar">{ label }</Link></option>
+          <select name="navbarEventType" component="select" className={styleClasses.navLink}>
+          { NAVBAR_EVENT_OPTIONS.map(({ value, label, route }) => {
+            return <option key={value} value={value} className={styleClasses.navLink}><Link to={route}>{ label }</Link></option>
           })}
           </select>
 
-          <select name="navbarSupportType" component="select" className="inline-block mr-4 mt-6'">
-          { NAVBAR_SUPPORT_OPTIONS.map(({ value, label }) => {
-            return <option key={value} value={value} className={styleClasses.navLink}><Link to="/events/calendar">{ label }</Link></option>
+          <select name="navbarSupportType" component="select" className={styleClasses.navLink}>
+          { NAVBAR_SUPPORT_OPTIONS.map(({ value, label, route }) => {
+            return <option key={value} value={value} className={styleClasses.navLink}><Link to={route}>{ label }</Link></option>
           })}
           </select>
 
