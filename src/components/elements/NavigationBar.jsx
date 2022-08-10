@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 import { NAVBAR_EVENT_OPTIONS, NAVBAR_SUPPORT_OPTIONS } from 'constants/navbar';
-import formStyleClasses from 'styles/forms';
 import { useAuth } from 'hooks/authentication';
 
 const styleClasses = {
@@ -10,25 +9,25 @@ const styleClasses = {
   navContainer: 'grid grid-cols-12 mb-4',
 }
 
-function NavBarSelectField () {
-  return (
-    <>
-      <select
-        name="type"
-        className={`${formStyleClasses.select}`}
-        // onChange={handleSocialMediaChange}
-        // value={link.type}
-      >
-        <option>Events</option>
-        <option value="twitter">Twitter</option>
-        <option value="linkedin">LinkedIn</option>
-        <option value="facebook">Facebook</option>
-      </select>
-    </>
-  )
-}
+// function NavBarSelectField () {
+//   return (
+//     <>
+//       <select
+//         name="type"
+//         className={`${formStyleClasses.select}`}
+//         // onChange={handleSocialMediaChange}
+//         // value={link.type}
+//       >
+//         <option>Events</option>
+//         <option value="twitter">Twitter</option>
+//         <option value="linkedin">LinkedIn</option>
+//         <option value="facebook">Facebook</option>
+//       </select>
+//     </>
+//   )
+// }
 
-function handleNavbarClick({route}) {
+function handleNavbarClick() {
   return (
     <>
     
@@ -54,18 +53,25 @@ function NavigationBar() {
 
         <div className="col-span-1"></div>
         <div className="col-span-9">
-        {/* <NavBarSelectField /> */}
 
           <select name="navbarEventType" component="select" className={styleClasses.navLink}>
-          { NAVBAR_EVENT_OPTIONS.map(({ value, label, route }) => {
-            return <option key={value} value={value} className={styleClasses.navLink}><Link to={route}>{ label }</Link></option>
-          })}
+            { NAVBAR_EVENT_OPTIONS.map(({ value, label, route }) => {
+              return (
+                <option key={value} value={value} className={styleClasses.navLink}>
+                  <a href="/faqs">{ label }</a>
+                </option>
+              )
+            })}
           </select>
 
           <select name="navbarSupportType" component="select" className={styleClasses.navLink}>
-          { NAVBAR_SUPPORT_OPTIONS.map(({ value, label, route }) => {
-            return <option key={value} value={value} className={styleClasses.navLink}><Link to={route}>{ label }</Link></option>
-          })}
+            { NAVBAR_SUPPORT_OPTIONS.map(({ value, label, route }) => {
+              return (
+                <option key={value} value={value} className={styleClasses.navLink} onClick={handleNavbarClick(route)}>
+                  <Link to={route}>{ label }</Link>
+                </option>
+              )
+            })}
           </select>
 
           <div className={styleClasses.navLink}>
