@@ -77,7 +77,17 @@ const formStyleClasses = {
     text-lg
     font-normal
     float-right
-  `
+  `,
+  loginButton: `
+    container
+    bg-du-purple-500
+    text-white
+    mb-3
+    p-1
+    rounded-lg
+    text-lg
+    font-normal
+  `,
 };
 
 export default formStyleClasses;
