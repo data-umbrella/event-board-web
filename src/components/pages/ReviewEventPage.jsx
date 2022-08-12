@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import AccessibilitySection from 'components/elements/AccessibilitySection';
@@ -24,15 +25,16 @@ function ReviewEventPage() {
         await api('PUT', `events/${eventData.id}/`, eventData);
         navigate(`/events/${eventData.id}/details`);
       } catch (e) {
-        console.log(e);
-        return;
+        // TODO: Gracefully handle error messages.
+        window.alert(e.message);
       }
     } else {
       try {
         await api('POST', 'events', eventData);
         navigate('/events/confirmation');
       } catch (e) {
-        console.log(e);
+        // TODO: Gracefully handle error messages.
+        window.alert(e.message);
         return;
       }
     }

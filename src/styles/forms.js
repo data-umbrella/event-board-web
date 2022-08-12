@@ -63,6 +63,21 @@ const formStyleClasses = {
     mx-auto
     sm:grid-cols-none
   `,
-}
+  hyperlinks:`
+    text-blue-500
+    hover:text-blue-700
+    underline
+  `,
+  sendButton: `
+    bg-du-purple-500
+    text-white
+    mb-3
+    p-2
+    rounded
+    text-lg
+    font-normal
+    float-right
+  `
+};
 
 export default formStyleClasses;

@@ -7,8 +7,8 @@ export const REGION_OPTIONS = [
   { label: 'Africa', value: 'africa' },
   { label: 'Asia', value: 'asia' },
   { label: 'Oceania', value: 'oceania' },
-  { label: 'All', value: 'all' },
-]
+  { label: 'All', value: 'all' }
+];
 
 export const eventProperties = {
   'id': null,
@@ -45,8 +45,8 @@ export const eventProperties = {
   'socialMediaHashTag': '',
   'discount': '',
   'location': '',
-  'published': false,
-}
+  'published': false
+};
 
 export const CALENDAR_EVENTS = [
   {
@@ -59,7 +59,7 @@ export const CALENDAR_EVENTS = [
     title: 'Example Timed event',
     start: todayStr + 'T12:00:00'
   }
-]
+];
 
 export const EVENT_ATTRIBUTES = [
   'id',
@@ -98,8 +98,8 @@ export const EVENT_ATTRIBUTES = [
   'volunteer_notes',
   'event_notes',
 
-  'image_file',
-]
+  'image_file'
+];
 
 export const EVENT_TYPES = [
   { label: 'Conference', value: 'conference' },
@@ -108,23 +108,23 @@ export const EVENT_TYPES = [
   { label: 'Workshop', value: 'workshop' },
   { label: 'Training', value: 'training' },
   { label: 'Session', value: 'session' },
-  { label: 'Webinar', value: 'webinar' },
-]
+  { label: 'Webinar', value: 'webinar' }
+];
 
 export const CATEGORY_OPTIONS = [
   {
     label: 'Data Science',
-    value: 'data-science',
+    value: 'data-science'
   },
   {
     label: 'Python',
-    value: 'python',
+    value: 'python'
   },
   {
     label: 'Open Source',
-    value: 'open-source',
+    value: 'open-source'
   }
-]
+];
 
 export const ACCESSIBILITY_OPTIONS = [
   { label: 'Closed Captions', value: 'closed-captions' },
@@ -132,5 +132,16 @@ export const ACCESSIBILITY_OPTIONS = [
   { label: 'Nursing Room', value: 'nursing-room' },
   { label: 'Screen Reader', value: 'screen-reader' },
   { label: 'Keyboard shortcuts', value: 'keyboard-shortcuts' },
-  { label: 'Live transcription', value: 'live-transcription' },
-]
+  { label: 'Live transcription', value: 'live-transcription' }
+];
+
+export const TOPIC_TYPES = [
+  { label: 'Please select below', value: 'none-selected' },
+  { label: 'Technical Issue', value: 'technical-issue' },
+  { label: 'Sponsorship', value: 'sponsorship' },
+  { label: 'Feedback', value: 'feedback' },
+  { label: 'Other', value: 'other' }
+];
+
+
+

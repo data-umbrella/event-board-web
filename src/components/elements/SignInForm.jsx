@@ -1,13 +1,15 @@
+import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useAuth } from 'hooks/authentication';
 
-function BaseSignInForm ({ touched, errors }) {
+// TODO: Use the touched, errors props to implement validations
+function BaseSignInForm () {
   return (
     <div className="flex justify-center">
-      <Form className="basis-1/2">
+      <Form className="lg:basis-1/2">
         <div className={formStyleClasses.inputContainer}>
           <label className="block" htmlFor="email">Email</label>
           <Field
@@ -84,7 +86,7 @@ function SignInForm () {
         navigate('/registration/confirmation');
       } else {
         // TODO: Handle error cases gracefully.
-        console.log(error);
+        window.alert(error);
       }
     });
   }
