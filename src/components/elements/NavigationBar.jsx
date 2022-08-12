@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 import { useAuth } from 'hooks/authentication';
+import useDarkmode from "hooks/useDarkmode";
 
 const styleClasses = {
-  navLink: 'inline-block mr-4 mt-6',
+  navLink: 'inline-block mr-4 mt-6 dark:text-slate-50',
   navContainer: 'grid grid-cols-12 mb-4',
 }
 
@@ -15,8 +16,10 @@ function NavigationBar() {
     auth.signOutCurrentUser();
   }
 
+  const [colorTheme, setTheme] = useDarkmode();
+
   return (
-    <nav className="border-b border-black container mx-auto lg:block">
+    <nav className="border-b border-black container mx-auto lg:block dark:border-slate-50">
       <div className={styleClasses.navContainer}>
         <div className="col-span-2">
           <Link to="/"><img src={logoImg} alt="logo"/></Link>
@@ -43,9 +46,7 @@ function NavigationBar() {
               : <Link to="/sign-in">Sign In</Link>
             }
           </div>
-          <div className={styleClasses.navLink}>
-            Dark Mode
-          </div>
+          <button type="button" onClick={() => setTheme(colorTheme)} className={styleClasses.navLink}>Dark Mode</button>
         </div>
       </div>
     </nav>

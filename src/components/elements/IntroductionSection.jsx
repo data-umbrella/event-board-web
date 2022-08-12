@@ -5,11 +5,11 @@ const styleClasses = {
     container
     mx-auto
     mb-10
-    dark:bg-slate-800
   `,
   eventBoardHeading: `
     text-4xl
     font-bold
+    dark:text-slate-50
   `,
 }
 

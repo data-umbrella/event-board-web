@@ -6,7 +6,7 @@ import EventCalendarView from 'components/elements/EventCalendarView';
 import EventMapView from 'components/elements/EventMapView';
 
 const styleClasses = {
-  searchResultsHeading: 'font-bold text-lg mb-2',
+  searchResultsHeading: 'font-bold text-lg mb-2 dark:text-slate-50',
 } 
 
 export function SearchView({ events, viewName }) {

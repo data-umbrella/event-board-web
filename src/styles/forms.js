@@ -53,6 +53,7 @@ const formStyleClasses = {
     bg-violet-200
     border
     border-fuchsia-800
+    dark:bg-violet-400
   `,
   searchInputColumns: `
     container
