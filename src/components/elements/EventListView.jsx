@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from 'assets/thumbnail.png';
 import moment from 'moment';
 
 function GenerateMonthMap(startDate, endDate) {
