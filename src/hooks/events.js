@@ -55,7 +55,7 @@ export function useFeaturedEvents() {
 
 export function useSearchEvents() {
   const [searchFilters, setSearchFilters] = useState({
-    startDate: moment().format('YYYY-MM-DD'),
+    startDate: moment('2022-06-01').format('YYYY-MM-DD'),
     endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
     search: ''
   });
