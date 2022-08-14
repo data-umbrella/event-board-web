@@ -35,8 +35,8 @@ const contributorList = [
     ]
   },
   { name: 'Reshama',
-    title: 'Project Manager',
-    organization: 'SPEC',
+    title: 'Event Board Project Manager',
+    organization: 'Data Umbrella',
     socialMediaLinks: [
       { name: 'twitter', link: 'https://example.com' },
       { name: 'github', link: 'https://example.com' },
