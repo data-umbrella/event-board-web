@@ -12,7 +12,7 @@ function WeeklyDigestFormComponent() {
     <Form>
       <div className="w-full">
         <div className="flex items-end pb-28 justify-center text-sm">
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} w-1/3 mb-0.5`}>
             <label className="block" htmlFor="email">Email address</label>
             <Field
               type="email"
@@ -76,10 +76,10 @@ function WeeklyDigestPage() {
   }
 
   return (
-    <div>
+    <div className="p-20">
       <div className="container mx-auto p-12 text-center">
-        <h1 className="font-bold text-3xl">Subscribe to Data Umbrella’s Events Weekly Digest</h1>
-        <h2>Sign up to learn about upcoming events.</h2>
+        <h1 className="font-bold text-3xl">Subscribe to our Weekly Digest</h1>
+        <h2>Sign up to learn about upcoming Data Science events.</h2>
       </div>
 
       <WeeklyDigestForm handleSubmit={handleSubmit} />

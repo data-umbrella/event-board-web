@@ -11,7 +11,7 @@ function SignUpPage() {
         <h1 className="text-4xl">Sign up for free</h1>
       </div>
 
-      <div className="container mx-auto lg:w-1/2">
+      <div className="container mx-auto lg:w-2/3">
         <SignUpForm />
         
         <div className="flex justify-center">

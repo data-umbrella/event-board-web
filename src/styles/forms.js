@@ -18,8 +18,7 @@ const formStyleClasses = {
   `,
   inputContainer: `
     pr-4
-    w-1/3
-    mb-0.5
+    mb-6
   `,
   button: `
     bg-gray-400

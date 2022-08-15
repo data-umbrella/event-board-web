@@ -9,7 +9,7 @@ import { useAuth } from 'hooks/authentication';
 function BaseSignInForm () {
   return (
     <div className="flex justify-center">
-      <Form className="lg:basis-1/2">
+      <Form className="lg:basis-2/3">
         <div className={formStyleClasses.inputContainer}>
           <label className="block" htmlFor="email">Email address</label>
           <Field
