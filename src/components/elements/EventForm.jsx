@@ -88,10 +88,10 @@ function PostEventFormComponent(props) {
               autoComplete="new-password"
               className={formStyleClasses.input}
               component={ValidatedInput}
-              label="Event Title"
-              name="title"
+              label="Event Name"
+              name="eventName"
               type="text"
-              id="title"
+              id="eventName"
             />
           </div>
 
@@ -314,7 +314,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   organizationName: Yup.string().required('Field is required'),
-  title: Yup.string().required('Field is required'),
+  eventName: Yup.string().required('Field is required'),
   description: Yup.string().required('Field is required'),
 });
 

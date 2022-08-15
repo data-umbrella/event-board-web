@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultThumbNail from 'assets/thumbnail.png';
+import { imageUrlForEvent } from 'utils/urls';
 
 const styleClasses = {
   mainSectionContainer: `
@@ -20,7 +20,8 @@ const styleClasses = {
 }
 
 function ReviewEventMainSection({ evt, editEvent }) {
-  const imageUrl = evt.imageFile || defaultThumbNail;
+  const imageUrl = imageUrlForEvent(evt);
+
   return (
     <div className={styleClasses.mainSectionContainer}>
       <div className={styleClasses.imageContainer}>
@@ -56,7 +57,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
           </div>
 
           <h1 className="font-bold text-3xl mb-4">
-            { evt.title }
+            { evt.eventName }
           </h1>
 
           <h2 className="mb-2">{ evt.organizationName }</h2>

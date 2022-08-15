@@ -12,11 +12,11 @@ function FAQsPage() {
 
       <div>
         Q: I could not enter information into the form <br/>
-        A: Fill out this
+        A: Fill out this&nbsp;
         <a className={formStyleClasses.hyperlinks} href="https://www.dataumbrella.org/">
           Contact Us
         </a>
-        Form to report the issue
+        &nbsp;Form to report the issue
       </div>
 
       <br/>
@@ -25,13 +25,13 @@ function FAQsPage() {
         Q: How can I contribute to this event board? <br/>
         A: The repositories for frontend and backend are on Github. Contributions can be made there: <br/>
         <ul className="list-disc pl-5">
-          <li>Frontend:
+          <li>Frontend:&nbsp;
             <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-web">
               https://github.com/data-umbrella/event-board-web
             </a>
           </li>
 
-          <li>Backend:
+          <li>Backend:&nbsp;
             <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-api">
               https://github.com/data-umbrella/event-board-api
             </a>

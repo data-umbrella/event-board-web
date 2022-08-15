@@ -94,8 +94,9 @@ function NavigationBar() {
               Data Umbrella
             </a>
           </div>
-          <div className={navStyleClasses.navLink}>
-            { auth.currentUser.isAuthenticated 
+          <div className={styleClasses.navLink}><Link to="/sponsors">Sponsors</Link></div>
+          <div className={styleClasses.navLink}>
+            { auth.currentUser.isAuthenticated === true
               ? <button onClick={signOut}>Sign Out</button>
               : <Link to="/sign-in">Sign In</Link>
             }

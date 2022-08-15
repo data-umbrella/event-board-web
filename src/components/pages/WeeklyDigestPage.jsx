@@ -1,6 +1,5 @@
 import React from 'react';
 import formStyleClasses from 'styles/forms';
-import CitySelect from 'components/elements/CitySelect';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -11,34 +10,19 @@ import * as Yup from 'yup';
 function WeeklyDigestFormComponent() {
   return (
     <Form>
-      <div className="grid grid-cols-3">
-        <div className="col-span-1">
-          <div className={formStyleClasses.inputContainer}>
-            <label className="block" htmlFor="name">Name</label>
-            <Field
-              type="text"
-              name="name"
-              autoComplete="new-password"
-              className={formStyleClasses.input}
-            />
-          </div>
-
-          <div className={formStyleClasses.inputContainer}>
-            <label className="block" htmlFor="email">Email</label>
+      <div className="w-full">
+        <div className="flex items-end pb-28 justify-center text-sm">
+          <div className={`${formStyleClasses.inputContainer} w-1/3 mb-0.5`}>
+            <label className="block" htmlFor="email">Email address</label>
             <Field
               type="email"
               name="email"
               className={formStyleClasses.input}
             />
           </div>
-
-          <div className={formStyleClasses.inputContainer}>
-            <CitySelect />
-          </div>
-        </div>
-
-        <div className="col-span-2">
-
+          <button className="px-4 py-2 font-semibold text-sm text-white rounded-md shadow-sm bg-violet-600">
+            Subscribe
+          </button>
         </div>
       </div>
     </Form>
@@ -53,10 +37,7 @@ function WeeklyDigestFormComponent() {
  */
 export function mapPropsToValues (props) {
   return {
-    name: props.name || '',
     email: props.email || '',
-    city: props.city || '',
-    state: props.state || '',
   }
 }
 
@@ -77,10 +58,7 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Field is required'),
   email: Yup.string().required('Field is required'),
-  city: Yup.string().required('Field is required'),
-  state: Yup.string().required('Field is required'),
 });
 
 /**
@@ -98,10 +76,10 @@ function WeeklyDigestPage() {
   }
 
   return (
-    <div>
-      <div className="container mx-auto p-12">
-        <h1 className="font-bold text-3xl">Subscribe to Data Umbrella’s Events Weekly Digest</h1>
-        <h2>Sign up to learn about upcoming events.</h2>
+    <div className="p-20">
+      <div className="container mx-auto p-12 text-center">
+        <h1 className="font-bold text-3xl">Subscribe to our Weekly Digest</h1>
+        <h2>Sign up to learn about upcoming Data Science events.</h2>
       </div>
 
       <WeeklyDigestForm handleSubmit={handleSubmit} />
