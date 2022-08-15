@@ -6,7 +6,7 @@ describe('Weekly digest sign up', () => {
   it('renders heading', () => {
     render(<WeeklyDigestPage />);
 
-    expect(screen.getByText(/Data Umbrella’s Events Weekly Digest/i))
+    expect(screen.getByText(/Subscribe to our Weekly Digest/i))
       .toBeInTheDocument();
   });
 });
