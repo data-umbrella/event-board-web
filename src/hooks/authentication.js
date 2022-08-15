@@ -1,5 +1,10 @@
 import React, { useContext, createContext, useState } from 'react';
-import { fetchCurrentUser, fetchVerification, fetchMagicLink } from 'services/authentication';
+import {
+  fetchCurrentUser,
+  fetchVerification,
+  fetchMagicLink,
+  fetchSignOut,
+} from 'services/authentication';
 
 const AuthContext = createContext();
 
@@ -41,8 +46,13 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const signOutCurrentUser = () => {
-    setCurrentUser({ isAuthenticated: false });
+  const signOutCurrentUser = async () => {
+    try {
+      await fetchSignOut();
+      setCurrentUser({ isAuthenticated: false });
+    } catch (e) {
+      window.alert('Something went wrong');
+    }
   }
 
   const value = {
