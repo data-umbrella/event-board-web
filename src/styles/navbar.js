@@ -25,12 +25,38 @@ export const navStyleClasses = {
   focus:ring-offset-gray-100
   focus:ring-indigo-500
   `,
-  navSelectItem:`
-  text-gray-700
-  block
-  px-4
+  navSelectButton:`
+  dropdown-toggle
+  px-6
+  py-2.5
+  leading-tight
+  rounded
+  transition
+  duration-150
+  ease-in-out
+  flex
+  items-center
+  whitespace-nowrap
+  `,
+  navSelectMenu:`
+  dropdown-menu
+  min-w-max
+  absolute
+  hidden
+  bg-white
+  text-base
+  z-50
+  float-left
   py-2
-  text-sm
+  list-none
+  text-left
+  rounded-lg
+  shadow-lg
+  mt-1
+  hidden
+  m-0
+  bg-clip-padding
+  border-none
   `,
   navDropdownItem:`
   dropdown-item
