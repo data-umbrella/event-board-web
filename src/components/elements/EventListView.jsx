@@ -25,7 +25,7 @@ function EventListView({ events }) {
               </div>
               <div className="mb-2">
                 <p className="font-bold text-black text-2xl lg:text-xl">
-                  {eventData.title}
+                  {eventData.eventName}
                 </p>
               </div>
               <div>

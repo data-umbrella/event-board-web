@@ -18,7 +18,7 @@ export const eventProperties = {
   'description': '',
   'endDate': new Date(),
   'endTime': '',
-  'title': '',
+  'eventName': '',
   'eventType': '',
   'featured': false,
   'discountUnit': '',
@@ -64,7 +64,7 @@ export const CALENDAR_EVENTS = [
 export const EVENT_ATTRIBUTES = [
   'id',
   // Required fields
-  'title',
+  'event_name',
   'description',
   'organization_name',
   'event_type',

@@ -7,7 +7,6 @@ const formStyleClasses = {
     rounded-md
     h-8
     p-2
-    bg-transparent
   `,
   select: `
     block
@@ -17,7 +16,10 @@ const formStyleClasses = {
     rounded
     h-8
   `,
-  inputContainer: 'pr-4 w-1/3 mb-0.5 bg-transparent',
+  inputContainer: `
+    pr-4
+    mb-6
+  `,
   button: `
     bg-gray-400
     text-center
@@ -78,7 +80,17 @@ const formStyleClasses = {
     text-lg
     font-normal
     float-right
-  `
+  `,
+  loginButton: `
+    container
+    bg-du-purple-500
+    text-white
+    mb-3
+    p-1
+    rounded-lg
+    text-lg
+    font-normal
+  `,
 };
 
 export default formStyleClasses;
