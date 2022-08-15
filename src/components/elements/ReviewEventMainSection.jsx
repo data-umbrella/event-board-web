@@ -56,7 +56,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
           </div>
 
           <h1 className="font-bold text-3xl mb-4">
-            { evt.title }
+            { evt.eventName }
           </h1>
 
           <h2 className="mb-2">{ evt.organizationName }</h2>
