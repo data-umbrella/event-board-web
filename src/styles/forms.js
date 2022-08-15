@@ -16,7 +16,11 @@ const formStyleClasses = {
     rounded
     h-8
   `,
-  inputContainer: 'py-2',
+  inputContainer: `
+    pr-4
+    w-1/3
+    mb-0.5
+  `,
   button: `
     bg-gray-400
     text-center

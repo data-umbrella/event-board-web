@@ -1,4 +1,9 @@
-import { CURRENT_USER_URL, VERIFY_URL, MAGIC_LINK_URL } from 'constants/urls';
+import {
+  SIGN_OUT_URL,
+  CURRENT_USER_URL,
+  VERIFY_URL,
+  MAGIC_LINK_URL,
+} from 'constants/urls';
 
 const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
@@ -55,6 +60,24 @@ export async function fetchMagicLink(email) {
     }
 
     window.localStorage.setItem('USERNAME', email);
+    return true;
+  } catch (e) {
+    throw (new Error('Bad request'));
+  }
+}
+
+export async function fetchSignOut() {
+  try {
+    const response = await fetch(SIGN_OUT_URL, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: DEFAULT_HEADERS,
+    });
+
+    if (response.status !== 204) {
+      throw (new Error('Bad request'));
+    }
+
     return true;
   } catch (e) {
     throw (new Error('Bad request'));
