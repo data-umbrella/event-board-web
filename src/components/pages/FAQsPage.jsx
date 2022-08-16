@@ -13,7 +13,7 @@ function FAQsPage() {
       <div>
         Q: I could not enter information into the form <br/>
         A: Fill out this &quot;
-        <a className={formStyleClasses.hyperlinks} href="https://www.dataumbrella.org/">
+        <a className={formStyleClasses.hyperlinks} href="/contact">
           Contact Us
         </a>
         &quot; Form to report the issue
