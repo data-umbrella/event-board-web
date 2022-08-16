@@ -3,7 +3,7 @@ import formStyleClasses from "styles/forms";
 
 function FAQsPage() {
   return (
-    <div className="container mx-auto p-10">
+    <div className="container mx-auto pt-10 pb-40">
       <div>
         <h1 className="font-bold text-lg mb-2">
           Frequently Asked Questions

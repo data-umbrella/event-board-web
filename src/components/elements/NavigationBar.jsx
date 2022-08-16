@@ -12,9 +12,9 @@ function NavbarMenu() {
 
   return (
     <div className="mt-4">
-      <div className="inline-flex">
+      <div className="">
 
-        <div className="dropdown relative">
+        <div className="dropdown">
           <a
             className={navStyleClasses.navSelectButton} inline-flex
             type="button"
@@ -88,20 +88,21 @@ function NavigationBar() {
   return (
     <>
       <div className="border-b border-black container mx-auto lg:block">
-        <div className={`inline-flex justify-end`}>
-          <div className="col-span-2">
+        <div className={`flex`}>
+          <div className="">
             <Link to="/"><img src={logoImg} alt="logo" /></Link>
           </div>
 
-          <div className="col-span-1"></div>
-          <div className="inline-flex col-span-9">
-            <NavbarMenu />
+          <div className=""></div>
+          <div className="flex w-full flex-row-reverse">
+            <div>
+              <img src={darkMode} className={navStyleClasses.modeImage} alt="logo" />
+            </div>
             <div className={navStyleClasses.navLink}>
-              <a
-                href="/sponsors"
-              >
-                Sponsors
-              </a>
+              {auth.currentUser.isAuthenticated
+                ? <button onClick={signOut}>Sign Out</button>
+                : <Link to="/sign-in">Sign In</Link>
+              }
             </div>
             <div className={navStyleClasses.navLink}>
               <a
@@ -113,14 +114,14 @@ function NavigationBar() {
               </a>
             </div>
             <div className={navStyleClasses.navLink}>
-              {auth.currentUser.isAuthenticated
-                ? <button onClick={signOut}>Sign Out</button>
-                : <Link to="/sign-in">Sign In</Link>
-              }
+              <a
+                href="/sponsors"
+              >
+                Sponsors
+              </a>
             </div>
-            <div>
-              <img src={darkMode} className={navStyleClasses.modeImage} alt="logo" />
-            </div>
+            <NavbarMenu />
+            
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ export const navStyleClasses = {
   flex
   items-center
   whitespace-nowrap
-  active:decoration-underline
+  active:underline
   `,
   navSelectMenu:`
   dropdown-menu
