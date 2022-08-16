@@ -18,12 +18,13 @@ export const navStyleClasses = {
   bg-white
   font-medium
   text-gray-700 
-  hover:bg-gray-50
+  hover:text-du-purple-500
   focus:outline-none
   focus:ring-2 
   focus:ring-offset-2
   focus:ring-offset-gray-100
   focus:ring-indigo-500
+  
   `,
   navSelectButton:`
   dropdown-toggle
@@ -37,6 +38,7 @@ export const navStyleClasses = {
   flex
   items-center
   whitespace-nowrap
+  active:decoration-underline
   `,
   navSelectMenu:`
   dropdown-menu
@@ -69,6 +71,11 @@ export const navStyleClasses = {
   whitespace-nowrap
   bg-transparent
   text-gray-700
-  hover:bg-gray-100
+  hover:bg-du-purple-500
+  hover:text-white
+  `,
+  modeImage:`
+  mt-6
+  object-scale-down: h-5
   `,
 }
