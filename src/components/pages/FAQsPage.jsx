@@ -3,14 +3,14 @@ import formStyleClasses from "styles/forms";
 
 function FAQsPage() {
   return (
-    <div className="container mx-auto pt-10 pb-40">
+    <div className="container mx-auto pt-10 pb-40 text-l leading-7">
       <div>
-        <h1 className="font-bold text-lg mb-6">
+        <h1 className="font-bold text-lg mb-8">
           Frequently Asked Questions
         </h1>
       </div>
 
-      <div>
+      <div className="">
         Q: I could not enter information into the form <br/>
         A: Fill out this &quot;
         <a className={formStyleClasses.hyperlinks} href="/contact">
