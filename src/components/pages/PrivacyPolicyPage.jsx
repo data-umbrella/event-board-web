@@ -2,14 +2,14 @@ import React from 'react';
 import privacyStyleClasses from 'styles/privacy';
 
 const PRIVACY_OUTLINE = [
-  'Overview',
-  'Collect of Information',
-  'Use of Information',
-  'Sharing Information',
-  'Security',
-  'International Data Transfers',
-  'Your Rights',
-  'Contact Data Umbrella',
+  { id: 'overview', title:'Overview' }, 
+  { id: 'collect-info', title:'Collect of Information' }, 
+  { id: 'use-of-info', title:'Use of Information' }, 
+  { id: 'sharing-info', title:'Sharing Information' }, 
+  { id: 'security', title:'Security' }, 
+  { id: 'international-data-transfer', title:'International Data Transfers' }, 
+  { id: 'your-rights', title:'Your Rights' }, 
+  { id: 'contact-data-umbrella', title:'Contact Data Umbrella' }, 
 ]
 
 function PrivacyPage() {
@@ -21,13 +21,13 @@ function PrivacyPage() {
         </div>
         <div className="grid grid-rows-3 grid-flow-col">
           <div className={`${privacyStyleClasses.outlineHeader} row-span-3`}>
-            {PRIVACY_OUTLINE.map((title) => {
-              return <h1 key={title} className="block"><a>{title}</a></h1>
+            {PRIVACY_OUTLINE.map(({ title, id }) => {
+              return <h1 key={title} className="block"><a href={`#${id}`}>{title}</a></h1>
             })}
 
           </div>
           <div className="row-span-3">
-            <div id="Overview" className="mb-10">
+            <div id="overview" className="mb-10">
               <p className="font-bold">Effective: August 30, 2022</p>
               <p>
                 This privacy policy explains how Data Umbrella (“Data Umbrella” or “we”) collects, uses
@@ -40,7 +40,7 @@ function PrivacyPage() {
               </p>
             </div>
 
-            <div id="collection-of-information" className="mb-10">
+            <div id="collect-info" className="mb-10">
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Collection of Information
               </h1>
@@ -51,7 +51,7 @@ function PrivacyPage() {
               ipsum fringilla nibh.
 
               <ul className="list-disc pl-5">
-                <li className="">
+                <li>
                   Amet, venenatis, venenatis interdum mauris, mus nullam tellus leo.
                   Eget aliquam iaculis risus tellus amet duis nisi, et tellus.
                   Fames tempus diam quis morbi cras sed.
@@ -77,7 +77,7 @@ function PrivacyPage() {
               </p>
             </div>
 
-            <div id="use-of-information" className="mb-10">
+            <div id="use-of-info" className="mb-10">
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Use of Information
               </h1>
@@ -97,7 +97,7 @@ function PrivacyPage() {
               </ul>
             </div>
 
-            <div id="sharing-of-information" className="mb-10">
+            <div id="sharing-info" className="mb-10">
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Sharing of Information
               </h1>
@@ -176,7 +176,7 @@ function PrivacyPage() {
               </p>
             </div>
 
-            <div id="contact-us" className="mb-10">
+            <div id="contact-data-umbrella" className="mb-10">
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Contact Us
               </h1>
