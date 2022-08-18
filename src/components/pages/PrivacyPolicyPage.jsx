@@ -29,7 +29,7 @@ function PrivacyPage() {
           <div className="row-span-3">
             <div id="overview" className="mb-10">
               <p className="font-bold">Effective: August 30, 2022</p>
-              <p>
+              <p className={privacyStyleClasses.body}>
                 This privacy policy explains how Data Umbrella (“Data Umbrella” or “we”) collects, uses
                 and discloses information and what rights you have with respect to the information.
 
@@ -40,7 +40,7 @@ function PrivacyPage() {
               </p>
             </div>
 
-            <div id="collect-info" className="mb-10">
+            <div id="collect-info" className={privacyStyleClasses.body}>
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Collection of Information
               </h1>
@@ -51,12 +51,12 @@ function PrivacyPage() {
               ipsum fringilla nibh.
 
               <ul className="list-disc pl-5">
-                <li>
+                <li className="leading-10">
                   Amet, venenatis, venenatis interdum mauris, mus nullam tellus leo.
                   Eget aliquam iaculis risus tellus amet duis nisi, et tellus.
                   Fames tempus diam quis morbi cras sed.
                 </li>
-                <li>
+                <li className="leading-10">
                   Ut risus non, sed ut sollicitudin est nulla eu viverra.
                   Imperdiet egestas auctor et ullamcorper.
                   Euismod egestas integer feugiat tortor enim lorem lobortis.
@@ -67,7 +67,7 @@ function PrivacyPage() {
                   Sagittis sit ultrices proin porttitor facilisi id suspendisse.
                 </li>
               </ul>
-              <p>
+              <p className={privacyStyleClasses.body}>
                 Parturient eget pretium, dolor arcu nulla enim.
                 Nec fringilla nisl, nisl leo.
                 Rutrum consectetur iaculis in enim iaculis vestibulum dolor suspendisse rutrum.
@@ -77,7 +77,7 @@ function PrivacyPage() {
               </p>
             </div>
 
-            <div id="use-of-info" className="mb-10">
+            <div id="use-of-info" className={privacyStyleClasses.body}>
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Use of Information
               </h1>
@@ -97,7 +97,7 @@ function PrivacyPage() {
               </ul>
             </div>
 
-            <div id="sharing-info" className="mb-10">
+            <div id="sharing-info" className="mb-10 leading-10">
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Sharing of Information
               </h1>
@@ -137,7 +137,7 @@ function PrivacyPage() {
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Security
               </h1>
-              <p>
+              <p className={privacyStyleClasses.body}>
                 Aliquam eleifend egestas rhoncus quis est mi a.
                 Velit in eu posuere tristique dui.
                 Dui sed risus quis eget consectetur tincidunt.
@@ -150,7 +150,7 @@ function PrivacyPage() {
               <h1 className={privacyStyleClasses.bodyHeader}>
                 International Data Transfer
               </h1>
-              <p>
+              <p className={privacyStyleClasses.body}>
                 Dapibus lorem orci mauris nam cras et nisi.
                 Quis ornare ultrices senectus dui leo sit.
                 Feugiat feugiat feugiat vulputate ac porttitor quis.
@@ -164,13 +164,13 @@ function PrivacyPage() {
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Your Rights
               </h1>
-              <p>
+              <p className={privacyStyleClasses.body}>
                 In ligula lacus condimentum cursus leo interdum.
                 Nibh eu, sem gravida turpis amet ut vitae varius.
                 Non cursus purus neque, eget consectetur enim sit quis ornare.
               </p>
               <br />
-              <p>
+              <p className={privacyStyleClasses.body}>
                 Sed habitasse dictumst lacus lacus. Odio pretium accumsan ac sapien, pellentesque.
                 Et porta erat nunc nibh volutpat.
               </p>
@@ -180,7 +180,7 @@ function PrivacyPage() {
               <h1 className={privacyStyleClasses.bodyHeader}>
                 Contact Us
               </h1>
-              <p>
+              <p className={privacyStyleClasses.body}>
                 In ligula lacus condimentum cursus leo interdum.
                 Nibh eu, sem gravida turpis amet ut vitae varius.
                 Non cursus purus neque, eget consectetur enim sit quis ornare.

@@ -11,6 +11,11 @@ const privacyStyleClasses = {
     font-bold
   `
   ,
+  body:`
+    mb-10
+    leading-7
+  `,
+
 
 
 };
