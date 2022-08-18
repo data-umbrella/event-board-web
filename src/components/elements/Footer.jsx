@@ -23,7 +23,7 @@ function Footer() {
             <li className="mb-2"><a href="/sponsors">Sponsors</a></li>
             <li className="mb-2">
               <a href="/faqs">
-                { "FAQ's" }
+                {"FAQ's"}
               </a>
             </li>
           </ul>
