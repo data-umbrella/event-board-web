@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo.png';
 import darkMode from 'assets/dark-mode.svg';
-import { NAVBAR_EVENT_OPTIONS} from 'constants/navbar';
+import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 import { useAuth } from 'hooks/authentication';
 import { navStyleClasses } from 'styles/navbar';
 import 'tw-elements';
