@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Pages
+import CodeOfConductPage from 'components/pages/CodeOfConductPage'
 import DonatePage from 'components/pages/DonatePage';
 import EditEventPage from 'components/pages/EditEventPage';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
@@ -28,6 +29,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/codeofconduct" element={<CodeOfConductPage />} />
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/events/calendar" element={<EventCalendarPage />} />
