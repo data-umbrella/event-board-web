@@ -20,7 +20,10 @@ function WeeklyDigestFormComponent() {
               className={formStyleClasses.input}
             />
           </div>
-          <button className="px-4 py-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500">
+          <button
+            type="submit"
+            className="px-4 py-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
+          >
             Subscribe
           </button>
         </div>
@@ -48,7 +51,7 @@ export function mapPropsToValues (props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  props.handleFormSubmit(values);
+  props.handleSubmit(values);
 }
 
 /**
@@ -71,8 +74,9 @@ export const WeeklyDigestForm = withFormik({
 })(WeeklyDigestFormComponent);
 
 function WeeklyDigestPage() {
-  function handleSubmit() {
-
+  function handleSubmit(values) {
+    // TODO: submit form to server
+    console.log('submit', values); // eslint-disable-line no-console
   }
 
   return (
