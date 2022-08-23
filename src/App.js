@@ -13,7 +13,7 @@ import './App.css';
 
 export default function App() {
   return (
-    <div className="bg-du-gray">
+    <div className="bg-du-gray dark:bg-slate-700 transition duration-300">
       <AuthProvider>
         <div className="w-3/4 container mx-auto">
           <NavigationBar />
