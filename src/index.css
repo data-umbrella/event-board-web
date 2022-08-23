@@ -1,3 +1,4 @@
+/* autoprefixer: off */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
