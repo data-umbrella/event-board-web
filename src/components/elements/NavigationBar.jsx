@@ -6,6 +6,12 @@ import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 import { useAuth } from 'hooks/authentication';
 import { navStyleClasses } from 'styles/navbar';
 import 'tw-elements';
+import useDarkmode from "hooks/useDarkmode";
+
+const styleClasses = {
+  navLink: 'inline-block mr-4 mt-6 dark:text-slate-50',
+  navContainer: 'grid grid-cols-12 mb-4',
+}
 
 
 function NavbarMenu() {
@@ -80,6 +86,7 @@ function NavbarMenu() {
 
 function NavigationBar() {
   const auth = useAuth();
+  const [colorTheme, setTheme] = useDarkmode();
 
   function signOut() {
     auth.signOutCurrentUser();
@@ -87,7 +94,7 @@ function NavigationBar() {
 
   return (
     <>
-      <div className="border-b border-black container mx-auto lg:block">
+      <div className="border-b border-black container mx-auto lg:block dark:border-slate-50">
         <div className={`flex`}>
           <div className="">
             <Link to="/"><img src={logoImg} alt="logo" /></Link>
@@ -96,7 +103,7 @@ function NavigationBar() {
           <div className=""></div>
           <div className="flex w-full flex-row-reverse">
             <div>
-              <img src={darkMode} className={navStyleClasses.modeImage} alt="logo" />
+              <img src={darkMode} onClick={() => setTheme(colorTheme)} className={navStyleClasses.modeImage} alt="logo" />
             </div>
             <div className={navStyleClasses.navLink}>
               {auth.currentUser.isAuthenticated

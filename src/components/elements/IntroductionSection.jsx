@@ -9,6 +9,7 @@ const styleClasses = {
   eventBoardHeading: `
     text-4xl
     font-bold
+    dark:text-slate-50
   `,
 }
 
