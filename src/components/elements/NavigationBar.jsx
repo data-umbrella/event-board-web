@@ -8,11 +8,6 @@ import { navStyleClasses } from 'styles/navbar';
 import 'tw-elements';
 import useDarkmode from "hooks/useDarkmode";
 
-const styleClasses = {
-  navLink: 'inline-block mr-4 mt-6 dark:text-slate-50',
-  navContainer: 'grid grid-cols-12 mb-4',
-}
-
 
 function NavbarMenu() {
 
@@ -103,7 +98,12 @@ function NavigationBar() {
           <div className=""></div>
           <div className="flex w-full flex-row-reverse">
             <div>
-              <img src={darkMode} onClick={() => setTheme(colorTheme)} className={navStyleClasses.modeImage} alt="logo" />
+              <img 
+                src={darkMode}
+                onClick={() => setTheme(colorTheme)}
+                className={navStyleClasses.modeImage}
+                alt="logo" 
+              />
             </div>
             <div className={navStyleClasses.navLink}>
               {auth.currentUser.isAuthenticated

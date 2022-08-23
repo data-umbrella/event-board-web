@@ -6,6 +6,7 @@ export const navStyleClasses = {
   hover:underline
   hover:font-bold
   hover:text-du-purple-500
+  dark:text-slate-50
   `,
   navContainer: `
   grid
@@ -44,6 +45,7 @@ export const navStyleClasses = {
   hover:underline
   hover:font-bold
   hover:text-du-purple-500
+  dark:text-slate-50
   `,
   navSelectMenu:`
   dropdown-menu
@@ -64,6 +66,7 @@ export const navStyleClasses = {
   m-0
   bg-clip-padding
   border-none
+  dark:bg-slate-700 transition
   `,
   navDropdownItem:`
   dropdown-item
@@ -78,6 +81,7 @@ export const navStyleClasses = {
   text-gray-700
   hover:bg-du-purple-500
   hover:text-white
+  dark:text-slate-50
   `,
   modeImage:`
   mt-6
