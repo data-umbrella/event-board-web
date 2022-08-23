@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Pages
+import CodeOfConductPage from 'components/pages/CodeOfConductPage'
 import DonatePage from 'components/pages/DonatePage';
 import EditEventPage from 'components/pages/EditEventPage';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
@@ -19,6 +20,7 @@ import AboutPage from 'components/pages/AboutPage';
 import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
 import ContactPage from 'components/pages/ContactPage';
+import PrivacyPage from 'components/pages/PrivacyPolicyPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
@@ -27,6 +29,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/codeofconduct" element={<CodeOfConductPage />} />
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/events/calendar" element={<EventCalendarPage />} />
@@ -61,6 +64,9 @@ function AppRoutes() {
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      {/* <Route path="/terms" element={<TermsPage />} /> */}
+
       <Route path="/FAQs" element={<FAQsPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route

@@ -9,10 +9,10 @@ import * as Yup from 'yup';
  */
 function WeeklyDigestFormComponent() {
   return (
-    <Form>
+    <Form className="container mx-auto p-12 text-center">
       <div className="w-full">
         <div className="flex items-end pb-28 justify-center text-sm">
-          <div className={`${formStyleClasses.inputContainer} w-1/3 mb-0.5`}>
+          <div className={`${formStyleClasses.inputContainer} w-80 mb-0.5 text-left`}>
             <label className="block" htmlFor="email">Email address</label>
             <Field
               type="email"
@@ -20,7 +20,10 @@ function WeeklyDigestFormComponent() {
               className={formStyleClasses.input}
             />
           </div>
-          <button className="px-4 py-2 font-semibold text-sm text-white rounded-md shadow-sm bg-violet-600">
+          <button
+            type="submit"
+            className="px-4 py-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
+          >
             Subscribe
           </button>
         </div>
@@ -48,7 +51,7 @@ export function mapPropsToValues (props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  props.handleFormSubmit(values);
+  props.handleSubmit(values);
 }
 
 /**
@@ -71,8 +74,9 @@ export const WeeklyDigestForm = withFormik({
 })(WeeklyDigestFormComponent);
 
 function WeeklyDigestPage() {
-  function handleSubmit() {
-
+  function handleSubmit(values) {
+    // TODO: submit form to server
+    console.log('submit', values); // eslint-disable-line no-console
   }
 
   return (

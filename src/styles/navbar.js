@@ -3,6 +3,9 @@ export const navStyleClasses = {
   inline-block
   mr-4
   mt-6
+  hover:underline
+  hover:font-bold
+  hover:text-du-purple-500
   `,
   navContainer: `
   grid
