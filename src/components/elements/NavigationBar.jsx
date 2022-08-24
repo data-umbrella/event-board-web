@@ -1,96 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from 'hooks/authentication';
+import useDarkmode from 'hooks/useDarkmode';
+import DropdownMenu from 'components/elements/DropdownMenu';
 import logoImg from 'assets/logo.png';
 import darkMode from 'assets/dark-mode.svg';
-import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
-import { useAuth } from 'hooks/authentication';
 import { navStyleClasses } from 'styles/navbar';
-import 'tw-elements';
-import useDarkmode from "hooks/useDarkmode";
-
-
-function NavbarMenu() {
-
-  return (
-    <div className="mt-4">
-      <div className="">
-
-        <div className="dropdown">
-          <a
-            className={navStyleClasses.navSelectButton} inline-flex
-            type="button"
-            id="dropdownMenuButton2"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Events
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="caret-down"
-              className="w-2 ml-2"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 320 512"
-            >
-              <path
-                fill="currentColor"
-                d="M31.3 
-                192h257.3c17.8 
-                0 
-                26.7 
-                21.5 
-                14.1 
-                34.1L174.1 
-                354.8c-7.8 
-                7.8-20.5 
-                7.8-28.3 
-                0L17.2 
-                226.1C4.6 
-                213.5 
-                13.5 
-                192 
-                31.3 
-                192z"
-              ></path>
-            </svg>
-          </a>
-          <ul
-            className={navStyleClasses.navSelectMenu}
-            aria-labelledby="dropdownMenuButton2"
-          >
-            {NAVBAR_EVENT_OPTIONS.map(({ value, label, route }) => {
-              return (
-                <li key="hello">
-                  <a href={route} key={value} value={value} className={navStyleClasses.navDropdownItem}>
-                    {label}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  )
-}
-
-
+import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 
 function NavigationBar() {
   const auth = useAuth();
   const [colorTheme, setTheme] = useDarkmode();
-
-  function signOut() {
-    auth.signOutCurrentUser();
-  }
+  const signOut = () => auth.signOutCurrentUser();
 
   return (
     <>
-      <div className="border-b border-black container mx-auto lg:block dark:border-slate-50">
-        <div className={`flex`}>
+      <div
+        className="
+          border-b
+          border-black
+          container
+          mx-auto
+          lg:block
+          dark:border-slate-50
+          pt-4
+          pb-4
+        "
+      >
+        <div className="flex">
           <div className="">
             <Link to="/"><img src={logoImg} alt="logo" /></Link>
           </div>
@@ -98,11 +35,11 @@ function NavigationBar() {
           <div className=""></div>
           <div className="flex w-full flex-row-reverse">
             <div>
-              <img 
+              <img
                 src={darkMode}
                 onClick={() => setTheme(colorTheme)}
                 className={navStyleClasses.modeImage}
-                alt="logo" 
+                alt="logo"
               />
             </div>
             <div className={navStyleClasses.navLink}>
@@ -121,14 +58,11 @@ function NavigationBar() {
               </a>
             </div>
             <div className={navStyleClasses.navLink}>
-              <a
-                href="/sponsors"
-              >
+              <a href="/sponsors">
                 Sponsors
               </a>
             </div>
-            <NavbarMenu />
-            
+            <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
           </div>
         </div>
       </div>

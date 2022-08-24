@@ -15,20 +15,19 @@ export const navStyleClasses = {
   `,
   navEventSelect: `
   inline-flex
-  w-full 
+  w-full
   rounded-md
-  shadow-sm px-4 
-  py-2 
+  shadow-sm px-4
+  py-2
   bg-white
   font-medium
-  text-gray-700 
+  text-gray-700
   hover:text-du-purple-500
   focus:outline-none
-  focus:ring-2 
+  focus:ring-2
   focus:ring-offset-2
   focus:ring-offset-gray-100
   focus:ring-indigo-500
-  
   `,
   navSelectButton:`
   dropdown-toggle
@@ -42,11 +41,11 @@ export const navStyleClasses = {
   flex
   items-center
   whitespace-nowrap
-  hover:underline
-  hover:font-bold
-  hover:text-du-purple-500
   dark:text-slate-50
   `,
+  // hover:underline
+  // hover:font-bold
+  // hover:text-du-purple-500
   navSelectMenu:`
   dropdown-menu
   min-w-max
@@ -66,7 +65,7 @@ export const navStyleClasses = {
   m-0
   bg-clip-padding
   border-none
-  dark:bg-slate-700 transition
+  dark:bg-slate-700
   `,
   navDropdownItem:`
   dropdown-item

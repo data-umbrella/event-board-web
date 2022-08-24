@@ -75,7 +75,7 @@ export function useSearchEvents() {
       );
       const json = await response.json();
       const result = camelcaseKeys(json);
-      setSearchResultEvents(result);
+      setSearchResultEvents(result.slice(0, 10));
     }
     fetchSearchEvents();
   }, [searchFilters]);
