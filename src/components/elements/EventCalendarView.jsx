@@ -18,7 +18,7 @@ function EventContent({ eventInfo }) {
     <div className="bg-blue-300 w-full" onClick={handleNavigate}>
       <div className="text-xs whitespace-normal">
         <b className="mr-1">{eventInfo.timeText}</b>
-        { truncate(eventInfo.event.eventName, 60) }
+        { truncate(eventInfo.event.title, 60) }
       </div>
     </div>
   )

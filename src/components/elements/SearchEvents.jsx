@@ -7,7 +7,7 @@ import EventMapView from 'components/elements/EventMapView';
 
 const styleClasses = {
   searchResultsHeading: 'font-bold text-lg mb-2 dark:text-slate-50',
-} 
+}
 
 export function SearchView({ events, viewName }) {
   switch(viewName) {
@@ -44,7 +44,9 @@ function SearchEvents({ events }) {
         </h1>
       </div>
 
-      <SearchView events={events} viewName={searchView} />
+      <div>
+        <SearchView events={events} viewName={searchView} />
+      </div>
     </div>
   )
 }
