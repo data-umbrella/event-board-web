@@ -1,10 +1,9 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 
-function FeaturedEventField() {
-  const [isChecked, setIsChecked] = useState(false);
+function FeaturedEventField({ value, onChange }) {
 
   const handleChange = () => {
-    setIsChecked(!isChecked);
+    onChange('featured', !value);
   };
 
   return (
@@ -24,8 +23,7 @@ function FeaturedEventField() {
             name="feature-event"
             type="checkbox"
             className="mr-2"
-            value="feature-event"
-            checked={isChecked}
+            value={value}
             onChange={handleChange}
           />
           <span className="font-medium">
