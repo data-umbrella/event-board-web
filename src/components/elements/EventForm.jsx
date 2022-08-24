@@ -23,6 +23,7 @@ import TimeSlotField from 'components/elements/TimeSlotField';
 import SocialMediaField from 'components/elements/SocialMediaField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
+import FeaturedEventField from './FeaturedEventField';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
@@ -266,6 +267,13 @@ function PostEventFormComponent(props) {
 
       <div className="pt-6 pb-6">
         <AccessibilityDetailField
+          value={values.accessibilityOptions}
+          onChange={setFieldValue}
+        />
+      </div>
+
+      <div className="pt-6 pb-6">
+        <FeaturedEventField
           value={values.accessibilityOptions}
           onChange={setFieldValue}
         />
