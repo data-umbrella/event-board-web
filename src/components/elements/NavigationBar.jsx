@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
-import useDarkmode from 'hooks/useDarkmode';
+import useDarkMode from 'hooks/dark-mode';
 import DropdownMenu from 'components/elements/DropdownMenu';
 import logoImg from 'assets/logo.png';
 import darkMode from 'assets/dark-mode.svg';
@@ -10,7 +10,7 @@ import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 
 function NavigationBar() {
   const auth = useAuth();
-  const [colorTheme, setTheme] = useDarkmode();
+  const [colorTheme, setTheme] = useDarkMode();
   const signOut = () => auth.signOutCurrentUser();
 
   return (
