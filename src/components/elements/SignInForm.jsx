@@ -4,6 +4,7 @@ import { withFormik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useAuth } from 'hooks/authentication';
+import 'tw-elements';
 
 // TODO: Use the touched, errors props to implement validations
 function BaseSignInForm () {
