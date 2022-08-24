@@ -34,7 +34,14 @@ function FeaturedEventField() {
         </div>
         <br></br>
         <div>
-          <a className="font-medium underline"href="/">Donate to Event Board &gt;&gt;</a>
+          <a 
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium underline"
+            href="https://opencollective.com/data-umbrella"
+          >
+            Donate to Event Board &gt;&gt;
+          </a>
         </div>
       </div>
     </>
