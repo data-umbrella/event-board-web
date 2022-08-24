@@ -6,6 +6,8 @@ import AccessibilitySection from 'components/elements/AccessibilitySection';
 import DescriptionSection from 'components/elements/DescriptionSection';
 import SpeakersSection from 'components/elements/SpeakersSection';
 import NotesSection from 'components/elements/NotesSection';
+import PageLoader from 'components/elements/PageLoader';
+
 import { useEvent } from 'hooks/events';
 import { sessionStore } from 'utils/sessions';
 import { v4 as uuidv4 } from 'uuid';
@@ -23,7 +25,7 @@ function EventDetailsPage() {
     navigate(`/events/${tmpId}/edit`);
   }
 
-  if (!evt) return 'Loading...'
+  if (!evt) return <PageLoader />
 
   return (
     <div className="container mx-auto pt-16">

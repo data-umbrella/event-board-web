@@ -10,16 +10,19 @@ import Footer from 'components/elements/Footer';
 
 // Styles and assets
 import './App.css';
+import 'tw-elements';
 
 export default function App() {
   return (
     <div className="bg-du-gray dark:bg-slate-700 transition duration-300">
       <AuthProvider>
-        <div className="w-3/4 container mx-auto">
-          <NavigationBar />
-          <AppRoutes />
+        <div className="flex flex-col h-screen justify-between">
+          <div className="w-3/4 container mx-auto">
+            <NavigationBar />
+            <AppRoutes />
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </AuthProvider>
     </div>
   );

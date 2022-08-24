@@ -15,7 +15,7 @@ const styles = {
 
 function GridView({ events }) {
   return (
-    <div className={styles.searchEventGroup}>
+    <div className={`${styles.searchEventGroup} min-h-screen`}>
       {events.map(eventData => {
         return (
           <SearchEventCard key={eventData.id} eventData={eventData} />
