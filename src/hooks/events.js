@@ -15,7 +15,7 @@ export function useEvent(eventId) {
         json = JSON.parse(sessionStorage.getItem(eventId));
       } else {
         try {
-          const requestURL = `${EVENTS_URL}/${eventId}`;
+          const requestURL = `${EVENTS_URL}/${eventId}/`;
           const response = await fetch(requestURL);
           json = await response.json();
         } catch (e) {

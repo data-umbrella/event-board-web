@@ -313,7 +313,7 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  organizationName: Yup.string().required('Field is required'),
+  // organizationName: Yup.string().required('Field is required'),
   eventName: Yup.string().required('Field is required'),
   description: Yup.string().required('Field is required'),
 });
