@@ -27,7 +27,11 @@ function SearchEventCard({ eventData }) {
 
   return (
     <Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
-      <div className="card-img" style={{ backgroundImage: `url('${imageSrc}')` }}></div>
+      <div
+        className="card-img"
+        style={{ backgroundImage: `url('${imageSrc}')` }}
+      >
+      </div>
 
       <div className="p-8 h-40">
         <div className={styleClasses.searchEventCardDetail}>
