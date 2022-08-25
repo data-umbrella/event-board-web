@@ -53,6 +53,14 @@ export function useFeaturedEvents() {
   return featuredEvents;
 }
 
+
+export function buildSearchEventsQueryString(data) {
+  const dateQuery = `start_date__gte=${data.startDate}&start_date__lte=${data.endDate}`;
+  const fullTextQuery = `search=${data.search}${data.topicQuery}`;
+
+  return `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}&published=true`;
+}
+
 export function useSearchEvents() {
   const [searchFilters, setSearchFilters] = useState({
     startDate: moment().format('YYYY-MM-DD'),
@@ -62,17 +70,15 @@ export function useSearchEvents() {
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
   useEffect(() => {
-    const { search, topic } = searchFilters;
+    const { topic } = searchFilters;
     const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
     const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
     const topicQuery = topic ? `,${topic}` : '';
+    const data = { startDate, endDate, topicQuery };
 
     async function fetchSearchEvents() {
-      const dateQuery = `start_date__gte=${startDate}&start_date__lte=${endDate}`;
-      const fullTextQuery = `search=${search}${topicQuery}`;
-      const response = await fetch(
-        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`
-      );
+      const url = buildSearchEventsQueryString(data);
+      const response = await fetch(url);
       const json = await response.json();
       const result = camelcaseKeys(json);
       setSearchResultEvents(result.slice(0, 10));
