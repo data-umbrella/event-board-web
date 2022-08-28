@@ -1,7 +1,6 @@
 import { React } from 'react';
 
 function FeaturedEventField({ value, onChange }) {
-
   const handleChange = () => {
     onChange('featured', !value);
   };
@@ -36,7 +35,7 @@ function FeaturedEventField({ value, onChange }) {
             target="_blank"
             rel="noreferrer"
             className="font-medium underline"
-            href="https://opencollective.com/data-umbrella"
+            href="https://opencollective.com/data-umbrella/contribute/data-science-event-board-37473/checkout"
           >
             Donate to Event Board &gt;&gt;
           </a>
