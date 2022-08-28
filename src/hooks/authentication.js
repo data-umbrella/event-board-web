@@ -1,4 +1,5 @@
 import React, { useContext, createContext, useState } from 'react';
+import camelcaseKeys from 'camelcase-keys';
 import {
   fetchCurrentUser,
   fetchVerification,
@@ -29,7 +30,10 @@ export function AuthProvider({ children }) {
         throw (new Error('Bad request'));
       }
 
-      setCurrentUser({ ...currentUserJSON, isAuthenticated: true });
+      setCurrentUser({
+        ...camelcaseKeys(currentUserJSON),
+        isAuthenticated: true,
+      });
     } catch (e) {
       setCurrentUser({ isAuthenticated: false });
     }
@@ -39,7 +43,10 @@ export function AuthProvider({ children }) {
     try {
       const email = window.localStorage.getItem('USERNAME');
       const currentUserJSON = await fetchVerification(token, email);
-      setCurrentUser({ ...currentUserJSON, isAuthenticated: true });
+      setCurrentUser({
+        ...camelcaseKeys(currentUserJSON),
+        isAuthenticated: true,
+      });
       callback(true);
     } catch (e) {
       callback(false, e.message);
