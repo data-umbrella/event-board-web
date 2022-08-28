@@ -14,7 +14,7 @@ function HomePage() {
 
   useEffect(() => {
     auth.authenticateUser();
-  }, [])
+  }, []);
 
   function handleSearch (values) {
     setSearchFilters(values);

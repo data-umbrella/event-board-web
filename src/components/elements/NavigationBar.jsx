@@ -1,54 +1,72 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from 'assets/logo.png';
 import { useAuth } from 'hooks/authentication';
-
-const styleClasses = {
-  navLink: 'inline-block mr-4 mt-6',
-  navContainer: 'grid grid-cols-12 mb-4',
-}
+import useDarkMode from 'hooks/dark-mode';
+import DropdownMenu from 'components/elements/DropdownMenu';
+import logoImg from 'assets/logo.png';
+import darkMode from 'assets/dark-mode.svg';
+import { navStyleClasses } from 'styles/navbar';
+import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 
 function NavigationBar() {
   const auth = useAuth();
-
-  function signOut() {
-    auth.signOutCurrentUser();
-  }
+  const [colorTheme, setTheme] = useDarkMode();
+  const signOut = () => auth.signOutCurrentUser();
 
   return (
-    <nav className="border-b border-black container mx-auto lg:block">
-      <div className={styleClasses.navContainer}>
-        <div className="col-span-2">
-          <Link to="/"><img src={logoImg} alt="logo"/></Link>
-        </div>
+    <>
+      <div
+        className="
+          border-b
+          border-black
+          container
+          mx-auto
+          lg:block
+          dark:border-slate-50
+          pt-4
+          pb-4
+        "
+      >
+        <div className="flex">
+          <div className="">
+            <Link to="/"><img src={logoImg} alt="logo" /></Link>
+          </div>
 
-        <div className="col-span-1"></div>
-        <div className="col-span-9">
-          <div className={styleClasses.navLink}><Link to="/events/calendar">Event Calendar</Link></div>
-          <div className={styleClasses.navLink}><Link to="/events/new">Post Event</Link></div>
-          <div className={styleClasses.navLink}><Link to="/events/weekly-digest">Weekly Digest</Link></div>
-          <div className={styleClasses.navLink}>
-            <a
-              href="https://www.dataumbrella.org"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Data Umbrella
-            </a>
-          </div>
-          <div className={styleClasses.navLink}><Link to="/sponsors">Sponsors</Link></div>
-          <div className={styleClasses.navLink}>
-            { auth.currentUser.isAuthenticated === true
-              ? <button onClick={signOut}>Sign Out</button>
-              : <Link to="/sign-in">Sign In</Link>
-            }
-          </div>
-          <div className={styleClasses.navLink}>
-            Dark Mode
+          <div className=""></div>
+          <div className="flex w-full flex-row-reverse">
+            <div>
+              <img
+                src={darkMode}
+                onClick={() => setTheme(colorTheme)}
+                className={navStyleClasses.modeImage}
+                alt="logo"
+              />
+            </div>
+            <div className={navStyleClasses.navLink}>
+              {auth.currentUser.isAuthenticated
+                ? <button onClick={signOut}>Sign Out</button>
+                : <Link to="/sign-in">Sign In</Link>
+              }
+            </div>
+            <div className={navStyleClasses.navLink}>
+              <a
+                href="https://www.dataumbrella.org"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Data Umbrella
+              </a>
+            </div>
+            <div className={navStyleClasses.navLink}>
+              <a href="/sponsors">
+                Sponsors
+              </a>
+            </div>
+            <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
           </div>
         </div>
       </div>
-    </nav>
+    </>
   )
 }
 

@@ -15,7 +15,7 @@ export function useEvent(eventId) {
         json = JSON.parse(sessionStorage.getItem(eventId));
       } else {
         try {
-          const requestURL = `${EVENTS_URL}/${eventId}`;
+          const requestURL = `${EVENTS_URL}/${eventId}/`;
           const response = await fetch(requestURL);
           json = await response.json();
         } catch (e) {
@@ -75,7 +75,7 @@ export function useSearchEvents() {
       );
       const json = await response.json();
       const result = camelcaseKeys(json);
-      setSearchResultEvents(result);
+      setSearchResultEvents(result.slice(0, 10));
     }
     fetchSearchEvents();
   }, [searchFilters]);
