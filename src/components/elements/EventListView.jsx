@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from 'assets/thumbnail.png';
-import moment from 'moment';
 import EventsForMonth from 'components/elements/EventsForMonth';
 import { groupEventsByMonth } from 'utils/events';
 
