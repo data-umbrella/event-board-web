@@ -65,13 +65,15 @@ export function useSearchEvents() {
     const { search, topic } = searchFilters;
     const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
     const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
+    const region = searchFilters.region
     const topicQuery = topic ? `,${topic}` : '';
 
     async function fetchSearchEvents() {
       const dateQuery = `start_date__gte=${startDate}&start_date__lte=${endDate}`;
       const fullTextQuery = `search=${search}${topicQuery}`;
+      const regionQuery = region ? `region=${region}` : ''
       const response = await fetch(
-        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}`
+        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}&${regionQuery}`
       );
       const json = await response.json();
       const result = camelcaseKeys(json);
