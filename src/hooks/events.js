@@ -3,6 +3,7 @@ import camelcaseKeys from 'camelcase-keys';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { arrayifyTags } from 'utils/strings';
+import { parseAPIJSON } from 'utils/api';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -44,7 +45,7 @@ export function useFeaturedEvents() {
     async function fetchFeaturedEvents() {
       const response = await fetch(`${API_URL}/api/v1/events?featured=true`);
       const json = await response.json();
-      const result = camelcaseKeys(json);
+      const result = camelcaseKeys(json['results']);
       setFeaturedEvents(result);
     }
     fetchFeaturedEvents();
@@ -76,7 +77,7 @@ export function useSearchEvents() {
         `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}&${regionQuery}`
       );
       const json = await response.json();
-      const result = camelcaseKeys(json);
+      const result = parseAPIJSON(json);
       setSearchResultEvents(result.slice(0, 10));
     }
     fetchSearchEvents();
