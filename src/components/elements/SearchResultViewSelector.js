@@ -5,7 +5,8 @@ function SearchResultViewSelector({ onChange, selectedView }) {
     { id: 'GRID', label: 'Grid' },
     { id: 'LIST', label: 'List' },
     { id: 'CALENDAR', label: 'Calendar' },
-    { id: 'MAP', label: 'Map' },
+    // TODO: Add back option once the event board map is implemented.
+    // { id: 'MAP', label: 'Map' },
   ]
 
   const options = viewTypes.map(viewType => {
