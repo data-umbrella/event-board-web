@@ -32,7 +32,7 @@ function renderEventContent(eventInfo) {
 //   return (
 //     <li key={event.id}>
 //       <b>{formatDate(event.start, {year: 'numeric', month: 'short', day: 'numeric'})}</b>
-//       <i>{event.title}</i>
+//       <i>{event.eventName}</i>
 //     </li>
 //   )
 // }
@@ -131,7 +131,7 @@ function renderEventContent(eventInfo) {
 //   }
 //
 //   handleEventClick = (clickInfo) => {
-//     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+//     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.eventName}'`)) {
 //       clickInfo.event.remove()
 //     }
 //   }

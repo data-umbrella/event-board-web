@@ -61,7 +61,6 @@ function EventListView(events) {
   }
   const eventsList = processEventsList(events, GenerateMonthMap("July 12, 2022", "July 14, 2023"))
 
-
   // console.log(processEventsList(events, GenerateMonthMap("July 12, 2022", "July 14, 2023")))
 
   return (

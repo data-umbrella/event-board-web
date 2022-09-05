@@ -23,6 +23,7 @@ import TimeSlotField from 'components/elements/TimeSlotField';
 import SocialMediaField from 'components/elements/SocialMediaField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
+import FeaturedEventField from './FeaturedEventField';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
@@ -88,10 +89,10 @@ function PostEventFormComponent(props) {
               autoComplete="new-password"
               className={formStyleClasses.input}
               component={ValidatedInput}
-              label="Event Title"
-              name="title"
+              label="Event Name"
+              name="eventName"
               type="text"
-              id="title"
+              id="eventName"
             />
           </div>
 
@@ -271,6 +272,13 @@ function PostEventFormComponent(props) {
         />
       </div>
 
+      <div className="pt-6 pb-6">
+        <FeaturedEventField
+          value={values.featured}
+          onChange={setFieldValue}
+        />
+      </div>
+
       <div className="grid grid-cols-2 w-1/2 float-right gap-1">
         <button className="p-2 underline">Clear Form</button>
         <button className={formStyleClasses.reviewButton} type="submit">
@@ -313,9 +321,7 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  organizationName: Yup.string().required('Field is required'),
-  title: Yup.string().required('Field is required'),
-  description: Yup.string().required('Field is required'),
+  eventName: Yup.string().required('Field is required'),
 });
 
 /**

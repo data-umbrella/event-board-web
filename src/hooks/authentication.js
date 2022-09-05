@@ -1,5 +1,11 @@
 import React, { useContext, createContext, useState } from 'react';
-import { fetchCurrentUser, fetchVerification, fetchMagicLink } from 'services/authentication';
+import camelcaseKeys from 'camelcase-keys';
+import {
+  fetchCurrentUser,
+  fetchVerification,
+  fetchMagicLink,
+  fetchSignOut,
+} from 'services/authentication';
 
 const AuthContext = createContext();
 
@@ -24,7 +30,10 @@ export function AuthProvider({ children }) {
         throw (new Error('Bad request'));
       }
 
-      setCurrentUser({ ...currentUserJSON, isAuthenticated: true });
+      setCurrentUser({
+        ...camelcaseKeys(currentUserJSON),
+        isAuthenticated: true,
+      });
     } catch (e) {
       setCurrentUser({ isAuthenticated: false });
     }
@@ -34,15 +43,23 @@ export function AuthProvider({ children }) {
     try {
       const email = window.localStorage.getItem('USERNAME');
       const currentUserJSON = await fetchVerification(token, email);
-      setCurrentUser({ ...currentUserJSON, isAuthenticated: true });
+      setCurrentUser({
+        ...camelcaseKeys(currentUserJSON),
+        isAuthenticated: true,
+      });
       callback(true);
     } catch (e) {
       callback(false, e.message);
     }
   };
 
-  const signOutCurrentUser = () => {
-    setCurrentUser({ isAuthenticated: false });
+  const signOutCurrentUser = async () => {
+    try {
+      await fetchSignOut();
+      setCurrentUser({ isAuthenticated: false });
+    } catch (e) {
+      window.alert('Something went wrong');
+    }
   }
 
   const value = {

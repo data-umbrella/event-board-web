@@ -4,14 +4,15 @@ import { withFormik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useAuth } from 'hooks/authentication';
+import 'tw-elements';
 
 // TODO: Use the touched, errors props to implement validations
 function BaseSignInForm () {
   return (
     <div className="flex justify-center">
-      <Form className="lg:basis-1/2">
+      <Form className="lg:basis-2/3">
         <div className={formStyleClasses.inputContainer}>
-          <label className="block" htmlFor="email">Email</label>
+          <label className="block" htmlFor="email">Email address</label>
           <Field
             name="email"
             type="text"
@@ -23,7 +24,7 @@ function BaseSignInForm () {
         <div className={formStyleClasses.inputContainer}>
           <button
             type="submit"
-            className={formStyleClasses.button}
+            className={formStyleClasses.loginButton}
           >
             Login
           </button>

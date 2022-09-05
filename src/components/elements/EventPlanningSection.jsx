@@ -1,80 +1,70 @@
 import React from 'react';
+import { formatEventTimeFrame } from 'utils/time';
+import { formatEventDetail } from 'utils/dates';
+import EventPlanningDetail from 'components/elements/EventPlanningDetail';
+import EventTags from 'components/elements/EventTags';
 
 function EventPlanningSection({ evt }) {
   return (
-    <div className="grid md:grid-cols-2 mb-10">
-      <div className="grid grid-rows-3 gap-1 mb-6">
-        <div>
-          Start Date: { evt.startDate }
-        </div>
+    <div className="grid md:grid-cols-2 gap-x-20 mb-10">
+      <div className="">
+        <EventPlanningDetail
+          label="Start Date"
+          value={formatEventDetail(evt.startDate)}
+        />
 
-        <div>
-          End Date: { evt.endDate }
-        </div>
+        <EventPlanningDetail
+          label="End Date"
+          value={formatEventDetail(evt.endDate)}
+        />
 
-        <div>
-          Time: { evt.startTime } - { evt.endTime } { evt.timeZone }
-        </div>
+        <EventPlanningDetail
+          label="Time"
+          value={formatEventTimeFrame(evt)}
+        />
 
-        <div>
-          Registration Deadline: { evt.registrationDeadline }
-        </div>
+        <EventPlanningDetail
+          label="Call for Proposal Deadline"
+          value={evt.cfpDeadline}
+        />
 
-        <div>
-          Call for Proposal Deadline: { evt.cfpDeadline }
-        </div>
+        <EventPlanningDetail
+          label="Call for Proposal Link"
+          value={evt.cfpLink}
+          type="link"
+        />
 
-        <div>
-          Call for Proposal Link: { evt.cfpLink }
-        </div>
-        <div>
-          Location: { evt.location }
-        </div>
+        <EventPlanningDetail
+          label="Code of Conduct URL"
+          value={evt.codeOfConductUrl}
+          type="link"
+        />
+
+        <EventPlanningDetail
+          label="Location"
+          value={evt.eventUrl}
+          type="link"
+        />
       </div>
 
-      <div className="grid grid-rows-3 gap-1">
-        { evt.discount && <div>Discount: { evt.discount }</div> }
+      <div className="">
+        <EventPlanningDetail
+          label="Discount"
+          value={evt.discount}
+        />
 
-        <div>
-          Language: { evt.language || 'English' }
-        </div>
+        <EventPlanningDetail
+          label="Language"
+          value={evt.language || 'English'}
+        />
 
-        <div>
-          <a
-            className="underline text-blue-600"
-            href={evt.organizationUrl}
-          >
-            {evt.organizationUrl}
-          </a>
-        </div>
+        <EventPlanningDetail
+          label="Organization URL"
+          value={evt.organizationUrl}
+          type="link"
+        />
 
-        <div>
-          <a
-            className="underline text-blue-600"
-            href={evt.organizationUrl}
-          >
-            Contact Us
-          </a>
-        </div>
-
-        <div>
-          Social Media Hashtag: { evt.socialMediaHashTag }
-        </div>
-
-        <div>
-          <span className="mr-2">Eventboard Tags:</span>
-
-          { evt.tags.map(tag => {
-            return (
-              <div
-                key={tag}
-                className="inline-block mr-1 mb-2 bg-purple-500 text-white pl-2 pr-2 rounded"
-              >
-                {tag}
-              </div>
-            )
-          })}
-        </div>
+        <EventTags tags={evt.tags} />
       </div>
     </div>
   )

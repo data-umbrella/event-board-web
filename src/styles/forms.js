@@ -10,13 +10,14 @@ const formStyleClasses = {
   `,
   select: `
     block
-    border
-    border-black
     w-full
     rounded
     h-8
   `,
-  inputContainer: 'py-2',
+  inputContainer: `
+    pr-4
+    mb-6
+  `,
   button: `
     bg-gray-400
     text-center
@@ -53,6 +54,7 @@ const formStyleClasses = {
     bg-violet-200
     border
     border-fuchsia-800
+    dark:bg-violet-400
   `,
   searchInputColumns: `
     container
@@ -77,7 +79,17 @@ const formStyleClasses = {
     text-lg
     font-normal
     float-right
-  `
+  `,
+  loginButton: `
+    container
+    bg-du-purple-500
+    text-white
+    mb-3
+    p-1
+    rounded-lg
+    text-lg
+    font-normal
+  `,
 };
 
 export default formStyleClasses;

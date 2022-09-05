@@ -17,7 +17,8 @@ function EventContent({ eventInfo }) {
   return (
     <div className="bg-blue-300 w-full" onClick={handleNavigate}>
       <div className="text-xs whitespace-normal">
-        <b className="mr-1">{eventInfo.timeText}</b>{truncate(eventInfo.event.title, 60)}
+        <b className="mr-1">{eventInfo.timeText}</b>
+        { truncate(eventInfo.event.title, 60) }
       </div>
     </div>
   )
@@ -29,7 +30,11 @@ function renderEventContent(eventInfo) {
 
 function EventCalendarView({ events }) {
   const calendarEvents = events.map(evt => {
-    return { id: evt.id, start: evt.startDate, title: evt.eventName };
+    return {
+      id: evt.id,
+      start: evt.startDate,
+      title: evt.eventName,
+    };
   });
 
   return (
