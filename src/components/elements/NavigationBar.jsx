@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
 import useDarkMode from 'hooks/dark-mode';
 import DropdownMenu from 'components/elements/DropdownMenu';
-import logoImg from 'assets/logo.png';
+import logoImg from 'assets/logo.svg';
 import darkMode from 'assets/dark-mode.svg';
 import { navStyleClasses } from 'styles/navbar';
 import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
