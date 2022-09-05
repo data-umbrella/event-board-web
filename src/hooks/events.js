@@ -45,7 +45,7 @@ export function useFeaturedEvents() {
     async function fetchFeaturedEvents() {
       const response = await fetch(`${API_URL}/api/v1/events?featured=true`);
       const json = await response.json();
-      const result = camelcaseKeys(json['results']);
+      const result = parseAPIJSON(json);
       setFeaturedEvents(result);
     }
     fetchFeaturedEvents();
