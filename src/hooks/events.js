@@ -78,7 +78,7 @@ export function useSearchEvents() {
       );
       const json = await response.json();
       const result = parseAPIJSON(json);
-      setSearchResultEvents(result.slice(0, 10));
+      setSearchResultEvents(result);
     }
     fetchSearchEvents();
   }, [searchFilters]);
