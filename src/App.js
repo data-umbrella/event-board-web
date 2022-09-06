@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
 
+// Google Analytics
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-NP82011Y5G',[options]);
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 // Hooks
 import { AuthProvider, useAuth } from 'hooks/authentication';
 
