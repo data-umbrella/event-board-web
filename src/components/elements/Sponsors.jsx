@@ -4,8 +4,15 @@ import CZIImg from 'assets/CZIlogo.png';
 import DigitalOceanImg from 'assets/Digitaloceanlogo.png';
 
 const sponsorsList = [
-  { name:'CZI', sponsor_img:CZIImg },
-  { name: 'Digital Ocean', sponsor_img:DigitalOceanImg },
+  {
+    name:'CZI',
+    sponsorImg: CZIImg,
+    url: 'https://chanzuckerberg.com/science/programs-resources/open-science/communitiesofpractice/data-umbrella/' },
+  {
+    name: 'Digital Ocean',
+    sponsorImg: DigitalOceanImg,
+    url: 'https://www.digitalocean.com/'
+  },
 ];
 
 function Sponsors() {
@@ -13,10 +20,10 @@ function Sponsors() {
     <div className={sponsorsStyleClasses.sponsorsGrid}>
       {sponsorsList.map(sponsorInfo => {
         return (
-          <div key={sponsorInfo.name}>
-            <img src={sponsorInfo.sponsor_img} alt="logo"/>
+          <a key={sponsorInfo.name} href={sponsorInfo.url}>
+            <img src={sponsorInfo.sponsorImg} alt="logo"/>
             {sponsorInfo.name}
-          </div>
+          </a>
         )
       })}
     </div>
