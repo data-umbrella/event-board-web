@@ -33,12 +33,13 @@ function EventCalendarView({ events }) {
     return {
       id: evt.id,
       start: evt.startDate,
+      end: evt.endDate,
       title: evt.eventName,
     };
   });
 
   return (
-    <div className="mt-4">
+    <div className="mt-12">
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"
