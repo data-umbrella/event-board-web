@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 // Google Analytics
 import ReactGA from 'react-ga';
-ReactGA.initialize('G-NP82011Y5G',[options]);
+ReactGA.initialize('G-NP82011Y5G');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 // Hooks
