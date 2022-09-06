@@ -15,6 +15,8 @@ function ContactUsFormComponent() {
     <div className="container p-20 mb-10">
       <div>
         For feature suggestions, bug reports, etc for the Event Board, please open up an issue here:
+      </div>
+      <div className="pt-5 pb-5">
         <a className={formStyleClasses.hyperlinks} href="/https://github.com/data-umbrella/event-board-web">
           https://github.com/data-umbrella/event-board-web
         </a>
@@ -25,8 +27,8 @@ function ContactUsFormComponent() {
       </div>
 
       <Form>
-        <div>
-          <div className={formStyleClasses.inputContainer}>
+        <div className="grid grid-cols-2">
+          <div className={`${formStyleClasses.inputContainer} col-span-1`}>
             <label className="block" htmlFor="name">
               Name*
             </label>
@@ -37,7 +39,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} row-start-2`}>
             <label className="block" htmlFor="email">
               Email*
             </label>
@@ -48,12 +50,12 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div>
+          <div className={`${formStyleClasses.inputContainer} row-start-2`}>
             <label className="block" htmlFor="name">Topic</label>
             <ContactTopicField/>
           </div>
 
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} row-start-3 col-start-1 col-end-3`}>
             <label className="block" htmlFor="name">
               How did you find out about this Event Board?*
             </label>
@@ -64,7 +66,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} row-start-4 col-span-2`}>
             <label className="block" htmlFor="name">Message*</label>
             <Field
               type="text"
@@ -73,9 +75,9 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div>
+          <div className={`${formStyleClasses.inputContainer} row-start-5`}>
             <label>
-              <Field type="checkbox" name="toggle" />
+              <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
               <a className={formStyleClasses.hyperlinks} href="/pages">
                 Code of Conduct
@@ -83,7 +85,7 @@ function ContactUsFormComponent() {
             </label>
           </div>
 
-          <div className="actions">
+          <div className={`actions row-start-6 col-start-2` }>
             <button type="submit" className={formStyleClasses.sendButton}>
               Send
             </button>

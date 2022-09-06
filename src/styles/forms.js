@@ -11,8 +11,10 @@ const formStyleClasses = {
   select: `
     block
     w-full
-    rounded
+    rounded-md
     h-8
+    border
+    border-black
   `,
   inputContainer: `
     pr-4
@@ -32,7 +34,7 @@ const formStyleClasses = {
     border
     border-black
     w-full
-    h-40
+    h-80
     rounded
     p-2
   `,
@@ -73,6 +75,7 @@ const formStyleClasses = {
   sendButton: `
     bg-du-purple-500
     text-white
+    w-20
     mb-3
     p-2
     rounded
