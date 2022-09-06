@@ -2,6 +2,7 @@ import React from 'react';
 import { eventStyleClasses } from 'styles/events';
 
 function AccessibilitySection({ evt }) {
+  if (!evt.accessibilityOptions || evt.accessibilityOptions.length === 0) return
   return (
     <div className={eventStyleClasses.infoTextSection}>
       <h2 className="font-semibold text-lg mb-2 rounded">Accessibility: </h2>
