@@ -14,7 +14,7 @@ function ContactUsFormComponent() {
   return (
     <div className="container p-20 mb-10">
       <div>
-        For feature suggestions, bug reports, etc for the Event Board, please open up an issue here:
+        For feature suggestions, bug reports, etc. for the Event Board, please open up an issue here:
       </div>
       <div className="pt-5 pb-5">
         <a className={formStyleClasses.hyperlinks} href="/https://github.com/data-umbrella/event-board-web">
