@@ -15,52 +15,63 @@ const IMAGE_MAP = {
 
 // Move into constants
 const contributorList = [
+  { name: 'Reshama Shaikh',
+    title: 'Event Board Project Manager',
+    organization: 'Data Umbrella',
+    socialMediaLinks: [
+      { name: 'twitter', link: 'https://twitter.com/reshamas' },
+      { name: 'github', link: 'https://github.com/reshamas' },
+      { name: 'linkedin', link: 'https://www.linkedin.com/in/reshamas/' },
+      { name: 'website', link: 'https://example.com' },
+    ]
+  },
   {
     name: 'Joe Torreggiani',
     title: 'Project Executive',
     organization: 'SPEC',
     image: logo,
     socialMediaLinks: [
-      { name: 'twitter', link: 'https://example.com' },
-      { name: 'linkedin', link: 'https://example.com' },
+      { name: 'twitter', link: 'https://twitter.com/joetorreggiani' },
+      { name: 'github', link: 'https://github.com/jtorreggiani' },
+      { name: 'linkedin', link: 'https://www.linkedin.com/in/joetorreggiani/' },
     ]
   },
-  { name: 'Victoria',
-    title: 'Software Engineer',
+  { name: 'Ilia De Leon',
+    title: 'Design Lead',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter', link: 'https://example.com' },
-      { name: 'linkedin', link: 'https://example.com' },
-      { name: 'github', link: 'https://example.com' },
-    ]
-  },
-  { name: 'Reshama',
-    title: 'Event Board Project Manager',
-    organization: 'Data Umbrella',
-    socialMediaLinks: [
-      { name: 'twitter', link: 'https://example.com' },
-      { name: 'github', link: 'https://example.com' },
+      { name: 'twitter' },
+      { name: 'github', link: 'https://github.com/iliadeleon' },
+      { name: 'linkedin', link: 'https://www.linkedin.com/in/iliadeleon/' },
     ]
   },
   { name: 'Yoline',
     title: 'Software Engineer',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter', link: 'https://example.com' },
-      { name: 'linkedin' },
+      { name: 'twitter' },
       { name: 'github', link: 'https://example.com' },
+      { name: 'linkedin', link:'https://www.linkedin.com/in/yolineb/' },
+    ]
+  },
+  { name: 'Victoria',
+    title: 'Software Engineer',
+    organization: 'SPEC',
+    socialMediaLinks: [
+      { name: 'twitter' },
+      { name: 'github', link: 'https://github.com/victoriaklo' },
+      { name: 'linkedin', link: 'https://www.linkedin.com/in/victoria-lo/' },
     ]
   },
   { name: 'Crystal',
     title: 'Software Engineer',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter', link: 'https://example.com' },
-      { name: 'linkedin', link: 'https://example.com' },
+      { name: 'twitter' },
+      { name: 'github', link: 'https://github.com/crystallynnvoss' },
+      { name: 'linkedin', link: 'https://www.linkedin.com/in/crystalshamsi/' },
     ]
   },
-  // {name:'CZI', sponsor_img:CZIImg, title:'', org:'', contact:{twitter:'', github:'', linkedin: '', website: ''}},
-  // {name: 'Digital Ocean', sponsor_img: DigitalOceanImg},
 ];
 
 // TODO: Move subcomponents in separate element files.
