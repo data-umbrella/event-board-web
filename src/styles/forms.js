@@ -34,7 +34,7 @@ const formStyleClasses = {
     border
     border-black
     w-full
-    h-80
+    h-40
     rounded
     p-2
   `,

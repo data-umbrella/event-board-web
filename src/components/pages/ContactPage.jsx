@@ -69,7 +69,7 @@ function ContactUsFormComponent() {
           <div className={`${formStyleClasses.inputContainer} row-start-4 col-span-2`}>
             <label className="block" htmlFor="name">Message*</label>
             <Field
-              type="text"
+              component="textarea"
               name="message"
               className={formStyleClasses.textarea}
             />
