@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 // import contact from 'src/assets/contact.png';
 import contact from 'assets/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
+import { postContactEmail } from 'services/contact-emails';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Defines the form component for the contact page
@@ -14,10 +16,8 @@ function ContactUsFormComponent() {
   return (
     <div className="container p-20 mb-10">
       <div>
-        For feature suggestions, bug reports, etc. for the Event Board, please open up an issue here:
-      </div>
-      <div className="pt-5 pb-5">
-        <a className={formStyleClasses.hyperlinks} href="/https://github.com/data-umbrella/event-board-web">
+        For feature suggestions, bug reports, etc for the Event Board, please open up an issue here:
+        <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-web">
           https://github.com/data-umbrella/event-board-web
         </a>
       </div>
@@ -146,8 +146,17 @@ export const ContactUsForm = withFormik({
 })(ContactUsFormComponent);
 
 function ContactUsPage() {
-  function handleSubmit() {
+  const navigate = useNavigate();
 
+  async function handleSubmit(values) {
+    const responseSuccess = await postContactEmail(values);
+
+    if (responseSuccess) {
+      navigate('/contact-success');
+    } else {
+      // TODO: Add error handling
+      window.alert('Something went wrong');
+    }
   }
 
   return (
@@ -156,7 +165,7 @@ function ContactUsPage() {
       <img src={contact} className="w-full mx-auto" alt="contact-us"/>
       <div>
       </div>
-      <ContactUsForm handleSubmit={handleSubmit} />
+      <ContactUsForm handleFormSubmit={handleSubmit} />
     </div>
   )
 }
