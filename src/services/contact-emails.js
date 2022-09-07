@@ -7,8 +7,6 @@ export async function postContactEmail(data) {
     body: JSON.stringify(data),
   });
 
-  const json = await response.json();
-
   if (response.status === 201) {
     return true;
   } else {
