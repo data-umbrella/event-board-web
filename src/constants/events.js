@@ -2,9 +2,11 @@ export const today = 'Friday July, 1, 2022';
 const todayStr = new Date().toISOString().replace(/T.*$/, '');
 
 export const REGION_OPTIONS = [
-  { label: 'North America', value: 'north-america' },
+  { label: 'USA / Canada', value: 'usa-canada' },
   { label: 'Europe', value: 'europe' },
   { label: 'Africa', value: 'africa' },
+  { label: 'Middle East', value: 'middle-east' },
+  { label: 'Latin America / Caribbean', value: 'latin-america-caribbean' },
   { label: 'Asia', value: 'asia' },
   { label: 'Oceania', value: 'oceania' },
   { label: 'All', value: 'all' }
