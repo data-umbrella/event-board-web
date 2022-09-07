@@ -40,7 +40,6 @@ const contributorList = [
     title: 'Design Lead',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter' },
       { name: 'github', link: 'https://github.com/iliadeleon' },
       { name: 'linkedin', link: 'https://www.linkedin.com/in/iliadeleon/' },
     ]
@@ -49,7 +48,6 @@ const contributorList = [
     title: 'Software Engineer',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter' },
       { name: 'github', link: 'https://example.com' },
       { name: 'linkedin', link:'https://www.linkedin.com/in/yolineb/' },
     ]
@@ -58,7 +56,6 @@ const contributorList = [
     title: 'Software Engineer',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter' },
       { name: 'github', link: 'https://github.com/victoriaklo' },
       { name: 'linkedin', link: 'https://www.linkedin.com/in/victoria-lo/' },
     ]
@@ -67,7 +64,6 @@ const contributorList = [
     title: 'Software Engineer',
     organization: 'SPEC',
     socialMediaLinks: [
-      { name: 'twitter' },
       { name: 'github', link: 'https://github.com/crystallynnvoss' },
       { name: 'linkedin', link: 'https://www.linkedin.com/in/crystalshamsi/' },
     ]
@@ -105,7 +101,6 @@ function Contributor() {
         {contributorList.map(contributorInfo => {
           return (
             <div key={contributorInfo.name}>
-              {/* <div className="w-full bg-slate-300 h-40 mb-6"></div> */}
               <ContributorPhoto imageSrc={contributorInfo.image} />
               <h3>{ contributorInfo.name }</h3>
               <h4>{ contributorInfo.title }</h4>
