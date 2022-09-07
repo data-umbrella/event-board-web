@@ -9,7 +9,6 @@ const styleClasses = {
     border
     border-slate-300
     border-solid
-    mh-120
     rounded
   `,
   searchEventThumbnail: `

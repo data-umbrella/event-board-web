@@ -76,9 +76,14 @@ function ReviewEventMainSection({ evt, editEvent }) {
             <span className="mr-2">LinkedIn</span>
           </div>
 
-          <button className="bg-blue-500 text-white p-2 rounded w-1/3">
+          <a
+            className="bg-blue-500 text-white p-2 rounded w-1/3"
+            href={evt.eventUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
             Register
-          </button>
+          </a>
         </div>
       </div>
     </div>
