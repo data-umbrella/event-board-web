@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
 
 function VerifyMagicLinkPage() {
+  const [loading, setLoading] = useState(true);
+  const [pageError, setPageError] = useState();
   const { token } = useParams();
   const navigate = useNavigate();
   const auth = useAuth();
@@ -10,18 +12,21 @@ function VerifyMagicLinkPage() {
   useEffect(() => {
     auth.verifyOneTimePassCode(token, (success, error) => {
       if (success) {
-        navigate('/events/new');
+        setLoading(false);
+        navigate('/');
       } else {
-        window.alert(error);
+        setLoading(false);
+        setPageError(error);
       }
     });
-  }, [token, auth, navigate]);
+  }, []);
 
-  return (
-    <div className="container mx-auto p-40 text-center">
-      Loading...
-    </div>
-  )
+  // TODO: Clean up loading and error states here.
+
+  if (loading) return <div>Loading...</div>
+  if (pageError) return <div>{ pageError}</div>
+
+  return <div>Success!</div>
 }
 
 export default VerifyMagicLinkPage;
