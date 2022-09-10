@@ -24,7 +24,7 @@ function VerifyMagicLinkPage() {
   // TODO: Clean up loading and error states here.
 
   if (loading) return <div>Loading...</div>
-  if (pageError) return <div>{ pageError}</div>
+  if (pageError) return <div>{ pageError }</div>
 
   return <div>Success!</div>
 }
