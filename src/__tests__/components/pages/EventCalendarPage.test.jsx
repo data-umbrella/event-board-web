@@ -33,7 +33,7 @@ describe('Event Calendar Page', () => {
     );
 
     expect(screen.getByText(/Advanced Filters/i)).toBeInTheDocument();
-    expect(screen.getByText(/Example event name/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Example event name/i)).toHaveLength(2);
   });
 
   describe('Search', () => {
