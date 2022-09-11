@@ -21,7 +21,8 @@ const aboutUsList = [
     url: 'https://www.specollective.org/',
     name_collective: 'SPEC Open Collective',
     url_collective: 'https://opencollective.com/spec',
-    info: ` is an open learning organization that empowers individuals to be catalysts for positive change. You can support SPEC’s work by making a donation to the ` }
+    info: ` is an open learning organization that empowers individuals to be catalysts 
+    for positive change. You can support SPEC’s work by making a donation to the ` }
 ];
 
 function AboutUs() {
