@@ -94,7 +94,7 @@ function SignUpForm() {
   async function handleFormSubmit(values) {
     auth.sendMagicLink(values.email, (success, error) => {
       if (success) {
-        navigate('/registration/confirmation');
+        navigate(`/registration/confirmation?email=${values.email}`);
       } else {
         // TODO: Handle error cases gracefully.
         window.alert(error);
