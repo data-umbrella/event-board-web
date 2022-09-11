@@ -6,7 +6,7 @@ function RegistrationLinkSent() {
   const email = queryParams.get('email');
 
   return (
-    <div className="container mx-auto text-center">
+    <section className="container mx-auto text-center">
       <div className="pt-40 pb-40">
         <h1 className="font-bold text-4xl">
           We&apos;ve sent you a link to confirm your account!
@@ -21,7 +21,7 @@ function RegistrationLinkSent() {
           You can safely close this tab.
         </p>
       </div>
-    </div>
+    </section>
   )
 }
 
