@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 
+// Google Analytics
+import ReactGA from 'react-ga';
+
 // Hooks
 import { AuthProvider, useAuth } from 'hooks/authentication';
 
@@ -11,6 +14,11 @@ import Footer from 'components/elements/Footer';
 // Styles and assets
 import './App.css';
 import 'tw-elements';
+
+if(process.env.NODE_ENV === 'production') {
+  ReactGA.initialize('G-NP82011Y5G');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 function CurrentUser({ children }) {
   const auth = useAuth();

@@ -21,6 +21,7 @@ import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
 import ContactPage from 'components/pages/ContactPage';
 import PrivacyPage from 'components/pages/PrivacyPolicyPage';
+import ContactSuccessPage from 'components/pages/ContactSuccessPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
@@ -78,6 +79,7 @@ function AppRoutes() {
         path="/registration/verify/:token"
         element={<VerifyMagicLinkPage />}
       />
+      <Route path="/contact-success" element={<ContactSuccessPage />} />
     </Routes>
   );
 }

@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 // import contact from 'src/assets/contact.png';
 import contact from 'assets/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
+import { postContactEmail } from 'services/contact-emails';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Defines the form component for the contact page
@@ -15,7 +17,7 @@ function ContactUsFormComponent() {
     <div className="container p-20 mb-10">
       <div>
         For feature suggestions, bug reports, etc for the Event Board, please open up an issue here:
-        <a className={formStyleClasses.hyperlinks} href="/https://github.com/data-umbrella/event-board-web">
+        <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-web">
           https://github.com/data-umbrella/event-board-web
         </a>
       </div>
@@ -25,8 +27,8 @@ function ContactUsFormComponent() {
       </div>
 
       <Form>
-        <div>
-          <div className={formStyleClasses.inputContainer}>
+        <div className="grid grid-cols-2">
+          <div className={`${formStyleClasses.inputContainer} col-span-1`}>
             <label className="block" htmlFor="name">
               Name*
             </label>
@@ -37,7 +39,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} row-start-2`}>
             <label className="block" htmlFor="email">
               Email*
             </label>
@@ -48,12 +50,12 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div>
+          <div className={`${formStyleClasses.inputContainer} row-start-2`}>
             <label className="block" htmlFor="name">Topic</label>
             <ContactTopicField/>
           </div>
 
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} row-start-3 col-start-1 col-end-3`}>
             <label className="block" htmlFor="name">
               How did you find out about this Event Board?*
             </label>
@@ -64,18 +66,18 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={formStyleClasses.inputContainer}>
+          <div className={`${formStyleClasses.inputContainer} row-start-4 col-span-2`}>
             <label className="block" htmlFor="name">Message*</label>
             <Field
-              type="text"
+              component="textarea"
               name="message"
               className={formStyleClasses.textarea}
             />
           </div>
 
-          <div>
+          <div className={`${formStyleClasses.inputContainer} row-start-5`}>
             <label>
-              <Field type="checkbox" name="toggle" />
+              <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
               <a className={formStyleClasses.hyperlinks} href="/pages">
                 Code of Conduct
@@ -83,7 +85,7 @@ function ContactUsFormComponent() {
             </label>
           </div>
 
-          <div className="actions">
+          <div className={`actions row-start-6 col-start-2` }>
             <button type="submit" className={formStyleClasses.sendButton}>
               Send
             </button>
@@ -144,8 +146,17 @@ export const ContactUsForm = withFormik({
 })(ContactUsFormComponent);
 
 function ContactUsPage() {
-  function handleSubmit() {
+  const navigate = useNavigate();
 
+  async function handleSubmit(values) {
+    const responseSuccess = await postContactEmail(values);
+
+    if (responseSuccess) {
+      navigate('/contact-success');
+    } else {
+      // TODO: Add error handling
+      window.alert('Something went wrong');
+    }
   }
 
   return (
@@ -154,7 +165,7 @@ function ContactUsPage() {
       <img src={contact} className="w-full mx-auto" alt="contact-us"/>
       <div>
       </div>
-      <ContactUsForm handleSubmit={handleSubmit} />
+      <ContactUsForm handleFormSubmit={handleSubmit} />
     </div>
   )
 }
