@@ -13,3 +13,14 @@ export function groupEventsByMonth(events) {
   }, {});
   return newObj;
 }
+
+export function formatEventsForCalendar(events) {
+  return events.map(evt => {
+    return {
+      id: evt.id,
+      start: evt.startDate,
+      end: evt.endDate,
+      title: evt.eventName,
+    };
+  });
+}
