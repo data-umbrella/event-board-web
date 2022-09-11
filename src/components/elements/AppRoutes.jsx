@@ -17,7 +17,8 @@ import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
 import SponsorsPage from 'components/pages/SponsorsPage';
 import FAQsPage from 'components/pages/FAQsPage';
 import AboutPage from 'components/pages/AboutPage';
-import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
+import MagicLinkSentPage from 'components/pages/MagicLinkSentPage';
+import RegistrationLinkSentPage from 'components/pages/RegistrationLinkSentPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
 import ContactPage from 'components/pages/ContactPage';
 import PrivacyPage from 'components/pages/PrivacyPolicyPage';
@@ -72,7 +73,11 @@ function AppRoutes() {
       <Route path="/about" element={<AboutPage />} />
       <Route
         path="/registration/confirmation"
-        element={<ConfirmRegistrationPage />}
+        element={<RegistrationLinkSentPage />}
+      />
+      <Route
+        path="/sign-in/sent"
+        element={<MagicLinkSentPage />}
       />
 
       <Route

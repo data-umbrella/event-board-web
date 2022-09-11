@@ -12,51 +12,55 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState({ isAuthenticated: false });
 
+  const updateCurrentUser = (data) => {
+    setCurrentUser({ ...camelcaseKeys(data) });
+  }
+
+  // Triggers a request to the API to send a magic link to the user's email.
   const sendMagicLink = async (email, callback) => {
     try {
       await fetchMagicLink(email);
+      updateCurrentUser({ ...currentUser, email });
       callback(true);
     } catch (e) {
       callback(false, e.message);
     }
   };
 
+  // Triggers a request to the API to verify the session token.
   const authenticateUser = async () => {
     try {
       const currentUserResponse = await fetchCurrentUser();
-      const currentUserJSON = await currentUserResponse.json();
+      const responseJSON = await currentUserResponse.json();
 
       if (currentUserResponse.status !== 200) {
         throw (new Error('Bad request'));
       }
 
-      setCurrentUser({
-        ...camelcaseKeys(currentUserJSON),
-        isAuthenticated: true,
-      });
+      updateCurrentUser({ ...responseJSON, isAuthenticated: true });
     } catch (e) {
-      setCurrentUser({ isAuthenticated: false });
+      updateCurrentUser({ isAuthenticated: false });
     }
   };
 
+  // Triggers a request to the API to verify the user's email.
   const verifyOneTimePassCode = async (token, callback) => {
     try {
       const email = window.localStorage.getItem('USERNAME');
-      const currentUserJSON = await fetchVerification(token, email);
-      setCurrentUser({
-        ...camelcaseKeys(currentUserJSON),
-        isAuthenticated: true,
-      });
+      const responseJSON = await fetchVerification(token, email);
+      updateCurrentUser({ ...responseJSON, isAuthenticated: true });
       callback(true);
     } catch (e) {
+      updateCurrentUser({ isAuthenticated: false });
       callback(false, e.message);
     }
   };
 
+  // Trigger a request to the API to sign out the user.
   const signOutCurrentUser = async () => {
     try {
       await fetchSignOut();
-      setCurrentUser({ isAuthenticated: false });
+      updateCurrentUser({ isAuthenticated: false });
     } catch (e) {
       window.alert('Something went wrong');
     }
