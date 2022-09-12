@@ -7,7 +7,6 @@ const TERMS_OUTLINE = [
   { id: 'use-of-event-board', title:'Your Use of the Event Board Service' }, 
   { id: 'content-ip-rights', title:'Content and Intellectual Property Rights' }, 
   { id: 'customer-support', title:'Customer Support, Information, Questions, Complaints' }, 
-  { id: 'international-data-transfer', title:'International Data Transfers' }, 
   { id: 'problems-disputes', title:'Problems and Disputes' }, 
   { id: 'about-terms', title:'About These Terms' }, 
   { id: 'contact-data-umbrella', title:'Contact Data Umbrella' }, 
@@ -23,7 +22,7 @@ function TermsPage() {
         <div className="grid grid-rows-3 grid-flow-col">
           <div className={`${termsStyleClasses.outlineHeader} row-span-3`}>
             {TERMS_OUTLINE.map(({ title, id }) => {
-              return <h1 key={title} className="block"><a href={`#${id}`}>{title}</a></h1>
+              return <h1 key={title} className="block w-1/2"><a href={`#${id}`}>{title}</a></h1>
             })}
 
           </div>
@@ -35,8 +34,8 @@ function TermsPage() {
                 Event Board website, apps, APIs, and widgets. Please read these Terms carefully, and 
                 contact us if you have any questions. By accessing or using Data Science Event Board, 
                 you agree to be bound by these Terms, our 
-                <a className="underline" href="/privacy">Privacy Policy</a>, and our 
-                <a className="underline"  href="/code-of-conduct">Code of Conduct</a>. 
+                &nbsp;<a className="underline" href="/privacy">Privacy Policy</a>, and our 
+                &nbsp;<a className="underline"  href="/code-of-conduct">Code of Conduct</a>. 
               </p>
             </div>
 
