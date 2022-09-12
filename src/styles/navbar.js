@@ -1,7 +1,7 @@
 export const navStyleClasses = {
   navLink: `
     inline-block
-    mr-4
+    mr-12
     mt-6
     hover:underline
     hover:text-du-purple-500
