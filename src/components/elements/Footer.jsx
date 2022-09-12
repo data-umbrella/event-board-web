@@ -6,7 +6,7 @@ function Footer() {
     <footer className="block bg-du-indigo-900 min-h-60 text-white px-32 pt-12 pb-24">
       <div className="grid lg:grid-cols-4 text-left">
         <div>
-          <img src={logoImg} alt="logo" className="mb-2" />
+          <img src={logoImg} alt="logo" className="h-32 w-40" />
         </div>
 
         <div>
