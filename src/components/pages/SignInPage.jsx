@@ -8,14 +8,14 @@ function SignInPage() {
     <div className="container mx-auto lg:p-20 mb-40 mt-10">
       <img className="mx-auto object-scale-down h-20 w-15 mb-5" src={logo} alt="logo"/>
       <div className="container mx-auto text-center pb-10 font-bold">
-        <h1 className="text-4xl text-center">Welcome back!</h1>
+        <h1 className="invisible md:visible text-4xl text-center">Welcome back!</h1>
       </div>
 
-      <div className="container mx-auto lg:w-1/2">
+      <div className="container mx-auto md:w-2/3">
         <SignInForm />
 
         <div className="flex justify-center">
-          <div className="lg:basis-1/2 grid grid-cols-2 mt-5">
+          <div className="md:basis-2/3 grid grid-cols-2 mt-5">
             <span className="text-left">No Account?</span>
             <span className="text-right">
               <Link style={ { color: '#6B26FF' } } to="/sign-up">Sign Up →</Link>
