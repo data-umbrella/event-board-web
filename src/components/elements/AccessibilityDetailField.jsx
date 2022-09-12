@@ -15,13 +15,10 @@ function AccessibilityDetailField({ value, onChange }) {
   }
 
   return (
-    <>
-      <label className="block font-bold mb-2">Accessibility Options</label>
-
-      <div className="grid grid-cols-3 bg-white rounded p-6">
-        {ACCESSIBILITY_OPTIONS.map(option => {
+    <div className="grid md:grid-cols-2 bg-white dark:bg-transparent rounded p-6">
+      <section>
+        {ACCESSIBILITY_OPTIONS.slice(0, ACCESSIBILITY_OPTIONS.length/2).map((option) => {
           const checked = value.includes(option.value);
-
           return (
             <div key={option.value}>
               <input
@@ -39,8 +36,29 @@ function AccessibilityDetailField({ value, onChange }) {
             </div>
           )
         })}
-      </div>
-    </>
+      </section>
+      <section>
+        {ACCESSIBILITY_OPTIONS.slice((ACCESSIBILITY_OPTIONS.length/2), ACCESSIBILITY_OPTIONS.length).map(option => {
+          const checked = value.includes(option.value);
+          return (
+            <div key={option.value}>
+              <input
+                id={option.value}
+                name={option.value}
+                type="checkbox"
+                className="mr-2"
+                checked={checked}
+                onChange={handleMultiSelectChange}
+              />
+
+              <label htmlFor={option.value}>
+                {option.label}
+              </label>
+            </div>
+          )
+        })}
+      </section>
+    </div>
   )
 }
 

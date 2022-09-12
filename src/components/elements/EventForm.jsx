@@ -34,133 +34,29 @@ function PostEventFormComponent(props) {
   }
 
   return (
-    <Form className="container mx-auto pl-10 pr-10 mb-10 pb-10">
-      <div className="pt-12 pb-12">
-        <h1 className="text-4xl">Event Submission Form</h1>
-        <p className="text-lg pl-0.5 pt-2 pb-2">
+    <Form className="container grid mx-auto p-0 md:px-10 md:mb-10 md:pb-10 gap-6">
+      <section className="pt-6">
+        <h1 className="text-2xl font-bold md:text-4xl">Event Submission Form</h1>
+        <p className="text-md md:text-lg pl-0.5 pt-2 pb-2">
           Events can be submitted by anybody but will need to be approved by admins.
         </p>
-      </div>
-
-      <div className="grid grid-cols-3 gap-24 bg-white rounded border border-slate-300 p-6">
-        <div className="col-span-1 rounded">
-          <ImagePreview url={values.imageFile} />
-        </div>
-
-        <div className="col-span-2 rounded">
-          <div className="mb-6">
-            <label>Upload Image</label>
-            <br/>
-            <input
-              type="file"
-              name="imageFile"
-              id="image"
-              accept="image/png, image/jpeg"
-              onChange={handleImageChange}
-            />
-          </div>
-
-          <div className="mb-6">
-            <label>Image Alt Text</label>
-            <Field
-              name="imageAltText"
-              type="text"
-              className={formStyleClasses.input}
-              autoComplete="new-password"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label>Enter Image URL</label>
-            <Field
-              name="imageUrl"
-              type="text"
-              className={formStyleClasses.input}
-              autoComplete="new-password"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-12 container mx-auto pt-6">
-        <div>
-          <div className="mb-6">
-            <Field
-              autoComplete="new-password"
-              className={formStyleClasses.input}
-              component={ValidatedInput}
-              label="Event Name"
-              name="eventName"
-              type="text"
-              id="eventName"
-            />
-          </div>
-
-          <div className="mb-6">
-            <Field
-              autoComplete="new-password"
-              className={formStyleClasses.input}
-              component={ValidatedInput}
-              label="Organization Name"
-              name="organizationName"
-              type="text"
-              id="organizationName"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            <div className="pb-6">
-              <label>Start Date</label>
-              <DatePickerField name="startDate" className={formStyleClasses.input} />
-            </div>
-
-            <div className="pb-6">
-              <label>End Date</label>
-              <DatePickerField name="endDate" className={formStyleClasses.input} />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 pb-6">
-            <div className="">
-              <label>Time Zone</label>
-              <Field name="timezone" component="select" className={formStyleClasses.select}>
-                <option value={null}>Select a time zone</option>
-                {timezones.map(({ name, text }) => {
-                  return <option key={text} value={text}>{name}</option>
-                })}
-              </Field>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div className="col-span-1">
-                <TimeSlotField id="startTime" name="startTime" label="Start Time" />
-              </div>
-
-              <div className="col-span-1">
-                <TimeSlotField id="endTime" name="endTime" label="End Time" />
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <CitySelect />
-          </div>
-
-          <div className="mb-6">
-            <label htmlFor="codeOfConductUrl">
-              Code Of Conduct URL
-            </label>
-            <Field
-              autoComplete="new-password"
-              id="codeOfConductUrl"
-              name="codeOfConductUrl"
-              className={formStyleClasses.input}
-            />
-          </div>
-        </div>
-
-        <div className="">
-          <div className="mb-6">
+      </section>
+      {/* Organization details section */}
+      <section>
+        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Organization Details</h2>
+        <section
+          className="bg-white dark:bg-transparent rounded border border-slate-300 grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 md:gap-6 p-6 marker:mb-6"
+        >
+          <Field  
+            autoComplete="new-password"
+            className={formStyleClasses.input}
+            component={ValidatedInput}
+            label="Organization Name"
+            name="organizationName"
+            type="text"
+            id="organizationName"
+          />
+          <section className="mt-4 md:mt-0">
             <label htmlFor="organizationUrl">
               Organization URL
             </label>
@@ -170,79 +66,158 @@ function PostEventFormComponent(props) {
               name="organizationUrl"
               className={formStyleClasses.input}
             />
-          </div>
+            <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} />
+          </section>
+          
+        </section>
+      </section>
 
-          <div className="mb-6">
-            <EventTypeField />
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 mb-6">
-            <div className="">
-              <label>CFP Deadline Date</label>
+      {/* Event Details Section */}
+      <section>
+        <h2 className="text-xl md:text-2xl pb-4 font-bold">Event Details</h2>
+        <section className="bg-white dark:bg-transparent rounded border border-slate-300 p-6">
+          <section className="flex flex-col">
+            <div className="pb-4 max-w-sm">
               <Field
-                name="cfpDeadline"
-                type="text"
+                autoComplete="new-password"
                 className={formStyleClasses.input}
+                component={ValidatedInput}
+                label="Event Name"
+                name="eventName"
+                type="text"
+                id="eventName"
               />
             </div>
-
-            <div className="">
-              <LanguageField />
+            <div>
+              <label htmlFor="description">Event Description</label>
+              <Field
+                component="textarea"
+                id="description"
+                name="description"
+                className={formStyleClasses.textarea}
+              />
             </div>
-          </div>
+          </section>
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6">
+            <section className="grid gap-6">
+              <section className="grid grid-cols-2 gap-6">
+                <div>
+                  <label>Start Date</label>
+                  <DatePickerField name="startDate" className={formStyleClasses.input} />
+                </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            <div className="mb-6">
-              <label>Registration Start Date</label>
-              <DatePickerField name="registrationStartDate" className={formStyleClasses.input} />
-            </div>
+                <div>
+                  <label>End Date</label>
+                  <DatePickerField name="endDate" className={formStyleClasses.input} />
+                </div>
+              </section>
+              <section className="grid grid-cols-2 gap-2">
+                <div className="col-span-1">
+                  <TimeSlotField id="startTime" name="startTime" label="Start Time" />
+                </div>
 
-            <div className="mb-6">
-              <label>Registration End Date</label>
-              <DatePickerField name="registrationEndDate" className={formStyleClasses.input} />
-            </div>
-          </div>
+                <div className="col-span-1">
+                  <TimeSlotField id="endTime" name="endTime" label="End Time" />
+                </div>
+              </section>
+              <section>
+                <label>Time Zone</label>
+                <Field name="timezone" component="select" className={formStyleClasses.select}>
+                  <option value={null}>Select a time zone</option>
+                  {timezones.map(({ name, text }) => {
+                    return <option key={text} value={text}>{name}</option>
+                  })}
+                </Field>
+              </section>
+              <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <CitySelect />
+              </section>
+              <section>
+                <LanguageField />
+              </section>
+              <section>
+                <EventTypeField />
+              </section>
+              <section>
+                <label>CFP Deadline Date</label>
+                <Field
+                  name="cfpDeadline"
+                  type="text"
+                  className={formStyleClasses.input}
+                />
+              </section>
+              <section className="grid grid-cols-2 gap-6">
+                <div>
+                  <label>Registration Start Date</label>
+                  <DatePickerField name="registrationStartDate" className={formStyleClasses.input} />
+                </div>
+              </section>
+              <section className="grid grid-cols-2 gap-6">
+                <div>
+                  <label>Registration End Date</label>
+                  <DatePickerField name="registrationEndDate" className={formStyleClasses.input} />
+                </div>
+              </section>
+            </section>
+            <section>
+              <div
+                className="grid col-span-2 md:col-span-1 border border-1 border-black dark:border-teal-400 rounded text-center place-content-center"
+                style={{
+                  minHeight: '6rem',
+                  minWidth: '6rem'
+                }}
+              >
+                <ImagePreview url={values.imageFile} />
+              </div>
 
-          <div className="mb-6">
-            <label htmlFor="eventRegistrationUrl">
-              Event Registration URL
-            </label>
-            <Field
-              autoComplete="new-password"
-              id="eventRegistrationUrl"
-              name="eventRegistrationUrl"
-              className={formStyleClasses.input}
-            />
-          </div>
+              <div className="col-span-2 rounded py-6">
+                <div className="mb-6">
+                  <label>Upload Image</label>
+                  <br/>
+                  <input
+                    style={{ maxWidth: "80%"}}
+                    type="file"
+                    name="imageFile"
+                    id="image"
+                    accept="image/png, image/jpeg"
+                    onChange={handleImageChange}
+                  />
+                </div>
 
-          <div className="mb-6">
-            <DiscountField />
-          </div>
-        </div>
-      </div>
+                <div className="mb-6">
+                  <label>Image Alt Text</label>
+                  <Field
+                    name="imageAltText"
+                    type="text"
+                    className={formStyleClasses.input}
+                    autoComplete="new-password"
+                  />
+                </div>
 
-      <div className="mb-6">
-        <label htmlFor="description">Event Description</label>
-        <Field
-          component="textarea"
-          id="description"
-          name="description"
-          className={formStyleClasses.textarea}
-        />
-      </div>
+                <div className="mb-6">
+                  <label>Enter Image URL</label>
+                  <Field
+                    name="imageUrl"
+                    type="text"
+                    className={formStyleClasses.input}
+                    autoComplete="new-password"
+                  />
+                </div>
+              </div>
+            </section>
+          </section>
+        </section>
+      </section>
 
-      <div className="mb-6">
+      {/* Speakers section */}
+      <section>
         <SpeakersField value={values.speakers} onChange={setFieldValue} />
-      </div>
+      </section>
 
-      <div>
-        <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} />
-      </div>
-
-      <div className="mb-6">
-        <label className="block font-bold mb-2">Notes</label>
-
-        <div className="grid grid-cols-2 gap-6 bg-white rounded p-4">
+      {/* Notes section */}
+      <section>
+        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Notes</h2>
+        <div className="grid grid-cols-2 gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
           <div className="">
             <TextField
               component="textarea"
@@ -263,28 +238,70 @@ function PostEventFormComponent(props) {
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="pt-6 pb-6">
-        <AccessibilityDetailField
-          value={values.accessibilityOptions}
-          onChange={setFieldValue}
-        />
-      </div>
+      {/* Other section */}
+      <section>
+        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Other</h2>
+        <section className="grid md:grid-cols-2 gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+          <div>
+            <div className="mb-6">
+              <label htmlFor="codeOfConductUrl">
+                Code Of Conduct URL
+              </label>
+              <Field
+                autoComplete="new-password"
+                id="codeOfConductUrl"
+                name="codeOfConductUrl"
+                className={formStyleClasses.input}
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="eventRegistrationUrl">
+                Event Registration URL
+              </label>
+              <Field
+                autoComplete="new-password"
+                id="eventRegistrationUrl"
+                name="eventRegistrationUrl"
+                className={formStyleClasses.input}
+              />
+            </div>
+          </div>
+          <DiscountField />
+        </section>
+      </section>
 
-      <div className="pt-6 pb-6">
-        <FeaturedEventField
-          value={values.featured}
-          onChange={setFieldValue}
-        />
-      </div>
+      {/* Accessibility Options section */}
+      <section>
+        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Accessibility</h2>
+        <section className="grid gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+          <AccessibilityDetailField
+            value={values.accessibilityOptions}
+            onChange={setFieldValue}
+          />
+        </section>
+      </section>
 
-      <div className="grid grid-cols-2 w-1/2 float-right gap-1">
-        <button className="p-2 underline">Clear Form</button>
-        <button className={formStyleClasses.reviewButton} type="submit">
-          Review
-        </button>
-      </div>
+      {/* Featured Event section */}
+      <section>
+        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Featured Event</h2>
+        <section className="grid gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+          <FeaturedEventField
+            value={values.featured}
+            onChange={setFieldValue}
+          />
+        </section>
+      </section>
+
+      <section className="grid md:grid-rows-1 md:justify-end gap-1 mb-6">
+        <div className="grid grid-cols-1 md:block">
+          <button className="p-2 underline dark:text-white">Clear Form</button>
+          <button className={formStyleClasses.reviewButton} type="submit">
+            Review
+          </button>
+        </div>
+      </section>
     </Form>
   )
 }

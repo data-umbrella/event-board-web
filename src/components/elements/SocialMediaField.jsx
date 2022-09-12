@@ -87,13 +87,13 @@ function SocialMediaField({ value, onChange }) {
   return (
     <div className="mb-6">
       <div className="mb-2">
-        <label className="font-bold" htmlFor="speakers">Social Media</label>
-        <button className="float-right" type="button" onClick={addLink}>
+        <label htmlFor="speakers">Social Media</label>
+        <button className="float-right dark:text-white" type="button" onClick={addLink}>
           Add Social Media Link
         </button>
       </div>
 
-      <div className="">
+      <div>
         {links.map(link => {
           return (
             <SocialMediaFieldInput
