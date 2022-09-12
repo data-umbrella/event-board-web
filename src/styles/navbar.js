@@ -42,6 +42,8 @@ export const navStyleClasses = {
     items-center
     whitespace-nowrap
     dark:text-slate-50
+    dark:hover:text-lightAqua
+    hover:underline
   `,
   navSelectMenu: `
     dropdown-menu
