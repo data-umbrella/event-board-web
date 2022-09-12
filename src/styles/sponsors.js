@@ -5,7 +5,7 @@ const sponsorsStyleClasses = {
     m-10
   `,
   sponsorsGrid:`
-    gap-6
+    gap-44
     grid
     mb-6
     md:grid-cols-3
