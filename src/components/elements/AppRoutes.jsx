@@ -67,7 +67,7 @@ function AppRoutes() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
-      {/* <Route path="/terms" element={<TermsPage />} /> */}
+      <Route path="/terms" element={<TermsPage />} />
 
       <Route path="/FAQs" element={<FAQsPage />} />
       <Route path="/about" element={<AboutPage />} />
