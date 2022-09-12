@@ -10,6 +10,7 @@ import { AuthProvider, useAuth } from 'hooks/authentication';
 import NavigationBar from 'components/elements/NavigationBar';
 import AppRoutes from 'components/elements/AppRoutes';
 import Footer from 'components/elements/Footer';
+import MobileNav from 'components/elements/MobileNav'
 
 // Styles and assets
 import './App.css';
@@ -35,9 +36,18 @@ export default function App() {
     <div className="bg-du-gray dark:bg-slate-700 transition duration-300">
       <AuthProvider>
         <CurrentUser>
+<<<<<<< HEAD
           <div className="flex flex-col min-h-screen justify-between">
+=======
+          <div className="flex flex-col h-screen justify-between">
+            <div className='visible md:invisible'>
+              <MobileNav />
+            </div>
+>>>>>>> 3a9c5fc (WIP: mobile nav 90% finished, need to add close functionality and style links.)
             <div className="w-3/4 container mx-auto">
-              <NavigationBar />
+              <div className='invisible md:visible'>
+                <NavigationBar />
+              </div>
               <AppRoutes />
             </div>
             <Footer />
