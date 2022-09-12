@@ -3,8 +3,8 @@ import logoImg from 'assets/logo-color.svg';
 
 function Footer() {
   return (
-    <footer className="block bg-indigo-900 min-h-60">
-      <div className="grid lg:grid-cols-4 text-white px-32 pt-12 pb-24 text-left">
+    <footer className="block bg-indigo-900 min-h-60 text-white px-32 pt-12 pb-24">
+      <div className="grid lg:grid-cols-4 text-left">
         <div>
           <img src={logoImg} alt="logo" className="mb-2" />
         </div>
@@ -36,6 +36,9 @@ function Footer() {
             <li className="mb-2">Terms & Conditions</li>
           </ul>
         </div>
+      </div>
+      <div className="text-center py-9">
+        © Data Umbrella 2022
       </div>
     </footer>
   )
