@@ -4,6 +4,7 @@ const sponsorsStyleClasses = {
   `,
   sponsorsGrid:`
     grid
+    sm:gap-4
     md:gap-16
     lg:gap-24
     md:grid-cols-3
@@ -21,6 +22,7 @@ const sponsorsStyleClasses = {
   imageStyle:`
     h-30
     w-64
+    pb-4
   `,
 };
 
