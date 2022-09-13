@@ -55,7 +55,7 @@ module.exports = {
     //     }
     // ],
     indent: [
-      "error",
+      "warn",
       2
     ],
     "jsx-quotes": [
@@ -65,7 +65,7 @@ module.exports = {
     "max-len": [
       "warn",
       {
-        code: 120
+        code: 180
       }
     ],
     "no-debugger": "off",

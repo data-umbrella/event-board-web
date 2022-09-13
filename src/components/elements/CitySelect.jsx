@@ -5,7 +5,7 @@ import formStyleClasses from 'styles/forms';
 
 function CitySelect () {
   return (
-    <div className="grid grid-cols-4 gap-6">
+    <>
       <div className="col-span-2">
         <label>City</label>
         <Field
@@ -24,7 +24,7 @@ function CitySelect () {
           })}
         </Field>
       </div>
-    </div>
+    </>
   )
 }
 
