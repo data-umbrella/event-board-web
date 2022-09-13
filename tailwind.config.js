@@ -13,7 +13,12 @@ module.exports = {
           600: '#783D86',
         },
         'du-gray': '#F7FAFC',
-      }
+        'du-indigo': {
+          900: '#151A35',
+        },
+        'du-lightAqua': '#00FFFF',
+        'du-deepPurple': '#1E2445',
+      },
     },
   },
   plugins: [

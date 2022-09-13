@@ -70,13 +70,13 @@ function SpeakersField ({ value, onChange }) {
   return (
     <div>
       <div className="mb-2">
-        <label className="font-bold" htmlFor="speakers">Speakers</label>
-        <button className="float-right" type="button" onClick={addSpeaker}>
+        <h2 className="text-xl md:text-2xl pb-4 inline font-bold">Speakers</h2>
+        <button className="float-right dark:text-white" type="button" onClick={addSpeaker}>
           Add a Speaker
         </button>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 mb-6 bg-white p-4 rounded">
+      <div className="grid md:grid-cols-3 bg-white dark:bg-transparent rounded border border-slate-300 dark:border-teal-400 p-6 gap-2 mb-6">
         {Array.from(speakers).map(speaker => {
           const key = speaker === '' ? 'editing' : speaker
           return (

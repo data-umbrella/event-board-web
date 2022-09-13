@@ -5,7 +5,7 @@ import DownArrowIcon from 'components/elements/DownArrowIcon';
 
 function DropdownMenu({ label, options }) {
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex justify-center mt-4 mr-10">
       <div>
         <div className="dropdown relative">
           <a
