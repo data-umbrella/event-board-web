@@ -2,7 +2,9 @@ const formStyleClasses = {
   input: `
     block
     border
-    border-black
+    border-zinc-300
+    dark:border-teal-400
+    dark:bg-transparent
     w-full
     rounded-md
     h-8
@@ -14,7 +16,9 @@ const formStyleClasses = {
     rounded-md
     h-8
     border
-    border-black
+    border-zinc-300
+    dark:border-teal-400
+    dark:bg-transparent
   `,
   inputContainer: `
     pr-4
@@ -26,13 +30,15 @@ const formStyleClasses = {
     text-white
     w-full
     rounded
-    p-1
+    py-1
     font-medium
   `,
   textarea: `
     block
     border
-    border-black
+    border-zinc-300
+    dark:border-teal-400
+    dark:bg-transparent
     w-full
     h-40
     rounded
@@ -41,7 +47,8 @@ const formStyleClasses = {
   reviewButton: `
     bg-du-purple-500
     text-white
-    p-1
+    py-2
+    px-8
     rounded
     text-lg
     font-normal

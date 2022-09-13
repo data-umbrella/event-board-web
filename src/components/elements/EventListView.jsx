@@ -10,7 +10,7 @@ function EventListView({ events }) {
       {Object.keys(groupedEvents).map(month => {
         return (
           <div key={month} className="mb-6">
-            <h1 className="text-lg font-semibold mb-1">{month}</h1>
+            <h1 className="text-2xl font-semibold mb-2">{month}</h1>
             <EventsForMonth events={groupedEvents[month]} />
           </div>
         )

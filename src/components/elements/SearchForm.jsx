@@ -144,6 +144,7 @@ export function mapPropsToValues (props) {
     eventType: props.eventType || '',
     topic: props.topic || '',
     language: props.language || '',
+    region: props.region || '',
   }
 }
 

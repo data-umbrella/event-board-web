@@ -24,7 +24,7 @@ function BaseSignUpForm() {
           <label>
             <Field className="mr-2" type="checkbox" name="acceptedTerms" />
             <span className="mr-1">I agree with</span>
-            <Link className={formStyleClasses.hyperlinks} to="/terms-and-conditions">
+            <Link className={formStyleClasses.hyperlinks} to="/terms">
               Terms & Conditions
             </Link>
           </label>
