@@ -7,6 +7,7 @@ import lightMode from '../../assets/light-mode.svg'
 import darkMode from '../../assets/dark-mode.svg'
 import closeSymbol from '../../assets/HamX.png'
 import hamMenu from '../../assets/HamReg.png'
+import logoDark from '../../assets/logoDark.png'
 
 
 function MobileNav() {
@@ -16,10 +17,9 @@ function MobileNav() {
 
   return (
     <>
-      <div className='grid text-right bg-du-gray h-16 grid-cols-4 place-content-center place-items-center'>
+      <div className='grid text-right bg-du-gray dark:bg-slate-700 h-16 grid-cols-4 place-content-center place-items-center'>
         <section className='place-content-center place-items-center'>
-          {/* <Link to="/"><img src={colorTheme === 'dark' ? logoImg : logoDark} alt="logo" /></Link> */}
-          <Link to="/"><img className="object-scale-down object-center h-14 w-16" src={Logo} alt="logo" /></Link>
+          <Link onClick={() => setMenuOpen(false)} to="/"><img className="object-scale-down object-center h-14 w-16" src={colorTheme === 'dark' ? Logo : logoDark} alt="logo" /></Link>
         </section>
         <span className='text-center col-span-2'>
           <p className='md:text-sm'>Data Science Event Board</p>
@@ -29,7 +29,7 @@ function MobileNav() {
         </button>
       </div>
       <div className={menuOpen ? 'relative' : 'invisible'}>
-        <div style={{backgroundColor: "#1E2445"}} className="z-20 fixed top-0 right-0 pl-8 h-screen text-right w-4/5 bg-sky-700">
+        <div className="dark:bg-du-deepPurple bg-fuchsia-800 z-20 fixed top-0 right-0 pl-8 h-screen text-right w-4/5">
           <div className='text-white text-2xl grid grid-rows-11 gap-3 place-content-evenly'>
             <button onClick={() => setMenuOpen((prev) => !prev)} className='pb-12 pt-10 text-right'>
               Close <img className="inline" src={closeSymbol} />
@@ -42,17 +42,17 @@ function MobileNav() {
                 alt="logo"
               />
             </div>
-            <Link to="/sign-in">Sign In</Link><br />
-            <Link to="/events/calendar">Event Calendar</Link><br />
-            <Link to="/events/new">Post Event</Link><br/>
-            <Link to="/events/weekly-digest">Weekly Digest</Link><br/>
-            <Link to="/sponsors">Sponsors</Link><br/>
-            <Link to="/donate">Donate</Link><br/>
-            <Link to="/about">About Us</Link><br/>
-            <Link to="/contact">Contact Us</Link><br/>
-            <Link to="/FAQs">FAQs</Link><br/>
-            <Link to="/privacy">Privacy</Link><br/>
-            <Link to="/codeofconduct">Terms & Conditions</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/sign-in">Sign In</Link><br />
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/events/calendar">Event Calendar</Link><br />
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/events/new">Post Event</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/events/weekly-digest">Weekly Digest</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/sponsors">Sponsors</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/donate">Donate</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/about">About Us</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/contact">Contact Us</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/FAQs">FAQs</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/privacy">Privacy</Link><br/>
+            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/codeofconduct">Terms & Conditions</Link><br/>
           </div>
         </div>
       </div>
