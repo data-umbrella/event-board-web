@@ -1,7 +1,5 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { useLocation } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useLocation, Link } from "react-router-dom";
 import useDarkMode from 'hooks/dark-mode';
 import Logo from '../../assets/logo.png'
 import lightMode from '../../assets/light-mode.svg'
@@ -25,12 +23,21 @@ function MobileNav() {
 
   return (
     <>
-      <div className='grid grid-cols-4 place-items-center text-right h-16 bg-du-gray dark:bg-slate-700'>
-        <section className='place-content-center place-items-center'>
-          <Link onClick={() => setMenuOpen(false)} to="/"><img className="object-scale-down object-center h-14 w-16" src={colorTheme === 'dark' ? Logo : logoDark} alt="logo" /></Link>
+      <div className="grid grid-cols-4 place-items-center text-right h-16 bg-du-gray dark:bg-slate-700">
+        <section className="place-content-center place-items-center">
+          <Link
+            onClick={() => setMenuOpen(false)}
+            to="/"
+          >
+            <img
+              className="object-scale-down object-center h-14 w-16"
+              src={colorTheme === 'dark' ? Logo : logoDark}
+              alt="logo"
+            />
+          </Link>
         </section>
-        <span className='col-span-2 text-center'>
-          <p className='md:text-sm'>Data Science Event Board</p>
+        <span className="col-span-2 text-center">
+          <p className="md:text-sm">Data Science Event Board</p>
         </span>
         <button className="col-start-4 pl-9" onClick={() => setMenuOpen((prev) => !prev)}>
           <span className="text-black dark:text-white">
@@ -40,8 +47,8 @@ function MobileNav() {
       </div>
       <div className={menuOpen ? 'relative' : 'invisible'}>
         <div className="dark:bg-du-deepPurple bg-fuchsia-800 z-20 fixed top-0 right-0 pl-8 h-screen text-right w-4/5">
-          <div className='text-white text-2xl grid grid-rows-11 gap-3 place-content-evenly'>
-            <button onClick={() => setMenuOpen((prev) => !prev)} className='pb-12 pt-10 text-right'>
+          <div className="text-white text-2xl grid grid-rows-11 gap-3 place-content-evenly">
+            <button onClick={() => setMenuOpen((prev) => !prev)} className="pb-12 pt-10 text-right">
               Close <img className="inline" src={closeSymbol} />
             </button>
             <div>
