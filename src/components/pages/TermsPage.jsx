@@ -102,7 +102,7 @@ function TermsPage() {
               <p className="font-medium">
                 We may share information about you as follows or as otherwise described in this Privacy Policy:
               </p>
-              <ul className="list-disc pl-5">
+              <ul className="list-disc pl-5 dark:text-slate-50">
                 <li>
                   Mi iaculis aliquet sit ultricies arcu ut sit id.
                   Cursus cursus morbi ut risus fringilla et donec eget.
