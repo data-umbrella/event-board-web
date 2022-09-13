@@ -14,13 +14,13 @@ import { useNavigate } from 'react-router-dom';
  */
 function ContactUsFormComponent() {
   return (
-    <div className="container p-20 mb-10">
-      <div>
-        For feature suggestions, bug reports, etc for the Event Board, please open up an issue here:
+    <div className="container my-5 md:p-20 md:mb-10 text-xl">
+      <section>
+        <p className="pb-4">For feature suggestions, bug reports, etc. for the Event Board, please open up an issue here:</p>
         <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-web">
           https://github.com/data-umbrella/event-board-web
         </a>
-      </div>
+      </section>
 
       <div className="pt-5 pb-5">
         <p>For inquiries related to sponsorship, technical issues, or other, please complete this form:</p>
