@@ -25,10 +25,10 @@ function ReviewEventMainSection({ evt, editEvent }) {
   const imageUrl = imageUrlForEvent(evt);
 
   return (
-    <>
+    <section>
       <div className="mb-12">
         <p>
-          <Link to="/">&#60; Back to Results</Link>
+          <Link to="/"> &#60; Back to Results</Link>
         </p>
       </div>
 
@@ -89,7 +89,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

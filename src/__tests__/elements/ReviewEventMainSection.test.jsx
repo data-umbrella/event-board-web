@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
 
@@ -11,11 +12,12 @@ describe('Event map view', () => {
       eventUrl: 'https://www.test.com',
     }
     
-    render(<ReviewEventMainSection evt={event} />);
+    render(<ReviewEventMainSection evt={event} />, {wrapper: BrowserRouter});
 
     const registrationLink = screen.getByText(/Register/i);
 
     expect(registrationLink).toHaveAttribute('href', 'https://www.test.com');
     expect(registrationLink).toHaveAttribute('target', '_blank');
+    expect(registrationLink).toHaveAttribute('rel', 'noreferrer');
   });
 });
