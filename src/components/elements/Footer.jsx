@@ -21,7 +21,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2">
-              <a href="https://opencollective.com/data-umbrella">Donate</a>
+              <a href="https://opencollective.com/data-umbrella/contribute/data-science-event-board-37473/checkout">Donate</a>
             </li>
             <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
             <li className="mb-2">
