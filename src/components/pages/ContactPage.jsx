@@ -2,7 +2,7 @@ import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-// import contact from 'src/assets/contact.png';
+import contactMobile from 'assets/contact-mobile.png'
 import contact from 'assets/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
 import { postContactEmail } from 'services/contact-emails';
@@ -162,7 +162,8 @@ function ContactUsPage() {
   return (
     <div>
       <h1 className="text-xl md:text-3xl py-4 md:py-8">Contact Us</h1>
-      <img src={contact} className="w-full mx-auto" alt="contact-us"/>
+      <img src={contact} className="hidden md:block w-full mx-auto" alt="contact-us"/>
+      <img src={contactMobile} className="md:hidden w-full mx-auto" alt="contact-mobile"/>
       <ContactUsForm handleFormSubmit={handleSubmit} />
     </div>
   )
