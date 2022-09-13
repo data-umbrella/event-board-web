@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo-color.svg';
 
 function Footer() {
@@ -11,20 +12,20 @@ function Footer() {
 
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
-            <li className="mb-2"><a href="/about">About Us</a></li>
-            <li className="mb-2"><a href="/about">Meet the Team</a></li>
-            <li className="mb-2"><a href="/contact">Contact Us</a></li>
+            <li className="mb-2"><Link to="/about">About Us</Link></li>
+            <li className="mb-2"><Link to="/about">Meet the Team</Link></li>
+            <li className="mb-2"><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
 
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
-            <li className="mb-2">Donate</li>
-            <li className="mb-2"><a href="/sponsors">Sponsors</a></li>
+            <li className="mb-2"><a href="https://opencollective.com/data-umbrella">Donate</a></li>
+            <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
             <li className="mb-2">
-              <a href="/faqs">
+              <Link to="/faqs">
                 {"FAQ's"}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -32,7 +33,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2"><a href="https://www.dataumbrella.org">Data Umbrella</a></li>
-            <li className="mb-2"><a href="/privacy">Privacy</a></li>
+            <li className="mb-2"><Link to="/privacy">Privacy</Link></li>
             <li className="mb-2">Terms & Conditions</li>
           </ul>
         </div>
