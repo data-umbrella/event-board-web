@@ -5,10 +5,10 @@ import logo from 'assets/logo-umbrella.png'
 
 function SignInPage() {
   return (
-    <div className="container mx-auto lg:p-20 mb-40 mt-10">
+    <div className="container mx-auto md:p-20 mb-40 mt-10">
       <img className="mx-auto object-scale-down h-20 w-15 mb-5" src={logo} alt="logo"/>
-      <div className="container mx-auto text-center pb-10 font-bold">
-        <h1 className="invisible md:visible text-4xl text-center">Welcome back!</h1>
+      <div className="text-center text-4xl font-bold">
+        <h1 className="hidden md:block text-center">Welcome back!</h1>
       </div>
 
       <div className="container mx-auto md:w-2/3">
