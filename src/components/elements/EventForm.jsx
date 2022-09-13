@@ -175,7 +175,7 @@ function PostEventFormComponent(props) {
                   <label>Upload Image</label>
                   <br/>
                   <input
-                    style={{ maxWidth: "80%"}}
+                    style={{ maxWidth: "80%" }}
                     type="file"
                     name="imageFile"
                     id="image"
