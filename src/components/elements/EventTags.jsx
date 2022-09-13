@@ -5,7 +5,7 @@ function EventTags({ tags }) {
 
   return (
     <div>
-      <b className="mr-2">Tags:</b>
+      <b className="mr-2 dark:text-slate-50">Tags:</b>
 
       { tags.map(tag => {
         return (

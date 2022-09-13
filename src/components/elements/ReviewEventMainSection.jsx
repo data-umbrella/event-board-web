@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { imageUrlForEvent } from 'utils/urls';
 
 const styleClasses = {
@@ -23,71 +24,77 @@ function ReviewEventMainSection({ evt, editEvent }) {
   const imageUrl = imageUrlForEvent(evt);
 
   return (
-    <div className={styleClasses.mainSectionContainer}>
-      <div className={styleClasses.imageContainer}>
-        <img src={imageUrl} className="w-full" alt="logo" />
+    <>
+      <div className="mb-12">
+        <p>
+          <Link to="/">&#60; Back to results</Link>
+        </p>
       </div>
+      <div className={styleClasses.mainSectionContainer}>
+        <div className={styleClasses.imageContainer}>
+          <img src={imageUrl} className="w-full" alt="logo" />
+        </div>
 
-      <div className="col-span-1">
-        <div className="pt-4">
-          <div className="grid grid-cols-2">
-            <div className={styleClasses.eventTypePillbox}>
-              { evt.eventType }
-            </div>
+        <div className="col-span-1">
+          <div className="pt-4">
+            <div className="grid grid-cols-2">
+              <div className={styleClasses.eventTypePillbox}>
+                {evt.eventType}
+              </div>
 
-            { editEvent && (
-              <div className="float-right text-right">
-                <button className="p-1 text-white rounded mb-2 mr-2" onClick={editEvent}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="black"
+              {editEvent && (
+                <div className="float-right text-right">
+                  <button
+                    className="p-1 text-white rounded mb-2 mr-2"
+                    onClick={editEvent}
                   >
-                    <path
-                      d="
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="black"
+                    >
+                      <path
+                        d="
                         M17.414 2.586a2 2 0 00-2.828 0L7
                         10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z
                       "
-                    />
-                    <path
-                      fillRule="evenodd"
-                      d="
+                      />
+                      <path
+                        fillRule="evenodd"
+                        d="
                         M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1
                         1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z
                       "
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </div>
-            )}
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <h1 className="font-bold text-3xl mb-4">{evt.eventName}</h1>
+
+            <h2 className="mb-2">{evt.organizationName}</h2>
+
+            <div className="mb-4">
+              <span className="mr-2">Twitter</span>
+              <span className="mr-2">Facebook</span>
+              <span className="mr-2">LinkedIn</span>
+            </div>
+
+            <div className="bg-blue-500 text-center font-semibold text-white rounded p-1 mb-2 mr-2 w-1/2">
+              <a href={evt.eventUrl} target="_blank" rel="noreferrer">
+                Register
+              </a>
+            </div>
+
           </div>
-
-          <h1 className="font-bold text-3xl mb-4">
-            { evt.eventName }
-          </h1>
-
-          <h2 className="mb-2">{ evt.organizationName }</h2>
-
-          <div className="mb-4">
-            <span className="mr-2">Twitter</span>
-            <span className="mr-2">Facebook</span>
-            <span className="mr-2">LinkedIn</span>
-          </div>
-
-          <a
-            className="bg-blue-500 text-white p-2 rounded w-1/3"
-            href={evt.eventUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Register
-          </a>
         </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }
 
 export default ReviewEventMainSection;
