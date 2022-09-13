@@ -4,11 +4,12 @@ const sponsorsStyleClasses = {
   `,
   sponsorsGrid:`
     grid
-    sm:gap-4
+    gap-4
     md:gap-16
     lg:gap-24
     md:grid-cols-3
-    py-16
+    py-5
+    md:py-16
     px-14
     mx-auto
     sm:grid-cols-none
