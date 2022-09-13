@@ -20,7 +20,9 @@ function Footer() {
 
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
-            <li className="mb-2"><a href="https://opencollective.com/data-umbrella">Donate</a></li>
+            <li className="mb-2">
+              <a href="https://opencollective.com/data-umbrella">Donate</a>
+            </li>
             <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
             <li className="mb-2">
               <Link to="/faqs">
@@ -34,7 +36,7 @@ function Footer() {
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2"><a href="https://www.dataumbrella.org">Data Umbrella</a></li>
             <li className="mb-2"><Link to="/privacy">Privacy</Link></li>
-            <li className="mb-2">Terms & Conditions</li>
+            <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li>
           </ul>
         </div>
       </div>
