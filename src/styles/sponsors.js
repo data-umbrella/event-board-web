@@ -17,6 +17,7 @@ const sponsorsStyleClasses = {
   hyperlinks:`
     text-blue-500
     hover:text-blue-700
+    dark:text-[#0A66C2]
     underline
   `,
   imageStyle:`
