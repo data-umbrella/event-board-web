@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
 import { act } from 'react-dom/test-utils';
+import moment from 'moment';
 
 const EXAMPLE_EVENT = {
   id: 1,
@@ -19,12 +20,6 @@ jest.mock('hooks/events', () => ({
 }));
 
 describe('Event Calendar Page', () => {
-  beforeAll(() => {
-    jest
-      .useFakeTimers()
-      .setSystemTime(new Date('2022-09-01'));
-  });
-
   it('renders events on page load', () => {
     render(
       <MemoryRouter>
@@ -60,20 +55,12 @@ describe('Event Calendar Page', () => {
       expect(searchInput).toBeInTheDocument();
 
       await act(() => {
-        fireEvent.change(searchInput, { target: { value: 'test' } });
+        fireEvent.change(searchInput, { target: { value: 'test query' } });
         fireEvent.submit(searchInput);
       });
 
-      expect(mockSetSearch).toHaveBeenCalledWith({
-        endDate: "02/28/2023",
-        eventType: '',
-        language: '',
-        price: '',
-        region: '',
-        search: 'test',
-        startDate: "08/31/2022",
-        topic: '',
-      });
+      expect(mockSetSearch.mock.calls[0][0]['search']).toEqual('test query');
+      expect(mockSetSearch.mock.calls[0][0]['startDate']).toEqual(moment().format('MM/DD/YYYY'));
     });
   });
 });
