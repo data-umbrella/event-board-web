@@ -14,10 +14,13 @@ function AccessibilityDetailField({ value, onChange }) {
     onChange('accessibilityOptions', Array.from(optionSet));
   }
 
+  const firstColumnRadioButtons = ACCESSIBILITY_OPTIONS.slice(0, ACCESSIBILITY_OPTIONS.length/2)
+  const secondColumnRadioButtons = ACCESSIBILITY_OPTIONS.slice((ACCESSIBILITY_OPTIONS.length/2), ACCESSIBILITY_OPTIONS.length)
+
   return (
     <div className="grid md:grid-cols-2 bg-white dark:bg-transparent rounded p-6">
       <section>
-        {ACCESSIBILITY_OPTIONS.slice(0, ACCESSIBILITY_OPTIONS.length/2).map((option) => {
+        {firstColumnRadioButtons.map((option) => {
           const checked = value.includes(option.value);
           return (
             <div key={option.value}>
@@ -38,7 +41,7 @@ function AccessibilityDetailField({ value, onChange }) {
         })}
       </section>
       <section>
-        {ACCESSIBILITY_OPTIONS.slice((ACCESSIBILITY_OPTIONS.length/2), ACCESSIBILITY_OPTIONS.length).map(option => {
+        {secondColumnRadioButtons.map(option => {
           const checked = value.includes(option.value);
           return (
             <div key={option.value}>

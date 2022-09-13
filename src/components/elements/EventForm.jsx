@@ -217,8 +217,8 @@ function PostEventFormComponent(props) {
       {/* Notes section */}
       <section>
         <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Notes</h2>
-        <div className="grid grid-cols-2 gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
-          <div className="">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+          <div>
             <TextField
               component="textarea"
               id="notes"
@@ -228,7 +228,7 @@ function PostEventFormComponent(props) {
             />
           </div>
 
-          <div className="">
+          <div>
             <TextField
               component="textarea"
               id="volunteeringNotes"
