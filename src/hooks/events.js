@@ -58,7 +58,7 @@ export function useSearchEvents() {
   const [searchFilters, setSearchFilters] = useState({
     startDate: moment().format('YYYY-MM-DD'),
     endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
-    search: ''
+    search: '',
   });
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 

@@ -8,7 +8,6 @@ function RegionField() {
     <>
       <label>Region</label>
       <Field name="region" component="select" className={formStyleClasses.select}>
-        <option>All</option>
         { REGION_OPTIONS.map(({ value, label }) => {
           return <option key={value} value={value}>{ label }</option>
         })}
