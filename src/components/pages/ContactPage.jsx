@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
  */
 function ContactUsFormComponent() {
   return (
-    <div className="container my-5 md:p-20 md:mb-10 text-xl">
+    <div className="container my-5 md:p-20 md:mb-10 text-sm md:text-xl">
       <section>
         <p className="pb-4">For feature suggestions, bug reports, etc. for the Event Board, please open up an issue here:</p>
         <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-web">
@@ -161,10 +161,8 @@ function ContactUsPage() {
 
   return (
     <div>
-      <h1 className="text-3xl pt-8 pb-8">Contact Us</h1>
+      <h1 className="text-xl md:text-3xl py-4 md:py-8">Contact Us</h1>
       <img src={contact} className="w-full mx-auto" alt="contact-us"/>
-      <div>
-      </div>
       <ContactUsForm handleFormSubmit={handleSubmit} />
     </div>
   )
