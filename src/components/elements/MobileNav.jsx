@@ -64,7 +64,7 @@ function MobileNav() {
             <Link to="/events/new">Post Event</Link><br/>
             <Link to="/events/weekly-digest">Weekly Digest</Link><br/>
             <Link to="/sponsors">Sponsors</Link><br/>
-            <Link to="/donate">Donate</Link><br/>
+            <a href="https://opencollective.com/data-umbrella">Donate</a><br/>
             <Link to="/about">About Us</Link><br/>
             <Link to="/contact">Contact Us</Link><br/>
             <Link to="/FAQs">FAQs</Link><br/>

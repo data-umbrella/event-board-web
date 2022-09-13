@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 
 // Pages
 import CodeOfConductPage from 'components/pages/CodeOfConductPage'
-import DonatePage from 'components/pages/DonatePage';
 import EditEventPage from 'components/pages/EditEventPage';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
 import EventPage from 'components/pages/EventPage';
@@ -64,7 +63,6 @@ function AppRoutes() {
         }
       />
 
-      <Route path="/donate" element={<DonatePage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
