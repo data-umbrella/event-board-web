@@ -7,7 +7,7 @@ import Logo from '../../assets/logo.png'
 import lightMode from '../../assets/light-mode.svg'
 import darkMode from '../../assets/dark-mode.svg'
 import closeSymbol from '../../assets/HamX.png'
-import hamMenu from '../../assets/HamReg.png'
+import { HamBars } from '../../assets/HamBars'
 import logoDark from '../../assets/logoDark.png'
 
 
@@ -33,7 +33,9 @@ function MobileNav() {
           <p className='md:text-sm'>Data Science Event Board</p>
         </span>
         <button className="col-start-4 pl-9" onClick={() => setMenuOpen((prev) => !prev)}>
-          <img className="inline" src={hamMenu}/>
+          <span className="text-black dark:text-white">
+            <HamBars />
+          </span> 
         </button>
       </div>
       <div className={menuOpen ? 'relative' : 'invisible'}>

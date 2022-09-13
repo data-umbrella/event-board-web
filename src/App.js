@@ -36,18 +36,18 @@ export default function App() {
     <div className="bg-du-gray dark:bg-slate-700 transition duration-300">
       <AuthProvider>
         <CurrentUser>
-          <div className="flex flex-col min-h-screen justify-between">
-            <div className='visible md:invisible'>
+          <section className="flex flex-col min-h-screen justify-between">
+            <section className="md:hidden">
               <MobileNav />
-            </div>
-            <div className="w-3/4 container mx-auto">
-              <div className='invisible md:visible'>
+            </section>
+            <section className="w-3/4 container mx-auto">
+              <div className="hidden md:block">
                 <NavigationBar />
               </div>
               <AppRoutes />
-            </div>
+            </section>
             <Footer />
-          </div>
+          </section>
         </CurrentUser>
       </AuthProvider>
     </div>
