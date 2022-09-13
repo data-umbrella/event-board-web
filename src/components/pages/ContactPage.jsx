@@ -27,8 +27,8 @@ function ContactUsFormComponent() {
       </div>
 
       <Form>
-        <div className="grid grid-cols-2">
-          <div className={`${formStyleClasses.inputContainer} col-span-1`}>
+        <div className="grid grid-cols-2 space-y-2.5 md:space-y-5">
+          <div className="col-span-2 md:col-span-1">
             <label className="block" htmlFor="name">
               Name*
             </label>
@@ -39,7 +39,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={`${formStyleClasses.inputContainer} row-start-2`}>
+          <div className="row-start-2">
             <label className="block" htmlFor="email">
               Email*
             </label>
@@ -50,12 +50,12 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={`${formStyleClasses.inputContainer} row-start-2`}>
+          <div className="row-start-2 ml-4">
             <label className="block" htmlFor="name">Topic</label>
             <ContactTopicField/>
           </div>
 
-          <div className={`${formStyleClasses.inputContainer} row-start-3 col-start-1 col-end-3`}>
+          <div className="row-start-3 col-start-1 col-end-3">
             <label className="block" htmlFor="name">
               How did you find out about this Event Board?*
             </label>
@@ -66,7 +66,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={`${formStyleClasses.inputContainer} row-start-4 col-span-2`}>
+          <div className="row-start-4 col-span-2">
             <label className="block" htmlFor="name">Message*</label>
             <Field
               component="textarea"
@@ -75,7 +75,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className={`${formStyleClasses.inputContainer} row-start-5`}>
+          <div className="row-start-5 col-span-2">
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
@@ -85,7 +85,7 @@ function ContactUsFormComponent() {
             </label>
           </div>
 
-          <div className={`actions row-start-6 col-start-2` }>
+          <div className="actions row-start-6 col-start-2">
             <button type="submit" className={formStyleClasses.sendButton}>
               Send
             </button>
