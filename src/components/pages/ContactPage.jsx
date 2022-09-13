@@ -79,7 +79,7 @@ function ContactUsFormComponent() {
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
-              <a className={formStyleClasses.hyperlinks} href="/pages">
+              <a className={formStyleClasses.hyperlinks} href="/codeofconduct">
                 Code of Conduct
               </a>*
             </label>
