@@ -14,6 +14,7 @@ const styleClasses = {
     grid-cols-none
     text-center
     lg:text-left
+    dark:bg-du-deepPurple 
   `,
   imageContainer: 'col-span-1',
   eventTypePillbox: 'inline-block mb-4 bg-pink-300 pl-2 pr-2 text-center rounded text-xl font-medium',
@@ -27,9 +28,10 @@ function ReviewEventMainSection({ evt, editEvent }) {
     <>
       <div className="mb-12">
         <p>
-          <Link to="/">&#60; Back to results</Link>
+          <Link to="/">&#60; Back to Results</Link>
         </p>
       </div>
+
       <div className={styleClasses.mainSectionContainer}>
         <div className={styleClasses.imageContainer}>
           <img src={imageUrl} className="w-full" alt="logo" />
@@ -74,15 +76,9 @@ function ReviewEventMainSection({ evt, editEvent }) {
               )}
             </div>
 
-            <h1 className="font-bold text-3xl mb-4">{evt.eventName}</h1>
+            <h1 className="font-bold text-3xl mb-4 dark:text-slate-50">{evt.eventName}</h1>
 
-            <h2 className="mb-2">{evt.organizationName}</h2>
-
-            <div className="mb-4">
-              <span className="mr-2">Twitter</span>
-              <span className="mr-2">Facebook</span>
-              <span className="mr-2">LinkedIn</span>
-            </div>
+            <h2 className="mb-2 dark:text-slate-50">{evt.organizationName}</h2>
 
             <div className="bg-blue-500 text-center font-semibold text-white rounded p-1 mb-2 mr-2 w-1/2">
               <a href={evt.eventUrl} target="_blank" rel="noreferrer">
