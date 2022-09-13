@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import useDarkMode from 'hooks/dark-mode';
 import Logo from '../../assets/logo.png'
@@ -13,15 +14,22 @@ import logoDark from '../../assets/logoDark.png'
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [colorTheme, setTheme] = useDarkMode();
+  
+  const location = useLocation()
+
+  useEffect(() => {
+    setMenuOpen(false)
+
+  }, [location])
 
 
   return (
     <>
-      <div className='grid text-right bg-du-gray dark:bg-slate-700 h-16 grid-cols-4 place-content-center place-items-center'>
+      <div className='grid grid-cols-4 place-items-center text-right h-16 bg-du-gray dark:bg-slate-700'>
         <section className='place-content-center place-items-center'>
           <Link onClick={() => setMenuOpen(false)} to="/"><img className="object-scale-down object-center h-14 w-16" src={colorTheme === 'dark' ? Logo : logoDark} alt="logo" /></Link>
         </section>
-        <span className='text-center col-span-2'>
+        <span className='col-span-2 text-center'>
           <p className='md:text-sm'>Data Science Event Board</p>
         </span>
         <button className="col-start-4 pl-9" onClick={() => setMenuOpen((prev) => !prev)}>
@@ -42,17 +50,17 @@ function MobileNav() {
                 alt="logo"
               />
             </div>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/sign-in">Sign In</Link><br />
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/events/calendar">Event Calendar</Link><br />
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/events/new">Post Event</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/events/weekly-digest">Weekly Digest</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/sponsors">Sponsors</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/donate">Donate</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/about">About Us</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/contact">Contact Us</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/FAQs">FAQs</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/privacy">Privacy</Link><br/>
-            <Link onClick={() => setMenuOpen((prev) => !prev)} to="/codeofconduct">Terms & Conditions</Link><br/>
+            <Link to="/sign-in">Sign In</Link><br />            
+            <Link to="/events/calendar">Event Calendar</Link><br />
+            <Link to="/events/new">Post Event</Link><br/>
+            <Link to="/events/weekly-digest">Weekly Digest</Link><br/>
+            <Link to="/sponsors">Sponsors</Link><br/>
+            <Link to="/donate">Donate</Link><br/>
+            <Link to="/about">About Us</Link><br/>
+            <Link to="/contact">Contact Us</Link><br/>
+            <Link to="/FAQs">FAQs</Link><br/>
+            <Link to="/privacy">Privacy</Link><br/>
+            <Link to="/codeofconduct">Terms & Conditions</Link><br/>
           </div>
         </div>
       </div>

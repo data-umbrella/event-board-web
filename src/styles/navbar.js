@@ -6,7 +6,7 @@ export const navStyleClasses = {
     hover:underline
     hover:text-du-purple-500
     dark:text-slate-50
-    dark:hover:text-du-lightAqua
+    dark:hover:text-teal-400
   `,
   navContainer: `
     grid
@@ -42,7 +42,7 @@ export const navStyleClasses = {
     items-center
     whitespace-nowrap
     dark:text-slate-50
-    dark:hover:text-lightAqua
+    dark:hover:text-teal-400
     hover:underline
   `,
   navSelectMenu: `
