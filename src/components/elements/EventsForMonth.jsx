@@ -13,7 +13,7 @@ function EventsForMonth({ events }) {
           <span className="text-left">
             <Link
               to={`/events/${evt.id}/details`}
-              className="text-violet-500 underline underline-offset-4 font-medium decoration-2"
+              className="text-du-purple-500 underline underline-offset-4 font-medium decoration-2"
             >
               { evt.eventName }
             </Link>

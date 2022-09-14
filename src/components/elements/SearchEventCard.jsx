@@ -52,7 +52,7 @@ function SearchEventCard({ eventData }) {
         </div>
 
         <div>
-          <p className="mt-6 font-bold text-xl dark:text-du-gray">{ eventData.eventName }</p>
+          <p className="mt-6 font-bold text-base md:text-xl dark:text-du-gray">{ eventData.eventName }</p>
         </div>
       </div>
     </Link>
