@@ -5,20 +5,20 @@ import logo from 'assets/logo-umbrella.png'
 
 function SignInPage() {
   return (
-    <div className="mx-auto mb-40 mt-10 md:w-96 w-full px-32 md:p-0">
+    <div className="mx-auto mb-40 mt-10 sm:w-96 w-full md:p-0">
       <img className="mx-auto object-scale-down h-20 w-15 mb-5" src={logo} alt="logo"/>
       <div className="text-center text-4xl font-bold">
-        <h1 className="hidden md:block text-center pb-10">Welcome back!</h1>
+        <h1 className="hidden md:block pb-10 text-center ">Welcome back!</h1>
       </div>
 
       <div className="container mx-auto">
         <SignInForm />
 
-        <div className="grid grid rows-2 md:w-64 w-full mx-auto">
-          <div className="md:basis-2/3 grid grid-cols-2 mt-5">
+        <div className="mx-auto grid grid rows-2 w-full sm:w-64">
+          <div className="grid grid-cols-2 md:basis-2/3 mt-5 ">
             <span className="text-left">No Account?</span>
-            <span className="text-right">
-              <Link style={ { color: '#6B26FF' } } to="/sign-up">Sign Up →</Link>
+            <span className="text-right hover:text-du-indigo-900 text-du-purple-500">
+              <Link to="/sign-up">Sign Up →</Link>
             </span>
           </div>
         </div>
