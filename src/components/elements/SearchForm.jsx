@@ -92,21 +92,21 @@ function SearchFormComponent() {
               </div>
 
               <div>
-                <LanguageField />
-              </div>
-
-              <div>
-                <RegionField />
-              </div>
-            </div>
-
-            <div className={formStyleClasses.searchInputColumns}>
-              <div>
                 <EventTypeField />
               </div>
 
               <div>
                 <CategoryField/>
+              </div>
+            </div>
+
+            <div className={formStyleClasses.searchInputColumns}>
+              <div>
+                <LanguageField />
+              </div>
+
+              <div>
+                <RegionField />
               </div>
 
               <div>
