@@ -63,7 +63,7 @@ function SearchFormComponent() {
             </div>
           </div>
 
-          <div className="container mx-auto mb-4">
+          <div className="hidden md:block container mx-auto mb-4">
             <p>Popular searches: 
               <a className="px-3 text-du-purple-500 font-bold">Python</a> 
               <a className="px-3 text-du-purple-500 font-bold">Online</a> 
@@ -72,9 +72,11 @@ function SearchFormComponent() {
             </p>
           </div>
 
-          <label
-            className="block font-bold py-3"
-          >
+          <label className="md:hidden py-3">
+            Filter by:
+          </label>
+
+          <label className="hidden md:block font-bold py-3">
             Advanced Filters
           </label>
 
@@ -127,6 +129,7 @@ function SearchFormComponent() {
                 Apply Filters
               </button>
             </div>
+
           </div>
         </div>
       </Form>
