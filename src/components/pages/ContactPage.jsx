@@ -168,7 +168,7 @@ function ContactUsPage() {
 
   return (
     <div>
-      <h1 className="text-xl md:text-3xl py-4 md:py-8">Contact Us</h1>
+      <h1 className="text-xl md:text-3xl md:font-bold py-4 md:py-8">Contact Us</h1>
       <img src={contact} className="hidden md:block w-full mx-auto px-4" alt="contact-us"/>
       <img src={contactMobile} className="md:hidden w-full mx-auto" alt="contact-mobile"/>
       <ContactUsForm handleFormSubmit={handleSubmit} />
