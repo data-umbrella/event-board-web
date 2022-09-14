@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Pages
 import CodeOfConductPage from 'components/pages/CodeOfConductPage'
@@ -29,6 +29,16 @@ import TermsPage from 'components/pages/TermsPage';
 import RequireAuth from 'components/elements/RequireAuth';
 
 function AppRoutes() {
+  let location = useLocation();
+
+  useEffect(() => {
+    if(process.env.NODE_ENV === 'production') {
+      window.gtag("config", "GA_MEASUREMENT_ID", {
+        page_path: location.pathname,
+      })
+    }
+  }, [location]);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
