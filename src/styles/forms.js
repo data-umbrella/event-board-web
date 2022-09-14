@@ -12,6 +12,19 @@ const formStyleClasses = {
     text-xl
     text-[#545454]
   `,
+  searchInput: `
+    block
+    border
+    border-black
+    dark:border-teal-400
+    dark:bg-[#151A35]
+    w-full
+    rounded-md
+    h-14
+    p-2
+    text-xl
+    text-[#545454]
+  `,
   select: `
     block
     w-full

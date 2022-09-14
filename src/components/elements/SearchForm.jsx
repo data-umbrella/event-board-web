@@ -21,8 +21,12 @@ function SearchFormComponent() {
   return (
     <>
       <section className="flex justify-between items-end py-9 md:py-1.5">
-        <h1 className="md:font-bold text-xl md:text-2xl">Search Events</h1>
-        <h5 className="hidden md:block font-bold text-base text-du-purple-700">Post Event</h5>
+        <h1 className="md:font-bold text-xl md:text-2xl">
+          Search Events
+        </h1>
+        <h5 className="hidden md:block font-bold text-base text-du-purple-700 dark:text-[#C86DFF]">
+          Post Event
+        </h5>
       </section>
       <Form className={formStyleClasses.searchInputGroup}>
         <div className="px-10">
@@ -56,7 +60,7 @@ function SearchFormComponent() {
               <Field
                 type="search"
                 name="search"
-                className={`${formStyleClasses.input} pl-10 focus:outline-none p1-10`}
+                className={`${formStyleClasses.searchInput} pl-10 focus:outline-none p1-10`}
                 placeholder="Search"
                 autoComplete="off"
               />
@@ -65,10 +69,18 @@ function SearchFormComponent() {
 
           <div className="hidden md:block container mx-auto mb-4">
             <p>Popular searches: 
-              <a className="px-3 text-du-purple-500 font-bold">Python</a> 
-              <a className="px-3 text-du-purple-500 font-bold">Online</a> 
-              <a className="px-3 text-du-purple-500 font-bold">Rstats</a> 
-              <a className="px-3 text-du-purple-500 font-bold">Django</a> 
+              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+                Python
+              </a> 
+              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+                Online
+              </a> 
+              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+                Rstats
+              </a> 
+              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+                Django
+              </a> 
             </p>
           </div>
 
@@ -84,12 +96,12 @@ function SearchFormComponent() {
             <div className={formStyleClasses.searchInputColumnsOne}>
               <div>
                 <label>Start Date</label>
-                <DatePickerField name="startDate" className={formStyleClasses.input} />
+                <DatePickerField name="startDate" className={formStyleClasses.searchInput} />
               </div>
 
               <div>
                 <label>End Date</label>
-                <DatePickerField name="endDate" className={formStyleClasses.input} />
+                <DatePickerField name="endDate" className={formStyleClasses.searchInput} />
               </div>
 
               <div>
@@ -117,7 +129,7 @@ function SearchFormComponent() {
 
             <div className="text-right">
               <button
-                className="p-2 text-black rounded mb-2 mr-2 font-semibold"
+                className="p-2 text-black rounded mb-2 mr-2 font-semibold dark:text-white"
               >
                 Clear Filters
               </button>
