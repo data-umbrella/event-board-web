@@ -4,6 +4,8 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { arrayifyTags } from 'utils/strings';
 import { parseAPIJSON } from 'utils/api';
+import queryString from 'query-string';
+import { fetchEventsForSearchFilters } from 'services/events';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -54,34 +56,31 @@ export function useFeaturedEvents() {
   return featuredEvents;
 }
 
+const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
+
 export function useSearchEvents() {
   const [searchFilters, setSearchFilters] = useState({
-    startDate: moment().format('YYYY-MM-DD'),
-    endDate: moment().add(5, 'months').format('YYYY-MM-DD'),
+    startDate: moment().format(DEFAULT_DATE_FORMAT),
+    endDate: moment().add(5, 'months').format(DEFAULT_DATE_FORMAT),
     search: '',
   });
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
-  useEffect(() => {
-    const { search, topic } = searchFilters;
-    const startDate = moment(searchFilters.startDate).format('YYYY-MM-DD');
-    const endDate = moment(searchFilters.endDate).format('YYYY-MM-DD');
-    const region = searchFilters.region
-    const topicQuery = topic ? `,${topic}` : '';
+  function handleSearchFiltersChange(newSearchFilters) {
+    setSearchFilters({
+      ...newSearchFilters,
+      startDate: moment(newSearchFilters.startDate).format(DEFAULT_DATE_FORMAT),
+      endDate: moment(newSearchFilters.endDate).format(DEFAULT_DATE_FORMAT),
+    });
+  }
 
+  useEffect(() => {
     async function fetchSearchEvents() {
-      const dateQuery = `start_date__gte=${startDate}&start_date__lte=${endDate}`;
-      const fullTextQuery = `search=${search}${topicQuery}`;
-      const regionQuery = region ? `region=${region}` : ''
-      const response = await fetch(
-        `${API_URL}/api/v1/events?${fullTextQuery}&${dateQuery}&${regionQuery}`
-      );
-      const json = await response.json();
-      const result = parseAPIJSON(json);
+      const result = await fetchEventsForSearchFilters(searchFilters);
       setSearchResultEvents(result);
     }
     fetchSearchEvents();
   }, [searchFilters]);
 
-  return [searchResultEvents, setSearchFilters];
+  return [searchResultEvents, handleSearchFiltersChange];
 }
