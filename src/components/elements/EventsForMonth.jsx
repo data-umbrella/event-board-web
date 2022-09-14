@@ -8,7 +8,7 @@ function EventsForMonth({ events }) {
 
   return sortedEvents.map(evt => {
     return (
-      <div key={`${evt.id}-${evt.eventName}`} className="bg-white dark:bg-du-indigo-900 mb-2 px-2 py-2 rounded border border-gray-300">
+      <div key={`${evt.id}-${evt.eventName}`} className="border border-gray-300 bg-white dark:bg-du-indigo-900 dark:border-du-lightAqua mb-2 px-2 py-2 rounded">
         <div className="grid grid-cols-2">
           <span className="text-left">
             <Link

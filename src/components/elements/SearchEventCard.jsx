@@ -5,13 +5,13 @@ import moment from 'moment';
 
 const styleClasses = {
   searchEventCard: `
-    bg-white
     block
     border
     border-slate-300
     border-solid
     rounded
     dark:bg-du-indigo-900
+    bg-white
   `,
   searchEventThumbnail: `
     w-full
