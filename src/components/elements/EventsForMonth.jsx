@@ -18,7 +18,7 @@ function EventsForMonth({ events }) {
               { evt.eventName }
             </Link>
           </span>
-          <span className="text-right dark:text-du-gray">
+          <span className="text-right text-du-charcoal-gray dark:text-du-gray">
             {evt.eventType}
             {moment(evt.startDate).format('MMMM D, YYYY')}
           </span>
