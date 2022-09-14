@@ -24,7 +24,7 @@ function AboutPage() {
         <AboutUs />
       </div>
 
-      <div className='pt-10'>
+      <div className="pt-10">
         <strong><h1>We Built this board</h1></strong>
         <Contributor />
       </div>

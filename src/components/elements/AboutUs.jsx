@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import aboutStyleClasses from 'styles/about';
 import DUlogo from 'assets/data-umbr-full-transp-logo.png';
 import SPEC from 'assets/speclogoname.png';
@@ -10,7 +10,6 @@ import websiteWhite from 'assets/websiteWhite.svg';
 import twitterWhite from 'assets/twitterWhite.svg';
 import linkedInWhite from 'assets/linkedInWhite.svg';
 import githubWhite from 'assets/githubWhite.svg';
-import { useState } from 'react'
 
 const IMAGE_MAP = {
   twitter,
@@ -80,12 +79,12 @@ function AboutUs() {
         return (
           <div
             key={aboutUsInfo.name}
-            className='grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white'
+            className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white"
           >
-            <div className='py-4'>
+            <div className="py-4">
               <img src={aboutUsInfo.about_img} alt="logo" className={`mx-auto`}/>
             </div>
-            <div className='row-span-2 px-4 m-1 object-contain text-left'>
+            <div className="row-span-2 px-4 m-1 object-contain text-left">
               <a
                 href={aboutUsInfo.link}
                 target="_blank"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import aboutStyleClasses from 'styles/about';
 import twitter from 'assets/twitter.svg';
 import linkedin from 'assets/linkedin.svg';
@@ -15,8 +15,6 @@ import websiteWhite from 'assets/websiteWhite.svg';
 import twitterWhite from 'assets/twitterWhite.svg';
 import linkedInWhite from 'assets/linkedInWhite.svg';
 import githubWhite from 'assets/githubWhite.svg';
-import { useState } from 'react'
-
 
 const IMAGE_MAP = {
   twitter,
@@ -59,7 +57,7 @@ const contributorList = [
     image: Ilia,
     socialMediaLinks: [
       { name: 'github', darkName: 'githubWhite', link: 'https://example.com' },
-      { name: 'linkedin', darkName: 'linkedInWhite', link:'https://www.linkedin.com/in/iliadeleon/'},
+      { name: 'linkedin', darkName: 'linkedInWhite', link:'https://www.linkedin.com/in/iliadeleon/' },
     ]
   },
   { name: 'Yoline Banerjee',
