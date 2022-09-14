@@ -17,7 +17,7 @@ function SignInPage() {
         <div className="mx-auto grid grid rows-2 w-full sm:w-64">
           <div className="grid grid-cols-2 md:basis-2/3 mt-5 ">
             <span className="text-left">No Account?</span>
-            <span className="text-right hover:text-du-indigo-900 text-du-purple-500">
+            <span className="text-right text-du-purple-500 hover:text-du-indigo-900">
               <Link to="/sign-up">Sign Up →</Link>
             </span>
           </div>
