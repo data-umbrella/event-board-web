@@ -11,12 +11,22 @@ import Ilia from 'assets/ilia.png'
 import Yoline from 'assets/yoline.png'
 import Victoria from 'assets/victoria.png'
 import Crystal from 'assets/crystal.png'
+import websiteWhite from 'assets/websiteWhite.svg';
+import twitterWhite from 'assets/twitterWhite.svg';
+import linkedInWhite from 'assets/linkedInWhite.svg';
+import githubWhite from 'assets/githubWhite.svg';
+import { useState } from 'react'
+
 
 const IMAGE_MAP = {
   twitter,
   linkedin,
   github,
   website,
+  twitterWhite,
+  linkedInWhite,
+  githubWhite,
+  websiteWhite
 }
 
 // Move into constants
@@ -26,9 +36,9 @@ const contributorList = [
     organization: 'Data Umbrella',
     image: Reshama,
     socialMediaLinks: [
-      { name: 'twitter', link: 'https://twitter.com/reshamas?lang=en' },
-      { name: 'github', link: 'https://github.com/reshamas' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/in/reshamas/' },
+      { name: 'twitter', darkName: 'twitterWhite', link: 'https://twitter.com/reshamas?lang=en' },
+      { name: 'github', darkName: 'githubWhite', link: 'https://github.com/reshamas' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/reshamas/' },
     ]
   },
   {
@@ -37,9 +47,9 @@ const contributorList = [
     organization: 'SPEC',
     image: Joe,
     socialMediaLinks: [
-      { name: 'twitter', link: 'https://twitter.com/joetorreggiani?lang=en' },
-      { name: 'github', link: 'https://github.com/jtorreggiani' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/in/joetorreggiani/' },
+      { name: 'twitter', darkName: 'twitterWhite', link: 'https://twitter.com/joetorreggiani?lang=en' },
+      { name: 'github', darkName: 'githubWhite', link: 'https://github.com/jtorreggiani' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/joetorreggiani/' },
 
     ]
   },
@@ -48,8 +58,8 @@ const contributorList = [
     organization: 'SPEC',
     image: Ilia,
     socialMediaLinks: [
-      { name: 'github', link: 'https://example.com' },
-      { name: 'linkedin', link:'https://www.linkedin.com/in/iliadeleon/'},
+      { name: 'github', darkName: 'githubWhite', link: 'https://example.com' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link:'https://www.linkedin.com/in/iliadeleon/'},
     ]
   },
   { name: 'Yoline Banerjee',
@@ -57,8 +67,8 @@ const contributorList = [
     organization: 'SPEC',
     image: Yoline,
     socialMediaLinks: [
-      { name: 'github', link: 'https://example.com' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/in/yolineb/' },
+      { name: 'github', darkName: 'githubWhite', link: 'https://example.com' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/yolineb/' },
     ]
   },
   { name: 'Victoria Lo',
@@ -66,8 +76,8 @@ const contributorList = [
     organization: 'SPEC',
     image: Victoria,
     socialMediaLinks: [
-      { name: 'github', link: 'https://github.com/victoriaklo' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/in/victoria-lo/' },
+      { name: 'github', darkName: 'githubWhite', link: 'https://github.com/victoriaklo' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/victoria-lo/' },
     ]
   },
   { name: 'Crystal Shamsi',
@@ -75,8 +85,8 @@ const contributorList = [
     organization: 'SPEC',
     image: Crystal,
     socialMediaLinks: [
-      { name: 'github', link: 'https://github.com/crystallynnvoss' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/in/crystalshamsi/' },
+      { name: 'github', darkName: 'githubWhite', link: 'https://github.com/crystallynnvoss' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/crystalshamsi/' },
     ]
   },
   // {name:'CZI', sponsor_img:CZIImg, title:'', org:'', contact:{twitter:'', github:'', linkedin: '', website: ''}},
@@ -85,13 +95,16 @@ const contributorList = [
 
 // TODO: Move subcomponents in separate element files.
 function ContributorSocialMediaLinks({ contributorInfo }) {
+  const [colorTheme, setTheme] = useState(localStorage.theme);
+  window.addEventListener("themeChanged", () => setTheme(localStorage.theme))
+
   return (
     <div className="mt-4">
       { contributorInfo.socialMediaLinks.map(mediaLink => {
         return (
           <div className="inline-block p-1" key={mediaLink.name}>
             <a href={mediaLink.link}>
-              <img className="mx-auto" src={IMAGE_MAP[mediaLink.name]} />
+              <img className="mx-auto" src={colorTheme === 'light' ? IMAGE_MAP[mediaLink.name] : IMAGE_MAP[mediaLink.darkName]} />
             </a>
           </div>
         )

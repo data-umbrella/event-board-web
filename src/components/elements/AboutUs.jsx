@@ -6,12 +6,21 @@ import twitter from 'assets/twitter.svg';
 import linkedin from 'assets/linkedin.svg';
 import github from 'assets/github.svg';
 import website from 'assets/website.svg';
+import websiteWhite from 'assets/websiteWhite.svg';
+import twitterWhite from 'assets/twitterWhite.svg';
+import linkedInWhite from 'assets/linkedInWhite.svg';
+import githubWhite from 'assets/githubWhite.svg';
+import { useState } from 'react'
 
 const IMAGE_MAP = {
   twitter,
   linkedin,
   github,
   website,
+  twitterWhite,
+  linkedInWhite,
+  githubWhite,
+  websiteWhite
 }
 
 const aboutUsList = [
@@ -25,10 +34,10 @@ const aboutUsList = [
     in data science that organizes data science events. You can support Data Umbrella’s 
     work by making a donation to the Data Umbrella Open Collective.` ,
     socialMediaLinks: [
-      { name: 'website', link: 'https://www.dataumbrella.org/' },
-      { name: 'twitter', link: 'https://twitter.com/DataUmbrella?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/company/dataumbrella/' },
-    ]
+      { name: 'website', darkName: 'websiteWhite', link: 'https://www.dataumbrella.org/' },
+      { name: 'twitter', darkName: 'twitterWhite', link: 'https://twitter.com/DataUmbrella?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/dataumbrella/' },
+    ],
   },
   { 
     name: 'Sustainable Progress and Equity Collective', 
@@ -39,23 +48,23 @@ const aboutUsList = [
     that empowers individuals to be catalysts for positive change. You can support SPEC’s work 
     by making a donation to the SPEC Open Collective.`,
     socialMediaLinks: [
-      { name: 'website', link: 'https://www.specollective.org/' },
-      { name: 'twitter', link: 'https://mobile.twitter.com/specollective' },
-      { name: 'linkedin', link: 'https://www.linkedin.com/company/specollective/' },
-    ]
-  }
-
-];
-
+      { name: 'website',  darkName: 'websiteWhite', link: 'https://www.specollective.org/' },
+      { name: 'twitter', darkName: 'twitterWhite', link: 'https://mobile.twitter.com/specollective' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/specollective/' },
+    ],
+  }]
 
 function ContributorSocialMediaLinks({ aboutUsInfo }) {
+  const [colorTheme, setTheme] = useState(localStorage.theme);
+  window.addEventListener("themeChanged", () => setTheme(localStorage.theme))
+
   return (
     <div className="mt-4">
       { aboutUsInfo.socialMediaLinks.map(mediaLink => {
         return (
           <div className="inline-block p-2" key={mediaLink.name}>
             <a href={mediaLink.link}>
-              <img className="mx-auto h-10 w-10" src={IMAGE_MAP[mediaLink.name]} />
+              <img className="mx-auto h-10 w-10" src={colorTheme === 'light' ? IMAGE_MAP[mediaLink.name] : IMAGE_MAP[mediaLink.darkName]} />
             </a>
           </div>
         )
@@ -71,12 +80,12 @@ function AboutUs() {
         return (
           <div
             key={aboutUsInfo.name}
-            className='grid grid-rows-3 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 md:m-0 p-2 m-6 rounded bg-white'
+            className='grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white'
           >
-            <div className='pt-2'>
+            <div className='py-4'>
               <img src={aboutUsInfo.about_img} alt="logo" className={`mx-auto`}/>
             </div>
-            <div className='px-4 m-1 object-contain text-left'>
+            <div className='row-span-2 px-4 m-1 object-contain text-left'>
               <a
                 href={aboutUsInfo.link}
                 target="_blank"
@@ -92,7 +101,6 @@ function AboutUs() {
         )
       })}
     </div>
-    // </div>
   )
 }
 
