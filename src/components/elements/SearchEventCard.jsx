@@ -11,6 +11,7 @@ const styleClasses = {
     border-slate-300
     border-solid
     rounded
+    dark:bg-du-indigo-900
   `,
   searchEventThumbnail: `
     w-full
@@ -42,16 +43,16 @@ function SearchEventCard({ eventData }) {
 
       <div className="p-8 h-40">
         <div className={styleClasses.searchEventCardDetail}>
-          <time className="text-du-purple-600">
+          <time className="text-du-purple-600 dark:text-du-lightPurple">
             {startDate}
           </time>
-          <p className="text-right text-du-purple-600 pr-2">
+          <p className="text-right text-du-purple-600 dark:text-du-lightPurple pr-2">
             Free
           </p>
         </div>
 
         <div>
-          <p className="mt-6 font-bold text-xl">{ eventData.eventName }</p>
+          <p className="mt-6 font-bold text-xl dark:text-du-gray">{ eventData.eventName }</p>
         </div>
       </div>
     </Link>

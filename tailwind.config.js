@@ -18,6 +18,7 @@ module.exports = {
         },
         'du-lightAqua': '#00FFFF',
         'du-deepPurple': '#1E2445',
+        'du-lightPurple': '#C86DFF'
       },
     },
   },
