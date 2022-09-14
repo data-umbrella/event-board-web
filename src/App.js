@@ -24,7 +24,6 @@ function CurrentUser({ children }) {
 }
 
 export default function App() {
-  
   return (
     <div className="bg-du-gray dark:bg-slate-700 transition duration-300">
       <AuthProvider>
