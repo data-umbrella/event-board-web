@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo-color.svg';
+import { donateURL } from 'constants/donate';
 
 function Footer() {
   return (
@@ -21,7 +22,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2">
-              <a href="https://opencollective.com/data-umbrella">Donate</a>
+              <a href={donateURL} target="_blank" rel="noreferrer"> Donate</a>
             </li>
             <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
             <li className="mb-2">
