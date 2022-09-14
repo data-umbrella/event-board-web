@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // Third-party dependencies
 import moment from 'moment';
 
@@ -24,9 +25,12 @@ function SearchFormComponent() {
         <h1 className="md:font-bold text-xl md:text-2xl">
           Search Events
         </h1>
-        <h5 className="hidden md:block font-bold text-base text-du-purple-700 dark:text-[#C86DFF]">
+        <Link 
+          to="/events/new" 
+          className="hidden md:block font-bold text-base text-du-purple-700 dark:text-[#C86DFF]"
+        >
           Post Event
-        </h5>
+        </Link>
       </section>
       <Form className={formStyleClasses.searchInputGroup}>
         <div className="px-10">
