@@ -73,16 +73,16 @@ function SearchFormComponent() {
 
           <div className="hidden md:block container mx-auto mb-4">
             <p>Popular searches: 
-              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+              <a className={formStyleClasses.popularSearch}>
                 Python
               </a> 
-              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+              <a className={formStyleClasses.popularSearch}>
                 Online
               </a> 
-              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+              <a className={formStyleClasses.popularSearch}>
                 Rstats
               </a> 
-              <a className="px-3 text-du-purple-500 dark:text-[#C86DFF] font-bold">
+              <a className={formStyleClasses.popularSearch}>
                 Django
               </a> 
             </p>

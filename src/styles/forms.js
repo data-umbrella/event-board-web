@@ -87,6 +87,7 @@ const formStyleClasses = {
     dark:to-[#5256BA]
     border
     border-du-purple-500
+    dark:border-du-lightAqua
     border-4
     text-xl
     
@@ -109,6 +110,13 @@ const formStyleClasses = {
     mx-auto
     sm:grid-cols-none
     pr-56
+  `,
+  popularSearch:`
+    px-3 
+    text-du-purple-500 
+    dark:text-[#C86DFF]
+    dark:underline 
+    font-bold
   `,
   hyperlinks:`
     text-blue-500
