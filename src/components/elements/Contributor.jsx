@@ -124,11 +124,11 @@ function Contributor() {
       <div className={aboutStyleClasses.contributorGrid}>
         {contributorList.map(contributorInfo => {
           return (
-            <div className='grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1' key={contributorInfo.name}>
+            <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1" key={contributorInfo.name}>
               <div>
                 <ContributorPhoto imageSrc={contributorInfo.image} />
               </div>
-              <div className='place-self-center m-2 text-left md:text-center dark:text-white'>
+              <div className="place-self-center m-2 text-left md:text-center dark:text-white">
                 <h3>{ contributorInfo.name }</h3>
                 <small>{ contributorInfo.title }</small><br />
                 <small>{ contributorInfo.organization }</small>
