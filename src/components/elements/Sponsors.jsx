@@ -21,7 +21,7 @@ function Sponsors() {
       {sponsorsList.map(sponsorInfo => {
         return (
           <a key={sponsorInfo.name} href={sponsorInfo.url}>
-            <img src={sponsorInfo.sponsorImg} alt="logo"/>
+            <img src={sponsorInfo.sponsorImg} alt="logo" className={sponsorsStyleClasses.imageStyle}/>
             {sponsorInfo.name}
           </a>
         )

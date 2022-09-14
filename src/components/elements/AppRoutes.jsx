@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Pages
 import CodeOfConductPage from 'components/pages/CodeOfConductPage'
@@ -17,16 +17,28 @@ import WeeklyDigestPage from 'components/pages/WeeklyDigestPage';
 import SponsorsPage from 'components/pages/SponsorsPage';
 import FAQsPage from 'components/pages/FAQsPage';
 import AboutPage from 'components/pages/AboutPage';
-import ConfirmRegistrationPage from 'components/pages/ConfirmRegistrationPage';
+import MagicLinkSentPage from 'components/pages/MagicLinkSentPage';
+import RegistrationLinkSentPage from 'components/pages/RegistrationLinkSentPage';
 import VerifyMagicLinkPage from 'components/pages/VerifyMagicLinkPage';
 import ContactPage from 'components/pages/ContactPage';
 import PrivacyPage from 'components/pages/PrivacyPolicyPage';
 import ContactSuccessPage from 'components/pages/ContactSuccessPage';
+import TermsPage from 'components/pages/TermsPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
 
 function AppRoutes() {
+  let location = useLocation();
+
+  useEffect(() => {
+    if(process.env.NODE_ENV === 'production') {
+      window.gtag("config", "GA_MEASUREMENT_ID", {
+        page_path: location.pathname,
+      })
+    }
+  }, [location]);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -66,13 +78,17 @@ function AppRoutes() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/sponsors" element={<SponsorsPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
-      {/* <Route path="/terms" element={<TermsPage />} /> */}
+      <Route path="/terms" element={<TermsPage />} />
 
       <Route path="/FAQs" element={<FAQsPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route
         path="/registration/confirmation"
-        element={<ConfirmRegistrationPage />}
+        element={<RegistrationLinkSentPage />}
+      />
+      <Route
+        path="/sign-in/sent"
+        element={<MagicLinkSentPage />}
       />
 
       <Route
