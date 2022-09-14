@@ -21,6 +21,7 @@ const formStyleClasses = {
     border-black
     dark:border-teal-400
     dark:bg-transparent
+    p-2
     text-xl
     text-[#545454]
   `,
@@ -70,8 +71,7 @@ const formStyleClasses = {
     from-[#4273D64D]
     to-[#6B26FF4D]
     dark:from-[#000B4A]
-    dark:via-[#5256BA]
-    dark:to-[#D187FF]
+    dark:to-[#5256BA]
     border
     border-du-purple-500
     border-4

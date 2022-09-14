@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // Third-party dependencies
 import moment from 'moment';
 
@@ -17,11 +17,6 @@ import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
 function SearchFormComponent() {
-  const [showFilters, setShowFilters] = useState(false);
-
-  function toggleFilters () {
-    setShowFilters(!showFilters);
-  }
 
   return (
     <>
@@ -69,17 +64,21 @@ function SearchFormComponent() {
           </div>
 
           <div className="container mx-auto mb-4">
-            <p>Popular searches: Python Online Rstats Django</p>
+            <p>Popular searches: 
+              <a className="px-3 text-du-purple-500 font-bold">Python</a> 
+              <a className="px-3 text-du-purple-500 font-bold">Online</a> 
+              <a className="px-3 text-du-purple-500 font-bold">Rstats</a> 
+              <a className="px-3 text-du-purple-500 font-bold">Django</a> 
+            </p>
           </div>
 
           <label
-            className="block font-bold py-3 hover:underline"
-            onClick={toggleFilters}
+            className="block font-bold py-3"
           >
-            Advanced Filter
+            Advanced Filters
           </label>
 
-          <div className="expandable" aria-expanded={showFilters}>
+          <div>
             <div className={formStyleClasses.searchInputColumnsOne}>
               <div>
                 <label>Start Date</label>
@@ -123,7 +122,7 @@ function SearchFormComponent() {
 
               <button
                 type="submit"
-                className="bg-du-purple-500 p-2 text-white rounded mb-2 mr-2 font-semibold"
+                className="bg-du-purple-500 p-2 text-white rounded mb-2 mr-2 h-12 w-36 font-semibold"
               >
                 Apply Filters
               </button>
