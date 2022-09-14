@@ -3,7 +3,7 @@ import SearchEventCard from 'components/elements/SearchEventCard';
 
 const styles = {
   searchEventGroup: `
-    gap-6
+    gap-4
     grid
     md:grid-cols-3
     container
