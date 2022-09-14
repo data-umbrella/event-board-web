@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -6,7 +8,6 @@ import contactMobile from 'assets/contact-mobile.png'
 import contact from 'assets/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
 import { postContactEmail } from 'services/contact-emails';
-import { useNavigate } from 'react-router-dom';
 
 /**
  * Defines the form component for the contact page
@@ -35,7 +36,7 @@ function ContactUsFormComponent() {
             <Field
               type="text"
               name="name"
-              className={formStyleClasses.input}
+              className={`${formStyleClasses.input} border-black`}
             />
           </div>
 
@@ -46,7 +47,7 @@ function ContactUsFormComponent() {
             <Field
               type="email"
               name="email"
-              className={formStyleClasses.input}
+              className={`${formStyleClasses.input} border-black`}
             />
           </div>
 
@@ -62,7 +63,7 @@ function ContactUsFormComponent() {
             <Field
               type="text"
               name="reference"
-              className={formStyleClasses.input}
+              className={`${formStyleClasses.input} border-black`}
             />
           </div>
 
@@ -71,7 +72,7 @@ function ContactUsFormComponent() {
             <Field
               component="textarea"
               name="message"
-              className={formStyleClasses.textarea}
+              className={`${formStyleClasses.textarea} border-black`}
             />
           </div>
 
@@ -79,9 +80,9 @@ function ContactUsFormComponent() {
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
-              <a className={formStyleClasses.hyperlinks} href="/codeofconduct">
+              <Link to="/codeofconduct" className="underline" >
                 Code of Conduct
-              </a>*
+              </Link>*
             </label>
           </div>
 
