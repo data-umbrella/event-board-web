@@ -21,6 +21,8 @@ const formStyleClasses = {
     border-black
     dark:border-teal-400
     dark:bg-transparent
+    text-xl
+    text-[#545454]
   `,
   inputContainer: `
     pr-4
@@ -76,7 +78,7 @@ const formStyleClasses = {
     text-xl
     
   `,
-  searchInputColumns: `
+  searchInputColumnsOne: `
     container
     gap-6
     grid
@@ -84,6 +86,16 @@ const formStyleClasses = {
     md:grid-cols-4
     mx-auto
     sm:grid-cols-none
+  `,
+  searchInputColumnsTwo: `
+    container
+    gap-6
+    grid
+    mb-6
+    md:grid-cols-3
+    mx-auto
+    sm:grid-cols-none
+    pr-56
   `,
   hyperlinks:`
     text-blue-500

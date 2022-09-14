@@ -80,7 +80,7 @@ function SearchFormComponent() {
           </label>
 
           <div className="expandable" aria-expanded={showFilters}>
-            <div className={formStyleClasses.searchInputColumns}>
+            <div className={formStyleClasses.searchInputColumnsOne}>
               <div>
                 <label>Start Date</label>
                 <DatePickerField name="startDate" className={formStyleClasses.input} />
@@ -100,7 +100,7 @@ function SearchFormComponent() {
               </div>
             </div>
 
-            <div className={formStyleClasses.searchInputColumns}>
+            <div className={formStyleClasses.searchInputColumnsTwo}>
               <div>
                 <LanguageField />
               </div>
