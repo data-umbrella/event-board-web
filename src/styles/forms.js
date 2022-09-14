@@ -76,6 +76,7 @@ const formStyleClasses = {
   `,
   hyperlinks:`
     text-blue-500
+    dark:text-[#0A66C2]
     hover:text-blue-700
     underline
   `,
