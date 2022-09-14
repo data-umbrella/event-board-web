@@ -136,7 +136,7 @@ export const ACCESSIBILITY_OPTIONS = [
 ];
 
 export const TOPIC_TYPES = [
-  { label: 'Please select below', value: 'none-selected' },
+  { label: '', value: 'none-selected' },
   { label: 'Technical Issue', value: 'technical-issue' },
   { label: 'Sponsorship', value: 'sponsorship' },
   { label: 'Feedback', value: 'feedback' },

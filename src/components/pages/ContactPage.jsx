@@ -17,8 +17,15 @@ function ContactUsFormComponent() {
   return (
     <div className="container my-5 md:p-20 md:mb-10 text-sm md:text-xl">
       <section>
-        <p className="pb-4">For feature suggestions, bug reports, etc. for the Event Board, please open up an issue here:</p>
-        <a className={formStyleClasses.hyperlinks} href="https://github.com/data-umbrella/event-board-web">
+        <p className="pb-4">
+          For feature suggestions, bug reports, etc. 
+          for the Event Board, please open up an issue 
+          here:
+        </p>
+        <a 
+          className={formStyleClasses.hyperlinks} 
+          href="https://github.com/data-umbrella/event-board-web"
+        >
           https://github.com/data-umbrella/event-board-web
         </a>
       </section>
@@ -163,7 +170,7 @@ function ContactUsPage() {
   return (
     <div>
       <h1 className="text-xl md:text-3xl py-4 md:py-8">Contact Us</h1>
-      <img src={contact} className="hidden md:block w-full mx-auto" alt="contact-us"/>
+      <img src={contact} className="hidden md:block w-full mx-auto px-4" alt="contact-us"/>
       <img src={contactMobile} className="md:hidden w-full mx-auto" alt="contact-mobile"/>
       <ContactUsForm handleFormSubmit={handleSubmit} />
     </div>
