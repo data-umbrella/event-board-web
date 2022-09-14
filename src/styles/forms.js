@@ -2,21 +2,23 @@ const formStyleClasses = {
   input: `
     block
     border
-    border-zinc-300
+    border-black
     dark:border-teal-400
     dark:bg-transparent
     w-full
     rounded-md
-    h-8
+    h-14
     p-2
+    text-xl
+    text-[#545454]
   `,
   select: `
     block
     w-full
     rounded-md
-    h-8
+    h-14
     border
-    border-zinc-300
+    border-black
     dark:border-teal-400
     dark:bg-transparent
   `,
@@ -58,8 +60,10 @@ const formStyleClasses = {
     container
     mh-60
     mx-auto
-    rounded
+    rounded-xl
     mb-10
+    pt-7
+    py-5
     bg-gradient-to-b
     from-[#4273D64D]
     to-[#6B26FF4D]
@@ -69,6 +73,7 @@ const formStyleClasses = {
     border
     border-du-purple-500
     border-4
+    text-xl
     
   `,
   searchInputColumns: `

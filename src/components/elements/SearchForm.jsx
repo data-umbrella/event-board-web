@@ -30,7 +30,7 @@ function SearchFormComponent() {
         <h5 className="hidden md:block font-bold text-base text-du-purple-700">Post Event</h5>
       </section>
       <Form className={formStyleClasses.searchInputGroup}>
-        <div className="p-10">
+        <div className="px-10">
           <div className="container mx-auto mb-4">
             <div className="relative text-gray-600 focus-within:text-gray-400">
               <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -73,7 +73,7 @@ function SearchFormComponent() {
           </div>
 
           <label
-            className="block font-bold py-3"
+            className="block font-bold py-3 hover:underline"
             onClick={toggleFilters}
           >
             Advanced Filter
