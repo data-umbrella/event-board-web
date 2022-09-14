@@ -8,7 +8,6 @@ import NavigationBar from 'components/elements/NavigationBar';
 import AppRoutes from 'components/elements/AppRoutes';
 import Footer from 'components/elements/Footer';
 import MobileNav from 'components/elements/MobileNav'
-import { useLocation } from "react-router-dom";
 
 // Styles and assets
 import './App.css';
@@ -25,15 +24,6 @@ function CurrentUser({ children }) {
 }
 
 export default function App() {
-  let location = useLocation();
-
-  useEffect(() => {
-    if(process.env.NODE_ENV === 'production') {
-      window.gtag("config", "GA_MEASUREMENT_ID", {
-        page_path: location.pathname,
-      })
-    }
-  }, [location]);
   
   return (
     <div className="bg-du-gray dark:bg-slate-700 transition duration-300">
