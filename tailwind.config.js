@@ -11,6 +11,7 @@ module.exports = {
         'du-purple': {
           500: '#6B26FF',
           600: '#783D86',
+          700: '#6216F8',
         },
         'du-gray': '#F7FAFC',
         'du-indigo': {

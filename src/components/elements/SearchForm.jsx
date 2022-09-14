@@ -24,108 +24,114 @@ function SearchFormComponent() {
   }
 
   return (
-    <Form className={formStyleClasses.searchInputGroup}>
-      <div className="p-10">
-        <div className="container mx-auto mb-4">
-          <div className="relative text-gray-600 focus-within:text-gray-400">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+    <>
+      <section className="flex justify-between items-end">
+        <h1 className="py-9 md:py-0 md:font-bold text-xl md:text-2xl">Search Events</h1>
+        <h5 className="hidden md:block font-bold text-base text-du-purple-700">Post Event</h5>
+      </section>
+      <Form className={formStyleClasses.searchInputGroup}>
+        <div className="p-10">
+          <div className="container mx-auto mb-4">
+            <div className="relative text-gray-600 focus-within:text-gray-400">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                <button
+                  type="submit"
+                  className={`
+                    p-1
+                    focus:outline-none
+                    focus:shadow-outline
+                    text-du-purple-500
+                    font-bold
+                  `}
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="3"
+                    viewBox="0 0 24 24"
+                    className="w-6 h-6"
+                  >
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </button>
+              </span>
+
+              <Field
+                type="search"
+                name="search"
+                className={`${formStyleClasses.input} pl-10 focus:outline-none p1-10`}
+                placeholder="Search"
+                autoComplete="off"
+              />
+            </div>
+          </div>
+
+          <div className="container mx-auto mb-4">
+            <p>Popular searches: Python Online Rstats Django</p>
+          </div>
+
+          <label
+            className="block font-bold mb-4 underline"
+            onClick={toggleFilters}
+          >
+            Advanced Filters
+          </label>
+
+          <div className="expandable" aria-expanded={showFilters}>
+            <div className={formStyleClasses.searchInputColumns}>
+              <div>
+                <label>Start Date</label>
+                <DatePickerField name="startDate" className={formStyleClasses.input} />
+              </div>
+
+              <div>
+                <label>End Date</label>
+                <DatePickerField name="endDate" className={formStyleClasses.input} />
+              </div>
+
+              <div>
+                <LanguageField />
+              </div>
+
+              <div>
+                <RegionField />
+              </div>
+            </div>
+
+            <div className={formStyleClasses.searchInputColumns}>
+              <div>
+                <EventTypeField />
+              </div>
+
+              <div>
+                <CategoryField/>
+              </div>
+
+              <div>
+                <PriceField />
+              </div>
+            </div>
+
+            <div className="text-right">
+              <button
+                className="p-2 text-black rounded mb-2 mr-2 font-semibold"
+              >
+                Clear Filters
+              </button>
+
               <button
                 type="submit"
-                className={`
-                  p-1
-                  focus:outline-none
-                  focus:shadow-outline
-                  text-du-purple-500
-                  font-bold
-                `}
+                className="bg-du-purple-500 p-2 text-white rounded mb-2 mr-2 font-semibold"
               >
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="3"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6"
-                >
-                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
+                Apply Filters
               </button>
-            </span>
-
-            <Field
-              type="search"
-              name="search"
-              className={`${formStyleClasses.input} pl-10 focus:outline-none p1-10`}
-              placeholder="Search"
-              autoComplete="off"
-            />
+            </div>
           </div>
         </div>
-
-        <div className="container mx-auto mb-4">
-          <p>Popular searches: Python Online Rstats Django</p>
-        </div>
-
-        <label
-          className="block font-bold mb-4 underline"
-          onClick={toggleFilters}
-        >
-          Advanced Filters
-        </label>
-
-        <div className="expandable" aria-expanded={showFilters}>
-          <div className={formStyleClasses.searchInputColumns}>
-            <div>
-              <label>Start Date</label>
-              <DatePickerField name="startDate" className={formStyleClasses.input} />
-            </div>
-
-            <div>
-              <label>End Date</label>
-              <DatePickerField name="endDate" className={formStyleClasses.input} />
-            </div>
-
-            <div>
-              <LanguageField />
-            </div>
-
-            <div>
-              <RegionField />
-            </div>
-          </div>
-
-          <div className={formStyleClasses.searchInputColumns}>
-            <div>
-              <EventTypeField />
-            </div>
-
-            <div>
-              <CategoryField/>
-            </div>
-
-            <div>
-              <PriceField />
-            </div>
-          </div>
-
-          <div className="text-right">
-            <button
-              className="p-2 text-black rounded mb-2 mr-2 font-semibold"
-            >
-              Clear Filters
-            </button>
-
-            <button
-              type="submit"
-              className="bg-du-purple-500 p-2 text-white rounded mb-2 mr-2 font-semibold"
-            >
-              Apply Filters
-            </button>
-          </div>
-        </div>
-      </div>
-    </Form>
+      </Form>
+    </>
   )
 }
 
