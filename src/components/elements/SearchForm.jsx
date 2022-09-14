@@ -25,8 +25,8 @@ function SearchFormComponent() {
 
   return (
     <>
-      <section className="flex justify-between items-end">
-        <h1 className="py-9 md:py-0 md:font-bold text-xl md:text-2xl">Search Events</h1>
+      <section className="flex justify-between items-end py-9 md:py-1.5">
+        <h1 className="md:font-bold text-xl md:text-2xl">Search Events</h1>
         <h5 className="hidden md:block font-bold text-base text-du-purple-700">Post Event</h5>
       </section>
       <Form className={formStyleClasses.searchInputGroup}>
@@ -73,10 +73,10 @@ function SearchFormComponent() {
           </div>
 
           <label
-            className="block font-bold mb-4 underline"
+            className="block font-bold py-3"
             onClick={toggleFilters}
           >
-            Advanced Filters
+            Advanced Filter
           </label>
 
           <div className="expandable" aria-expanded={showFilters}>

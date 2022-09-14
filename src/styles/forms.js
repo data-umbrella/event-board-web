@@ -60,9 +60,12 @@ const formStyleClasses = {
     mx-auto
     rounded
     mb-10
-    bg-violet-200
+    bg-gradient-to-b
+    from-[#4273D64D]
+    to-[#6B26FF4D]
     border
-    border-fuchsia-800
+    border-du-purple-500
+    border-4
     dark:bg-violet-400
   `,
   searchInputColumns: `
