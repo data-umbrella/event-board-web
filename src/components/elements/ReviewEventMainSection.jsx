@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageUrlForEvent } from 'utils/urls';
+import defaultThumbnail from 'assets/thumbnail.png';
 
 const styleClasses = {
   mainSectionContainer: `
@@ -24,6 +25,10 @@ const styleClasses = {
 function ReviewEventMainSection({ evt, editEvent }) {
   const imageUrl = imageUrlForEvent(evt);
 
+  const handleImageError = (event) => {
+    event.target.src = defaultThumbnail;
+  }
+
   return (
     <section>
       <div className="mb-12">
@@ -34,7 +39,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
 
       <div className={styleClasses.mainSectionContainer}>
         <div className={styleClasses.imageContainer}>
-          <img src={imageUrl} className="w-full" alt="logo" />
+          <img src={imageUrl} onError={handleImageError} className="w-full" alt="logo" />
         </div>
 
         <div className="col-span-1">

@@ -1,4 +1,4 @@
-import defaultThumbNail from 'assets/thumbnail.png';
+import defaultThumbnail from 'assets/thumbnail.png';
 
 export function isValidURL(string) {
   /* eslint-disable */
@@ -11,6 +11,6 @@ export function imageUrlForEvent(eventData) {
   if (eventData.imageUrl) return eventData.imageUrl;
 
   return eventData.imageFile === '' || !eventData.imageFile
-    ? defaultThumbNail
+    ? defaultThumbnail
     : eventData.imageFile
 }
