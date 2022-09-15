@@ -16,11 +16,11 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
     onRemove(link);
   }
 
-  function handleSocialMediaChange(e) {
-    const newLink = { ...link, type: e.target.value };
-    setLink(newLink);
-    onChange(newLink);
-  }
+  // function handleSocialMediaChange(e) {
+  //   const newLink = { ...link, type: e.target.value };
+  //   setLink(newLink);
+  //   onChange(newLink);
+  // }
 
   return (
     <div className="grid grid-cols-7 md:grid-cols-6 gap-2 mb-2">
