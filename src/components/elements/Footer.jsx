@@ -10,16 +10,16 @@ function Footer() {
   return (
     <footer className="block bg-du-indigo-900 min-h-10 md:min-h-60 text-white md:px-40 pt-9 pb-7">
       <div className="hidden md:grid grid-cols-4 text-left">
-        <div className='flex flex-col items-center'>
+        <div className="flex flex-col items-center">
           <div>
             <img src={logoImg} alt="logo" className="h-32 w-40" />
           </div>
-          <div className='flex flex-row items-center'>
-            <a href='https://github.com/data-umbrella/event-board-web'>
-              <img className='m-2 mb-1 h-7 w-7' src={githubWhite} />
+          <div className="flex flex-row items-center">
+            <a href="https://github.com/data-umbrella/event-board-web">
+              <img className="m-2 mb-1 h-7 w-" src={githubWhite} />
             </a>
-            <a href='https://twitter.com/DataEventsBoard'>
-              <img className='m-2 mb-1 h-7 w-7' src={twitterWhite} />
+            <a href="https://twitter.com/DataEventsBoard">
+              <img className="m-2 mb-1 h-7 w-7" src={twitterWhite} />
             </a>
           </div>
         </div>
