@@ -4,7 +4,6 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { arrayifyTags } from 'utils/strings';
 import { parseAPIJSON } from 'utils/api';
-import queryString from 'query-string';
 import { fetchEventsForSearchFilters } from 'services/events';
 
 export function useEvent(eventId) {

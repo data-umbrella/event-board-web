@@ -1,11 +1,9 @@
-import { API_URL, EVENTS_URL } from 'constants/urls';
+import { API_URL } from 'constants/urls';
 import { parseAPIJSON } from 'utils/api';
 import queryString from 'query-string';
 import moment from 'moment';
 
 export function fetchEventsForSearchFilters(searchFilters) {
-  // debugger;
-  console.log(searchFilters);
   const query = queryString.stringify({
     event_type: searchFilters.eventType,
     region: searchFilters.region,
