@@ -39,7 +39,7 @@ const aboutUsList = [
     ],
   },
   {
-    name: 'Sustainable Progress and Equity Collective (SPEC)', 
+    name: 'Sustainable Progress and Equality Collective (SPEC)', 
     about_img: SPEC,
     style: 'border-t border-r border-b border-black rounded-r',
     link: 'https://www.specollective.org/',
