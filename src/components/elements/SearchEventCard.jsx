@@ -20,6 +20,7 @@ const styleClasses = {
   searchEventCardDetail: `
     grid
     grid-cols-2
+    md:grid-cols-3
   `
 }
 
@@ -43,10 +44,10 @@ function SearchEventCard({ eventData }) {
 
       <div className="p-8">
         <div className={styleClasses.searchEventCardDetail}>
-          <time className="text-du-purple-600 dark:text-du-lightPurple">
+          <time className="text-du-purple-600 dark:text-du-lightPurple md:col-span-2">
             {startDate}
           </time>
-          <p className="text-right text-du-purple-600 dark:text-du-lightPurple pr-2">
+          <p className="text-right text-du-purple-600 dark:text-du-lightPurple pr-2 md:col-span-1">
             Free
           </p>
         </div>
