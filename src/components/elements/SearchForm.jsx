@@ -122,9 +122,7 @@ function SearchFormComponent() {
                 <RegionField />
               </div>
 
-              <div>
-                <PriceField />
-              </div>
+              {/*<div><PriceField /></div>*/}
             </div>
 
             <div className="text-right">
