@@ -24,7 +24,7 @@ const IMAGE_MAP = {
 
 const aboutUsList = [
   { 
-    name:'Data Umbrella', 
+    name: 'Data Umbrella', 
     about_img: DUlogo,
     url: 'https://www.specollective.org/',
     style: 'border-t border-l border-b border-r border-black rounded-l',
@@ -38,8 +38,8 @@ const aboutUsList = [
       { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/dataumbrella/' },
     ],
   },
-  { 
-    name: 'Sustainable Progress and Equity Collective', 
+  {
+    name: 'Sustainable Progress and Equality Collective (SPEC)', 
     about_img: SPEC,
     style: 'border-t border-r border-b border-black rounded-r',
     link: 'https://www.specollective.org/',
