@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { imageUrlForEvent  } from 'utils/urls';
+import { imageUrlForEvent } from 'utils/urls';
 import moment from 'moment';
 import defaultThumbnail from 'assets/thumbnail.png';
 
 const styleClasses = {
-  searchEventCard: `
+	searchEventCard: `
     block
     border
     border-slate-300
@@ -14,32 +14,32 @@ const styleClasses = {
     dark:bg-du-indigo-900
     bg-white
   `,
-  searchEventThumbnail: `
+	searchEventThumbnail: `
     w-full
     rounded-t
   `,
-  searchEventCardDetail: `
+	searchEventCardDetail: `
     grid
     grid-cols-2
     md:grid-cols-3
-  `
-}
+  `,
+};
 
 function formatDate(date) {
-  if (!date || date === '') return '';
+	if (!date || date === '') return '';
 
-  return moment(date).format('ll');
+	return moment(date).format('ll');
 }
 
 function SearchEventCard({ eventData }) {
-  const [imageUrl, setImageUrl] = useState(imageUrlForEvent(eventData));
-  const startDate = formatDate(eventData.startDate);
+	const [imageUrl, setImageUrl] = useState(imageUrlForEvent(eventData));
+	const startDate = formatDate(eventData.startDate);
 
-  const handleImageError = () => {
-    setImageUrl(defaultThumbnail);
+	const handleImageError = () => {
+		setImageUrl(defaultThumbnail);
 	};
 
-  return (
+	return (
 		<Link to={`/events/${eventData.id}/details`} className={styleClasses.searchEventCard}>
 			<div className="card-img" style={{ backgroundImage: `url('${imageUrl}')` }}>
 				{/**
