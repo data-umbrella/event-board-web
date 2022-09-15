@@ -24,7 +24,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
 
   return (
     <div className="grid grid-cols-7 md:grid-cols-6 gap-2 mb-2">
-      <select
+      {/* <select
         name="type"
         className={`${formStyleClasses.input} h-10 col-span-3 md:col-span-2`}
         onChange={handleSocialMediaChange}
@@ -34,7 +34,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
         <option value="twitter">Twitter</option>
         <option value="linkedin">LinkedIn</option>
         <option value="facebook">Facebook</option>
-      </select>
+      </select> */}
 
       <input
         type="text"

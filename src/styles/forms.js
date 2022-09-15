@@ -74,12 +74,10 @@ const formStyleClasses = {
   searchInputGroup: `
     block
     container
-    mh-60
     mx-auto
     rounded-xl
     mb-10
-    pt-7
-    py-5
+    py-10
     bg-gradient-to-b
     from-[#4273D64D]
     to-[#6B26FF4D]
@@ -88,7 +86,7 @@ const formStyleClasses = {
     border
     border-du-purple-500
     dark:border-du-lightAqua
-    border-4
+    border-1
     text-xl
     
   `,

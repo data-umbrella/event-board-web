@@ -64,7 +64,7 @@ function SearchFormComponent() {
               <Field
                 type="search"
                 name="search"
-                className={`${formStyleClasses.searchInput} pl-10 focus:outline-none p1-10`}
+                className={`${formStyleClasses.searchInput} pl-10 focus:outline-none`}
                 placeholder="Search"
                 autoComplete="off"
               />
@@ -88,7 +88,7 @@ function SearchFormComponent() {
             </p>
           </div>
 
-          <label className="md:hidden py-3">
+          <label className="md:hidden my-3">
             Filter by:
           </label>
 
