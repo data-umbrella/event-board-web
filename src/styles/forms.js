@@ -78,17 +78,14 @@ const formStyleClasses = {
     rounded-xl
     mb-10
     py-10
-    bg-gradient-to-b
-    from-[#4273D64D]
-    to-[#6B26FF4D]
+    search-form-gradient
     dark:from-[#000B4A]
     dark:to-[#5256BA]
     border
     border-du-purple-500
     dark:border-du-lightAqua
-    border-1
+    border-4
     text-xl
-    
   `,
   searchInputColumnsOne: `
     container
@@ -104,10 +101,9 @@ const formStyleClasses = {
     gap-6
     grid
     mb-6
-    md:grid-cols-3
+    md:grid-cols-4
     mx-auto
     sm:grid-cols-none
-    pr-56
   `,
   popularSearch:`
     px-3 

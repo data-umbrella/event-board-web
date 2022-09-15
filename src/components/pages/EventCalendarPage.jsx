@@ -10,7 +10,6 @@ function EventCalendarPage() {
   return (
     <div className="mt-4 mb-12 md:px-6">
       <div>
-        <h2 className="text-2xl font-bold mb-2 mt-12">Search Events</h2>
         <SearchForm handleFormSubmit={setSearchFilters} />
       </div>
 

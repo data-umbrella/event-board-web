@@ -476,10 +476,6 @@ export const LANGUAGE_OPTIONS = [
     "label": "Ojibwe, Ojibwa"
   },
   {
-    "value": "cu",
-    "label": "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic"
-  },
-  {
     "value": "om",
     "label": "Oromo"
   },
