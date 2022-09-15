@@ -9,25 +9,21 @@ import * as Yup from 'yup';
  */
 function WeeklyDigestFormComponent() {
   return (
-    <Form className="container mx-auto p-12 text-center">
-      <div className="w-full">
-        <div className="flex items-end pb-28 justify-center text-sm">
-          <div className={`${formStyleClasses.inputContainer} w-80 mb-0.5 text-left`}>
-            <label className="block" htmlFor="email">Email address</label>
+    <Form className="container mx-auto my-8 text-center">
+        <div className="grid grid-rows-2 md:grid-cols-3 md:grid-rows-2">
+            <label className="pt-8 text-left" htmlFor="email">Email address</label>
             <Field
               type="email"
               name="email"
               className={formStyleClasses.input}
             />
-          </div>
           <button
             type="submit"
-            className="px-4 py-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
+            className="md:row-start-2 md:cols-start-2 md:m-0 md:mx-10 px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
           >
             Subscribe
           </button>
-        </div>
-      </div>
+          </div>
     </Form>
   )
 }
@@ -80,12 +76,11 @@ function WeeklyDigestPage() {
   }
 
   return (
-    <div className="p-20">
-      <div className="container mx-auto p-12 text-center">
-        <h1 className="font-bold text-3xl">Subscribe to our Weekly Digest</h1>
-        <h2>Sign up to learn about upcoming Data Science events.</h2>
+    <div className="xs:mb-40 lg:mt-12 lg:mx-28 xl:mx-40">
+      <div className="container mx-auto text-center">
+        <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
+        <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
       </div>
-
       <WeeklyDigestForm handleSubmit={handleSubmit} />
     </div>
   )
