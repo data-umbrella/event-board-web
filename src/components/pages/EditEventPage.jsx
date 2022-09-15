@@ -14,7 +14,6 @@ function EditEventPage() {
 
   function handleFormSubmit(values) {
     sessionStore(eventId, values);
-    debugger
     navigate(`/events/${eventId}/review`);
   }
 
