@@ -28,7 +28,7 @@ function EventsForMonth({ events }) {
             </Link>
           </span>
           <span className="text-right text-du-charcoal-gray dark:text-du-gray">
-            <span className={`border ${eventTag} text-black py-1 rounded`}>
+            <span className={`border ${eventTag} text-black py-1 px-2 rounded`}>
               {evt.eventType}
             </span>
             <span className="pl-2">
