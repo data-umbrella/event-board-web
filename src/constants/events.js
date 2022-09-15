@@ -102,13 +102,13 @@ export const EVENT_ATTRIBUTES = [
 ];
 
 export const EVENT_TYPES = [
-  { label: 'Conference', value: 'conference' },
-  { label: 'Hackathon', value: 'hackathon' },
-  { label: 'Meetup', value: 'meetup' },
-  { label: 'Workshop', value: 'workshop' },
-  { label: 'Training', value: 'training' },
-  { label: 'Session', value: 'session' },
-  { label: 'Webinar', value: 'webinar' }
+  { label: 'Conference', value: 'conference', tag: 'border-event-tags-conference bg-event-tags-conference' },
+  { label: 'Hackathon', value: 'hackathon', tag: 'border-event-tags-hackathon bg-event-tags-hackathon' },
+  { label: 'Meetup', value: 'meetup', tag: 'border-event-tags-meetup bg-event-tags-meetup' },
+  { label: 'Workshop', value: 'workshop', tag: 'border-event-tags-other bg-event-tags-other' },
+  { label: 'Training', value: 'training', tag: 'border-event-tags-training bg-event-tags-training' },
+  { label: 'Session', value: 'session', tag: 'border-event-tags-other bg-event-tags-other' },
+  { label: 'Webinar', value: 'webinar', tag: 'border-event-tags-webinar bg-event-tags-webinar' }
 ];
 
 export const CATEGORY_OPTIONS = [
@@ -136,7 +136,7 @@ export const ACCESSIBILITY_OPTIONS = [
 ];
 
 export const TOPIC_TYPES = [
-  { label: 'Please select below', value: 'none-selected' },
+  { label: '', value: 'none-selected' },
   { label: 'Technical Issue', value: 'technical-issue' },
   { label: 'Sponsorship', value: 'sponsorship' },
   { label: 'Feedback', value: 'feedback' },

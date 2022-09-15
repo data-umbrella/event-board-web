@@ -2,23 +2,41 @@ const formStyleClasses = {
   input: `
     block
     border
-    border-zinc-300
+    border-black
     dark:border-teal-400
     dark:bg-transparent
     w-full
     rounded-md
-    h-8
+    h-14
     p-2
+    text-xl
+    text-[#545454]
+  `,
+  searchInput: `
+    block
+    border
+    border-black
+    dark:border-teal-400
+    dark:bg-[#151A35]
+    w-full
+    rounded-md
+    h-14
+    p-2
+    text-xl
+    text-[#545454]
   `,
   select: `
     block
     w-full
     rounded-md
-    h-8
+    h-14
     border
-    border-zinc-300
+    border-black
     dark:border-teal-400
     dark:bg-transparent
+    p-2
+    text-xl
+    text-[#545454]
   `,
   inputContainer: `
     pr-4
@@ -56,16 +74,23 @@ const formStyleClasses = {
   searchInputGroup: `
     block
     container
-    mh-60
     mx-auto
-    rounded
+    rounded-xl
     mb-10
-    bg-violet-200
+    py-10
+    bg-gradient-to-b
+    from-[#4273D64D]
+    to-[#6B26FF4D]
+    dark:from-[#000B4A]
+    dark:to-[#5256BA]
     border
-    border-fuchsia-800
-    dark:bg-violet-400
+    border-du-purple-500
+    dark:border-du-lightAqua
+    border-1
+    text-xl
+    
   `,
-  searchInputColumns: `
+  searchInputColumnsOne: `
     container
     gap-6
     grid
@@ -74,8 +99,26 @@ const formStyleClasses = {
     mx-auto
     sm:grid-cols-none
   `,
+  searchInputColumnsTwo: `
+    container
+    gap-6
+    grid
+    mb-6
+    md:grid-cols-3
+    mx-auto
+    sm:grid-cols-none
+    pr-56
+  `,
+  popularSearch:`
+    px-3 
+    text-du-purple-500 
+    dark:text-[#C86DFF]
+    dark:underline 
+    font-bold
+  `,
   hyperlinks:`
     text-blue-500
+    dark:text-[#0A66C2]
     hover:text-blue-700
     underline
   `,

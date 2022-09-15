@@ -105,5 +105,6 @@ nav li {
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center center;
-   height: 200px;
+   min-height: 12rem;
+   height: 60%;
 }

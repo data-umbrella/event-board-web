@@ -6,6 +6,5 @@ export const NAVBAR_EVENT_OPTIONS = [
 ]
   
 export const NAVBAR_SUPPORT_OPTIONS = [
-  { label: 'Donate', value: 'donate', route: '/donate' },
   { label: 'Sponsors', value: 'sponsors', route: '/sponsors' },
 ]

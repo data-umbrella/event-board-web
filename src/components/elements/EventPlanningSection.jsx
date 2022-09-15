@@ -7,7 +7,7 @@ import EventTags from 'components/elements/EventTags';
 function EventPlanningSection({ evt }) {
   return (
     <div className="grid md:grid-cols-2 gap-x-20 mb-10">
-      <div className="">
+      <div className="dark:text-slate-50">
         <EventPlanningDetail
           label="Start Date"
           value={formatEventDetail(evt.startDate)}

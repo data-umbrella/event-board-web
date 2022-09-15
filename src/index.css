@@ -4,10 +4,17 @@
 @tailwind utilities;
 
 
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark label, .dark input, .dark a {
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark label, .dark input, .dark a, .dark p, .dark span {
   color: #fff;
 }
 
 .dark select, .dark option {
   color: #fff;
+}
+.dark .text-du-purple-500 a{
+  color: #6B26FF;
+}
+
+.dark button.bg-du-purple-500 {
+  background-color: #9747FF
 }

@@ -23,6 +23,7 @@
     "kebabcase-keys": "^1.0.0",
     "moment": "^2.29.4",
     "pigeon-maps": "^0.21.0",
+    "query-string": "^7.1.1",
     "react": "^18.0.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.0.0",
