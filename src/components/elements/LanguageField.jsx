@@ -7,7 +7,7 @@ function LanguageField() {
   return (
     <>
       <label>Language</label>
-      <Field name="language" component="select" className={`${formStyleClasses.select} dark:bg-[#151A35]`}>
+      <Field name="language" component="select" className={`${formStyleClasses.select} col-span-1 dark:bg-[#151A35]`}>
         <option>All</option>
         { LANGUAGE_OPTIONS.map(({ value, label }) => {
           return <option key={value} value={value}>{ label }</option>

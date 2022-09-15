@@ -101,10 +101,9 @@ const formStyleClasses = {
     gap-6
     grid
     mb-6
-    md:grid-cols-3
+    md:grid-cols-4
     mx-auto
     sm:grid-cols-none
-    pr-56
   `,
   popularSearch:`
     px-3 
