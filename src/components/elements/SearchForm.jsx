@@ -13,7 +13,7 @@ import formStyleClasses from 'styles/forms';
 import DatePickerField from 'components/elements/DatePickerField';
 import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
-import CategoryField from 'components/elements/CategoryField';
+import EventTopicField from 'components/elements/EventTopicField';
 import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
@@ -112,9 +112,7 @@ function SearchFormComponent() {
                 <EventTypeField />
               </div>
 
-              <div>
-                <CategoryField/>
-              </div>
+              {/*<div><EventTopicField/></div>*/}
             </div>
 
             <div className={formStyleClasses.searchInputColumnsTwo}>
