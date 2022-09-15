@@ -12,7 +12,7 @@ describe('Event map view', () => {
       eventUrl: 'https://www.test.com',
     }
     
-    render(<ReviewEventMainSection evt={event} />, {wrapper: BrowserRouter});
+    render(<ReviewEventMainSection evt={event} />, { wrapper: BrowserRouter });
 
     const registrationLink = screen.getByText(/Register/i);
 
