@@ -13,7 +13,10 @@ import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 function NavigationBar() {
   const auth = useAuth();
   const [colorTheme, setTheme] = useDarkMode();
-  const signOut = () => auth.signOutCurrentUser();
+  const authLinks = [
+    { label: 'Settings', value: 'settings', route: '/account-settings' },
+    { label: 'Sign Out', value: 'sign-out', action: () => auth.signOutCurrentUser() },
+  ]
 
   return (
     <>
@@ -44,12 +47,14 @@ function NavigationBar() {
                 alt="logo"
               />
             </div>
-            <div className={navStyleClasses.navLink}>
-              {auth.currentUser.isAuthenticated
-                ? <button onClick={signOut}>Sign Out</button>
-                : <Link to="/sign-in">Sign In</Link>
+
+            <div>
+              { auth.currentUser.isAuthenticated
+                ? <DropdownMenu label="Account" options={authLinks} />
+                : <div className={navStyleClasses.navLink}><Link to="/sign-in">Sign In</Link></div>
               }
             </div>
+
             <div className={navStyleClasses.navLink}>
               <a
                 href="https://www.dataumbrella.org"
@@ -64,7 +69,10 @@ function NavigationBar() {
                 Sponsors
               </a>
             </div>
-            <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
+
+            <div>
+              <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
+            </div>
           </div>
         </div>
       </div>
