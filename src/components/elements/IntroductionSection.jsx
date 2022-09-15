@@ -20,7 +20,7 @@ function IntroductionSection() {
         <h1 className={styleClasses.eventBoardHeading}>
           Data Events Board
         </h1>
-        <small className="pl-36 italic text-violet-400">
+        <small className="md:pl-36 italic text-violet-400">
           A Data Umbrella Initiative
         </small>
       </div>

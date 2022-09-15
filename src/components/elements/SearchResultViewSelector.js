@@ -15,7 +15,7 @@ function SearchResultViewSelector({ onChange, selectedView }) {
   });
 
   return (
-    <div className="float-right">
+    <div className="md:float-right">
       <label className="mr-2 dark:text-slate-50">View as:</label>
       { options.map(option => {
         return (

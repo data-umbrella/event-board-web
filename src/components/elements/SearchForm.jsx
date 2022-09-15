@@ -13,12 +13,10 @@ import formStyleClasses from 'styles/forms';
 import DatePickerField from 'components/elements/DatePickerField';
 import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
-import CategoryField from 'components/elements/CategoryField';
 import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
 function SearchFormComponent() {
-
   return (
     <>
       <section className="flex justify-between items-end py-9 md:py-1.5">
@@ -64,7 +62,7 @@ function SearchFormComponent() {
               <Field
                 type="search"
                 name="search"
-                className={`${formStyleClasses.searchInput} pl-10 focus:outline-none p1-10`}
+                className={`${formStyleClasses.searchInput} pl-10 focus:outline-none`}
                 placeholder="Search"
                 autoComplete="off"
               />
@@ -88,7 +86,7 @@ function SearchFormComponent() {
             </p>
           </div>
 
-          <label className="md:hidden py-3">
+          <label className="md:hidden my-3">
             Filter by:
           </label>
 
@@ -112,9 +110,7 @@ function SearchFormComponent() {
                 <EventTypeField />
               </div>
 
-              <div>
-                <CategoryField/>
-              </div>
+              {/*<div><EventTopicField/></div>*/}
             </div>
 
             <div className={formStyleClasses.searchInputColumnsTwo}>
@@ -145,7 +141,6 @@ function SearchFormComponent() {
                 Apply Filters
               </button>
             </div>
-
           </div>
         </div>
       </Form>
@@ -199,6 +194,5 @@ const SearchForm = withFormik({
   handleSubmit,
   validationSchema,
 })(SearchFormComponent);
-
 
 export default SearchForm;
