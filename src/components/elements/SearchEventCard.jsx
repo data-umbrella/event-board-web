@@ -41,7 +41,7 @@ function SearchEventCard({ eventData }) {
       >
       </div>
 
-      <div className="p-8 h-40">
+      <div className="p-8">
         <div className={styleClasses.searchEventCardDetail}>
           <time className="text-du-purple-600 dark:text-du-lightPurple">
             {startDate}
