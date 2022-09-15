@@ -23,6 +23,7 @@ import ContactPage from 'components/pages/ContactPage';
 import PrivacyPage from 'components/pages/PrivacyPolicyPage';
 import ContactSuccessPage from 'components/pages/ContactSuccessPage';
 import TermsPage from 'components/pages/TermsPage';
+import AccountSettingsPage from 'components/pages/AccountSettingsPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
@@ -94,6 +95,7 @@ function AppRoutes() {
         element={<VerifyMagicLinkPage />}
       />
       <Route path="/contact-success" element={<ContactSuccessPage />} />
+      <Route path="/account-settings" element={<AccountSettings />} />
     </Routes>
   );
 }
