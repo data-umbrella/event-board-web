@@ -10,6 +10,7 @@ const EXAMPLE_EVENT = {
   eventName: 'Example event name',
   startDate: '2022-09-01',
   endDate: '2022-09-01',
+  tags: 'python',
 }
 
 jest.mock('hooks/events', () => ({

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo-color.svg';
 import { donateURL } from 'constants/donate';
+import ExternalLinkIcon from 'assets/externalLink.svg'
 
 function Footer() {
   return (
@@ -35,7 +36,7 @@ function Footer() {
 
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
-            <li className="mb-2"><a href="https://www.dataumbrella.org">Data Umbrella</a></li>
+            <li className="mb-2"><a href="https://www.dataumbrella.org">Data Umbrella<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a></li>
             <li className="mb-2"><Link to="/privacy">Privacy</Link></li>
             <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li>
           </ul>

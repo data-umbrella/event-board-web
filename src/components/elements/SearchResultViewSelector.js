@@ -1,5 +1,19 @@
 import React from 'react';
 
+const styleClasses = {
+  option: 'mr-2 p-2 rounded',
+  selected: 'bg-gray-300 bg-du-purple-500 text-white',
+  unselected: 'dark:text-slate-50 bg-du-purple-200',
+}
+
+function viewTypeClassName(viewType, selectedView) {
+  const selectedClassName = viewType.id === selectedView
+    ? styleClasses.selected
+    : styleClasses.unselected;
+
+  return `${styleClasses.option} ${selectedClassName}`;
+}
+
 function SearchResultViewSelector({ onChange, selectedView }) {
   const viewTypes = [
     { id: 'GRID', label: 'Grid' },
@@ -9,21 +23,19 @@ function SearchResultViewSelector({ onChange, selectedView }) {
     // { id: 'MAP', label: 'Map' },
   ]
 
-  const options = viewTypes.map(viewType => {
-    const selectedClass = viewType.id === selectedView ? 'bg-gray-300' : 'dark:text-slate-50';
-    return { ...viewType, className: `mr-2 p-2 rounded ${selectedClass}` }
-  });
-
   return (
-    <div className="float-right">
+    <div className="md:float-right">
       <label className="mr-2 dark:text-slate-50">View as:</label>
-      { options.map(option => {
-        return (
-          <span id={option.id} key={option.id} className={option.className} onClick={onChange}>
-            { option.label }
-          </span>
-        )
-      })}
+      { viewTypes.map(viewType => (
+        <span
+          id={viewType.id}
+          key={viewType.id}
+          className={viewTypeClassName(viewType, selectedView)}
+          onClick={onChange}
+        >
+          { viewType.label }
+        </span>
+      ))}
     </div>
   )
 }

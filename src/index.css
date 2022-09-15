@@ -18,3 +18,8 @@
 .dark button.bg-du-purple-500 {
   background-color: #9747FF
 }
+
+/* TODO: Figure out how translate tailwind syntax */
+.search-form-gradient {
+  background: linear-gradient(180deg, rgba(130, 105, 212, 0.25) 0%, rgba(132, 136, 225, 0.25) 100%);
+}

@@ -7,7 +7,7 @@ function EventTypeField () {
   return (
     <>
       <label>Event Type</label>
-      <Field name="eventType" component="select" className={formStyleClasses.select}>
+      <Field name="eventType" component="select" className={`${formStyleClasses.select} dark:bg-[#151A35]`}>
         <option>All</option>
         { EVENT_TYPES.map(({ value, label }) => {
           return <option key={value} value={value}>{ label }</option>
