@@ -11,6 +11,8 @@ const formStyleClasses = {
     p-2
     text-xl
     text-[#545454]
+    md:row-start-2
+    md:col-span-2
   `,
   searchInput: `
     block
