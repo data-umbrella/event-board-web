@@ -30,7 +30,7 @@ const IMAGE_MAP = {
 // Move into constants
 const contributorList = [
   { name: 'Reshama Shaikh',
-    title: 'Event Board Project Manager',
+    title: 'Event Board Project',
     organization: 'Data Umbrella',
     image: Reshama,
     socialMediaLinks: [
@@ -48,7 +48,6 @@ const contributorList = [
       { name: 'twitter', darkName: 'twitterWhite', link: 'https://twitter.com/joetorreggiani?lang=en' },
       { name: 'github', darkName: 'githubWhite', link: 'https://github.com/jtorreggiani' },
       { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/joetorreggiani/' },
-
     ]
   },
   { name: 'Ilia de Leon',
@@ -128,7 +127,7 @@ function Contributor() {
               <div>
                 <ContributorPhoto imageSrc={contributorInfo.image} />
               </div>
-              <div className="place-self-center m-2 text-left md:text-center dark:text-white">
+              <div className="place-self-center my-2 text-left md:text-center dark:text-white">
                 <h3>{ contributorInfo.name }</h3>
                 <small>{ contributorInfo.title }</small><br />
                 <small>{ contributorInfo.organization }</small>
