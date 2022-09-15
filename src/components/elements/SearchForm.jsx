@@ -13,7 +13,7 @@ import formStyleClasses from 'styles/forms';
 import DatePickerField from 'components/elements/DatePickerField';
 import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
-import PriceField from 'components/elements/PriceField';
+// import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
 function SearchFormComponent() {
