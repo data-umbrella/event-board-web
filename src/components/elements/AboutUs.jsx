@@ -25,7 +25,7 @@ const IMAGE_MAP = {
 const aboutUsList = [
   { 
     name: 'Data Umbrella', 
-    about_img: DUlogo,
+    aboutImage: DUlogo,
     url: 'https://www.specollective.org/',
     style: 'border-t border-l border-b border-r border-black rounded-l',
     link: 'https://www.dataumbrella.org/',
@@ -40,7 +40,7 @@ const aboutUsList = [
   },
   {
     name: 'Sustainable Progress and Equality Collective (SPEC)', 
-    about_img: SPEC,
+    aboutImage: SPEC,
     style: 'border-t border-r border-b border-black rounded-r',
     link: 'https://www.specollective.org/',
     info: ` is an open learning organization 
@@ -82,7 +82,7 @@ function AboutUs() {
             className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white"
           >
             <div className="py-4">
-              <img src={aboutUsInfo.about_img} alt="logo" className={`mx-auto`}/>
+              <img src={aboutUsInfo.aboutImage} alt="logo" className={`mx-auto`}/>
             </div>
             <div className="row-span-2 px-4 m-1 object-contain text-left">
               <a
