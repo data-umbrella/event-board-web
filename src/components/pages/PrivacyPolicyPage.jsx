@@ -45,12 +45,13 @@ function PrivacyPage() {
                 Collection of Information
               </h1>
               <p className="font-medium">Information You Provide to Us</p>
-              
-              Lectus nibh neque leo purus mi tristique pulvinar faucibus. Cursus turpis aliquet diam
-              risus consectetur convallis et in nulla. Lobortis faucibus nisi purus commodo dui cum
-              ipsum fringilla nibh.
+              <p>
+                Lectus nibh neque leo purus mi tristique pulvinar faucibus. Cursus turpis aliquet diam
+                risus consectetur convallis et in nulla. Lobortis faucibus nisi purus commodo dui cum
+                ipsum fringilla nibh.
+              </p>
 
-              <ul className="list-disc pl-5">
+              <ul className="list-disc pl-5 dark:text-white">
                 <li className="leading-10">
                   Amet, venenatis, venenatis interdum mauris, mus nullam tellus leo.
                   Eget aliquam iaculis risus tellus amet duis nisi, et tellus.
@@ -84,7 +85,7 @@ function PrivacyPage() {
               <p className="font-medium">
                 We may use information about you for various purposes, including to:
               </p>
-              <ul className="list-disc pl-5">
+              <ul className="list-disc pl-5 dark:text-white">
                 <li>Porttitor est quis augue dui tellus.</li>
                 <li>Porttitor est quis augue dui tellus.</li>
                 <li>Porttitor est quis augue dui tellus.</li>
@@ -104,7 +105,7 @@ function PrivacyPage() {
               <p className="font-medium">
                 We may share information about you as follows or as otherwise described in this Privacy Policy:
               </p>
-              <ul className="list-disc pl-5">
+              <ul className="list-disc pl-5 dark:text-white">
                 <li>
                   Mi iaculis aliquet sit ultricies arcu ut sit id.
                   Cursus cursus morbi ut risus fringilla et donec eget.

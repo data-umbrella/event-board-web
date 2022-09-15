@@ -1,12 +1,12 @@
 export const navStyleClasses = {
-  navLink:`
+  navLink: `
     inline-block
-    mr-4
+    mr-12
     mt-6
     hover:underline
-    hover:font-bold
     hover:text-du-purple-500
     dark:text-slate-50
+    dark:hover:text-teal-400
   `,
   navContainer: `
     grid
@@ -29,7 +29,7 @@ export const navStyleClasses = {
     focus:ring-offset-gray-100
     focus:ring-indigo-500
   `,
-  navSelectButton:`
+  navSelectButton: `
     dropdown-toggle
     px-6
     py-2.5
@@ -42,8 +42,10 @@ export const navStyleClasses = {
     items-center
     whitespace-nowrap
     dark:text-slate-50
+    dark:hover:text-teal-400
+    hover:underline
   `,
-  navSelectMenu:`
+  navSelectMenu: `
     dropdown-menu
     min-w-max
     absolute
@@ -64,7 +66,7 @@ export const navStyleClasses = {
     border-none
     dark:bg-slate-700
   `,
-  navDropdownItem:`
+  navDropdownItem: `
     dropdown-item
     text-sm
     py-2
@@ -79,7 +81,7 @@ export const navStyleClasses = {
     hover:text-white
     dark:text-slate-50
   `,
-  modeImage:`
+  modeImage: `
     mt-6
     object-scale-down: h-5
   `,

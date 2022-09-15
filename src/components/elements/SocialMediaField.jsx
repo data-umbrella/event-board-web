@@ -16,17 +16,17 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
     onRemove(link);
   }
 
-  function handleSocialMediaChange(e) {
-    const newLink = { ...link, type: e.target.value };
-    setLink(newLink);
-    onChange(newLink);
-  }
+  // function handleSocialMediaChange(e) {
+  //   const newLink = { ...link, type: e.target.value };
+  //   setLink(newLink);
+  //   onChange(newLink);
+  // }
 
   return (
-    <div className="grid grid-cols-8 gap-2 mb-2">
-      <select
+    <div className="grid grid-cols-7 md:grid-cols-6 gap-2 mb-2">
+      {/* <select
         name="type"
-        className={`${formStyleClasses.input} h-10 col-span-1`}
+        className={`${formStyleClasses.input} h-10 col-span-3 md:col-span-2`}
         onChange={handleSocialMediaChange}
         value={link.type}
       >
@@ -34,7 +34,7 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
         <option value="twitter">Twitter</option>
         <option value="linkedin">LinkedIn</option>
         <option value="facebook">Facebook</option>
-      </select>
+      </select> */}
 
       <input
         type="text"
@@ -44,10 +44,11 @@ function SocialMediaFieldInput ({ socialMediaLink, onChange, onRemove }) {
         onChange={(e) => setLink({ ...link, url: e.target.value })}
         onKeyPress={handleKeyPress}
         onBlur={() => onChange(link)}
-        className={`${formStyleClasses.input} h-10 col-span-4`}
+        className={`${formStyleClasses.input} h-10 col-span-3 md:col-span-3`}
       />
 
-      <button type="button" onClick={removeItem}>Remove</button>
+      <button className="hidden md:block dark:text-white" type="button" onClick={removeItem}>Remove</button>
+      <button className="md:hidden dark:text-white" type="button" onClick={removeItem}>X</button>
     </div>
   )
 }
@@ -87,13 +88,13 @@ function SocialMediaField({ value, onChange }) {
   return (
     <div className="mb-6">
       <div className="mb-2">
-        <label className="font-bold" htmlFor="speakers">Social Media</label>
-        <button className="float-right" type="button" onClick={addLink}>
+        <label htmlFor="speakers">Social Media</label>
+        <button className="float-right dark:text-white" type="button" onClick={addLink}>
           Add Social Media Link
         </button>
       </div>
 
-      <div className="">
+      <div>
         {links.map(link => {
           return (
             <SocialMediaFieldInput
