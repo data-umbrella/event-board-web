@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import aboutStyleClasses from 'styles/about';
-import DUlogo from 'assets/data-umbr-full-transp-logo.png';
-import SPEC from 'assets/speclogoname.png';
+import DULogo from 'assets/data-umbr-full-transp-logo.png';
+import SPECLogo from 'assets/speclogoname.png';
 import twitter from 'assets/twitter.svg';
 import linkedin from 'assets/linkedin.svg';
 import github from 'assets/github.svg';
@@ -22,44 +22,25 @@ const IMAGE_MAP = {
   websiteWhite
 }
 
-const aboutUsList = [
-  { 
-    name: 'Data Umbrella', 
-    aboutImage: DUlogo,
-    url: 'https://www.specollective.org/',
-    style: 'border-t border-l border-b border-r border-black rounded-l',
-    link: 'https://www.dataumbrella.org/',
-    info: ` is a global non-profit community for underrepresented persons 
-    in data science that organizes data science events. You can support Data Umbrella’s 
-    work by making a donation to the Data Umbrella Open Collective.` ,
-    socialMediaLinks: [
-      { name: 'website', darkName: 'websiteWhite', link: 'https://www.dataumbrella.org/' },
-      { name: 'twitter', darkName: 'twitterWhite', link: 'https://twitter.com/DataUmbrella?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor' },
-      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/dataumbrella/' },
-    ],
-  },
-  {
-    name: 'Sustainable Progress and Equality Collective (SPEC)', 
-    aboutImage: SPEC,
-    style: 'border-t border-r border-b border-black rounded-r',
-    link: 'https://www.specollective.org/',
-    info: ` is an open learning organization 
-    that empowers individuals to be catalysts for positive change. You can support SPEC’s work 
-    by making a donation to the SPEC Open Collective.`,
-    socialMediaLinks: [
-      { name: 'website',  darkName: 'websiteWhite', link: 'https://www.specollective.org/' },
-      { name: 'twitter', darkName: 'twitterWhite', link: 'https://mobile.twitter.com/specollective' },
-      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/specollective/' },
-    ],
-  }]
+const DATA_UMBRELLA_SOCIAL_MEDIA_LINKS = [
+  { name: 'website', darkName: 'websiteWhite', link: 'https://www.dataumbrella.org/' },
+  { name: 'twitter', darkName: 'twitterWhite', link: 'https://twitter.com/DataUmbrella?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor' },
+  { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/dataumbrella/' },
+]
 
-function ContributorSocialMediaLinks({ aboutUsInfo }) {
+const SPEC_SOCIAL_MEDIA_LINKS = [
+  { name: 'website',  darkName: 'websiteWhite', link: 'https://www.specollective.org/' },
+  { name: 'twitter', darkName: 'twitterWhite', link: 'https://mobile.twitter.com/specollective' },
+  { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/company/specollective/' },
+]
+
+function ContributorSocialMediaLinks({ socialMediaLinks }) {
   const [colorTheme, setTheme] = useState(localStorage.theme);
   window.addEventListener("themeChanged", () => setTheme(localStorage.theme))
 
   return (
     <div className="mt-4">
-      { aboutUsInfo.socialMediaLinks.map(mediaLink => {
+      { socialMediaLinks.map(mediaLink => {
         return (
           <div className="inline-block p-2" key={mediaLink.name}>
             <a href={mediaLink.link}>
@@ -75,30 +56,60 @@ function ContributorSocialMediaLinks({ aboutUsInfo }) {
 function AboutUs() {
   return (
     <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsCards}>
-      {aboutUsList.map(aboutUsInfo => {
-        return (
-          <div
-            key={aboutUsInfo.name}
-            className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white"
+      <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white">
+        <div className="py-4">
+          <img src={DULogo} alt="logo" className={`mx-auto`}/>
+        </div>
+        <div className="row-span-2 px-4 m-1 object-contain text-left">
+          <a
+            href="https://www.dataumbrella.org/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-teal-500 underline dark:text-blue-700"
           >
-            <div className="py-4">
-              <img src={aboutUsInfo.aboutImage} alt="logo" className={`mx-auto`}/>
-            </div>
-            <div className="row-span-2 px-4 m-1 object-contain text-left">
-              <a
-                href={aboutUsInfo.link}
-                target="_blank"
-                rel="noreferrer"
-                className="text-teal-500 underline dark:text-blue-700"
-              >
-                {aboutUsInfo.name}
-              </a>
-              {aboutUsInfo.info}
-            </div>
-            <ContributorSocialMediaLinks aboutUsInfo={aboutUsInfo} />
-          </div>
-        )
-      })}
+            Data Umbrella
+          </a>
+          &nbsp;is a global non-profit community for underrepresented persons in data science
+          that organizes data science events. You can support Data Umbrella&apos;s work by
+          making a donation to the&nbsp;
+          <a
+            href="https://opencollective.com/data-umbrella"
+            target="_blank"
+            rel="noreferrer"
+            className="text-teal-500 underline dark:text-blue-700"
+          >
+            Data Umbrella Open Collective
+          </a>.
+        </div>
+        <ContributorSocialMediaLinks socialMediaLinks={DATA_UMBRELLA_SOCIAL_MEDIA_LINKS} />
+      </div>
+
+      <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white">
+        <div className="py-4">
+          <img src={SPECLogo} alt="logo" className={`mx-auto`}/>
+        </div>
+        <div className="row-span-2 px-4 m-1 object-contain text-left">
+          <a
+            href="https://www.dataumbrella.org/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-teal-500 underline dark:text-blue-700"
+          >
+            Sustainable Progress and Equality Collective (SPEC)
+          </a>
+          &nbsp;is an open learning organization that empowers individuals to be catalysts for positive change.
+          You can support SPEC&apos;s work making a donation to&nbsp;
+          <a
+            href="https://opencollective.com/spec"
+            target="_blank"
+            rel="noreferrer"
+            className="text-teal-500 underline dark:text-blue-700"
+          >
+            SPEC&apos;s Open Collective
+          </a>.
+        </div>
+        <ContributorSocialMediaLinks socialMediaLinks={SPEC_SOCIAL_MEDIA_LINKS} />
+      </div>
     </div>
   )
 }
