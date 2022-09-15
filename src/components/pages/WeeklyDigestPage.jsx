@@ -10,20 +10,20 @@ import * as Yup from 'yup';
 function WeeklyDigestFormComponent() {
   return (
     <Form className="container mx-auto my-8 text-center">
-        <div className="grid grid-rows-2 md:grid-cols-3 md:grid-rows-2">
-            <label className="pt-8 text-left" htmlFor="email">Email address</label>
-            <Field
-              type="email"
-              name="email"
-              className={formStyleClasses.input}
-            />
-          <button
-            type="submit"
-            className="md:row-start-2 md:cols-start-2 md:m-0 md:mx-10 px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
-          >
-            Subscribe
-          </button>
-          </div>
+      <div className="grid grid-rows-2 md:grid-cols-3 md:grid-rows-2">
+        <label className="pt-8 text-left" htmlFor="email">Email address</label>
+        <Field
+          type="email"
+          name="email"
+          className={formStyleClasses.input}
+        />
+        <button
+          type="submit"
+          className="md:row-start-2 md:cols-start-2 md:m-0 md:mx-10 px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
+        >
+          Subscribe
+        </button>
+      </div>
     </Form>
   )
 }
