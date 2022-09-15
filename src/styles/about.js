@@ -7,18 +7,35 @@ const aboutStyleClasses = {
   `,
   aboutUsGrid:`
     grid
-    grid-cols-2
+    md:grid-cols-2
     text-center
     rounded
   `,
+
+  aboutUsCards:`
+    grid
+    md:grid-cols-2
+    text-center
+    rounded
+  `,
+
+  aboutUsGridSmall:`
+    bg-teal-400
+  `,
+
   contributorGrid:`
-    gap-16
+    sm:grid-cols-3
+    lg:grid-cols-4
+    xl:grid-cols-5
+    gap-20
     grid
     mb-6
-    md:grid-cols-4
-    sm:grid-cols-none
+    columns-4-md
     text-center
     mt-15
+    place-items-center
+    mb-28
+    w-fit
   `,
   aboutUsOrg:`
     mx-auto 

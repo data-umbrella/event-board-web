@@ -1,37 +1,33 @@
-import React from 'react';
-import formStyleClasses from 'styles/forms';
-import { withFormik, Form, Field } from 'formik';
-import { useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import { useAuth } from 'hooks/authentication';
-import 'tw-elements';
+import React from "react";
+import formStyleClasses from "styles/forms";
+import { withFormik, Form, Field } from "formik";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import { useAuth } from "hooks/authentication";
+import "tw-elements";
 
 // TODO: Use the touched, errors props to implement validations
-function BaseSignInForm () {
+function BaseSignInForm() {
   return (
     <div className="flex justify-center">
-      <Form className="lg:basis-2/3">
-        <div className={formStyleClasses.inputContainer}>
-          <label className="block" htmlFor="email">Email address</label>
-          <Field
-            name="email"
-            type="text"
-            autoComplete="off"
-            className={formStyleClasses.input}
-          />
-        </div>
-
-        <div className={formStyleClasses.inputContainer}>
-          <button
-            type="submit"
-            className={formStyleClasses.loginButton}
-          >
+      <Form className=" w-full md:basis-2/3 mb-6 sm:w-2/3">
+        <label className="block" htmlFor="email">
+          Email address
+        </label>
+        <Field
+          name="email"
+          type="text"
+          autoComplete="off"
+          className={formStyleClasses.input}
+        />
+        <div className= "mt-6">
+          <button type="submit" className={formStyleClasses.loginButton}>
             Login
           </button>
         </div>
       </Form>
     </div>
-  )
+  );
 }
 
 /**
@@ -40,11 +36,11 @@ function BaseSignInForm () {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues (props) {
+export function mapPropsToValues(props) {
   return {
-    email: props.email || '',
-    name: props.name || '',
-  }
+    email: props.email || "",
+    name: props.name || "",
+  };
 }
 
 /**
@@ -64,7 +60,7 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  email: Yup.string().required('Field is required'),
+  email: Yup.string().required("Field is required"),
 });
 
 /**
@@ -77,14 +73,14 @@ const SignInFormWithFormik = withFormik({
   validationSchema,
 })(BaseSignInForm);
 
-function SignInForm () {
+function SignInForm() {
   const navigate = useNavigate();
   const auth = useAuth();
 
   async function handleFormSubmit(values) {
     auth.sendMagicLink(values.email, (success, error) => {
       if (success) {
-        navigate('/registration/confirmation');
+        navigate(`/sign-in/sent?email=${values.email}`);
       } else {
         // TODO: Handle error cases gracefully.
         window.alert(error);
@@ -92,9 +88,7 @@ function SignInForm () {
     });
   }
 
-  return (
-    <SignInFormWithFormik handleFormSubmit={handleFormSubmit} />
-  )
+  return <SignInFormWithFormik handleFormSubmit={handleFormSubmit} />;
 }
 
 export default SignInForm;

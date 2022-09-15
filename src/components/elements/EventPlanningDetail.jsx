@@ -12,7 +12,7 @@ function EventPlanningDetail({ label, value, type }) {
     : value
 
   return (
-    <div className="mb-1">
+    <div className="mb-1 dark:text-slate-50">
       <b>{ label }</b> : { formattedValue }
     </div>
   )
