@@ -200,5 +200,4 @@ const SearchForm = withFormik({
   validationSchema,
 })(SearchFormComponent);
 
-
 export default SearchForm;
