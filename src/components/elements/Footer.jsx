@@ -35,7 +35,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2">
-              <a href={donateURL} target="_blank" rel="noreferrer"> Donate</a>
+              <a href={donateURL} target="_blank" rel="noreferrer">Donate<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a>
             </li>
             <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
             <li className="mb-2">
