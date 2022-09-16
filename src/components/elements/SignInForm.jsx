@@ -10,7 +10,7 @@ import "tw-elements";
 function BaseSignInForm() {
   return (
     <div className="flex justify-center">
-      <Form className=" w-full md:basis-2/3 mb-6 sm:w-2/3">
+      <Form className=" mb-6 w-full sm:w-2/3 md:basis-2/3">
         <label className="block" htmlFor="email">
           Email address
         </label>

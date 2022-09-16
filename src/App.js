@@ -25,10 +25,10 @@ function CurrentUser({ children }) {
 
 export default function App() {
   return (
-    <div className="bg-du-gray dark:bg-du-deepPurple transition duration-300">
+    <div className="bg-du-gray transition duration-300 dark:bg-du-deepPurple">
       <AuthProvider>
         <CurrentUser>
-          <section className="flex flex-col min-h-screen justify-between">
+          <section className="flex min-h-screen flex-col justify-between">
             <section className="md:hidden">
               <MobileNav />
             </section>

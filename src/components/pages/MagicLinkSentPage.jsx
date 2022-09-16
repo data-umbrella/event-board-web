@@ -7,8 +7,8 @@ function MagicLinkSentPage() {
 
   return (
     <section className="container mx-auto text-center">
-      <div className="pt-40 pb-40">
-        <h1 className="font-bold text-4xl">
+      <div className="py-40">
+        <h1 className="text-4xl font-bold">
           We&apos;ve sent you a magic link to login!
         </h1>
 

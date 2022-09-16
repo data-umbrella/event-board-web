@@ -12,13 +12,12 @@ function EventTags({ tags }) {
           <div
             key={tag}
             className="
-              bg-purple-500
-              inline-block
               mb-2
               mr-1
-              pl-2
-              pr-2
+              inline-block
               rounded
+              bg-purple-500
+              px-2
               text-white
             "
           >

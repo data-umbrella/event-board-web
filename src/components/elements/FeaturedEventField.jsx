@@ -22,7 +22,7 @@ function FeaturedEventField({ value, onChange }) {
           value={value}
           onChange={handleChange}
         />
-        <span className="text-black dark:text-white font-medium">
+        <span className="font-medium text-black dark:text-white">
           I would like my event to be featured
         </span>
       </div>

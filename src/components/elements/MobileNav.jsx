@@ -24,14 +24,14 @@ function MobileNav() {
 
   return (
     <>
-      <div className="grid grid-cols-4 place-items-center text-right h-16 bg-du-gray dark:bg-slate-700">
+      <div className="grid h-16 grid-cols-4 place-items-center bg-du-gray text-right dark:bg-slate-700">
         <section className="place-content-center place-items-center">
           <Link
             onClick={() => setMenuOpen(false)}
             to="/"
           >
             <img
-              className="object-scale-down object-center h-14 w-16"
+              className="h-14 w-16 object-scale-down object-center"
               src={colorTheme === 'dark' ? Logo : logoDark}
               alt="logo"
             />
@@ -47,8 +47,8 @@ function MobileNav() {
         </button>
       </div>
       <div className={menuOpen ? 'relative' : 'invisible'}>
-        <div className="dark:bg-du-deepPurple bg-fuchsia-800 z-20 fixed top-0 right-0 pl-8 h-screen text-right w-4/5">
-          <div className="text-white text-2xl grid grid-rows-11 gap-3 place-content-evenly">
+        <div className="fixed top-0 right-0 z-20 h-screen w-4/5 bg-fuchsia-800 pl-8 text-right dark:bg-du-deepPurple">
+          <div className="grid grid-rows-1 place-content-evenly gap-3 text-2xl text-white">
             <button onClick={() => setMenuOpen((prev) => !prev)} className="pb-12 pt-10 text-right">
               Close <img className="inline" src={closeSymbol} />
             </button>

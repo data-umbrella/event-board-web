@@ -3,7 +3,7 @@ import React from 'react';
 function ContactSuccessPage() {
   return (
     <div className="container mx-auto text-center">
-      <div className="pt-60 pb-60">
+      <div className="py-60">
         <h1 className="text-2xl">
           { "Thanks for reaching out!" }
         </h1>

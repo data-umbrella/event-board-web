@@ -19,14 +19,13 @@ function NavigationBar() {
     <>
       <div
         className="
-          border-b
-          border-black
           container
           mx-auto
-          lg:block
+          border-b
+          border-black
+          py-4
           dark:border-slate-50
-          pt-4
-          pb-4
+          lg:block
         "
       >
         <div className="flex">

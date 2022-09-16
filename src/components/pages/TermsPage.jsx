@@ -16,10 +16,10 @@ function TermsPage() {
   return (
     <>
       <div>
-        <div className="block mb-20 mt-10">
+        <div className="mb-20 mt-10 block">
           <h1 className={termsStyleClasses.bodyHeader}>Terms of Service</h1>
         </div>
-        <div className="grid grid-rows-3 grid-flow-col">
+        <div className="grid grid-flow-col grid-rows-3">
           <div className={`${termsStyleClasses.outlineHeader} row-span-3`}>
             {TERMS_OUTLINE.map(({ title, id }) => {
               return <h1 key={title} className="block w-1/2"><a href={`#${id}`}>{title}</a></h1>

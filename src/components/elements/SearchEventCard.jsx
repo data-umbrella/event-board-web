@@ -67,13 +67,13 @@ function SearchEventCard({ eventData }) {
           <time className="text-du-purple-600 dark:text-du-lightPurple md:col-span-2">
             {startDate}
           </time>
-          <p className="text-right text-du-purple-600 dark:text-du-lightPurple pr-2 md:col-span-1">
+          <p className="pr-2 text-right text-du-purple-600 dark:text-du-lightPurple md:col-span-1">
             Free
           </p>
         </div>
 
         <div>
-          <p className="mt-6 font-bold text-base md:text-xl dark:text-du-gray">
+          <p className="mt-6 text-base font-bold dark:text-du-gray md:text-xl">
             {eventData.eventName}
           </p>
         </div>

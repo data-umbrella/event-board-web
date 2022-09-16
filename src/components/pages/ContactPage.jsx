@@ -14,7 +14,7 @@ import { postContactEmail } from 'services/contact-emails';
  */
 function ContactUsFormComponent() {
   return (
-    <div className="container my-5 md:p-20 md:mb-10 text-sm md:text-xl">
+    <div className="container my-5 text-sm md:mb-10 md:p-20 md:text-xl">
       <section>
         <p className="pb-4">
           For feature suggestions, bug reports, etc. 
@@ -29,7 +29,7 @@ function ContactUsFormComponent() {
         </a>
       </section>
 
-      <div className="pt-5 pb-5">
+      <div className="py-5">
         <p>For inquiries related to sponsorship, technical issues, or other, please complete this form:</p>
       </div>
 
@@ -62,7 +62,7 @@ function ContactUsFormComponent() {
             <ContactTopicField/>
           </div>
 
-          <div className="row-start-3 col-start-1 col-end-3">
+          <div className="col-start-1 col-end-3 row-start-3">
             <label className="block" htmlFor="name">
               How did you find out about this Event Board?*
             </label>
@@ -73,7 +73,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className="row-start-4 col-span-2">
+          <div className="col-span-2 row-start-4">
             <label className="block" htmlFor="name">Message*</label>
             <Field
               component="textarea"
@@ -82,7 +82,7 @@ function ContactUsFormComponent() {
             />
           </div>
 
-          <div className="row-start-5 col-span-2">
+          <div className="col-span-2 row-start-5">
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
@@ -92,7 +92,7 @@ function ContactUsFormComponent() {
             </label>
           </div>
 
-          <div className="actions row-start-6 col-start-2">
+          <div className="col-start-2 row-start-6">
             <button type="submit" className={formStyleClasses.sendButton}>
               Send
             </button>
@@ -168,9 +168,9 @@ function ContactUsPage() {
 
   return (
     <div>
-      <h1 className="text-xl md:text-3xl md:font-bold py-4 md:py-8">Contact Us</h1>
-      <img src={contact} className="hidden md:block w-full mx-auto px-4" alt="contact-us"/>
-      <img src={contactMobile} className="md:hidden w-full mx-auto" alt="contact-mobile"/>
+      <h1 className="py-4 text-xl md:py-8 md:text-3xl md:font-bold">Contact Us</h1>
+      <img src={contact} className="mx-auto hidden w-full px-4 md:block" alt="contact-us"/>
+      <img src={contactMobile} className="mx-auto w-full md:hidden" alt="contact-mobile"/>
       <ContactUsForm handleFormSubmit={handleSubmit} />
     </div>
   )

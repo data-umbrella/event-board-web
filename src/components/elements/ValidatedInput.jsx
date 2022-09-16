@@ -12,7 +12,7 @@ function ValidatedInput({
   return (
     <div>
       <label htmlFor={props.id}>
-        <span className="pr-2 inline-block">{ props.label }</span>
+        <span className="inline-block pr-2">{ props.label }</span>
         { showErrors && <span className="text-red-600">{fieldErrors}</span> }
       </label>
       <input {...field} {...props} />
