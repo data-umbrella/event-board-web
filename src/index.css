@@ -23,3 +23,7 @@
 .search-form-gradient {
   background: linear-gradient(180deg, rgba(130, 105, 212, 0.25) 0%, rgba(132, 136, 225, 0.25) 100%);
 }
+
+.no-scroll {
+  overflow: hidden;
+}

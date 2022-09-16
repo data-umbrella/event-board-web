@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from "react-router-dom";
 import useDarkMode from 'hooks/dark-mode';
 import Logo from '../../assets/logo.png';
@@ -11,16 +11,23 @@ import { donateURL } from 'constants/donate';
 
 
 function MobileNav() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
   const [colorTheme, setTheme] = useDarkMode();
-  
-  const location = useLocation()
+  const location = useLocation();
+  const closeButton = useRef(null);
 
   useEffect(() => {
-    setMenuOpen(false)
+    setMenuOpen(false);
+  }, [location]);
 
-  }, [location])
-
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('no-scroll');
+      closeButton.current.scrollIntoView();
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [menuOpen]);
 
   return (
     <>
@@ -47,9 +54,16 @@ function MobileNav() {
         </button>
       </div>
       <div className={menuOpen ? 'relative' : 'invisible'}>
-        <div className="dark:bg-du-deepPurple bg-fuchsia-800 z-20 fixed top-0 right-0 pl-8 h-screen text-right w-4/5">
+        <div
+          className="dark:bg-du-deepPurple bg-fuchsia-800 z-20 fixed top-0 right-0 pl-8 h-screen text-right w-4/5"
+          style={{ overflowY: 'scroll' }}
+        >
           <div className="text-white text-2xl grid grid-rows-11 gap-3 place-content-evenly">
-            <button onClick={() => setMenuOpen((prev) => !prev)} className="pb-12 pt-10 text-right">
+            <button
+              className="pb-12 pt-10 text-right"
+              ref={closeButton}
+              onClick={() => setMenuOpen((prev) => !prev)}
+            >
               Close <img className="inline" src={closeSymbol} />
             </button>
             <div>
@@ -75,9 +89,7 @@ function MobileNav() {
         </div>
       </div>
     </>
-  )
-
+  );
 }
 
-
-export default MobileNav
+export default MobileNav;
