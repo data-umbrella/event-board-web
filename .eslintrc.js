@@ -9,6 +9,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
     // "plugin:jsx-a11y/recommended",
     // "plugin:react-hooks/recommended",
     // "plugin:jest/recommended",
@@ -27,7 +28,8 @@ module.exports = {
     },
   },
   plugins: [
-    "import" // eslint-plugin-import plugin. https://www.npmjs.com/package/eslint-plugin-import
+    "import", // eslint-plugin-import plugin. https://www.npmjs.com/package/eslint-plugin-import
+    "tailwindcss", // eslint-plugin-tailwindcss plugin. https://www.npmjs.com/package/eslint-plugin-tailwindcss
   ],
   root: true, // For configuration cascading.
   rules: {
