@@ -8,14 +8,17 @@ const DatePickerField = ({ ...props }) => {
   const [field] = useField(props);
 
   return (
-    <DatePicker
-      {...field}
-      {...props}
-      selected={(field.value && new Date(field.value))}
-      onChange={(val) => {
-        setFieldValue(field.name, val);
-      }}
-    />
+    <div>
+      <label htmlFor={props.name}>{ props.label }</label>
+      <DatePicker
+        {...field}
+        {...props}
+        selected={(field.value && new Date(field.value))}
+        onChange={(val) => {
+          setFieldValue(field.name, val);
+        }}
+      />
+    </div>
   );
 };
 

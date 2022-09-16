@@ -5,7 +5,7 @@ import formStyleClasses from 'styles/forms';
 
 function LanguageField() {
   return (
-    <>
+    <div>
       <label>Language</label>
       <Field name="language" component="select" className={`${formStyleClasses.select} col-span-1 dark:bg-[#151A35]`}>
         <option>All</option>
@@ -13,7 +13,7 @@ function LanguageField() {
           return <option key={value} value={value}>{ label }</option>
         })}
       </Field>
-    </>
+    </div>
   )
 }
 
