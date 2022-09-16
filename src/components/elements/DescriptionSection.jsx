@@ -6,7 +6,7 @@ function DescriptionSection({ evt }) {
 
   return (
     <div className={eventStyleClasses.infoTextSection}>
-      <h2 className="font-semibold text-lg mb-2 rounded">Description: </h2>
+      <h2 className="mb-2 rounded text-lg font-semibold">Description: </h2>
       <p className="leading-7">{evt.description}</p>
     </div>
   )

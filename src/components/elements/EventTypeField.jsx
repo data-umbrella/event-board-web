@@ -5,7 +5,7 @@ import formStyleClasses from 'styles/forms';
 
 function EventTypeField () {
   return (
-    <>
+    <div>
       <label>Event Type</label>
       <Field name="eventType" component="select" className={`${formStyleClasses.select} dark:bg-[#151A35]`}>
         <option>All</option>
@@ -13,7 +13,7 @@ function EventTypeField () {
           return <option key={value} value={value}>{ label }</option>
         })}
       </Field>
-    </>
+    </div>
   )
 }
 

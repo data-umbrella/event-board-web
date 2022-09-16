@@ -19,13 +19,13 @@ import RegionField from 'components/elements/RegionField';
 function SearchFormComponent() {
   return (
     <>
-      <section className="flex justify-between items-end py-9 md:py-1.5">
-        <h1 className="md:font-bold text-xl md:text-2xl">
+      <section className="flex items-end justify-between py-9 md:py-1.5">
+        <h1 className="text-xl md:text-2xl md:font-bold">
           Search Events
         </h1>
         <Link 
           to="/events/new" 
-          className="hidden md:block font-bold text-base text-du-purple-700 dark:text-[#C86DFF]"
+          className="hidden text-base font-bold text-du-purple-700 dark:text-[#C86DFF] md:block"
         >
           Post Event
         </Link>
@@ -39,10 +39,8 @@ function SearchFormComponent() {
                   type="submit"
                   className={`
                     p-1
-                    focus:outline-none
-                    focus:shadow-outline
-                    text-du-purple-500
                     font-bold
+                    text-du-purple-500
                   `}
                 >
                   <svg
@@ -52,7 +50,7 @@ function SearchFormComponent() {
                     strokeLinejoin="round"
                     strokeWidth="3"
                     viewBox="0 0 24 24"
-                    className="w-6 h-6"
+                    className="h-6 w-6"
                   >
                     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                   </svg>
@@ -69,7 +67,7 @@ function SearchFormComponent() {
             </div>
           </div>
 
-          <div className="hidden md:block container mx-auto mb-4">
+          <div className="container mx-auto mb-4 hidden md:block">
             <p>Popular searches: 
               <a className={formStyleClasses.popularSearch}>
                 Python
@@ -86,11 +84,11 @@ function SearchFormComponent() {
             </p>
           </div>
 
-          <label className="md:hidden my-3">
+          <label className="my-3 md:hidden">
             Filter by:
           </label>
 
-          <label className="hidden md:block font-bold py-3">
+          <label className="hidden py-3 font-bold md:block">
             Advanced Filters
           </label>
 
@@ -127,14 +125,14 @@ function SearchFormComponent() {
 
             <div className="text-right">
               <button
-                className="p-2 text-black rounded mb-2 mr-2 font-semibold dark:text-white"
+                className="mb-2 mr-2 rounded p-2 font-semibold text-black dark:text-white"
               >
                 Clear Filters
               </button>
 
               <button
                 type="submit"
-                className="bg-du-purple-500 p-2 text-white rounded mb-2 mr-2 h-12 w-36 font-semibold"
+                className="mb-2 mr-2 h-12 w-36 rounded bg-du-purple-500 p-2 font-semibold text-white"
               >
                 Apply Filters
               </button>

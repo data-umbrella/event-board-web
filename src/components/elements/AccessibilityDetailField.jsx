@@ -18,7 +18,7 @@ function AccessibilityDetailField({ value, onChange }) {
   const secondColumnRadioButtons = ACCESSIBILITY_OPTIONS.slice((ACCESSIBILITY_OPTIONS.length/2), ACCESSIBILITY_OPTIONS.length)
 
   return (
-    <div className="grid md:grid-cols-2 bg-white dark:bg-transparent rounded p-6">
+    <div className="grid rounded bg-white p-6 dark:bg-transparent md:grid-cols-2">
       <section>
         {firstColumnRadioButtons.map((option) => {
           const checked = value.includes(option.value);

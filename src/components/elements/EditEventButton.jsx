@@ -22,7 +22,7 @@ function EditEventButton({ evt }) {
   return (
     <div className="text-right">
       <button
-        className="p-2 bg-blue-600 text-white rounded mb-2"
+        className="mb-2 rounded bg-blue-600 p-2 text-white"
         onClick={editEvent}
       >
         Edit Event

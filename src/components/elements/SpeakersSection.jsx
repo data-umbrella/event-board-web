@@ -6,7 +6,7 @@ function SpeakersSection({ evt }) {
 
   return (
     <div className={eventStyleClasses.infoTextSection}>
-      <h2 className="font-semibold text-lg mb-2 rounded">Speakers: </h2>
+      <h2 className="mb-2 rounded text-lg font-semibold">Speakers: </h2>
       <p className="leading-7">
         {evt.speakers.map(speaker => {
           return <span key={speaker} className="mr-6">{speaker}</span>

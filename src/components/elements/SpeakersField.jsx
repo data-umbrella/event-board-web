@@ -31,12 +31,12 @@ function SpeakerPillbox ({ speaker, onChange, onRemove }) {
     )
   } else {
     return (
-      <div className="bg-purple-500 rounded p-2">
-        <div className="inline-block col-span-2 text-left text-white font-light">
+      <div className="rounded bg-purple-500 p-2">
+        <div className="col-span-2 inline-block text-left font-light text-white">
           {text}
         </div>
         <button
-          className="col-span-1 float-right text-white text-sm font-semibold"
+          className="col-span-1 float-right text-sm font-semibold text-white"
           type="button"
           onClick={removeItem}
         >
@@ -70,13 +70,13 @@ function SpeakersField ({ value, onChange }) {
   return (
     <div>
       <div className="mb-2">
-        <h2 className="text-xl md:text-2xl pb-4 inline font-bold">Speakers</h2>
+        <h2 className="inline pb-4 text-xl font-bold md:text-2xl">Speakers</h2>
         <button className="float-right dark:text-white" type="button" onClick={addSpeaker}>
           Add a Speaker
         </button>
       </div>
 
-      <div className="grid md:grid-cols-3 bg-white dark:bg-transparent rounded border border-slate-300 dark:border-teal-400 p-6 gap-2 mb-6">
+      <div className="mb-6 grid gap-2 rounded border border-slate-300 bg-white p-6 dark:border-teal-400 dark:bg-transparent md:grid-cols-3">
         {Array.from(speakers).map(speaker => {
           const key = speaker === '' ? 'editing' : speaker
           return (

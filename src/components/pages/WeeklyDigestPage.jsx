@@ -19,7 +19,7 @@ function WeeklyDigestFormComponent() {
         />
         <button
           type="submit"
-          className="md:row-start-2 md:cols-start-2 md:m-0 md:mx-10 px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500"
+          className="mt-2 rounded-md bg-du-purple-500 p-4 text-sm text-white shadow-sm md:col-start-2 md:row-start-2 md:m-0 md:mx-10"
         >
           Subscribe
         </button>
@@ -75,10 +75,11 @@ function WeeklyDigestPage() {
     console.log('submit', values); // eslint-disable-line no-console
   }
 
+  //   
   return (
-    <div className="xs:mb-40 lg:mt-12 lg:mx-28 xl:mx-40">
-      <div className="container mx-auto text-center">
-        <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
+    <div className="xs:mb-40 lg:mx-28 lg:mt-12 xl:mx-40">
+      <div className="container mx-auto text-center md:pt-12 lg:pb-3 lg:text-center lg:text-4xl">
+        <h2 className="text-left text-lg font-bold">Subscribe to our Weekly Digest</h2>
         <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
       </div>
       <WeeklyDigestForm handleSubmit={handleSubmit} />

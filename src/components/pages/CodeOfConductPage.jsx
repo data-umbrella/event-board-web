@@ -51,7 +51,7 @@ function CodeOfConductPage() {
         <span style={{ fontWeight: 'bold' }} > AAAAAA</span>.com. For more 
         details please see our Reporting Guidelines
       </p>
-      <li className="leading-6 mt-8 text-sm">
+      <li className="mt-8 text-sm leading-6">
         <span style= {{ fontWeight: 'bold' }} >Be friendly and patient.</span>
       </li>
       <li className={conductStyleClasses.li}>
@@ -110,7 +110,7 @@ function CodeOfConductPage() {
         they&apos;re wrong. Don&apos;t forget that it is human to err and blaming each other doesn&apos;t get us 
         anywhere. Instead, focus on helping to resolve issues and learning from mistakes.
       </li>
-      <h1 className="mt-8 text-left ml-8 text-lg font-bold">
+      <h1 className="mt-8 ml-8 text-left text-lg font-bold">
         { "Questions?" }
       </h1>
 

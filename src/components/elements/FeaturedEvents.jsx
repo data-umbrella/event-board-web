@@ -47,7 +47,7 @@ function FeaturedEvents ({ events }) {
   return (
     <div className="">
       <div>
-        <h1 className="font-bold text-lg mb-2 dark:text-slate-50">Feature Events</h1>
+        <h1 className="mb-2 text-lg font-bold dark:text-slate-50">Feature Events</h1>
       </div>
 
       <Carousel

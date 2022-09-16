@@ -4,10 +4,10 @@ import Sponsors from 'components/elements/Sponsors'
 
 function SponsorsPage() {
   return (
-    <div className="container mx-auto pt-5 md:pt-14 pb-56 dark:text-[#F7FAFC]">
-      <h1 className="hidden md:block text-2xl font-bold pb-6">Thank you to our Sponsors!</h1>
-      <h2 className="visible md:hidden text-2xl pb-5">Sponsors</h2>
-      <p className="text-base md:text-lg pt-2 pb-2">
+    <div className="container mx-auto pt-5 pb-56 dark:text-[#F7FAFC] md:pt-14">
+      <h1 className="hidden pb-6 text-2xl font-bold md:block">Thank you to our Sponsors!</h1>
+      <h2 className="visible pb-5 text-2xl md:hidden">Sponsors</h2>
+      <p className="py-2 text-base md:text-lg">
         If you would like to sponsor this Event Board, please submit a form&nbsp;
         <a className={sponsorsStyleClasses.hyperlinks} href="/contact">here</a>.
       </p>

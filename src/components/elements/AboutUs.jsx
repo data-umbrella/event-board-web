@@ -56,11 +56,11 @@ function ContributorSocialMediaLinks({ socialMediaLinks }) {
 function AboutUs() {
   return (
     <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsCards}>
-      <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white">
+      <div className="m-6 grid grid-rows-1 rounded border-2 border-black bg-white p-2 dark:border-du-lightAqua dark:bg-slate-700 dark:text-white md:m-0">
         <div className="py-4">
           <img src={DULogo} alt="logo" className={`mx-auto`}/>
         </div>
-        <div className="row-span-2 px-4 m-1 object-contain text-left">
+        <div className="row-span-2 m-1 object-contain px-4 text-left">
           <a
             href="https://www.dataumbrella.org/"
             target="_blank"
@@ -84,11 +84,11 @@ function AboutUs() {
         <ContributorSocialMediaLinks socialMediaLinks={DATA_UMBRELLA_SOCIAL_MEDIA_LINKS} />
       </div>
 
-      <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white">
+      <div className="m-6 grid grid-rows-1 rounded border-2 border-black bg-white p-2 dark:border-du-lightAqua dark:bg-slate-700 dark:text-white md:m-0">
         <div className="py-4">
           <img src={SPECLogo} alt="logo" className={`mx-auto`}/>
         </div>
-        <div className="row-span-2 px-4 m-1 object-contain text-left">
+        <div className="row-span-2 m-1 object-contain px-4 text-left">
           <a
             href="https://www.dataumbrella.org/"
             target="_blank"

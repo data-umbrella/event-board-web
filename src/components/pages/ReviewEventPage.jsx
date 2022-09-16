@@ -47,7 +47,7 @@ function ReviewEventPage() {
   if (!evt) return 'Loading...'
 
   return (
-    <div className="container mx-auto pt-16 mb-24">
+    <div className="container mx-auto mb-24 pt-16">
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />
       <DescriptionSection evt={evt} />

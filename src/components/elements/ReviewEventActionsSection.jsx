@@ -3,9 +3,9 @@ import { eventStyleClasses } from 'styles/events';
 
 function ReviewEventActionsSection({ handleSubmit, editEvent }) {
   return (
-    <div className="grid grid-cols-2 w-1/2 float-right gap-1">
+    <div className="float-right grid w-1/2 grid-cols-2 gap-1">
       <button
-        className="p-2 underline underline-offset-4 text-xl"
+        className="p-2 text-xl underline underline-offset-4"
         onClick={editEvent}
       >
         Edit Event

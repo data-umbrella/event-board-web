@@ -30,8 +30,10 @@ export function useEvent(eventId) {
       result.tags = arrayifyTags(result.tags);
       result.speakers = arrayifyTags(result.speakers);
       result.accessibilityOptions = arrayifyTags(result.accessibilityOptions);
-
-      setEvent(result);
+    
+      setTimeout(() => {
+        setEvent(result);
+      }, 3000);
     }
     fetchEvent();
   }, [eventId]);

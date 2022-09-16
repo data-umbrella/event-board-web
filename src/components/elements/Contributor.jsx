@@ -127,7 +127,7 @@ function Contributor() {
               <div>
                 <ContributorPhoto imageSrc={contributorInfo.image} />
               </div>
-              <div className="place-self-center my-2 text-left md:text-center dark:text-white">
+              <div className="my-2 place-self-center text-left dark:text-white md:text-center">
                 <h3>{ contributorInfo.name }</h3>
                 <small>{ contributorInfo.title }</small><br />
                 <small>{ contributorInfo.organization }</small>

@@ -52,7 +52,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
               {editEvent && (
                 <div className="float-right text-right">
                   <button
-                    className="p-1 text-white rounded mb-2 mr-2"
+                    className="mb-2 mr-2 rounded p-1 text-white"
                     onClick={editEvent}
                   >
                     <svg
@@ -81,11 +81,11 @@ function ReviewEventMainSection({ evt, editEvent }) {
               )}
             </div>
 
-            <h1 className="font-bold text-xl md:text-3xl mb-4 dark:text-slate-50">{evt.eventName}</h1>
+            <h1 className="mb-4 text-xl font-bold dark:text-slate-50 md:text-3xl">{evt.eventName}</h1>
 
             <h2 className="mb-2 dark:text-slate-50">{evt.organizationName}</h2>
 
-            <div className="bg-blue-500 text-center font-semibold text-white rounded p-1 mb-2 mr-2 w-1/2">
+            <div className="mb-2 mr-2 w-1/2 rounded bg-blue-500 p-1 text-center font-semibold text-white">
               <a href={evt.eventUrl} target="_blank" rel="noreferrer">
                 Register
               </a>

@@ -34,18 +34,18 @@ function PostEventFormComponent(props) {
   }
 
   return (
-    <Form className="container grid mx-auto p-0 md:px-10 md:mb-10 md:pb-10 gap-6">
+    <Form className="container mx-auto grid gap-6 p-0 md:mb-10 md:px-10 md:pb-10">
       <section className="pt-6">
         <h1 className="text-2xl font-bold md:text-4xl">Event Submission Form</h1>
-        <p className="text-md md:text-lg pl-0.5 pt-2 pb-2">
+        <p className="py-2 pl-0.5 text-base md:text-lg">
           Events can be submitted by anybody but will need to be approved by admins.
         </p>
       </section>
       {/* Organization details section */}
       <section>
-        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Organization Details</h2>
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">Organization Details</h2>
         <section
-          className="bg-white dark:bg-transparent rounded border border-slate-300 grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 md:gap-6 p-6 marker:mb-6"
+          className="grid grid-cols-1 rounded border border-slate-300 bg-white p-6 marker:mb-6 dark:bg-transparent md:grid-cols-2 md:grid-rows-1 md:gap-6"
         >
           <Field  
             autoComplete="new-password"
@@ -74,10 +74,10 @@ function PostEventFormComponent(props) {
 
       {/* Event Details Section */}
       <section>
-        <h2 className="text-xl md:text-2xl pb-4 font-bold">Event Details</h2>
-        <section className="bg-white dark:bg-transparent rounded border border-slate-300 p-6">
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">Event Details</h2>
+        <section className="rounded border border-slate-300 bg-white p-6 dark:bg-transparent">
           <section className="flex flex-col">
-            <div className="pb-4 max-w-sm">
+            <div className="max-w-sm pb-4">
               <Field
                 autoComplete="new-password"
                 className={formStyleClasses.input}
@@ -98,7 +98,7 @@ function PostEventFormComponent(props) {
               />
             </div>
           </section>
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6">
+          <section className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2">
             <section className="grid gap-6">
               <section className="grid grid-cols-2 gap-6">
                 <div>
@@ -129,7 +129,7 @@ function PostEventFormComponent(props) {
                   })}
                 </Field>
               </section>
-              <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <section className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 <CitySelect />
               </section>
               <section>
@@ -161,7 +161,7 @@ function PostEventFormComponent(props) {
             </section>
             <section>
               <div
-                className="grid col-span-2 md:col-span-1 border border-1 border-black dark:border-teal-400 rounded text-center place-content-center"
+                className="col-span-2 grid place-content-center rounded border border-black text-center dark:border-teal-400 md:col-span-1"
                 style={{
                   minHeight: '6rem',
                   minWidth: '6rem'
@@ -216,8 +216,8 @@ function PostEventFormComponent(props) {
 
       {/* Notes section */}
       <section>
-        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Notes</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">Notes</h2>
+        <div className="grid grid-cols-1 gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent md:grid-cols-2">
           <div>
             <TextField
               component="textarea"
@@ -242,8 +242,8 @@ function PostEventFormComponent(props) {
 
       {/* Other section */}
       <section>
-        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Other</h2>
-        <section className="grid md:grid-cols-2 gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">Other</h2>
+        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent md:grid-cols-2">
           <div>
             <div className="mb-6">
               <label htmlFor="codeOfConductUrl">
@@ -274,8 +274,8 @@ function PostEventFormComponent(props) {
 
       {/* Accessibility Options section */}
       <section>
-        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Accessibility</h2>
-        <section className="grid gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">Accessibility</h2>
+        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent">
           <AccessibilityDetailField
             value={values.accessibilityOptions}
             onChange={setFieldValue}
@@ -285,8 +285,8 @@ function PostEventFormComponent(props) {
 
       {/* Featured Event section */}
       <section>
-        <h2 className="text-xl md:text-2xl pb-4 font-bold font-bold">Featured Event</h2>
-        <section className="grid gap-6 bg-white dark:bg-transparent rounded p-4 border border-zinc-300">
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">Featured Event</h2>
+        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent">
           <FeaturedEventField
             value={values.featured}
             onChange={setFieldValue}
@@ -294,7 +294,7 @@ function PostEventFormComponent(props) {
         </section>
       </section>
 
-      <section className="grid md:grid-rows-1 md:justify-end gap-1 mb-6">
+      <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end">
         <div className="grid grid-cols-1 md:block">
           <button className="p-2 underline dark:text-white">Clear Form</button>
           <button className={formStyleClasses.reviewButton} type="submit">
