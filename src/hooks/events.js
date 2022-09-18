@@ -1,10 +1,13 @@
-import { API_URL, EVENTS_URL } from 'constants/urls';
+import { EVENTS_URL } from 'constants/urls';
 import camelcaseKeys from 'camelcase-keys';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { arrayifyTags } from 'utils/strings';
-import { parseAPIJSON } from 'utils/api';
-import { fetchEventsForSearchFilters } from 'services/events';
+import {
+  fetchEventsForSearchFilters,
+  fetchFeaturedEvents,
+} from 'services/events';
+import { DEFAULT_DATE_FORMAT } from 'constants/dates';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -43,19 +46,15 @@ export function useFeaturedEvents() {
   const [featuredEvents, setFeaturedEvents] = useState([]);
 
   useEffect(() => {
-    async function fetchFeaturedEvents() {
-      const response = await fetch(`${API_URL}/api/v1/events?featured=true`);
-      const json = await response.json();
-      const result = parseAPIJSON(json);
-      setFeaturedEvents(result);
+    async function triggerRequest() {
+      const events = await fetchFeaturedEvents();
+      setFeaturedEvents([...events]);
     }
-    fetchFeaturedEvents();
+    triggerRequest();
   }, []);
 
   return featuredEvents;
 }
-
-const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
 
 export function useSearchEvents() {
   const [searchFilters, setSearchFilters] = useState({
