@@ -9,6 +9,8 @@ import darkMode from 'assets/dark-mode.svg';
 import lightMode from 'assets/light-mode.svg';
 import { navStyleClasses } from 'styles/navbar';
 import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
+import ExternalLink from 'assets/externalLink.svg'
+import ExternalLinkDark from 'assets/externalLinkDark.svg'
 
 function NavigationBar() {
   const auth = useAuth();
@@ -57,6 +59,11 @@ function NavigationBar() {
                 rel="noreferrer"
               >
                 Data Umbrella
+                <img
+                  src={colorTheme === 'dark' ? ExternalLinkDark : ExternalLink}
+                  className="inline pl-1"
+                  alt="externalLink"
+                />
               </a>
             </div>
             <div className={navStyleClasses.navLink}>
