@@ -32,7 +32,7 @@ describe('Verify Magic Link Page', () => {
     beforeEach(() => {
       require('hooks/authentication').useAuth = () => {
         return {
-          verifyOneTimePassCode: (token, callback) => callback(false, 'Error message'),
+          verifyOneTimePassCode: (token, email, callback) => callback(false, 'Error message'),
         }
       }
     });
@@ -56,7 +56,7 @@ describe('Verify Magic Link Page', () => {
 
       require('hooks/authentication').useAuth = () => {
         return {
-          verifyOneTimePassCode: (token, callback) => callback(true, null),
+          verifyOneTimePassCode: (token, email, callback) => callback(true, null),
         }
       }
     });

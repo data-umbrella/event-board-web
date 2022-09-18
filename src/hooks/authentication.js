@@ -39,14 +39,16 @@ export function AuthProvider({ children }) {
 
       updateCurrentUser({ ...responseJSON, isAuthenticated: true });
     } catch (e) {
-      updateCurrentUser({ isAuthenticated: false });
+      updateCurrentUser({
+        isAuthenticated: false,
+        email: null,
+      });
     }
   };
 
   // Triggers a request to the API to verify the user's email.
-  const verifyOneTimePassCode = async (token, callback) => {
+  const verifyOneTimePassCode = async (token, email, callback) => {
     try {
-      const email = window.localStorage.getItem('USERNAME');
       const responseJSON = await fetchVerification(token, email);
       updateCurrentUser({ ...responseJSON, isAuthenticated: true });
       callback(true);
