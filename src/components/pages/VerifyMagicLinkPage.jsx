@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
 
 function VerifyMagicLinkPage() {
@@ -8,9 +8,12 @@ function VerifyMagicLinkPage() {
   const { token } = useParams();
   const navigate = useNavigate();
   const auth = useAuth();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    auth.verifyOneTimePassCode(token, (success, error) => {
+    const email = searchParams.get('email');
+
+    auth.verifyOneTimePassCode(token, email, (success, error) => {
       if (success) {
         setLoading(false);
         navigate('/');
