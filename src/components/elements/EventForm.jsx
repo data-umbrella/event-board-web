@@ -20,7 +20,7 @@ import LanguageField from 'components/elements/LanguageField';
 import TextField from 'components/elements/TextField';
 import CitySelect from 'components/elements/CitySelect';
 import TimeSlotField from 'components/elements/TimeSlotField';
-import SocialMediaField from 'components/elements/SocialMediaField';
+// import SocialMediaField from 'components/elements/SocialMediaField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
@@ -66,9 +66,8 @@ function PostEventFormComponent(props) {
               name="organizationUrl"
               className={formStyleClasses.input}
             />
-            <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} />
+            {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
           </section>
-          
         </section>
       </section>
 
