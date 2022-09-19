@@ -31,13 +31,17 @@ function AppRoutes() {
   let location = useLocation();
 
   useEffect(() => {
-    if(process.env.NODE_ENV === 'production') {
-      window.gtag("config", "GA_MEASUREMENT_ID", {
-        page_path: location.pathname,
-      })
-    }
+    const { NODE_ENV } = process.env;
+    // TODO: Look into NODE_ENV being set by DO in production.
+    const isDevMode = NODE_ENV === 'development' || NODE_ENV === 'test';
 
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
+
+    if (isDevMode) return;
+
+    window.gtag('config', 'GA_MEASUREMENT_ID', {
+      page_path: location.pathname,
+    });
   }, [location]);
 
   return (
