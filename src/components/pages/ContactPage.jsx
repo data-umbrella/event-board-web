@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -86,9 +86,12 @@ function ContactUsFormComponent() {
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
-              <Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
+              {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
                 Code of Conduct
-              </Link>*
+              </Link>* */}
+              <a href="https://www.dataumbrella.org/about/code-of-conduct" className={formStyleClasses.hyperlinks}>
+                Code of Conduct
+              </a>*
             </label>
           </div>
 
