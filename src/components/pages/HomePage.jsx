@@ -8,7 +8,7 @@ import { useFeaturedEvents, useSearchEvents } from 'hooks/events';
 
 function HomePage() {
   const featuredEvents = useFeaturedEvents();
-  const [searchResultEvents, setSearchFilters] = useSearchEvents();
+  const [searchResultEvents, setSearchFilters, clearFilters] = useSearchEvents();
 
   function handleSearch (values) {
     setSearchFilters(values);
@@ -18,7 +18,10 @@ function HomePage() {
     <div className="mb-10">
       <IntroductionSection />
       <FeaturedEvents events={featuredEvents} />
-      <SearchForm handleFormSubmit={handleSearch} />
+      <SearchForm
+        handleFormSubmit={handleSearch}
+        clearFilters={clearFilters}
+      />
       <SearchEvents events={searchResultEvents} />
     </div>
   )

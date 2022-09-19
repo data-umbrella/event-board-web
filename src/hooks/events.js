@@ -72,6 +72,14 @@ export function useSearchEvents() {
     });
   }
 
+  function clearFilters () {
+    setSearchFilters({
+      startDate: moment().format(DEFAULT_DATE_FORMAT),
+      endDate: moment().add(5, 'months').format(DEFAULT_DATE_FORMAT),
+      search: '',
+    });
+  }
+
   useEffect(() => {
     async function fetchSearchEvents() {
       const result = await fetchEventsForSearchFilters(searchFilters);
@@ -80,5 +88,5 @@ export function useSearchEvents() {
     fetchSearchEvents();
   }, [searchFilters]);
 
-  return [searchResultEvents, handleSearchFiltersChange];
+  return [searchResultEvents, handleSearchFiltersChange, clearFilters];
 }
