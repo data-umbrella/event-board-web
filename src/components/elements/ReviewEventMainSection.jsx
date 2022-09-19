@@ -15,10 +15,10 @@ const styleClasses = {
     grid-cols-none
     text-center
     lg:text-left
-    dark:bg-du-deepPurple 
+    dark:bg-du-deepPurple
   `,
   imageContainer: 'col-span-1',
-  eventTypePillbox: 'inline-block mb-4 bg-pink-300 pl-2 pr-2 text-center rounded text-xl font-medium capitalize',
+  eventTypePillbox: 'inline-block mb-4 bg-pink-300 px-8 text-center rounded-lg font-light text-xl font-medium capitalize lg:w-min',
   infoTextSection: 'bg-white p-6 border-slate-300 border-solid border rounded mb-6',
 }
 
@@ -44,7 +44,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
 
         <div className="col-span-1">
           <div className="pt-4">
-            <div className="grid grid-cols-2">
+            <div className="grid lg:grid-cols-2 flex justify-center">
               <div className={styleClasses.eventTypePillbox}>
                 { evt.eventType }
               </div>
@@ -81,11 +81,17 @@ function ReviewEventMainSection({ evt, editEvent }) {
               )}
             </div>
 
-            <h1 className="font-bold text-xl md:text-3xl mb-4 dark:text-slate-50">{evt.eventName}</h1>
+            <h1 className="font-bold text-xl md:text-3xl mb-4 dark:text-slate-50">
+              { evt.eventName }
+            </h1>
 
-            <h2 className="mb-2 dark:text-slate-50">{evt.organizationName}</h2>
+            <h2 className="mb-2 dark:text-slate-50">
+              { evt.organizationName }
+            </h2>
+          </div>
 
-            <div className="bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 mb-2 mr-2 w-1/2">
+          <div>
+            <div className="bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0">
               <a href={evt.eventUrl} target="_blank" rel="noreferrer">
                 Register
               </a>
