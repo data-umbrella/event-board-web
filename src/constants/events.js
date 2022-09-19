@@ -105,6 +105,7 @@ export const EVENT_ATTRIBUTES = [
 ];
 
 export const EVENT_TYPES = [
+  { label: 'All', value: '' },
   { label: 'Conference', value: 'conference', tag: 'border-event-tags-conference bg-event-tags-conference' },
   { label: 'Hackathon', value: 'hackathon', tag: 'border-event-tags-hackathon bg-event-tags-hackathon' },
   { label: 'Meetup', value: 'meetup', tag: 'border-event-tags-meetup bg-event-tags-meetup' },
@@ -116,24 +117,26 @@ export const EVENT_TYPES = [
 
 // TODO: Replace with tagging functionality
 export const TOPIC_OPTIONS = [
+  { label: 'All', value: '' },
+  { label: 'Artificial Intelligence', value: 'ai' },
+  { label: 'Bayes', value: 'bayes' },
+  { label: 'Computer Vision', value: 'computer-vision' },
+  { label: 'CV', value: 'cv' },
+  { label: 'Data', value: 'data' },
+  { label: 'Django', value: 'django' },
+  { label: 'Education', value: 'education' },
+  { label: 'Ethics', value: 'ethics' },
+  { label: 'Graph', value: 'graph' },
+  { label: 'Julia', value: 'julia' },
+  { label: 'Machine Learning', value: 'ml' },
+  { label: 'NLP', value: 'nlp' },
+  { label: 'Open Source', value: 'open-source' },
   { label: 'Python', value: 'python' },
   { label: 'Research', value: 'research' },
   { label: 'RStats', value: 'rstats' },
-  { label: 'Artificial Intelligence', value: 'ai' },
-  { label: 'Ethics', value: 'ethics' },
-  { label: 'Open Source', value: 'open-source' },
-  { label: 'CV', value: 'cv' },
-  { label: 'Education', value: 'education' },
-  { label: 'Machine Learning', value: 'ml' },
-  { label: 'Women-Focused', value: 'women-focused' },
-  { label: 'Statistics', value: 'statistics' },
-  { label: 'Data', value: 'data' },
   { label: 'Science', value: 'science' },
-  { label: 'Django', value: 'django' },
-  { label: 'Graph', value: 'graph' },
-  { label: 'NLP', value: 'nlp' },
-  { label: 'Computer Vision', value: 'computer-vision' },
-  { label: 'Bayes', value: 'Bayes' }
+  { label: 'Statistics', value: 'statistics' },
+  { label: 'Women-Focused', value: 'women-focused' },
 ]
 
 export const ACCESSIBILITY_OPTIONS = [
