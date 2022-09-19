@@ -105,6 +105,7 @@ export const EVENT_ATTRIBUTES = [
 ];
 
 export const EVENT_TYPES = [
+  { label: 'All', value: '' },
   { label: 'Conference', value: 'conference', tag: 'border-event-tags-conference bg-event-tags-conference' },
   { label: 'Hackathon', value: 'hackathon', tag: 'border-event-tags-hackathon bg-event-tags-hackathon' },
   { label: 'Meetup', value: 'meetup', tag: 'border-event-tags-meetup bg-event-tags-meetup' },
@@ -116,6 +117,7 @@ export const EVENT_TYPES = [
 
 // TODO: Replace with tagging functionality
 export const TOPIC_OPTIONS = [
+  { label: 'All', value: '' },
   { label: 'Artificial Intelligence', value: 'ai' },
   { label: 'Bayes', value: 'bayes' },
   { label: 'Computer Vision', value: 'computer-vision' },
