@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from "react-router-dom";
 import useDarkMode from 'hooks/dark-mode';
-import Logo from '../../assets/logo.png';
-import lightMode from '../../assets/light-mode.svg';
-import darkMode from '../../assets/dark-mode.svg';
-import closeSymbol from '../../assets/HamX.png';
-import { HamBars } from '../../assets/HamBars';
-import logoDark from '../../assets/logoDark.png';
-import { donateURL } from 'constants/donate';
-
+import Logo from 'assets/logo.png';
+import lightMode from 'assets/light-mode.svg';
+import darkMode from 'assets/dark-mode.svg';
+import closeSymbol from 'assets/HamX.png';
+import { HamBars } from 'assets/HamBars';
+import logoDark from 'assets/logoDark.png';
+import { DONATE_URL } from 'constants/urls';
 
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,7 +78,7 @@ function MobileNav() {
             <Link to="/events/new">Post Event</Link><br/>
             {/*<Link to="/events/weekly-digest">Weekly Digest</Link><br/>*/}
             <Link to="/sponsors">Sponsors</Link><br/>
-            <a href={donateURL} target="_blank" rel="noreferrer">Donate</a><br/>
+            <a href={DONATE_URL} target="_blank" rel="noreferrer">Donate</a><br/>
             <Link to="/about">About Us</Link><br/>
             <Link to="/contact">Contact Us</Link><br/>
             <Link to="/FAQs">FAQs</Link><br/>

@@ -1,3 +1,4 @@
+import { DONATE_URL } from 'constants/urls';
 import React from 'react';
 
 const styleClasses = {
@@ -8,7 +9,7 @@ const styleClasses = {
   `,
   eventBoardHeading: `
     text-4xl
-    font-bold
+    font-extrabold
     dark:text-slate-50
   `,
 }
@@ -16,13 +17,23 @@ const styleClasses = {
 function IntroductionSection() {
   return (
     <div className={styleClasses.introSection}>
-      <div className="mb-10 mt-10">
-        <h1 className={styleClasses.eventBoardHeading}>
-          Data Events Board
-        </h1>
-        <small className="md:pl-36 italic text-violet-400">
-          A Data Umbrella Initiative
-        </small>
+      <div className="mb-10 mt-10 grid lg:grid-cols-2">
+        <div>
+          <h1 className={styleClasses.eventBoardHeading}>
+            Data Events Board
+          </h1>
+          <small className="italic text-du-purple-600 text-base font-medium  md:pl-36">
+            A <span className="underline">Data Umbrella</span> Initiative
+          </small>
+        </div>
+        <div>
+          <a
+            href={DONATE_URL}
+            className="font-medium bg-du-deepPurple text-white px-12 py-2 text-lg rounded-lg hidden lg:float-right lg:block"
+          >
+              Donate
+          </a>
+        </div>
       </div>
     </div>
   )

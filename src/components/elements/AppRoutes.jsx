@@ -36,6 +36,8 @@ function AppRoutes() {
         page_path: location.pathname,
       })
     }
+
+    // window.scrollTo(0, 0);
   }, [location]);
 
   return (

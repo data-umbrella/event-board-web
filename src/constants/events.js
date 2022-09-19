@@ -114,20 +114,27 @@ export const EVENT_TYPES = [
   { label: 'Webinar', value: 'webinar', tag: 'border-event-tags-webinar bg-event-tags-webinar' }
 ];
 
-export const CATEGORY_OPTIONS = [
-  {
-    label: 'Data Science',
-    value: 'data-science'
-  },
-  {
-    label: 'Python',
-    value: 'python'
-  },
-  {
-    label: 'Open Source',
-    value: 'open-source'
-  }
-];
+// TODO: Replace with tagging functionality
+export const TOPIC_OPTIONS = [
+  { label: 'Python', value: 'python' },
+  { label: 'Research', value: 'research' },
+  { label: 'RStats', value: 'rstats' },
+  { label: 'Artificial Intelligence', value: 'ai' },
+  { label: 'Ethics', value: 'ethics' },
+  { label: 'Open Source', value: 'open-source' },
+  { label: 'CV', value: 'cv' },
+  { label: 'Education', value: 'education' },
+  { label: 'Machine Learning', value: 'ml' },
+  { label: 'Women-Focused', value: 'women-focused' },
+  { label: 'Statistics', value: 'statistics' },
+  { label: 'Data', value: 'data' },
+  { label: 'Science', value: 'science' },
+  { label: 'Django', value: 'django' },
+  { label: 'Graph', value: 'graph' },
+  { label: 'NLP', value: 'nlp' },
+  { label: 'Computer Vision', value: 'computer-vision' },
+  { label: 'Bayes', value: 'Bayes' }
+]
 
 export const ACCESSIBILITY_OPTIONS = [
   { label: 'Closed Captions', value: 'closed-captions' },

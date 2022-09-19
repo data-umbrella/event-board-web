@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageUrlForEvent } from 'utils/urls';
 import defaultThumbnail from 'assets/thumbnail.png';
+import { capitalize } from 'utils/strings';
 
 const styleClasses = {
   mainSectionContainer: `
@@ -18,7 +19,7 @@ const styleClasses = {
     dark:bg-du-deepPurple 
   `,
   imageContainer: 'col-span-1',
-  eventTypePillbox: 'inline-block mb-4 bg-pink-300 pl-2 pr-2 text-center rounded text-xl font-medium',
+  eventTypePillbox: 'inline-block mb-4 bg-pink-300 pl-2 pr-2 text-center rounded text-xl font-medium capitalize',
   infoTextSection: 'bg-white p-6 border-slate-300 border-solid border rounded mb-6',
 }
 
@@ -32,8 +33,8 @@ function ReviewEventMainSection({ evt, editEvent }) {
   return (
     <section>
       <div className="mb-12">
-        <p>
-          <Link to="/"> &#60; Back to Results</Link>
+        <p className="text-xl">
+          <Link to="/"> &#8592; Back to Results</Link>
         </p>
       </div>
 
@@ -46,7 +47,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
           <div className="pt-4">
             <div className="grid grid-cols-2">
               <div className={styleClasses.eventTypePillbox}>
-                {evt.eventType}
+                { evt.eventType }
               </div>
 
               {editEvent && (
@@ -85,12 +86,11 @@ function ReviewEventMainSection({ evt, editEvent }) {
 
             <h2 className="mb-2 dark:text-slate-50">{evt.organizationName}</h2>
 
-            <div className="bg-blue-500 text-center font-semibold text-white rounded p-1 mb-2 mr-2 w-1/2">
+            <div className="bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 mb-2 mr-2 w-1/2">
               <a href={evt.eventUrl} target="_blank" rel="noreferrer">
                 Register
               </a>
             </div>
-
           </div>
         </div>
       </div>

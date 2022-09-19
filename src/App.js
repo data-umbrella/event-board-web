@@ -32,7 +32,7 @@ export default function App() {
             <section className="md:hidden">
               <MobileNav />
             </section>
-            <section className="container mx-auto px-4 py-2 md:w-3/4">
+            <section className="container mx-auto px-4 py-2 md:w-10/12">
               <div className="hidden md:block">
                 <NavigationBar />
               </div>
