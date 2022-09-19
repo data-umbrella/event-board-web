@@ -10,6 +10,7 @@ export const REGION_OPTIONS = [
   { label: 'Latin America / Caribbean', value: 'latin-america-caribbean' },
   { label: 'Asia', value: 'asia' },
   { label: 'Oceania', value: 'oceania' },
+  { label: 'Online', value: 'online' },
 ];
 
 export const eventProperties = {

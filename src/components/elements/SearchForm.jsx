@@ -11,9 +11,10 @@ import formStyleClasses from 'styles/forms';
 
 // Components
 import DatePickerField from 'components/elements/DatePickerField';
+import EventTopicField from 'components/elements/EventTopicField';
 import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
-// import PriceField from 'components/elements/PriceField';
+import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
 function SearchFormComponent() {
@@ -69,23 +70,6 @@ function SearchFormComponent() {
             </div>
           </div>
 
-          <div className="hidden md:block container mx-auto mb-4">
-            <p>Popular searches: 
-              <a className={formStyleClasses.popularSearch}>
-                Python
-              </a> 
-              <a className={formStyleClasses.popularSearch}>
-                Online
-              </a> 
-              <a className={formStyleClasses.popularSearch}>
-                Rstats
-              </a> 
-              <a className={formStyleClasses.popularSearch}>
-                Django
-              </a> 
-            </p>
-          </div>
-
           <label className="md:hidden my-3">
             Filter by:
           </label>
@@ -96,33 +80,16 @@ function SearchFormComponent() {
 
           <div>
             <div className={formStyleClasses.searchInputColumnsOne}>
-              <div>
-                <label>Start Date</label>
-                <DatePickerField name="startDate" className={formStyleClasses.searchInput} />
-              </div>
-
-              <div>
-                <label>End Date</label>
-                <DatePickerField name="endDate" className={formStyleClasses.searchInput} />
-              </div>
-
-              <div>
-                <EventTypeField />
-              </div>
-
-              {/*<div><EventTopicField/></div>*/}
+              <DatePickerField name="startDate" label="Start Date" className={formStyleClasses.searchInput} />
+              <DatePickerField name="endDate" label="End Date" className={formStyleClasses.searchInput} />
+              <EventTypeField />
+              <EventTopicField/>
             </div>
 
             <div className={formStyleClasses.searchInputColumnsTwo}>
-              <div>
-                <LanguageField />
-              </div>
-
-              <div>
-                <RegionField />
-              </div>
-
-              {/*<div><PriceField /></div>*/}
+              <LanguageField />
+              <RegionField />
+              <PriceField />
             </div>
 
             <div className="text-right">

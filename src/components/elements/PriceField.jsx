@@ -3,16 +3,13 @@ import { Field } from 'formik';
 import formStyleClasses from 'styles/forms';
 
 const PRICE_OPTIONS = [
-  { label: 'Free', value: '0' },
-  { label: '$1-$9', value: '1-10' },
-  { label: '$10-$20', value: '1-20' },
-  { label: '$20-$50', value: '20-50' },
-  { label: '$50-$100', value: '50-100' },
+  { label: 'Free', value: 'free' },
+  { label: 'Paid', value: 'paid' },
 ]
 
 function PriceField () {
   return (
-    <>
+    <div>
       <label>Price</label>
       <Field name="price" component="select" className={`${formStyleClasses.select} dark:bg-[#151A35]`}>
         <option>All</option>
@@ -20,7 +17,7 @@ function PriceField () {
           return <option key={value} value={value}>{ label }</option>
         })}
       </Field>
-    </>
+    </div>
   )
 }
 
