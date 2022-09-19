@@ -27,8 +27,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2"><Link to="/about">About Us</Link></li>
-            <li className="mb-2"><Link to="/about">Meet the Team</Link></li>
-            <li className="mb-2"><Link to="/contact">Contact Us</Link></li>
+            <li className="mb-2"><Link to="/faqs">{"FAQ's"}</Link></li>
           </ul>
         </div>
 
@@ -38,19 +37,14 @@ function Footer() {
               <a href={donateURL} target="_blank" rel="noreferrer"> Donate</a>
             </li>
             <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
-            <li className="mb-2">
-              <Link to="/faqs">
-                {"FAQ's"}
-              </Link>
-            </li>
           </ul>
         </div>
-
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
+            <li className="mb-2"><Link to="/contact">Contact Us</Link></li>
             <li className="mb-2"><a href="https://www.dataumbrella.org">Data Umbrella<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a></li>
-            <li className="mb-2"><Link to="/privacy">Privacy</Link></li>
-            <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li>
+            {/* <li className="mb-2"><Link to="/privacy">Privacy</Link></li> */}
+            {/* <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li> */}
           </ul>
         </div>
       </div>
