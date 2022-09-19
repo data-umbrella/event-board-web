@@ -5,12 +5,15 @@ import EventCalendarView from 'components/elements/EventCalendarView';
 import EventListView from 'components/elements/EventListView';
 
 function EventCalendarPage() {
-  const [searchResultEvents, setSearchFilters] = useSearchEvents();
+  const [searchResultEvents, setSearchFilters, clearFilters] = useSearchEvents();
 
   return (
     <div className="mt-4 mb-12 md:px-6">
       <div>
-        <SearchForm handleFormSubmit={setSearchFilters} />
+        <SearchForm
+          handleFormSubmit={setSearchFilters}
+          clearFilters={clearFilters}
+        />
       </div>
 
       <div className="hidden md:block">
