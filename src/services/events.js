@@ -11,7 +11,7 @@ export function fetchEventsForSearchFilters(searchFilters) {
     search: searchFilters.search,
     start_date__gte: moment(searchFilters.startDate).format(DEFAULT_DATE_FORMAT),
     start_date__lte: moment(searchFilters.endDate).format(DEFAULT_DATE_FORMAT),
-    topic: searchFilters.topics,
+    topic: searchFilters.topic,
     price: searchFilters.price,
     language: searchFilters.language,
   });

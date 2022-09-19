@@ -13,12 +13,16 @@ const styleClasses = {
     rounded
     dark:bg-du-indigo-900
     bg-white
+    min-h-full
+    pb-4
   `,
   searchEventThumbnail: `
     w-full
     rounded-t
   `,
   searchEventCardDetail: `
+    font-lato
+    font-medium
     grid
     grid-cols-2
     md:grid-cols-3

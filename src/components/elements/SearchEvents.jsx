@@ -8,7 +8,7 @@ import EventMapView from 'components/elements/EventMapView';
 const styleClasses = {
   searchResultsHeading: `
     font-bold
-    text-xl
+    text-2xl
     mb-8
     pt-6
     dark:text-slate-50
@@ -47,7 +47,7 @@ function SearchEvents({ events }) {
 
       <div>
         <h3 className={styleClasses.searchResultsHeading}>
-          Search Results
+          Search Results ({ events.length })
         </h3>
       </div>
 

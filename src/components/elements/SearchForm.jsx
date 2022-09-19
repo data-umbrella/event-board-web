@@ -17,7 +17,7 @@ import LanguageField from 'components/elements/LanguageField';
 import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
-function SearchFormComponent() {
+function SearchFormComponent({ clearFilters }) {
   return (
     <>
       <section className="flex justify-between items-end py-9 md:py-1.5">
@@ -94,7 +94,9 @@ function SearchFormComponent() {
 
             <div className="text-right">
               <button
+                type="button"
                 className="p-2 text-black rounded mb-2 mr-2 font-semibold dark:text-white"
+                onClick={clearFilters}
               >
                 Clear Filters
               </button>

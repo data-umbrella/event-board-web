@@ -22,16 +22,9 @@ const responsive = {
   }
 };
 
-// gap-6
-// grid
-// md:grid-cols-3
-// container
-// mx-auto
-// sm:grid-cols-none
-
 const styles = {
   featuredEvents: `
-    mb-10
+    mb-4
   `,
   featuredEventCard: `
     bg-stone-400
@@ -47,7 +40,9 @@ function FeaturedEvents ({ events }) {
   return (
     <div className="">
       <div>
-        <h1 className="font-bold text-lg mb-2 dark:text-slate-50">Feature Events</h1>
+        <h1 className="font-semibold mb-2 md:font-bold text-xl md:text-2xl dark:text-slate-50">
+          Feature Events
+        </h1>
       </div>
 
       <Carousel

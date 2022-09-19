@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from 'assets/logo-color.svg';
-import { donateURL } from 'constants/donate';
+import { DONATE_URL } from 'constants/urls';
 import ExternalLinkIcon from 'assets/externalLink.svg'
 import githubWhite from 'assets/githubWhite.svg'
 import twitterWhite from 'assets/twitterWhite.svg'
@@ -34,7 +34,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2">
-              <a href={donateURL} target="_blank" rel="noreferrer">Donate<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a>
+              <a href={DONATE_URL} target="_blank" rel="noreferrer">Donate<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a>
             </li>
             <li className="mb-2"><Link to="/sponsors">Sponsors</Link></li>
           </ul>

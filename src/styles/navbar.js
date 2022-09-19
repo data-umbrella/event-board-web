@@ -3,6 +3,7 @@ export const navStyleClasses = {
     inline-block
     mr-12
     mt-6
+    font-medium
     hover:underline
     hover:text-du-purple-500
     dark:text-slate-50

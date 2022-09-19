@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'lato': ['Lato', 'san-serif'],
+        'inter': ['Inter', 'san-serif'],
+      },
       colors: {
         'du-purple': {
           200: '#E7E1F6',
@@ -22,7 +26,8 @@ module.exports = {
         'du-deepPurple': '#1E2445',
         'du-lightPurple': '#C86DFF',
         'du-charcoal-gray':'#4B4B4B',
-
+        'du-lightBlue':'#F1F6FE',
+        'du-darkBlue': '#4273D6',
         'event-tags' : {
           'conference': '#F6BAC5',
           'training': '#A0EFEA',
