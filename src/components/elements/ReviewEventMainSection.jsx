@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageUrlForEvent } from 'utils/urls';
 import defaultThumbnail from 'assets/thumbnail.png';
-import { capitalize } from 'utils/strings';
 
 const styleClasses = {
   mainSectionContainer: `
