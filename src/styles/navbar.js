@@ -81,6 +81,8 @@ export const navStyleClasses = {
     hover:bg-du-purple-500
     hover:text-white
     dark:text-slate-50
+    dark:hover:text-du-lightAqua
+    dark:bg-transparent
   `,
   modeImage: `
     mt-6
