@@ -12,10 +12,17 @@ const EXAMPLE_EVENT = {
   endDate: '2022-09-01',
   tags: 'python',
 }
+const EXAMPLE_EVENT_2 = {
+  id: 2,
+  eventName: 'Example event name 2',
+  startDate: '2022-09-02',
+  endDate: '2022-09-02',
+  tags: 'SQL',
+}
 
 jest.mock('hooks/events', () => ({
   useSearchEvents: () => ([
-    [EXAMPLE_EVENT],
+    [EXAMPLE_EVENT, EXAMPLE_EVENT_2],
     jest.fn(),
   ]),
 }));
