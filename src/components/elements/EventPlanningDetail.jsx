@@ -7,10 +7,10 @@ const styleClasses = {
 function EventPlanningDetail({ label, value, type, name }) {
   if (!value || value === undefined) return
 
-  const formattedValue = type === 'link'
-    ? <a className={styleClasses.link} href={value} target="_blank" rel="noopener noreferrer">
-        { name ? name : value }
-      </a>
+  const formattedValue = type === 'link' ?
+    <a className={styleClasses.link} href={value} target="_blank" rel="noopener noreferrer">
+      { name ? name : value }
+    </a>
     : value
 
   return (
