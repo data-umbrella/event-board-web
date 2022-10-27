@@ -88,7 +88,7 @@ function PostEventFormComponent(props) {
               />
             </div>
             <div>
-              <label htmlFor="description">Event Description</label>
+              <label htmlFor="description">Event Description*</label>
               <Field
                 component="textarea"
                 id="description"
@@ -103,27 +103,27 @@ function PostEventFormComponent(props) {
                 <DatePickerField
                   name="startDate"
                   className={formStyleClasses.input}
-                  label="Start Date"
+                  label="Start Date*"
                 />
 
                 <DatePickerField
                   name="endDate"
-                  label="End Date"
+                  label="End Date*"
                   className={formStyleClasses.input}
                 />
               </section>
               
               <section className="grid grid-cols-2 gap-2">
                 <div className="col-span-1">
-                  <TimeSlotField id="startTime" name="startTime" label="Start Time" />
+                  <TimeSlotField id="startTime" name="startTime" label="Start Time*" />
                 </div>
 
                 <div className="col-span-1">
-                  <TimeSlotField id="endTime" name="endTime" label="End Time" />
+                  <TimeSlotField id="endTime" name="endTime" label="End Time*" />
                 </div>
               </section>
               <section>
-                <label>Time Zone</label>
+                <label>Time Zone*</label>
                 <Field name="timezone" component="select" className={formStyleClasses.select}>
                   <option value={null}>Select a time zone</option>
                   {timezones.map(({ name, text }) => {
