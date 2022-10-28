@@ -77,7 +77,14 @@ This is a playlist of 3 videos, [Intro to Django](https://www.youtube.com/playli
 1. Djamgp Tutorial Part 3: Building Your First Django Application
 
 ---
+## Important Points
 
+### 1) Please don't wait to get assigned on an issue, just comment "I am working on it" and then you can start working on it.
+
+### 2) A pull request should be submitted within two weeks or someone else can work on the issue.
+
+
+---
 ## FAQs
 
 ### 1) xxx

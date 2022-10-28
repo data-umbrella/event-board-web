@@ -90,7 +90,7 @@ function AboutUs() {
         </div>
         <div className="row-span-2 px-4 m-1 object-contain text-left">
           <a
-            href="https://www.dataumbrella.org/"
+            href="https://www.specollective.org/"
             target="_blank"
             rel="noreferrer"
             className="text-teal-500 underline dark:text-blue-700"
