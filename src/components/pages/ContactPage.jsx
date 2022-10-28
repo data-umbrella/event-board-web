@@ -93,7 +93,7 @@ function ContactUsFormComponent() {
                 href="https://www.dataumbrella.org/about/code-of-conduct" 
                 target="_blank" 
                 rel="noreferrer"
-                className={formStyleClasses.hyperlinks}
+                className={`${formStyleClasses.hyperlinks} dark:text-white`}
               >
                 Code of Conduct
               </a>*
