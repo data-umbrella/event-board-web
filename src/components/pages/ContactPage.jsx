@@ -89,7 +89,12 @@ function ContactUsFormComponent() {
               {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
                 Code of Conduct
               </Link>* */}
-              <a href="https://www.dataumbrella.org/about/code-of-conduct" className={formStyleClasses.hyperlinks}>
+              <a 
+                href="https://www.dataumbrella.org/about/code-of-conduct" 
+                target="_blank" 
+                rel="noreferrer"
+                className={formStyleClasses.hyperlinks}
+              >
                 Code of Conduct
               </a>*
             </label>
