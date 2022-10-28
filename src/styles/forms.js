@@ -122,14 +122,20 @@ const formStyleClasses = {
   `,
   sendButton: `
     bg-du-purple-500
+    hover:shadow-2xl
+    hover:bg-blend-darken 
     text-white
     w-20
     mb-3
     p-2
-    rounded
+    rounded-[10px]
     text-lg
     font-normal
     float-right
+    active:bg-white 
+    active:border 
+    active:border-du-purple-500
+    active:text-du-purple-500
   `,
   loginButton: `
     container
