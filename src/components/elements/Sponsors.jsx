@@ -26,7 +26,7 @@ function Sponsors() {
     <div className={sponsorsStyleClasses.sponsorsGrid}>
       {sponsorsList.map(sponsorInfo => {
         return (
-          <a key={sponsorInfo.name} href={sponsorInfo.url} className='rounded flex flex-col justify-center items-center '>
+          <a key={sponsorInfo.name} href={sponsorInfo.url} className="rounded flex flex-col justify-center items-center">
             <img src={sponsorInfo.sponsorImg} alt="logo" className={sponsorsStyleClasses.imageStyle} />
             {sponsorInfo.name}
           </a>
