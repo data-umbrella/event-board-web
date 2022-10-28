@@ -13,7 +13,7 @@ function SponsorsPage() {
       </p>
 
       <div className={sponsorsStyleClasses.sponsorsGroup}>
-        <Sponsors />
+        <Sponsors/>
       </div>
     </div>
   )
