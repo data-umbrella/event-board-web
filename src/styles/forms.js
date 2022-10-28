@@ -56,7 +56,7 @@ const formStyleClasses = {
   textarea: `
     block
     border
-    border-zinc-300
+    border-black
     dark:border-teal-400
     dark:bg-transparent
     w-full

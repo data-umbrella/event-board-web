@@ -78,7 +78,7 @@ function ContactUsFormComponent() {
             <Field
               component="textarea"
               name="message"
-              className={`${formStyleClasses.textarea} border-black`}
+              className={`${formStyleClasses.textarea}`}
             />
           </div>
 
