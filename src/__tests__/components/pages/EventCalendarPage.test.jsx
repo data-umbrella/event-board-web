@@ -13,23 +13,14 @@ const EXAMPLE_EVENT = {
   tags: 'python',
 }
 
-const EXAMPLE_EVENT_2 = {
-  id: 2,
-  eventName: 'Example event name 2',
-  startDate: '2022-09-02',
-  endDate: '2022-09-02',
-  tags: 'SQL',
-}
-
 jest.mock('hooks/events', () => ({
   useSearchEvents: () => ([
-    [EXAMPLE_EVENT, EXAMPLE_EVENT_2],
+    [EXAMPLE_EVENT],
     jest.fn(),
   ]),
 }));
 
 describe('Event Calendar Page', () => {
-
   beforeAll(() => {
     jest.useFakeTimers().setSystemTime(new Date('2022-09-01'));
   });
