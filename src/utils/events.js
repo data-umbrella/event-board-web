@@ -1,3 +1,4 @@
+// import EventTypeField from 'components/elements/EventTypeField';
 import moment from 'moment';
 
 export function groupEventsByMonth(events) {
@@ -22,6 +23,7 @@ export function formatEventsForCalendar(events) {
       end: evt.endDate,
       title: evt.eventName,
       type: evt.eventType,
+      description: evt.description
     };
   });
 }
