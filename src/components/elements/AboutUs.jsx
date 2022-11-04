@@ -10,6 +10,7 @@ import websiteWhite from 'assets/websiteWhite.svg';
 import twitterWhite from 'assets/twitterWhite.svg';
 import linkedInWhite from 'assets/linkedInWhite.svg';
 import githubWhite from 'assets/githubWhite.svg';
+import DULogoWhiteBg from  'assets/umbrella_only_white_background.png';
 
 const IMAGE_MAP = {
   twitter,
@@ -54,11 +55,13 @@ function ContributorSocialMediaLinks({ socialMediaLinks }) {
 }
 
 function AboutUs() {
+  const [colorTheme, setTheme] = useState(localStorage.theme);
+  window.addEventListener("themeChanged", () => setTheme(localStorage.theme));
   return (
     <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsCards}>
       <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-slate-700 rounded bg-white">
         <div className="py-4">
-          <img src={DULogo} alt="logo" className={`mx-auto`}/>
+          <img src={colorTheme ==='light'?DULogo:DULogoWhiteBg} alt="logo" className={`mx-auto h-32`}/>
         </div>
         <div className="row-span-2 px-4 m-1 object-contain text-left">
           <a
