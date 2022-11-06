@@ -6,8 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { makeServer } from "./mirage";
 
-if (process.env.NODE_ENV === "development") {
-  makeServer({ environment: "development" })
+const useMirage = process.env.REACT_APP_USE_MIRAGE;
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+if (useMirage && isDevelopment) {
+  makeServer({ environment: 'development' });
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
