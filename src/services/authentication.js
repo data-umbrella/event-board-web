@@ -48,6 +48,7 @@ export async function fetchVerification(token, email) {
 }
 
 export async function fetchMagicLink(email) {
+  debugger;
   try {
     const response = await fetch(MAGIC_LINK_URL, {
       method: 'POST',
