@@ -63,11 +63,11 @@ export function makeServer({ environment = 'test' } = {}) {
       });
       
 
-      this.post('/auth/email/', (schema) => {
+      this.post('/auth/email/', () => {
         return new Response(200, { status: 'success' });
       });
 
-      this.post('/auth/token/', (schema, request) => {
+      this.post('/auth/token/', (_, request) => {
         const { token } = JSON.parse(request.requestBody);
         if (token === 'FAKE_TOKEN') {
           this.isAuthenticated = true;
@@ -77,7 +77,7 @@ export function makeServer({ environment = 'test' } = {}) {
         }
       });
 
-      this.post('/api/v1/current_user/', (schema) => {
+      this.post('/api/v1/current_user/', () => {
         if (this.isAuthenticated) {
           return new Response(200, { email: 'test@test.com' });
         } else {
@@ -87,5 +87,5 @@ export function makeServer({ environment = 'test' } = {}) {
     },
   });
 
-  return server
+  return server;
 }
