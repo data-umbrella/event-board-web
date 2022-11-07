@@ -25,7 +25,7 @@ function AboutPage() {
       </div>
 
       <div className="pt-10">
-        <strong><h1>We Built this board</h1></strong>
+        <strong><h1 className="text-2xl font-bold">We Built this board</h1></strong>
         <Contributor />
       </div>
     </div>
