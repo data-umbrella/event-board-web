@@ -40,10 +40,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "REACT_APP_USE_MIRAGE=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:api": "json-server bin/dev-api.json --port=8000",
     "lint": "node_modules/.bin/eslint --ext js,jsx src",
     "lint:fix": "node_modules/.bin/eslint --fix --ext .js,.jsx src"
   },
@@ -70,6 +70,7 @@
     "@testing-library/dom": "^8.14.0",
     "@testing-library/user-event": "^14.2.1",
     "autoprefixer": "^10.4.7",
+    "miragejs": "^0.1.45",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.5"
   },

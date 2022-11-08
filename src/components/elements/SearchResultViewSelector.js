@@ -2,8 +2,8 @@ import React from 'react';
 
 const styleClasses = {
   option: 'mr-2 p-2 rounded',
-  selected: 'bg-gray-300 bg-du-purple-500 text-white',
-  unselected: 'dark:text-slate-50 bg-du-purple-200',
+  selected: 'bg-du-purple-500 text-white',
+  unselected: 'dark:text-du-purple-100 bg-du-purple-200',
 }
 
 function viewTypeClassName(viewType, selectedView) {
