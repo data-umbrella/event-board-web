@@ -51,8 +51,6 @@ function EventsForMonth({ events }) {
               to={`/events/${evt.id}/details`}
               className="text-du-purple-500 dark:text-du-lightPurple underline underline-offset-4 font-medium decoration-2"
             >
-              {/* {moment(evt.startDate).format('MMMM D, YYYY').slice(0, -6)}{' - '}
-              {dateEnd.split(' ').slice(1).join(' ')} */}
               <DateRange 
                 start={dateStart}
                 end={dateEnd}
