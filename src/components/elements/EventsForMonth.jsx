@@ -23,19 +23,18 @@ function formatEventTags(tags) {
 }
 
 function DateRange(start, end) {
-  let dateStart = start.start.split(' ')[0]
-  let dateEnd = start.end.split(' ')[0]
+  const dateStart = start.start.split(' ')[0]
+  const dateEnd = start.end.split(' ')[0]
+
   if(dateStart === dateEnd) {
-    return <p>{start.start.slice(0, -6) + ' - ' + start.end.slice(' ')}</p>
+    return <p>{start.start.slice(0, -6) + ' - ' + start.end.substring(start.end.indexOf(' ') + 1)}</p>
   }
   return <p>{start.start + ' - ' + start.end}</p>
 }
-// description.split(' ').slice(100).join(' ')
 
 
 function EventsForMonth({ events }) {
   const sortedEvents = events.sort(sortByDate);
-
 
   
   return sortedEvents.map(evt => {
@@ -43,9 +42,6 @@ function EventsForMonth({ events }) {
 
     const dateStart = moment(evt.startDate).format('MMMM D, YYYY')
     const dateEnd = moment(evt.endDate).format('MMMM D, YYYY')
-    // const splitDateStart = dateStart.split(' ')[0]
-    // const splitDateEnd = dateEnd.split(' ')[0]
-
 
     return (
       <div key={`${evt.id}-${evt.eventName}`} className="border border-gray-300 bg-white dark:bg-du-indigo-900 dark:border-du-lightAqua mb-2 px-2 py-2 rounded">
