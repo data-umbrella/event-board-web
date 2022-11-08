@@ -59,6 +59,7 @@ const formStyleClasses = {
     border-black
     dark:border-teal-400
     dark:bg-transparent
+    dark:text-white
     w-full
     h-40
     rounded

@@ -45,7 +45,7 @@ function PostEventFormComponent(props) {
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Organization Details</h2>
         <section
-          className="grid grid-cols-1 rounded border border-slate-300 bg-white p-6 marker:mb-6 dark:bg-transparent md:grid-cols-2 md:grid-rows-1 md:gap-6"
+          className="grid grid-cols-1 rounded border border-slate-300 bg-white p-6 marker:mb-6 dark:border-teal-400 dark:bg-transparent md:grid-cols-2 md:grid-rows-1 md:gap-6"
         >
           <Field  
             autoComplete="new-password"
@@ -74,7 +74,7 @@ function PostEventFormComponent(props) {
       {/* Event Details Section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Event Details</h2>
-        <section className="rounded border border-slate-300 bg-white p-6 dark:bg-transparent">
+        <section className="rounded border border-slate-300 bg-white p-6 dark:bg-transparent dark:border-teal-400">
           <section className="flex flex-col">
             <div className="max-w-sm pb-4">
               <Field
@@ -219,7 +219,7 @@ function PostEventFormComponent(props) {
       {/* Notes section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Notes</h2>
-        <div className="grid grid-cols-1 gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent dark:border-teal-400 md:grid-cols-2">
           <div>
             <TextField
               component="textarea"
@@ -245,7 +245,7 @@ function PostEventFormComponent(props) {
       {/* Other section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Other</h2>
-        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent md:grid-cols-2">
+        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent dark:border-teal-400 md:grid-cols-2">
           <div>
             <div className="mb-6">
               <label htmlFor="codeOfConductUrl">
@@ -277,7 +277,7 @@ function PostEventFormComponent(props) {
       {/* Accessibility Options section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Accessibility</h2>
-        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent">
+        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent dark:border-teal-400">
           <AccessibilityDetailField
             value={values.accessibilityOptions}
             onChange={setFieldValue}
@@ -288,7 +288,7 @@ function PostEventFormComponent(props) {
       {/* Featured Event section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Featured Event</h2>
-        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent">
+        <section className="grid gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent dark:border-teal-400">
           <FeaturedEventField
             value={values.featured}
             onChange={setFieldValue}
@@ -298,7 +298,7 @@ function PostEventFormComponent(props) {
 
       <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end">
         <div className="grid grid-cols-1 md:block">
-          <button className="p-2 underline dark:text-white">Clear Form</button>
+          <button className="p-2 mr-2 underline dark:text-white">Clear Form</button>
           <button className={formStyleClasses.reviewButton} type="submit">
             Review
           </button>
