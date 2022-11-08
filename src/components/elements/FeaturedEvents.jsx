@@ -41,7 +41,7 @@ function FeaturedEvents ({ events }) {
     <div className="">
       <div>
         <h1 className="font-semibold mb-2 md:font-bold text-xl md:text-2xl dark:text-slate-50">
-          Feature Events
+          Featured Events
         </h1>
       </div>
 
