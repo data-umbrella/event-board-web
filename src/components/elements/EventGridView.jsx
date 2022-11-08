@@ -5,7 +5,7 @@ const styles = {
   searchEventGroup: `
     gap-4
     grid
-    md:grid-cols-3
+    md:grid-cols-4
     container
     mx-auto
     sm:grid-cols-none
