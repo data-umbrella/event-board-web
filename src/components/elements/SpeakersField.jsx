@@ -71,7 +71,7 @@ function SpeakersField ({ value, onChange }) {
     <div>
       <div className="mb-2">
         <h2 className="text-xl md:text-2xl pb-4 inline font-bold">Speakers</h2>
-        <button className="float-right dark:text-white" type="button" onClick={addSpeaker}>
+        <button className="float-right font-bold dark:text-du-lightPurple" type="button" onClick={addSpeaker}>
           Add a Speaker
         </button>
       </div>

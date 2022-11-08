@@ -1,13 +1,13 @@
-import { EVENTS_URL } from 'constants/urls';
-import camelcaseKeys from 'camelcase-keys';
-import moment from 'moment';
-import { useEffect, useState } from 'react';
-import { arrayifyTags } from 'utils/strings';
+import { EVENTS_URL } from "constants/urls";
+import camelcaseKeys from "camelcase-keys";
+import moment from "moment";
+import { useEffect, useState } from "react";
+import { arrayifyTags } from "utils/strings";
 import {
-  fetchEventsForSearchFilters,
+  fetchEventResultsForSearchFilters,
   fetchFeaturedEvents,
-} from 'services/events';
-import { DEFAULT_DATE_FORMAT } from 'constants/dates';
+} from "services/events";
+import { DEFAULT_DATE_FORMAT } from "constants/dates";
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -56,11 +56,13 @@ export function useFeaturedEvents() {
   return featuredEvents;
 }
 
-export function useSearchEvents() {
+export function useSearchEvents({ pageSize, page }) {
   const [searchFilters, setSearchFilters] = useState({
     startDate: moment().format(DEFAULT_DATE_FORMAT),
-    endDate: moment().add(5, 'months').format(DEFAULT_DATE_FORMAT),
-    search: '',
+    endDate: moment().add(5, "months").format(DEFAULT_DATE_FORMAT),
+    search: "",
+    pageSize,
+    page,
   });
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
@@ -72,17 +74,17 @@ export function useSearchEvents() {
     });
   }
 
-  function clearFilters () {
+  function clearFilters() {
     setSearchFilters({
       startDate: moment().format(DEFAULT_DATE_FORMAT),
-      endDate: moment().add(5, 'months').format(DEFAULT_DATE_FORMAT),
-      search: '',
+      endDate: moment().add(5, "months").format(DEFAULT_DATE_FORMAT),
+      search: "",
     });
   }
 
   useEffect(() => {
     async function fetchSearchEvents() {
-      const result = await fetchEventsForSearchFilters(searchFilters);
+      const result = await fetchEventResultsForSearchFilters(searchFilters);
       setSearchResultEvents(result);
     }
     fetchSearchEvents();
