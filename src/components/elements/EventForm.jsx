@@ -156,8 +156,40 @@ function PostEventFormComponent(props) {
               </section>
               <section className="grid grid-cols-2 gap-6">
                 <div>
-                  <label>Registration End Date</label>
-                  <DatePickerField name="registrationEndDate" className={formStyleClasses.input} />
+                  <label>Registration Start Date</label>
+                  <DatePickerField name="registrationStartDate" className={formStyleClasses.input} />
+                </div>
+              </section>
+
+              <section className="grid grid-cols-2 gap-6" role="group" aria-labelledby="virtual-option-radio-group" >
+                <div>
+                  <label className="mr-6">
+                    <Field
+                    name="in-person"
+                    type="radio"
+                    value="in-person"
+                    className={formStyleClasses.radioButtonValues}
+                      />
+                      In-person
+                  </label>
+                  <label className="mr-6">
+                    <Field
+                    name="in-person"
+                    type="radio"
+                    value="virutal"
+                    className={formStyleClasses.radioButtonValues}
+                      />
+                      Virtual
+                  </label>
+                  <label className="mr-6">
+                    <Field
+                    name="in-person"
+                    type="radio"
+                    value="both"
+                    className={formStyleClasses.radioButtonValues}
+                      />
+                      Both
+                  </label>
                 </div>
               </section>
             </section>

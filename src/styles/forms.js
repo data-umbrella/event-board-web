@@ -148,6 +148,13 @@ const formStyleClasses = {
     text-lg
     font-normal
   `,
+  radioButtonValues:`
+    rounded-md
+    mx-2
+    p-2
+    md:row-start-2
+    md:col-span-2
+  `,
 };
 
 export default formStyleClasses;
