@@ -37,9 +37,9 @@ function DateRange(event) {
   const dateEnd = event.end.split(' ')[0]
 
   if(dateStart === dateEnd) {
-    return <p>{event.start.slice(0, -6) + ' - ' + event.end.substring(event.end.indexOf(' ') + 1)}</p>
+    return <p className="truncate">{event.start.slice(0, -6) + ' - ' + event.end.substring(event.end.indexOf(' ') + 1)}</p>
   }
-  return <p>{event.start + ' - ' + event.end}</p>
+  return <p className="truncate">{event.start + ' - ' + event.end}</p>
 }
 
 
@@ -55,7 +55,8 @@ function EventsForMonth({ events }) {
 
     return (
       <div key={`${evt.id}-${evt.eventName}`} className="border border-gray-300 bg-white dark:bg-du-indigo-900 dark:border-du-lightAqua mb-2 px-2 py-2 rounded">
-        <div className="flex place-content-between">
+        {/* <div className="flex place-content-between"> */}
+        <div className="grid grid-cols-3 sm:grid-cols-4">
           <Link
             to={`/events/${evt.id}/details`}
             className="text-du-purple-500 dark:text-du-lightPurple underline underline-offset-4 font-medium decoration-2 truncate"
@@ -64,7 +65,7 @@ function EventsForMonth({ events }) {
               { evt.eventName }
             </span>
           </Link>
-          <span className="text-center text-du-charcoal-gray dark:text-du-gray">
+          <span className="text-sm sm:col-start-3 sm:text-base sm:text-right text-du-charcoal-gray dark:text-du-gray">
             <span className="hidden sm:inline-block">
               {eventTags.map(tag => (
                 <span key={tag} className={styleClasses.tags}>{tag}</span>
@@ -76,7 +77,7 @@ function EventsForMonth({ events }) {
               />
             </span>
           </span>
-          <span className="text-left">
+          <span className="text-left text-sm sm:text-base sm:text-right sm:col-start-4">
             <DateRange 
               start={dateStart}
               end={dateEnd}
