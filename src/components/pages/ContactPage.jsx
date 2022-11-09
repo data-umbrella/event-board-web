@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import contactMobile from 'assets/contact-mobile.png'
-import contact from 'assets/contact-image.png';
+import contactMobile from 'assets/ui/contact-mobile.png'
+import contact from 'assets/ui/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
 import { postContactEmail } from 'services/contact-emails';
 

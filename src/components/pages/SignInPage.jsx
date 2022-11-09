@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignInForm from 'components/elements/SignInForm';
-import logo from 'assets/logo-umbrella.png'
+import logo from 'assets/du_sc_logos/logo-umbrella.png'
 
 function SignInPage() {
   return (

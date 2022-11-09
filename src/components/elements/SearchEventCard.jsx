@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { imageUrlForEvent } from "utils/urls";
 import moment from "moment";
-import defaultThumbnail from "assets/thumbnail.png";
+import defaultThumbnail from "assets/ui/thumbnail.png";
 
 const styleClasses = {
   searchEventCard: `

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageUrlForEvent } from 'utils/urls';
-import defaultThumbnail from 'assets/thumbnail.png';
+import defaultThumbnail from 'assets/ui/thumbnail.png';
 
 const styleClasses = {
   mainSectionContainer: `

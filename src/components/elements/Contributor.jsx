@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import aboutStyleClasses from 'styles/about';
-import twitter from 'assets/twitter.svg';
-import linkedin from 'assets/linkedin.svg';
-import github from 'assets/github.svg';
-import website from 'assets/website.svg';
-import logo from 'assets/logo.svg';
-import Reshama from 'assets/reshama.png'
-import Joe from 'assets/joe.png'
-import Ilia from 'assets/ilia.png'
-import Yoline from 'assets/yoline.png'
-import Victoria from 'assets/victoria.png'
-import Crystal from 'assets/crystal.png'
-import websiteWhite from 'assets/websiteWhite.svg';
-import twitterWhite from 'assets/twitterWhite.svg';
-import linkedInWhite from 'assets/linkedInWhite.svg';
-import githubWhite from 'assets/githubWhite.svg';
+import twitter from 'assets/social_media/twitter.svg';
+import linkedin from 'assets/social_media/linkedin.svg';
+import github from 'assets/social_media/github.svg';
+import website from 'assets/social_media/website.svg';
+import logo from 'assets/du_sc_logos/logo.svg';
+import Reshama from 'assets/people/reshama.png'
+import Joe from 'assets/people/joe.png'
+import Ilia from 'assets/people/ilia.png'
+import Yoline from 'assets/people/yoline.png'
+import Victoria from 'assets/people/victoria.png'
+import Crystal from 'assets/people/crystal.png'
+import websiteWhite from 'assets/social_media/websiteWhite.svg';
+import twitterWhite from 'assets/social_media/twitterWhite.svg';
+import linkedInWhite from 'assets/social_media/linkedInWhite.svg';
+import githubWhite from 'assets/social_media/githubWhite.svg';
 
 const IMAGE_MAP = {
   twitter,
@@ -29,7 +29,8 @@ const IMAGE_MAP = {
 
 // Move into constants
 const contributorList = [
-  { name: 'Reshama Shaikh',
+  {
+    name: 'Reshama Shaikh',
     title: 'Event Board Project',
     organization: 'Data Umbrella',
     image: Reshama,
@@ -50,16 +51,18 @@ const contributorList = [
       { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/joetorreggiani/' },
     ]
   },
-  { name: 'Ilia de Leon',
+  {
+    name: 'Ilia de Leon',
     title: 'Design Lead',
     organization: 'SPEC',
     image: Ilia,
     socialMediaLinks: [
       { name: 'github', darkName: 'githubWhite', link: 'https://example.com' },
-      { name: 'linkedin', darkName: 'linkedInWhite', link:'https://www.linkedin.com/in/iliadeleon/' },
+      { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/iliadeleon/' },
     ]
   },
-  { name: 'Yoline Banerjee',
+  {
+    name: 'Yoline Banerjee',
     title: 'Software Engineer',
     organization: 'SPEC',
     image: Yoline,
@@ -68,7 +71,8 @@ const contributorList = [
       { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/yolineb/' },
     ]
   },
-  { name: 'Victoria Lo',
+  {
+    name: 'Victoria Lo',
     title: 'Software Engineer',
     organization: 'SPEC',
     image: Victoria,
@@ -77,7 +81,8 @@ const contributorList = [
       { name: 'linkedin', darkName: 'linkedInWhite', link: 'https://www.linkedin.com/in/victoria-lo/' },
     ]
   },
-  { name: 'Crystal Shamsi',
+  {
+    name: 'Crystal Shamsi',
     title: 'Software Engineer',
     organization: 'SPEC',
     image: Crystal,
@@ -97,7 +102,7 @@ function ContributorSocialMediaLinks({ contributorInfo }) {
 
   return (
     <div className="mt-4">
-      { contributorInfo.socialMediaLinks.map(mediaLink => {
+      {contributorInfo.socialMediaLinks.map(mediaLink => {
         return (
           <div className="inline-block p-1" key={mediaLink.name}>
             <a href={mediaLink.link}>
@@ -113,7 +118,7 @@ function ContributorSocialMediaLinks({ contributorInfo }) {
 // TODO: Move into separate component.
 function ContributorPhoto({ imageSrc }) {
   const src = imageSrc ? imageSrc : logo;
-  
+
   return <img className="pt-4 pb-3" src={src} alt="logo" />
 }
 
@@ -128,9 +133,9 @@ function Contributor() {
                 <ContributorPhoto imageSrc={contributorInfo.image} />
               </div>
               <div className="place-self-center my-2 text-left md:text-center dark:text-white">
-                <h3>{ contributorInfo.name }</h3>
-                <small>{ contributorInfo.title }</small><br />
-                <small>{ contributorInfo.organization }</small>
+                <h3>{contributorInfo.name}</h3>
+                <small>{contributorInfo.title}</small><br />
+                <small>{contributorInfo.organization}</small>
                 <ContributorSocialMediaLinks contributorInfo={contributorInfo} />
               </div>
             </div>

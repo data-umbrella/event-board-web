@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignUpForm from 'components/elements/SignUpForm';
-import logo from 'assets/logo-umbrella.png'
+import logo from 'assets/du_sc_logos/logo-umbrella.png'
 
 function SignUpPage() {
   return (
