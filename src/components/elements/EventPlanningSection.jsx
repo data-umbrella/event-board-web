@@ -60,6 +60,7 @@ function EventPlanningSection({ evt }) {
 
         <EventPlanningDetail
           label="Organization URL"
+          name={evt.organizationName}
           value={evt.organizationUrl}
           type="link"
         />

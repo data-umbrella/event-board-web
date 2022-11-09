@@ -21,6 +21,11 @@ jest.mock('hooks/events', () => ({
 }));
 
 describe('Event Calendar Page', () => {
+
+  beforeAll(() => {
+    jest.useFakeTimers().setSystemTime(new Date('2022-09-01'));
+  });
+  
   it('renders events on page load', () => {
     render(
       <MemoryRouter>
