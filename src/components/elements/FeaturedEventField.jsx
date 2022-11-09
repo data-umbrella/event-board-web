@@ -1,4 +1,5 @@
 import { React } from 'react';
+import { eventStyleClasses } from 'styles/events';
 
 function FeaturedEventField({ value, onChange }) {
   const handleChange = () => {
@@ -12,9 +13,15 @@ function FeaturedEventField({ value, onChange }) {
         follow the link to make a donation to this Event Board on Open
         Collective.
       </p>
-      <br></br>
-      <div id="featured-event-donation-info" className="border">
-        <p>$1-99: General Donation $100+: Featured Event</p>
+
+      <div 
+        id="featured-event-donation-info"
+        className={eventStyleClasses.donationPillBox}
+        >
+        <p>
+          $1-99: General Donation
+          <span className="pl-6">$100+: Featured Event</span>
+        </p>
       </div>
       <div>
         <input

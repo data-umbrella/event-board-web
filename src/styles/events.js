@@ -38,4 +38,19 @@ export const eventStyleClasses = {
     text-lg
     font-normal
   `,
+  donationPillBox:`
+    border 
+    border-black
+    block 
+    my-6 
+    bg-du-lightBlue 
+    px-1 
+    py-2 
+    w-2/5 
+    text-center 
+    rounded 
+    text-medium
+    dark:bg-transparent
+    dark:border-du-lightAqua 
+  `,
 };
