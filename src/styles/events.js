@@ -7,9 +7,29 @@ export const eventStyleClasses = {
     mb-16
     md:grid-cols-2
   `,
-  imageContainer: 'bg-gray-300',
-  eventTypePillbox: 'block mb-4 bg-pink-300 pl-1 pr-1 w-1/4 text-center rounded text-xl font-medium',
-  infoTextSection: 'bg-white p-6 border-slate-300 border-solid border rounded mb-6',
+  imageContainer: "bg-gray-300",
+  eventTypePillbox:`
+    block 
+    mb-4 
+    bg-pink-300 
+    pl-1 
+    pr-1 
+    w-1/4 
+    text-center 
+    rounded 
+    text-xl 
+    font-medium
+  `,
+  infoTextSection:`
+    bg-white 
+    p-6 
+    border
+    border-slate-300 
+    border-solid  
+    rounded mb-6 
+    dark:bg-transparent 
+    dark:border-du-lightAqua 
+    dark:text-white`,
   submitButton: `
     bg-du-purple-500
     text-white
@@ -17,5 +37,5 @@ export const eventStyleClasses = {
     rounded
     text-lg
     font-normal
-  `
+  `,
 };

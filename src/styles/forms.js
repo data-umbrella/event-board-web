@@ -4,7 +4,7 @@ const formStyleClasses = {
     border
     border-black
     dark:border-teal-400
-    dark:bg-transparent
+    dark:bg-du-deepPurple
     w-full
     rounded-md
     h-14
