@@ -51,7 +51,6 @@ function EventsForMonth({ events }) {
 
     return (
       <div key={`${evt.id}-${evt.eventName}`} className="border border-gray-300 bg-white dark:bg-du-indigo-900 dark:border-du-lightAqua mb-2 px-2 py-2 rounded">
-        {/* <div className="flex place-content-between"> */}
         <div className="grid grid-cols-3 sm:grid-cols-4">
           <Link
             to={`/events/${evt.id}/details`}
@@ -73,7 +72,7 @@ function EventsForMonth({ events }) {
               />
             </span>
           </span>
-          <span className="text-left text-sm sm:text-base sm:text-right sm:col-start-4">
+          <span className="text-left text-sm sm:col-start-4 sm:text-base sm:text-right">
             <DateRange 
               start={dateStart}
               end={dateEnd}

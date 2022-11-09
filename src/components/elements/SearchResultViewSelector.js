@@ -2,8 +2,8 @@ import React from 'react';
 
 const styleClasses = {
   option: 'mr-2 p-2 rounded cursor-pointer',
-  selected: 'dark:bg-du-purple-800 bg-du-purple-500 text-white',
-  unselected: 'dark:bg-du-purple-300 bg-du-purple-200 dark:text-du-purple-100',
+  selected: 'bg-du-purple-500 dark:bg-du-purple-800 text-white',
+  unselected: 'bg-du-purple-200 dark:bg-du-purple-300 dark:text-du-purple-100',
 }
 
 function viewTypeClassName(viewType, selectedView) {
