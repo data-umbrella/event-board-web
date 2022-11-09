@@ -237,6 +237,24 @@ function PostEventFormComponent(props) {
                     autoComplete="new-password"
                   />
                 </div>
+                <div className="mb-6">
+                  <label>Tags</label>
+                  <Field
+                    name="Tags"
+                    type="text"
+                    className={formStyleClasses.input}
+                    autoComplete="new-password"
+                  />
+                </div>
+                <div className="mb-6">
+                  <label>Event Hashtag(s)</label>
+                  <Field
+                    name="event-hashtags"
+                    type="text"
+                    className={formStyleClasses.input}
+                    autoComplete="new-password"
+                  />
+                </div>
               </div>
             </section>
           </section>
