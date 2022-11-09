@@ -8,7 +8,7 @@ export const eventStyleClasses = {
     md:grid-cols-2
   `,
   imageContainer: "bg-gray-300",
-  eventTypePillbox:`
+  eventTypePillbox: `
     block 
     mb-4 
     bg-pink-300 
@@ -20,7 +20,7 @@ export const eventStyleClasses = {
     text-xl 
     font-medium
   `,
-  infoTextSection:`
+  infoTextSection: `
     bg-white 
     p-6 
     border
@@ -38,7 +38,7 @@ export const eventStyleClasses = {
     text-lg
     font-normal
   `,
-  donationPillBox:`
+  donationPillBox: `
     border 
     border-black
     block 

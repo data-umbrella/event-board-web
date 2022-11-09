@@ -49,7 +49,8 @@ function PostEventFormComponent(props) {
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
           Organization Details
         </h2>
-        <section className="grid grid-cols-1 rounded border border-slate-300 bg-white p-6 marker:mb-6 dark:border-teal-400 dark:bg-transparent md:grid-cols-2 md:grid-rows-1 md:gap-6">
+        <section 
+          className={formStyleClasses.oragnizationDetails}>
           <Field
             autoComplete="new-password"
             className={formStyleClasses.input}
@@ -265,7 +266,7 @@ function PostEventFormComponent(props) {
                 </div>
 
                 <div className="container mx-auto mb-4">
-                <label>Tags</label>
+                  <label>Tags</label>
                   <div className="relative text-gray-600 focus-within:text-gray-400">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                       <button
@@ -277,7 +278,7 @@ function PostEventFormComponent(props) {
                           text-du-purple-500
                           font-bold
                         `}
-                            >
+                      >
                         <svg
                           fill="none"
                           stroke="currentColor"
@@ -286,7 +287,7 @@ function PostEventFormComponent(props) {
                           strokeWidth="3"
                           viewBox="0 0 24 24"
                           className="w-6 h-6"
-                          >
+                        >
                           <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                       </button>

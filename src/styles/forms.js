@@ -155,6 +155,21 @@ const formStyleClasses = {
     md:row-start-2
     md:col-span-2
   `,
+  oragnizationDetails: `
+  grid 
+  grid-cols-1 
+  rounded 
+  border 
+  border-slate-300 
+  bg-white 
+  p-6 
+  marker:mb-6 
+  dark:border-teal-400 
+  dark:bg-transparent 
+  md:grid-cols-2 
+  md:grid-rows-1 
+  md:gap-6
+`,
 };
 
 export default formStyleClasses;
