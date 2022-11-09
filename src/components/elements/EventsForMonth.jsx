@@ -18,12 +18,8 @@ const styleClasses = {
 
 function RenderEventType(data) {
   const eventStyles = `inline-block mr-1 pl-2 pr-2 rounded bg-event-tags-${data.data} text-white`
-  const eventTypes = ['training', 'conference', 'meetup', 'hackathon', 'other', 'webinar']
-  const filteredType = eventTypes.filter(i => data.data.includes(i))
 
-  if (data.data === filteredType[0]){
-    return <span className={eventStyles}>{data.data}</span>
-  }
+  return <span className={eventStyles}>{data.data}</span>
 }
 
 function formatEventTags(tags) {
