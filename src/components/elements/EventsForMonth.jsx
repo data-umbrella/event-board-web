@@ -60,7 +60,7 @@ function EventsForMonth({ events }) {
               { evt.eventName }
             </span>
           </Link>
-          <span className="text-sm sm:col-start-3 sm:text-base sm:text-right text-du-charcoal-gray dark:text-du-gray">
+          <span className="text-sm text-center sm:col-start-3 sm:text-base sm:text-right text-du-charcoal-gray dark:text-du-gray">
             <span className="hidden sm:inline-block">
               {eventTags.map(tag => (
                 <span key={tag} className={styleClasses.tags}>{tag}</span>
