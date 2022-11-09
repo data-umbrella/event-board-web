@@ -12,13 +12,18 @@ import { formatEventsForCalendar } from 'utils/events';
 
 function EventContent({ eventInfo }) {
   const navigate = useNavigate();
-
+  
   function handleNavigate () {
     navigate(`/events/${eventInfo.event.id}/details`);
   }
 
+  const eventType = eventInfo.event.extendedProps.type
+  
+  // eslint-disable-next-line no-console
+  console.log(eventType)
+  
   return (
-    <div className="bg-blue-600 w-full" onClick={handleNavigate}>
+    <div className={`bg-event-tags-${eventType} w-full`} onClick={handleNavigate}>
       <div className="text-xs whitespace-normal">
         <b className="mr-1">{eventInfo.timeText}</b>
         { truncate(eventInfo.event.title, 60) }
