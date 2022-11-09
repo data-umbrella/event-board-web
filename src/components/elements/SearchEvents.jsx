@@ -33,12 +33,12 @@ export function SearchView({ events, viewName }) {
   }
 }
 
-function SearchEvents({ events }) {
+function SearchEvents({ events, handlePageChange, page }) {
   const [searchView, setSearchView] = useState("GRID");
   let [searchParams, setSearchParams] = useSearchParams();
 
-  function handlePageChange({ event }) {
-    searchParams({ ...searchParams, page:event.selected })
+  function handleChange(event) {
+    handlePageChange(event.selected + 1)
   } 
 
   function updateSearchView(e) {
@@ -65,7 +65,7 @@ function SearchEvents({ events }) {
         <ReactPaginate
           breakLabel="..."
           nextLabel="next >"
-          onPageChange={handlePageChange}
+          onPageChange={handleChange}
           pageRangeDisplayed={5}
           pageCount={2}
           previousLabel="< previous"

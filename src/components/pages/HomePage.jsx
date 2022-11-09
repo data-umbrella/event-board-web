@@ -12,11 +12,16 @@ function HomePage() {
   const pageSize = searchParams.pageSize || 2;
   const page = searchParams.page || 1;
   const featuredEvents = useFeaturedEvents();
-  // TO DO: use a diff hook to get the raw data
-  const [searchResultEvents, setSearchFilters, clearFilters] = useSearchEvents({
-    pageSize,
-    page,
-  });
+  const [searchResultEvents, setSearchFilters, clearFilters, searchFilters] =
+    useSearchEvents({
+      pageSize,
+      page,
+    });
+
+  function handlePageChange(page) {
+    setSearchFilters({ ...searchFilters, page });
+    setSearchParams({ ...searchFilters, page });
+  }
 
   function handleSearch(values) {
     setSearchFilters(values);
@@ -27,7 +32,11 @@ function HomePage() {
       <IntroductionSection />
       <FeaturedEvents events={featuredEvents} />
       <SearchForm handleFormSubmit={handleSearch} clearFilters={clearFilters} />
-      <SearchEvents events={searchResultEvents} />
+      <SearchEvents
+        events={searchResultEvents}
+        handlePageChange={handlePageChange}
+        page={searchFilters.page}
+      />
     </div>
   );
 }

@@ -90,5 +90,10 @@ export function useSearchEvents({ pageSize, page }) {
     fetchSearchEvents();
   }, [searchFilters]);
 
-  return [searchResultEvents, handleSearchFiltersChange, clearFilters];
+  return [
+    searchResultEvents,
+    handleSearchFiltersChange,
+    clearFilters,
+    searchFilters,
+  ];
 }
