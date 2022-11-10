@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { sortByDate } from 'utils/dates';
-// import { DateRange } from 'utils/dateRange'
 
 
 const styleClasses = {
