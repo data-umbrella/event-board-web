@@ -19,7 +19,7 @@ function EventContent({ eventInfo }) {
   }
 
   return (
-    <div className={`bg-event-tags-${eventType} rounded-sm w-full p-2`} onClick={handleNavigate}>
+    <div className={`bg-event-tags-${eventType} rounded-sm w-full`} onClick={handleNavigate}>
       <div className="text-xs whitespace-normal">
         <b className="mr-1">{eventInfo.timeText}</b>
         { truncate(eventInfo.event.title, 60) }
