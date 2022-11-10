@@ -1,9 +1,9 @@
 import React from 'react';
 
 const styleClasses = {
-  option: 'mr-2 p-2 rounded',
-  selected: 'bg-du-purple-500 text-white',
-  unselected: 'dark:text-du-purple-100 bg-du-purple-200',
+  option: 'mr-2 p-2 rounded cursor-pointer',
+  selected: 'bg-du-purple-500 dark:bg-du-purple-800 text-white',
+  unselected: 'bg-du-purple-200 dark:bg-du-purple-300 dark:text-du-purple-100',
 }
 
 function viewTypeClassName(viewType, selectedView) {
@@ -24,8 +24,8 @@ function SearchResultViewSelector({ onChange, selectedView }) {
   ]
 
   return (
-    <div className="md:float-right">
-      <label className="mr-2 dark:text-slate-50">View as:</label>
+    <div className="hidden sm:inline-block md:float-right">
+      <label className="mr-2 dark:text-du-gray">View as:</label>
       { viewTypes.map(viewType => (
         <span
           id={viewType.id}

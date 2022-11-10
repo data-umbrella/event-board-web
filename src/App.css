@@ -100,6 +100,11 @@ nav li {
 
 }
 
+.fc-h-event {
+  border: none !important;
+  background-color: none !important;
+}
+
 .card-img {
    background-size: cover;
    background-repeat: no-repeat;
