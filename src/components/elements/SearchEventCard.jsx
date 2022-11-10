@@ -77,7 +77,7 @@ function SearchEventCard({ eventData }) {
         </div>
 
         <div>
-          <p className="mt-6 font-bold text-base md:text-xl dark:text-du-gray">
+          <p className="mt-6 font-bold text-base md:text-xl dark:text-du-gray truncate">
             {eventData.eventName}
           </p>
         </div>
