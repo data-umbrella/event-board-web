@@ -36,6 +36,7 @@ function formatDate(date) {
 }
 
 function SearchEventCard({ eventData }) {
+  console.log(eventData);
   const [imageUrl, setImageUrl] = useState(imageUrlForEvent(eventData));
   const startDate = formatDate(eventData.startDate);
 

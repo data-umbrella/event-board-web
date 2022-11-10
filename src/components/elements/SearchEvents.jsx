@@ -33,10 +33,11 @@ export function SearchView({ events, viewName }) {
   }
 }
 
-function SearchEvents({ events, handlePageChange, page }) {
+function SearchEvents({ events, eventsMetadata, handlePageChange }) {
   const [searchView, setSearchView] = useState("GRID");
   let [searchParams, setSearchParams] = useSearchParams();
-
+  const pageSize = searchParams.get("pageSize") || 2;
+  const page = searchParams.get("page") || 1;
   function handleChange(event) {
     handlePageChange(event.selected + 1)
   } 
@@ -44,6 +45,9 @@ function SearchEvents({ events, handlePageChange, page }) {
   function updateSearchView(e) {
     setSearchView(e.target.id);
   } 
+
+
+  const totalPagesAvailable = Math.ceil(eventsMetadata.count / pageSize)
 
   return (
     <div>
@@ -54,7 +58,7 @@ function SearchEvents({ events, handlePageChange, page }) {
 
       <div>
         <h3 className={styleClasses.searchResultsHeading}>
-          Search Results ({events.length})
+          Search Results ({eventsMetadata.count})
         </h3>
       </div>
 
@@ -67,7 +71,7 @@ function SearchEvents({ events, handlePageChange, page }) {
           nextLabel="next >"
           onPageChange={handleChange}
           pageRangeDisplayed={5}
-          pageCount={2}
+          pageCount={totalPagesAvailable}
           previousLabel="< previous"
           renderOnZeroPageCount={null}
         />

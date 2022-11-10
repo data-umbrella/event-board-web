@@ -3,10 +3,11 @@ import moment from "moment";
 import { parseAPIJSON } from "utils/api";
 import { EVENTS_URL } from "constants/urls";
 import { DEFAULT_DATE_FORMAT } from "constants/dates";
+import camelcaseKeys from "camelcase-keys";
 
 export function fetchEventsForSearchFilters(searchFilters) {
   const offset =
-    searchFilters.page === 1 ? 0 : searchFilters.pageSize * searchFilters.page;
+    searchFilters.page === 1 ? 0 : ((searchFilters.pageSize * searchFilters.page) - searchFilters.pageSize);
   const query = queryString.stringify({
     event_type: searchFilters.eventType,
     region: searchFilters.region,
@@ -24,11 +25,16 @@ export function fetchEventsForSearchFilters(searchFilters) {
 
   return fetch(`${EVENTS_URL}?${query}`)
     .then((response) => response.json())
+    .then((res) => {
+      const { results, ...meta } = res;
+      return { results: camelcaseKeys(results), ...meta };
+    });
 }
 
 export function fetchEventResultsForSearchFilters(searchFilters) {
-  return fetchEventsForSearchFilters(searchFilters)
-    .then((response) =>  parseAPIJSON(response))
+  return fetchEventsForSearchFilters(searchFilters).then((response) =>
+    parseAPIJSON(response)
+  );
 }
 
 export function fetchFeaturedEvents() {

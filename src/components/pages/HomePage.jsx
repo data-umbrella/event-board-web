@@ -9,9 +9,10 @@ import { useSearchParams } from "react-router-dom";
 
 function HomePage() {
   let [searchParams, setSearchParams] = useSearchParams();
-  const pageSize = searchParams.pageSize || 2;
-  const page = searchParams.page || 1;
+  const pageSize = searchParams.get("pageSize") || 2;
+  const page = searchParams.get("page") || 1;
   const featuredEvents = useFeaturedEvents();
+
   const [searchResultEvents, setSearchFilters, clearFilters, searchFilters] =
     useSearchEvents({
       pageSize,
@@ -20,12 +21,14 @@ function HomePage() {
 
   function handlePageChange(page) {
     setSearchFilters({ ...searchFilters, page });
-    setSearchParams({ ...searchFilters, page });
+    setSearchParams({ ...searchFilters, page }, { preventScrollReset: true });
   }
 
   function handleSearch(values) {
     setSearchFilters(values);
   }
+
+  const { results, ...meta } = searchResultEvents;
 
   return (
     <div className="mb-10">
@@ -33,9 +36,9 @@ function HomePage() {
       <FeaturedEvents events={featuredEvents} />
       <SearchForm handleFormSubmit={handleSearch} clearFilters={clearFilters} />
       <SearchEvents
-        events={searchResultEvents}
+        events={results || []}
+        eventsMetadata={meta}
         handlePageChange={handlePageChange}
-        page={searchFilters.page}
       />
     </div>
   );
