@@ -82,7 +82,7 @@ function PostEventFormComponent(props) {
               <Field
                 autoComplete="new-password"
                 className={formStyleClasses.input}
-                component={ValidatedInput}
+                component={ValidatedInput} 
                 label="Event Name"
                 name="eventName"
                 type="text"

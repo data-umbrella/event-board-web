@@ -13,7 +13,7 @@ function ValidatedInput({
     <div>
       <label htmlFor={props.id}>
         <span className="pr-2 inline-block">{ props.label }</span>
-        { showErrors && <span className="text-red-600">{fieldErrors}</span> }
+        { showErrors && <span className="text-red-600 dark:text-red-600">{fieldErrors}</span> }
       </label>
       <input {...field} {...props} />
     </div>
