@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
+import PageLoader from 'components/elements/PageLoader';
 
 function VerifyMagicLinkPage() {
-  const [loading, setLoading] = useState(true);
   const [pageError, setPageError] = useState();
+  const [searchParams] = useSearchParams();
   const { token } = useParams();
   const navigate = useNavigate();
   const auth = useAuth();
-  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const email = searchParams.get('email');
 
     auth.verifyOneTimePassCode(token, email, (success, error) => {
       if (success) {
-        setLoading(false);
-        navigate('/');
+        navigate('/events/new');
       } else {
-        setLoading(false);
         setPageError(error);
       }
     });
   }, []);
 
   // TODO: Clean up loading and error states here.
-
-  if (loading) return <div>Loading...</div>
   if (pageError) return <div>{ pageError }</div>
 
-  return <div>Success!</div>
+  return <PageLoader />;
 }
 
 export default VerifyMagicLinkPage;
