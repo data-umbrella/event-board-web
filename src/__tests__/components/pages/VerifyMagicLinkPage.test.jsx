@@ -68,7 +68,8 @@ describe('Verify Magic Link Page', () => {
         </MemoryRouter>
       );
 
-      expect(screen.getByText(/Success!/i)).toBeInTheDocument();
+      expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+      expect(mockNavigate).toHaveBeenCalledWith('/events/new');
     });
   });
 });
