@@ -66,7 +66,7 @@ function SearchEvents({ events, eventsMetadata, handlePageChange }) {
         <SearchView events={events} viewName={searchView} />
       </div>
 
-      <div className="flex justify-around">
+      <div className="flex justify-center">
         <ReactPaginate
           breakLabel="..."
           nextLabel=">>"
@@ -76,7 +76,7 @@ function SearchEvents({ events, eventsMetadata, handlePageChange }) {
           pageCount={totalPagesAvailable}
           previousLabel="<<"
           renderOnZeroPageCount={null}
-          className={`hover:underline m-4`}
+          className={"pagination-navigation"}
         />
       </div>
     </div>
