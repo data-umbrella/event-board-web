@@ -65,15 +65,18 @@ function SearchEvents({ events, eventsMetadata, handlePageChange }) {
       <div>
         <SearchView events={events} viewName={searchView} />
       </div>
-      <div>
+
+      <div className="flex justify-around">
         <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel=">>"
+          pageRangeDisplayed={4}
+          marginPagesDisplayed={0}
           onPageChange={handleChange}
-          pageRangeDisplayed={5}
           pageCount={totalPagesAvailable}
-          previousLabel="< previous"
+          previousLabel="<<"
           renderOnZeroPageCount={null}
+          className={`hover:underline m-4`}
         />
       </div>
     </div>
