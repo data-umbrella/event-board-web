@@ -18,7 +18,7 @@ describe('Event Form', () => {
       fireEvent.click(screen.getByText('Review'))
     });
 
-    expect(screen.getByText(/Field is required/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Field is required/i)[0]).toBeInTheDocument();
   });
 
   it('submits valid event', async () => {
@@ -31,10 +31,12 @@ describe('Event Form', () => {
     );
 
     const eventNameInput = screen.getByLabelText(/Event Name/i);
+    const eventDescriptionInput = screen.getByLabelText(/Event Description/i);
     expect(eventNameInput).toBeInTheDocument();
 
     await act(() => {
       fireEvent.change(eventNameInput, { target: { value: 'Example name' } });
+      fireEvent.change(eventDescriptionInput, { target: { value: 'Example description' } });
       fireEvent.click(screen.getByText('Review'));
     });
 
@@ -43,5 +45,6 @@ describe('Event Form', () => {
     const formSubmitArgs = mockHandleFormSubmit.mock.calls[0][0];
 
     expect(formSubmitArgs['eventName']).toBe('Example name');
+    expect(formSubmitArgs['description']).toBe('Example description');
   });
 });
