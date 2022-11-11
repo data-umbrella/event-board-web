@@ -35,9 +35,8 @@ export function SearchView({ events, viewName }) {
 
 function SearchEvents({ events, eventsMetadata, handlePageChange }) {
   const [searchView, setSearchView] = useState("GRID");
-  let [searchParams, setSearchParams] = useSearchParams();
+  let searchParams = useSearchParams();
   const pageSize = searchParams.get("pageSize") || 2;
-  const page = searchParams.get("page") || 1;
   function handleChange(event) {
     handlePageChange(event.selected + 1)
   } 
