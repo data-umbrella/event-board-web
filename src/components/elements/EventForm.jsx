@@ -12,6 +12,7 @@ import formStyleClasses from 'styles/forms';
 // Components
 import DatePickerField from 'components/elements/DatePickerField';
 import ValidatedInput from 'components/elements/ValidatedInput';
+import ValidatedTextArea from './ValidatedTextArea';
 import EventTypeField from 'components/elements/EventTypeField';
 import DiscountField from 'components/elements/DiscountField';
 import AccessibilityDetailField from 'components/elements/AccessibilityDetailField';
@@ -83,18 +84,20 @@ function PostEventFormComponent(props) {
                 autoComplete="new-password"
                 className={formStyleClasses.input}
                 component={ValidatedInput} 
-                label="Event Name"
+                label="Event Name*"
                 name="eventName"
                 type="text"
                 id="eventName"
               />
             </div>
             <div>
-              <label htmlFor="description">Event Description*</label>
+
               <Field
-                component="textarea"
+                component={ValidatedTextArea}
+                type="textarea"
                 id="description"
                 name="description"
+                label="Event Description*"
                 className={formStyleClasses.textarea}
               />
             </div>
@@ -185,7 +188,6 @@ function PostEventFormComponent(props) {
                 </div>
               </section>
               <section
-                className="grid grid-cols-2 gap-6"
                 role="group"
                 aria-labelledby="virtual-option-radio-group"
               >
@@ -448,6 +450,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required('Field is required'),
+  description: Yup.string().required('Field is required'),
 });
 
 /**
