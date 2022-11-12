@@ -20,13 +20,13 @@ function TermsPage() {
           <h1 className={termsStyleClasses.bodyHeader}>Terms of Service</h1>
         </div>
         <div className="grid grid-rows-3 grid-flow-col">
-          <div className={`${termsStyleClasses.outlineHeader} row-span-3`}>
+          <div className={`${termsStyleClasses.outlineHeader} row-span-3 max-w-sm fixed`}>
             {TERMS_OUTLINE.map(({ title, id }) => {
-              return <h1 key={title} className="block w-1/2"><a href={`#${id}`}>{title}</a></h1>
+              return <h1 key={title} className="block w-1/2 mb-2"><a href={`#${id}`}>{title}</a></h1>
             })}
 
           </div>
-          <div className="row-span-3">
+          <div className="row-span-3 relative left-[calc(100vw-96%)] max-w-[50%]">
             <div id="overview" className="mb-10">
               <p className="">Effective: August 30, 2022</p>
               <p className={termsStyleClasses.body}>
