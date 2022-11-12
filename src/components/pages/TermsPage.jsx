@@ -26,7 +26,7 @@ function TermsPage() {
             })}
 
           </div>
-          <div className="row-span-3 relative left-[calc(100vw-96%)] max-w-[50%]">
+          <div className="row-span-3 relative md:left-[calc(100vw-96%)] md:max-w-[50%] xs:max-w-[100%] xs:left-0">
             <div id="overview" className="mb-10">
               <p className="">Effective: August 30, 2022</p>
               <p className={termsStyleClasses.body}>
