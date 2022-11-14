@@ -51,7 +51,7 @@ function PostEventFormComponent(props) {
           Organization Details
         </h2>
         <section 
-          className={formStyleClasses.organizatioDetail}>
+          className={formStyleClasses.organizationDetail}>
           <Field
             autoComplete="new-password"
             className={formStyleClasses.input}
