@@ -112,3 +112,29 @@ nav li {
   min-height: 12rem;
   height: 60%;
 }
+
+.pagination-navigation {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.pagination-navigation > li {
+  padding: 1rem;
+  
+}
+
+.pagination-navigation > li:hover, .pagination-navigation > li {
+  color:#4B4B4B;
+}
+
+.pagination-navigation > li:hover, .pagination-navigation > li.selected {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-decoration-color: #6B26FF;
+  color:#6B26FF;
+}
+
+.pagination-navigation .previous, .pagination-navigation .next {
+  color: #6B26FF;
+}
