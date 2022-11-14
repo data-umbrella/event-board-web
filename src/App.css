@@ -106,9 +106,9 @@ nav li {
 }
 
 .card-img {
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center center;
-   min-height: 12rem;
-   height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 12rem;
+  height: 60%;
 }
