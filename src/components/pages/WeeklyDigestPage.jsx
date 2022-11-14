@@ -2,6 +2,7 @@ import React from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { postWeeklyDigestEmail } from 'services/weekly-digests';
 
 /**
  * Defines the form component for the weekly digest
@@ -72,6 +73,7 @@ export const WeeklyDigestForm = withFormik({
 function WeeklyDigestPage() {
   function handleSubmit(values) {
     // TODO: submit form to server
+    postWeeklyDigestEmail(values)
     console.log('submit', values); // eslint-disable-line no-console
   }
 
