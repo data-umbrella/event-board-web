@@ -155,7 +155,7 @@ const formStyleClasses = {
     md:row-start-2
     md:col-span-2
   `,
-  oragnization: `
+  organizationDetail: `
   grid 
   grid-cols-1 
   rounded 
