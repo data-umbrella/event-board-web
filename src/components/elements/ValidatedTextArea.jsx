@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ValidatedInput({
+function ValidatedTextArea({
   field, // { name, value, onChange, onBlur }
   form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props
@@ -12,12 +12,12 @@ function ValidatedInput({
   return (
     <div>
       <label htmlFor={props.id}>
-        <span className="pr-2 inline-block">{ props.label }</span>
-        { showErrors && <span className="text-[#FB2F2F] dark:text-[#FB2F2F]">{fieldErrors}</span> }
+        <span className="pr-2">{ props.label }</span>
+        { showErrors && <span className="inline-block text-[#FB2F2F] dark:text-[#FB2F2F]">{fieldErrors}</span> }
       </label>
-      <input {...field} {...props} />
+      <textarea {...field} {...props} />
     </div>
   )
 }
 
-export default ValidatedInput;
+export default ValidatedTextArea;
