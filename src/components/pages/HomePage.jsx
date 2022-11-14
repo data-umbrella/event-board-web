@@ -9,7 +9,7 @@ import { useSearchParams } from "react-router-dom";
 
 function HomePage() {
   let [searchParams, setSearchParams] = useSearchParams();
-  const pageSize = searchParams.get("pageSize") || 2;
+  const pageSize = searchParams.get("pageSize") || 20;
   const page = searchParams.get("page") || 1;
   const featuredEvents = useFeaturedEvents();
 

@@ -35,18 +35,17 @@ export function SearchView({ events, viewName }) {
 
 function SearchEvents({ events, eventsMetadata, handlePageChange }) {
   const [searchView, setSearchView] = useState("GRID");
-  let searchParams = useSearchParams();
-  const pageSize = searchParams.get("pageSize") || 2;
+  let [searchParams] = useSearchParams();
+  const pageSize = searchParams.get("pageSize") || 20;
   function handleChange(event) {
-    handlePageChange(event.selected + 1)
-  } 
+    handlePageChange(event.selected + 1);
+  }
 
   function updateSearchView(e) {
     setSearchView(e.target.id);
-  } 
+  }
 
-
-  const totalPagesAvailable = Math.ceil(eventsMetadata.count / pageSize)
+  const totalPagesAvailable = Math.ceil(eventsMetadata.count / pageSize);
 
   return (
     <div>
