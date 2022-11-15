@@ -76,7 +76,7 @@ export const WeeklyDigestForm = withFormik({
 
 function WeeklyDigestPage() {
   const [subscribeError, setSubscribeError] = useState('')
-  // const dismiss = () => toast.dismiss()
+
   /**
  * Defines the toastify container when the user successfully submits their email.
  */
