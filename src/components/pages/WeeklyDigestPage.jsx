@@ -3,6 +3,7 @@ import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { postWeeklyDigestEmail } from 'services/weekly-digests';
+import { ToastContainer, toast } from "react-toastify";
 
 /**
  * Defines the form component for the weekly digest
@@ -28,6 +29,7 @@ function WeeklyDigestFormComponent() {
     </Form>
   )
 }
+
 
 /**
  * Defines a function to map Formik props to form values
@@ -70,20 +72,41 @@ export const WeeklyDigestForm = withFormik({
   validationSchema,
 })(WeeklyDigestFormComponent);
 
+
 function WeeklyDigestPage() {
+  /**
+ * Defines the toastify container when the user successfully submits their email.
+ */
+  const EmailSubscribeSuccessToastify = () => {
+    toast(
+      <div className="flex bg-white rounded-lg">
+        <div>
+          <button onClick={''}>X</button>
+        </div>
+        <div className="text-center rounded-lg">
+          <h2 className="font-bold text-xl">Thank you for signing up!</h2>
+          <p>We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
+        </div>
+      </div>
+    ) 
+  }
+
   function handleSubmit(values) {
     // TODO: submit form to server
     postWeeklyDigestEmail(values)
+    toast(<EmailSubscribeSuccessToastify />)
     console.log('submit', values); // eslint-disable-line no-console
   }
 
   return (
     <div className="xs:mb-40 lg:mt-12 lg:mx-28 xl:mx-40">
+      <ToastContainer />
       <div className="container mx-auto text-center">
         <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
         <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
       </div>
       <WeeklyDigestForm handleSubmit={handleSubmit} />
+      <button onClick={EmailSubscribeSuccessToastify}>TOAST</button>
     </div>
   )
 }
