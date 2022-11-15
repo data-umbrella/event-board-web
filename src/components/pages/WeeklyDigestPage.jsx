@@ -83,7 +83,7 @@ function WeeklyDigestPage() {
   const EmailSubscribeSuccessToastify = () => {
     toast(
       <div className="bg-white rounded-lg border-2 border-du-purple-500">
-        <div className="float-right p-2">
+        <div className="float-right px-2">
           <button onClick={''}>X</button>
         </div>
         <div className="text-center rounded-lg py-8">
@@ -97,7 +97,7 @@ function WeeklyDigestPage() {
   function handleSubmit(values) {
     postWeeklyDigestEmail(values).then((response) => {
       if (response === true) {
-        return (toast(<EmailSubscribeSuccessToastify />), setSubscribeError(''))
+        return (toast(EmailSubscribeSuccessToastify), setSubscribeError(''))
       } else {
         return setSubscribeError(response.email[0]) 
       }
