@@ -70,7 +70,3 @@ function EventCalendarView({ events }) {
 }
 
 export default EventCalendarView;
-
-/* <ReactTooltip id={`tip-${eventInfo.event.id}`} class="event-toolip s" data-event="click" data-event-off="click" effect="solid" delayHide={100}></ReactTooltip> */
-
-/* <p>{eventInfo.event.extendedProps.description}</p>*/

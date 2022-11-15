@@ -1,4 +1,3 @@
-// import EventTypeField from 'components/elements/EventTypeField';
 import moment from 'moment';
 
 export function groupEventsByMonth(events) {
