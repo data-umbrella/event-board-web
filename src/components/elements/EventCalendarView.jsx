@@ -4,6 +4,9 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { truncate } from 'utils/strings';
 import { formatEventsForCalendar } from 'utils/events';
+import ReactTooltip from 'react-tooltip';
+import moment from 'moment/moment';
+
 
 // TODO: Investigate using this plugins.
 // import FullCalendar, { formatDate } from '@fullcalendar/react';
@@ -11,31 +14,52 @@ import { formatEventsForCalendar } from 'utils/events';
 // import interactionPlugin from '@fullcalendar/interaction';
 
 function EventContent({ eventInfo }) {
-  const navigate = useNavigate();
+  const formattedStart = moment(eventInfo.event._instance.range.start).format('MMM DD, YYYY h:mm A ')
+  const formattedEnd = moment(eventInfo.event._instance.range.end).format('MMM DD, YYYY h:mm A ')
   const eventType = eventInfo.event.extendedProps.type
+  const navigate = useNavigate();
+  
   
   function handleNavigate () {
+
     navigate(`/events/${eventInfo.event.id}/details`);
   }
-
   return (
-    <div className={`bg-event-tags-${eventType} rounded-sm w-full`} onClick={handleNavigate}>
-      <div className="text-xs whitespace-normal">
-        <b className="mr-1">{eventInfo.timeText}</b>
-        { truncate(eventInfo.event.title, 60) }
+    <>
+      <ReactTooltip id={`tip-${eventInfo.event.id}`} class="event-tooltip" 
+        effect="solid" delayHide={1000} globalEventOff="click" getContent={() => {
+          return (
+            
+            <>
+              <p className= "font-bold py-2">{eventInfo.event.title}</p>
+              <p className= "pb-4">{formattedStart} - {formattedEnd}</p>
+              <div className="event-tooltip-navigate" onClick={handleNavigate}>{"Go to Event Page >>>"}</div>
+            </>)
+        }}/>
+    
+      <div className={`bg-blue-600 w-full bg-event-tags-${eventType} rounded-sm`}  data-tip data-for={`tip-${eventInfo.event.id}`} data-event-close="click" effect="solid" >
+        <div className="text-xs whitespace-normal">
+          <b className="mr-1">{eventInfo.timeText}</b>
+          { truncate(eventInfo.event.title, 60) }
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
 function renderEventContent(eventInfo) {
-  return <EventContent eventInfo={eventInfo} />
+  return (
+    <div>
+      <EventContent eventInfo={eventInfo} />
+    </div>
+  )
 }
 
 function EventCalendarView({ events }) {
   const calendarEvents = formatEventsForCalendar(events);
 
   return (
+    
     <FullCalendar
       plugins={[ dayGridPlugin ]}
       initialView="dayGridMonth"
