@@ -13,6 +13,7 @@ function formatDate(date) {
 
 export function buildFormDataObject(body) {
   body.tags = stringifyTags(body.tags);
+  body.hashtags = stringifyTags(body.hashtags);
   body.speakers = stringifyTags(body.speakers);
   body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
 
