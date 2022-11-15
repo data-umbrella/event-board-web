@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { postWeeklyDigestEmail } from 'services/weekly-digests';
 import { ToastContainer, toast } from "react-toastify";
-import { useState } from 'react'
-import { set } from 'react-ga'
+
 
 /**
  * Defines the form component for the weekly digest
@@ -77,21 +76,20 @@ export const WeeklyDigestForm = withFormik({
 
 function WeeklyDigestPage() {
   const [subscribeError, setSubscribeError] = useState('')
+  // const dismiss = () => toast.dismiss()
   /**
  * Defines the toastify container when the user successfully submits their email.
  */
+
   const EmailSubscribeSuccessToastify = () => {
     toast(
       <div className="bg-white rounded-lg border-2 border-du-purple-500">
-        <div className="float-right px-2">
-          <button onClick={''}>X</button>
-        </div>
         <div className="text-center rounded-lg py-8">
           <h2 className="font-bold text-xl">Thank you for signing up!</h2>
           <p>We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
         </div>
       </div>
-    ), { toastId: "toast-id" }
+    )
   }
 
   function handleSubmit(values) {
@@ -105,15 +103,17 @@ function WeeklyDigestPage() {
   }
 
   return (
-    <div className="xs:mb-40 lg:mt-12 lg:mx-28 xl:mx-40">
+    <>
       <ToastContainer />
-      <div className="container mx-auto text-center">
-        <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
-        <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
+      <div className="xs:mb-40 lg:mt-12 lg:mx-28 xl:mx-40">
+        <div className="container mx-auto text-center">
+          <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
+          <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
+        </div>
+        <p className="pt-4 text-red-700 text-center">{subscribeError}</p>
+        <WeeklyDigestForm handleSubmit={handleSubmit} />
       </div>
-      <p className="pt-4 text-red-700 text-center">{subscribeError}</p>
-      <WeeklyDigestForm handleSubmit={handleSubmit} />
-    </div>
+    </>
   )
 }
 
