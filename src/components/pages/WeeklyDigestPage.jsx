@@ -79,11 +79,11 @@ function WeeklyDigestPage() {
  */
   const EmailSubscribeSuccessToastify = () => {
     toast(
-      <div className="flex bg-white rounded-lg">
-        <div>
+      <div className="bg-white rounded-lg border-2 border-du-purple-500">
+        <div className="float-right p-2">
           <button onClick={''}>X</button>
         </div>
-        <div className="text-center rounded-lg">
+        <div className="text-center rounded-lg py-8">
           <h2 className="font-bold text-xl">Thank you for signing up!</h2>
           <p>We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
         </div>
