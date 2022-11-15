@@ -10,6 +10,6 @@ export async function postWeeklyDigestEmail(data) {
   if (response.status === 201) {
     return true;
   } else {
-    return false;
+    return response.json();
   }
 }
