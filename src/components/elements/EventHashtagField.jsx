@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import formStyleClasses from 'styles/forms';
+import React, { useState } from "react";
+import formStyleClasses from "styles/forms";
 
-function HashtagPillbox ({ hashtag, onChange, onRemove }) {
+function HashtagPillbox({ hashtag, onChange, onRemove }) {
   const [text, setText] = useState(hashtag);
-  const [editing, setEditing] = useState(hashtag === '');
+  const [editing, setEditing] = useState(hashtag === "");
 
   function handleKeyPress(e) {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       setEditing(false);
       onChange(text);
@@ -28,7 +28,7 @@ function HashtagPillbox ({ hashtag, onChange, onRemove }) {
         onKeyPress={handleKeyPress}
         className={`${formStyleClasses.input} h-10`}
       />
-    )
+    );
   } else {
     return (
       <div className="bg-purple-500 rounded p-2">
@@ -43,28 +43,35 @@ function HashtagPillbox ({ hashtag, onChange, onRemove }) {
           &#10006;
         </button>
       </div>
-    )
+    );
   }
 }
 
-function EventHashtagField ({ value, onChange }) {
-  const [hashtags, setHashtags] = useState(value);
+// assume value is a csv string
+// value = "tag1,tag2,tag3"
+function EventHashtagField({ value, onChange }) {
+  console.log("value", value);
+  const [hashtags, setHashtags] = useState(value ? value.split(",") : []);
+  console.log("hashtags", hashtags);
 
   function addHashtag() {
-    if (hashtags.includes('')) return;
-    setHashtags([...hashtags, '']);
+    if (hashtags.includes("")) return;
+    setHashtags([...hashtags, ""]);
+    onChange('hashtags', [...hashtags, ""].join(','))
   }
 
   function updateHashtag(newHashtag) {
-    const newHashtags = hashtags.filter(hashtag => hashtag !== '');
+    const newHashtags = hashtags.filter((hashtag) => hashtag !== "");
     setHashtags([...newHashtags, newHashtag]);
-    onChange('hashtags', newHashtags);
+    onChange("hashtags", [...newHashtags, newHashtag].join(","));
   }
 
   function removeHashtag(HashtagToRemove) {
-    const newHashtags = hashtags.filter(hashtag => HashtagToRemove !== hashtag);
+    const newHashtags = hashtags.filter(
+      (hashtag) => HashtagToRemove !== hashtag
+    );
     setHashtags([...newHashtags]);
-    onChange('hashtags', newHashtags);
+    onChange("hashtags", [...newHashtags].join(","));
   }
 
   return (

@@ -51,7 +51,6 @@ export function buildFormData(rawData) {
 
 export async function api(method, resource, body) {
   let json;
-
   try {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {
       method,
