@@ -21,6 +21,7 @@ import LanguageField from 'components/elements/LanguageField';
 import TextField from 'components/elements/TextField';
 import CitySelect from 'components/elements/CitySelect';
 import TimeSlotField from 'components/elements/TimeSlotField';
+import EventHashtagField from './EventHashtagField';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
@@ -304,16 +305,12 @@ function PostEventFormComponent(props) {
                     />
                   </div>
                 </div>
+
                 <div className="mb-6">
-                  <label>Event Hashtag(s)</label>
-                  <Field
-                    name="event-hashtags"
-                    type="text"
-                    className={formStyleClasses.input}
-                    placeholder="#PyCon2022"
-                    autoComplete="new-password"
-                  />
+                  <EventHashtagField value={values.hashtags} onChange={setFieldValue} />
+
                 </div>
+
               </div>
             </section>
           </section>

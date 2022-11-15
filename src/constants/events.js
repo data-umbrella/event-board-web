@@ -28,6 +28,7 @@ export const eventProperties = {
   'discountCode': '',
   'discountValue': '',
   'socialMediaLinks': [],
+  'hashtags': [],
   'imageAltText': '',
   'imageUrl': '',
   'imageFile': '',
