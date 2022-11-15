@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { postWeeklyDigestEmail } from 'services/weekly-digests';
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from 'react'
+import { set } from 'react-ga'
 
 /**
  * Defines the form component for the weekly digest
@@ -90,13 +91,13 @@ function WeeklyDigestPage() {
           <p>We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
         </div>
       </div>
-    )
+    ), { toastId: "toast-id" }
   }
 
   function handleSubmit(values) {
     postWeeklyDigestEmail(values).then((response) => {
       if (response === true) {
-        return toast(<EmailSubscribeSuccessToastify />)
+        return (toast(<EmailSubscribeSuccessToastify />), setSubscribeError(''))
       } else {
         return setSubscribeError(response.email[0]) 
       }
