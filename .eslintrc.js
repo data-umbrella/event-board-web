@@ -35,7 +35,7 @@ module.exports = {
     //   "warn",
     //   "never"
     // ],
-    "eol-last": "warning",
+    "eol-last": "error",
     // TODO: Add import order linters
     // "import/order": [
     //     "warn",

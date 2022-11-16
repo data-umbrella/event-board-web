@@ -2,7 +2,7 @@ import React from 'react';
 
 
 function EventHashTags({ hashTags }) {
-  if (!hashTags || hashTags.length === 0) return
+  if (!hashTags || hashTags.length === 0) return 
 
   return (
     <div>
