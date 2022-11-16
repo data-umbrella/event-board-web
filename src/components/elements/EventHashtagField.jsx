@@ -50,28 +50,26 @@ function HashtagPillbox({ hashtag, onChange, onRemove }) {
 // assume value is a csv string
 // value = "tag1,tag2,tag3"
 function EventHashtagField({ value, onChange }) {
-  console.log("value", value);
-  const [hashtags, setHashtags] = useState(value ? value.split(",") : []);
-  console.log("hashtags", hashtags);
+  const [hashTag, setHashtags] = useState(value ? value.split(",") : []);
 
   function addHashtag() {
-    if (hashtags.includes("")) return;
-    setHashtags([...hashtags, ""]);
-    onChange('hashtags', [...hashtags, ""].join(','))
+    if (hashTag.includes("")) return;
+    setHashtags([...hashTag, ""]);
+    onChange('hashTag', [...hashTag, ""].join(','))
   }
 
   function updateHashtag(newHashtag) {
-    const newHashtags = hashtags.filter((hashtag) => hashtag !== "");
+    const newHashtags = hashTag.filter((hashtag) => hashtag !== "");
     setHashtags([...newHashtags, newHashtag]);
-    onChange("hashtags", [...newHashtags, newHashtag].join(","));
+    onChange("hashTag", [...newHashtags, newHashtag].join(","));
   }
 
   function removeHashtag(HashtagToRemove) {
-    const newHashtags = hashtags.filter(
+    const newHashtags = hashTag.filter(
       (hashtag) => HashtagToRemove !== hashtag
     );
     setHashtags([...newHashtags]);
-    onChange("hashtags", [...newHashtags].join(","));
+    onChange("hashTag", [...newHashtags].join(","));
   }
 
   return (
@@ -88,13 +86,13 @@ function EventHashtagField({ value, onChange }) {
       </div>
 
       <div className="grid md:grid-cols-3 bg-white dark:bg-transparent rounded border border-black dark:border-teal-400 p-6 gap-2 mb-6">
-        {Array.from(hashtags).map((hashtag) => {
+        {Array.from(hashTag).map((hashtag) => {
           const key = hashtag === "" ? "editing" : hashtag;
           return (
             <HashtagPillbox
               key={key}
               hashtag={hashtag}
-              hashtags={hashtags}
+              hashTag={hashTag}
               onChange={updateHashtag}
               onRemove={removeHashtag}
             />

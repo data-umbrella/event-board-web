@@ -29,7 +29,6 @@ import FeaturedEventField from "./FeaturedEventField";
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
-  console.log("props", props.values);
   async function handleImageChange(e) {
     const imageFile = e.target.files[0];
     setFieldValue("imageFile", await imageFileToDataURL(imageFile));
@@ -306,9 +305,8 @@ function PostEventFormComponent(props) {
 
                 <div className="mb-6">
                   <EventHashtagField
-                    value={values.hashtags}
+                    value={values.hashTag}
                     onChange={(...args) => {
-                      console.log("value coming out of change event", args);
                       return setFieldValue(...args);
                     }}
                   />

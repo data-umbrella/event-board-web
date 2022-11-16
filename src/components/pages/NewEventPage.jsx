@@ -8,7 +8,6 @@ function NewEventPage() {
   const navigate = useNavigate();
 
   async function handleFormSubmit(values) {
-    console.log("values", values);
     const tempID = uuidv4();
     sessionStore(tempID, values);
     navigate(`/events/${tempID}/review`);
