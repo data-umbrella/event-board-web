@@ -49,7 +49,7 @@ function SearchEventCard({ eventData }) {
       className={styleClasses.searchEventCard}
     >
       <div
-        className="card-img"
+        className="bg-center bg-contain min-h-[192px] h-[60%] bg-no-repeat"
         style={{ backgroundImage: `url('${imageUrl}')` }}
       >
         {

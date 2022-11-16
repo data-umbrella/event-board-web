@@ -6,17 +6,17 @@ import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1025 },
     items: 3,
     slidesToSlide: 3 // optional, default to 1.
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1024, min: 641 },
     items: 2,
     slidesToSlide: 2 // optional, default to 1.
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 640, min: 0 },
     items: 1,
     slidesToSlide: 1 // optional, default to 1.
   }
@@ -41,7 +41,7 @@ function FeaturedEvents ({ events }) {
     <div className="">
       <div>
         <h1 className="font-semibold mb-2 md:font-bold text-xl md:text-2xl dark:text-slate-50">
-          Feature Events
+          Featured Events
         </h1>
       </div>
 

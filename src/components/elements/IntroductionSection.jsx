@@ -8,7 +8,7 @@ const styleClasses = {
     mb-10
   `,
   eventBoardHeading: `
-    text-4xl
+    text-[40px]
     font-extrabold
     dark:text-slate-50
   `,
