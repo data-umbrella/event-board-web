@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { postWeeklyDigestEmail, deleteWeeklyDigestEmail } from 'services/weekly-digests';
+import { postWeeklyDigestEmail, unsubscribeWeeklyDigestEmail } from 'services/weekly-digests';
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from 'hooks/authentication';
 
@@ -91,13 +91,12 @@ export const WeeklyDigestForm = withFormik({
 function WeeklyDigestPage() {
   const [subscribedStatus, setSubscribedStatus] = useState('')
   const { currentUser } = useAuth();
-  // const { weeklyDigest } = currentUser;
+  const { subscribed } = currentUser;
 
 
   /**
  * Defines the toastify container when the user successfully submits their email.
  */
-
   const EmailSubscribeSuccessToastify = () => {
     toast(
       <div className="bg-white rounded-lg border-2 border-du-purple-500">
@@ -110,12 +109,11 @@ function WeeklyDigestPage() {
   }
 
   const unsubscribeEmailOnClick = () => {
-    deleteWeeklyDigestEmail(currentUser.email).then((response) => {
+    unsubscribeWeeklyDigestEmail({ "email": currentUser.email, "subscribed": "False" }).then((response) => {
       if (response === true) {
         return setSubscribedStatus(response)
       } else {
-        // return setSubscribedStatus(response) 
-        return console.log(response) 
+        return console.log(currentUser.email, response) 
       }
     })
   }
@@ -134,7 +132,7 @@ function WeeklyDigestPage() {
   }
 
   function handleSubmit(values) {
-    postWeeklyDigestEmail(values).then((response) => {
+    postWeeklyDigestEmail({ "email": values.email, "subscribed": "True" }).then((response) => {
       if (response === true) {
         return (toast(EmailSubscribeSuccessToastify), setSubscribedStatus(''))
       } else {

@@ -15,9 +15,9 @@ export async function postWeeklyDigestEmail(data) {
 }
 
 
-export async function deleteWeeklyDigestEmail(data) {
+export async function unsubscribeWeeklyDigestEmail(data) {
   const response = await fetch(WEEKLY_DIGESTS_URL, {
-    method: 'DELETE',
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
