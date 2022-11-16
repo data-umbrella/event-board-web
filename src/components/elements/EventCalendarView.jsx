@@ -40,7 +40,11 @@ function EventContent({ eventInfo }) {
             </>)
         }}/>
     
-      <div className={`w-full bg-event-tags-${eventType} rounded-sm text-black font-bold`}  data-tip data-for={`tip-${eventInfo.event.id}`} data-event-close="click" effect="solid" >
+      <div 
+        className={`w-full bg-event-tags-${eventType} rounded-sm text-black font-bold`}  
+        data-tip data-for={`tip-${eventInfo.event.id}`} 
+        data-event-close="click" effect="solid" 
+      >
         <div className="text-xs whitespace-normal">
           <b className="mr-1">{eventInfo.timeText}</b>
           { truncate(eventInfo.event.title, 60) }
