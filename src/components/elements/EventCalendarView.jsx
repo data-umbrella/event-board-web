@@ -29,11 +29,14 @@ function EventContent({ eventInfo }) {
       <ReactTooltip id={`tip-${eventInfo.event.id}`} class="event-tooltip" 
         effect="solid" delayHide={1000} globalEventOff="click" getContent={() => {
           return (
-            
+  
             <>
-              <p className= "font-bold py-2">{eventInfo.event.title}</p>
+              <div className="flex flex-row justify-between items-center">
+                <div className= "font-bold py-2">{eventInfo.event.title}</div>
+                <div className={`h-5 w-5 flex bg-event-tags-${eventType}`}></div>
+              </div>
               <p className= "pb-4">{formattedStart} - {formattedEnd}</p>
-              <div className="event-tooltip-navigate" onClick={handleNavigate}>{"Go to Event Page >>>"}</div>
+              <div className="event-tooltip-navigate cursor-pointer" onClick={handleNavigate}>{"Go to Event Page >>>"}</div>
             </>)
         }}/>
     
