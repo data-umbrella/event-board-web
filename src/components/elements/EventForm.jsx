@@ -25,6 +25,7 @@ import TimeSlotField from 'components/elements/TimeSlotField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
+import EventTagsField from './EventTagsField';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
@@ -267,43 +268,15 @@ function PostEventFormComponent(props) {
                   />
                 </div>
 
-                <div className="container mx-auto mb-4">
-                  <label>Tags</label>
-                  <div className="relative text-gray-600 focus-within:text-gray-400">
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                      <button
-                        type="submit"
-                        className={`
-                          p-1
-                          focus:outline-none
-                          focus:shadow-outline
-                          text-du-purple-500
-                          font-bold
-                        `}
-                      >
-                        <svg
-                          fill="none"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="3"
-                          viewBox="0 0 24 24"
-                          className="w-6 h-6"
-                        >
-                          <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                      </button>
-                    </span>
-
-                    <Field
-                      type="search"
-                      name="search"
-                      className={`${formStyleClasses.searchInput} pl-10 focus:outline-none`}
-                      placeholder="Search"
-                      autoComplete="off"
-                    />
-                  </div>
+                <div className="mb-6">
+                  <EventTagsField 
+                    value={values.tags}
+                    onChange={(...args) => {
+                      return setFieldValue(...args);
+                    }}  
+                  />
                 </div>
+                
                 <div className="mb-6">
                   <label>Event Hashtag(s)</label>
                   <Field

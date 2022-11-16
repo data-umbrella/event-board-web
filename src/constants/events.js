@@ -42,7 +42,7 @@ export const eventProperties = {
   'startDate': new Date(),
   'startTime': '',
   'state': '',
-  'tags': [],
+  'tags': "",
   'timezone': '',
   'volunteeringNotes': '',
   'socialMediaHashTag': '',

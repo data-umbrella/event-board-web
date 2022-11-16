@@ -66,7 +66,7 @@ function EventPlanningSection({ evt }) {
           type="link"
         />
 
-        <EventTags tags={evt.tags} />
+        <EventTags tags={evt.tags ? evt.tags.split(",") : ""} />
       </div>
     </div>
   )
