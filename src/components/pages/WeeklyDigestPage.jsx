@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { postWeeklyDigestEmail } from 'services/weekly-digests';
+import { postWeeklyDigestEmail, deleteWeeklyDigestEmail } from 'services/weekly-digests';
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from 'hooks/authentication';
+
 
 
 /**
@@ -87,7 +89,10 @@ export const WeeklyDigestForm = withFormik({
 
 
 function WeeklyDigestPage() {
-  const [subscribeError, setSubscribeError] = useState('')
+  const [subscribedStatus, setSubscribedStatus] = useState('')
+  const { currentUser } = useAuth();
+  // const { weeklyDigest } = currentUser;
+
 
   /**
  * Defines the toastify container when the user successfully submits their email.
@@ -104,12 +109,36 @@ function WeeklyDigestPage() {
     )
   }
 
+  const unsubscribeEmailOnClick = () => {
+    deleteWeeklyDigestEmail(currentUser.email).then((response) => {
+      if (response === true) {
+        return setSubscribedStatus(response)
+      } else {
+        // return setSubscribedStatus(response) 
+        return console.log(response) 
+      }
+    })
+  }
+
+  const UnsubscribeButton = () => {
+    if(currentUser.weeklyDigest === true){
+      return (
+        <>
+          <p className="text-red-700">You are already subscribed. Unsubscribe?</p>
+          <button className="px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500" onClick={unsubscribeEmailOnClick}>Unsubscribe</button>
+        </>
+      )
+    } else {
+      return null
+    }
+  }
+
   function handleSubmit(values) {
     postWeeklyDigestEmail(values).then((response) => {
       if (response === true) {
-        return (toast(EmailSubscribeSuccessToastify), setSubscribeError(''))
+        return (toast(EmailSubscribeSuccessToastify), setSubscribedStatus(''))
       } else {
-        return setSubscribeError(response.email[0]) 
+        return setSubscribedStatus(response.email[0]) 
       }
     })
   }
@@ -121,9 +150,13 @@ function WeeklyDigestPage() {
         <div className="container mx-auto text-center">
           <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
           <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
+        </div>  
+        <p className="pt-4 text-red-700 text-center">{subscribedStatus}</p>
+        <div className="text-center">
+          <UnsubscribeButton />
         </div>
-        <p className="pt-4 text-red-700 text-center">{subscribeError}</p>
         <WeeklyDigestForm handleSubmit={handleSubmit} />
+        <button onClick={() => console.log(currentUser)}>User</button>
       </div>
     </>
   )
