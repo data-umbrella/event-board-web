@@ -91,7 +91,7 @@ export const WeeklyDigestForm = withFormik({
 function WeeklyDigestPage() {
   const [subscribedStatus, setSubscribedStatus] = useState('')
   const { currentUser } = useAuth();
-  const { subscribed } = currentUser;
+  const { isAuthenticated } = currentUser;
 
 
   /**
@@ -109,9 +109,9 @@ function WeeklyDigestPage() {
   }
 
   const unsubscribeEmailOnClick = () => {
-    unsubscribeWeeklyDigestEmail({ "email": currentUser.email, "subscribed": "False" }).then((response) => {
+    unsubscribeWeeklyDigestEmail({ "subscribed": "False", "id": currentUser.id }).then((response) => {
       if (response === true) {
-        return setSubscribedStatus(response)
+        setSubscribedStatus("You've successfully unsubscribed.")
       } else {
         return console.log(currentUser.email, response) 
       }
@@ -153,7 +153,9 @@ function WeeklyDigestPage() {
         <div className="text-center">
           <UnsubscribeButton />
         </div>
-        <WeeklyDigestForm handleSubmit={handleSubmit} />
+        {currentUser.weeklyDigest === false || !isAuthenticated &&
+          <WeeklyDigestForm handleSubmit={handleSubmit} />
+        }
         <button onClick={() => console.log(currentUser)}>User</button>
       </div>
     </>

@@ -14,12 +14,11 @@ export async function postWeeklyDigestEmail(data) {
   }
 }
 
-
 export async function unsubscribeWeeklyDigestEmail(data) {
-  const response = await fetch(WEEKLY_DIGESTS_URL, {
-    method: 'PUT',
+  const response = await fetch(`${WEEKLY_DIGESTS_URL}/${data.id}/`, {
+    method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    body: JSON.stringify({ "email": data.email, "subscribed": 'False' }),
   });
 
   if (response.status === 201) {
