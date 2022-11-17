@@ -153,7 +153,7 @@ function WeeklyDigestPage() {
         <div className="text-center">
           <UnsubscribeButton />
         </div>
-        {currentUser.weeklyDigest === false || !isAuthenticated &&
+        {currentUser.weeklyDigest === false | !isAuthenticated &&
           <WeeklyDigestForm handleSubmit={handleSubmit} />
         }
         <button onClick={() => console.log(currentUser)}>User</button>
