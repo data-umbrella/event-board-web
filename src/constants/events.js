@@ -86,6 +86,7 @@ export const EVENT_ATTRIBUTES = [
   'conference_name',
   'event_url',
   'hash_tag',
+  'tags',
 
   'language',
   'location',
