@@ -50,8 +50,7 @@ function PostEventFormComponent(props) {
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
           Organization Details
         </h2>
-        <section 
-          className={formStyleClasses.organizationDetail}>
+        <section className={formStyleClasses.organizationDetail}>
           <Field
             autoComplete="new-password"
             className={formStyleClasses.input}
@@ -83,7 +82,7 @@ function PostEventFormComponent(props) {
               <Field
                 autoComplete="new-password"
                 className={formStyleClasses.input}
-                component={ValidatedInput} 
+                component={ValidatedInput}
                 label="Event Name*"
                 name="eventName"
                 type="text"
@@ -91,7 +90,6 @@ function PostEventFormComponent(props) {
               />
             </div>
             <div>
-
               <Field
                 component={ValidatedTextArea}
                 type="textarea"
@@ -187,6 +185,7 @@ function PostEventFormComponent(props) {
                   />
                 </div>
               </section>
+
               <section
                 role="group"
                 aria-labelledby="virtual-option-radio-group"
@@ -194,7 +193,7 @@ function PostEventFormComponent(props) {
                 <div>
                   <label className="mr-6">
                     <Field
-                      name="in-person"
+                      name="in_person"
                       type="radio"
                       value="in-person"
                       className={formStyleClasses.radioButtonValues}
@@ -203,16 +202,16 @@ function PostEventFormComponent(props) {
                   </label>
                   <label className="mr-6">
                     <Field
-                      name="in-person"
+                      name="virtual"
                       type="radio"
-                      value="virutal"
+                      value="virtual"
                       className={formStyleClasses.radioButtonValues}
                     />
                     Virtual
                   </label>
                   <label className="mr-6">
                     <Field
-                      name="in-person"
+                      name="both"
                       type="radio"
                       value="both"
                       className={formStyleClasses.radioButtonValues}
@@ -439,6 +438,7 @@ export function mapPropsToValues (props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
+  console.log("even form values:", values);
   props.handleFormSubmit(values);
 }
 
