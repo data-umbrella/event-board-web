@@ -193,7 +193,7 @@ function PostEventFormComponent(props) {
                 <div>
                   <label className="mr-6">
                     <Field
-                      name="in_person"
+                      name="meetingType"
                       type="radio"
                       value="in-person"
                       className={formStyleClasses.radioButtonValues}
@@ -202,7 +202,7 @@ function PostEventFormComponent(props) {
                   </label>
                   <label className="mr-6">
                     <Field
-                      name="virtual"
+                      name="meetingType"
                       type="radio"
                       value="virtual"
                       className={formStyleClasses.radioButtonValues}
@@ -211,7 +211,7 @@ function PostEventFormComponent(props) {
                   </label>
                   <label className="mr-6">
                     <Field
-                      name="both"
+                      name="meetingType"
                       type="radio"
                       value="both"
                       className={formStyleClasses.radioButtonValues}
@@ -438,7 +438,20 @@ export function mapPropsToValues (props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  console.log("even form values:", values);
+  switch (values["meetingType"]) {
+  case "in-person":
+    values["in_person"] = true;
+    break;
+  case "virtual":
+    values["virtual"] = true;
+    break;
+  case "both":
+    values["in_person"] = true;
+    values["virtual"] = true;
+    break;
+  default:
+    break;
+  }
   props.handleFormSubmit(values);
 }
 

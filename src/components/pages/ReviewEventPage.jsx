@@ -19,7 +19,6 @@ function ReviewEventPage() {
 
   async function handleSubmit () {
     const eventData = JSON.parse(sessionStorage.getItem(eventId));
-
     if (eventData.id) {
       try {
         await api('PUT', `events/${eventData.id}/`, eventData);
@@ -45,7 +44,6 @@ function ReviewEventPage() {
   }
 
   if (!evt) return 'Loading...'
-
   return (
     <div className="container mx-auto pt-16 mb-24">
       <ReviewEventMainSection evt={evt} />
