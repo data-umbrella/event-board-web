@@ -33,6 +33,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-select-search": "^3.0.10",
+    "react-toastify": "^9.1.1",
+    "react-tooltip": "^4.5.0",
     "snakecase-keys": "^5.4.2",
     "tw-elements": "^1.0.0-alpha12",
     "uuid": "^8.3.2",
