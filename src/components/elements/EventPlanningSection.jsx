@@ -3,6 +3,7 @@ import { formatEventTimeFrame } from 'utils/time';
 import { formatEventDetail } from 'utils/dates';
 import EventPlanningDetail from 'components/elements/EventPlanningDetail';
 import EventTags from 'components/elements/EventTags';
+import EventHashTags from 'components/elements/EventHashTags';
 
 function EventPlanningSection({ evt }) {
   return (
@@ -59,6 +60,8 @@ function EventPlanningSection({ evt }) {
           value={evt.language || 'English'}
         />
 
+        <EventHashTags hashTags={evt.hashTag ? evt.hashTag.split(",") : ""} />
+
         <EventPlanningDetail
           label="Organization URL"
           name={evt.organizationName}
@@ -67,6 +70,8 @@ function EventPlanningSection({ evt }) {
         />
 
         <EventTags tags={evt.tags} />
+
+
       </div>
     </div>
   )

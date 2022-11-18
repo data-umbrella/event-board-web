@@ -13,6 +13,7 @@ function formatDate(date) {
 
 export function buildFormDataObject(body) {
   body.tags = stringifyTags(body.tags);
+  body.hash_tag = stringifyTags(body.hashTag);
   body.speakers = stringifyTags(body.speakers);
   body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
 
@@ -50,7 +51,6 @@ export function buildFormData(rawData) {
 
 export async function api(method, resource, body) {
   let json;
-
   try {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {
       method,

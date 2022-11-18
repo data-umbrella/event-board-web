@@ -1,26 +1,27 @@
-import React from 'react';
+import React from "react";
 
 // Third-party dependencies
-import { withFormik, Form, Field } from 'formik';
-import * as Yup from 'yup';
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
 
 // Constants
-import timezones from 'constants/timezones';
-import { eventProperties } from 'constants/events';
-import formStyleClasses from 'styles/forms';
+import timezones from "constants/timezones";
+import { eventProperties } from "constants/events";
+import formStyleClasses from "styles/forms";
 
 // Components
-import DatePickerField from 'components/elements/DatePickerField';
-import ValidatedInput from 'components/elements/ValidatedInput';
-import ValidatedTextArea from './ValidatedTextArea';
-import EventTypeField from 'components/elements/EventTypeField';
-import DiscountField from 'components/elements/DiscountField';
-import AccessibilityDetailField from 'components/elements/AccessibilityDetailField';
-import SpeakersField from 'components/elements/SpeakersField';
-import LanguageField from 'components/elements/LanguageField';
-import TextField from 'components/elements/TextField';
-import CitySelect from 'components/elements/CitySelect';
-import TimeSlotField from 'components/elements/TimeSlotField';
+import DatePickerField from "components/elements/DatePickerField";
+import ValidatedInput from "components/elements/ValidatedInput";
+import ValidatedTextArea from "./ValidatedTextArea";
+import EventTypeField from "components/elements/EventTypeField";
+import DiscountField from "components/elements/DiscountField";
+import AccessibilityDetailField from "components/elements/AccessibilityDetailField";
+import SpeakersField from "components/elements/SpeakersField";
+import LanguageField from "components/elements/LanguageField";
+import TextField from "components/elements/TextField";
+import CitySelect from "components/elements/CitySelect";
+import TimeSlotField from "components/elements/TimeSlotField";
+import EventHashtagField from "./EventHashtagField";
 // import SocialMediaField from 'components/elements/SocialMediaField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
@@ -29,10 +30,9 @@ import EventTagsField from './EventTagsField';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
-
-  async function handleImageChange (e) {
+  async function handleImageChange(e) {
     const imageFile = e.target.files[0];
-    setFieldValue('imageFile', await imageFileToDataURL(imageFile));
+    setFieldValue("imageFile", await imageFileToDataURL(imageFile));
   }
 
   return (
@@ -51,8 +51,7 @@ function PostEventFormComponent(props) {
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
           Organization Details
         </h2>
-        <section 
-          className={formStyleClasses.organizationDetail}>
+        <section className={formStyleClasses.organizationDetail}>
           <Field
             autoComplete="new-password"
             className={formStyleClasses.input}
@@ -84,7 +83,7 @@ function PostEventFormComponent(props) {
               <Field
                 autoComplete="new-password"
                 className={formStyleClasses.input}
-                component={ValidatedInput} 
+                component={ValidatedInput}
                 label="Event Name*"
                 name="eventName"
                 type="text"
@@ -92,7 +91,6 @@ function PostEventFormComponent(props) {
               />
             </div>
             <div>
-
               <Field
                 component={ValidatedTextArea}
                 type="textarea"
@@ -276,15 +274,13 @@ function PostEventFormComponent(props) {
                     }}  
                   />
                 </div>
-                
+
                 <div className="mb-6">
-                  <label>Event Hashtag(s)</label>
-                  <Field
-                    name="event-hashtags"
-                    type="text"
-                    className={formStyleClasses.input}
-                    placeholder="#PyCon2022"
-                    autoComplete="new-password"
+                  <EventHashtagField
+                    value={values.hashTag}
+                    onChange={(...args) => {
+                      return setFieldValue(...args);
+                    }}
                   />
                 </div>
               </div>
@@ -396,8 +392,8 @@ function PostEventFormComponent(props) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues (props) {
-  const defaultValues = props.defaultValues || {}
+export function mapPropsToValues(props) {
+  const defaultValues = props.defaultValues || {};
 
   return Object.keys(eventProperties).reduce((accumulator, key) => {
     accumulator[key] = props[key] || defaultValues[key] || eventProperties[key];
@@ -422,8 +418,8 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  eventName: Yup.string().required('Field is required'),
-  description: Yup.string().required('Field is required'),
+  eventName: Yup.string().required("Field is required"),
+  description: Yup.string().required("Field is required"),
 });
 
 /**
