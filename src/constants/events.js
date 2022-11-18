@@ -42,7 +42,7 @@ export const eventProperties = {
   'startDate': new Date(),
   'startTime': '',
   'state': '',
-  'tags': [],
+  'tags': "",
   'timezone': '',
   'volunteeringNotes': '',
   'socialMediaHashTag': '',
@@ -86,6 +86,7 @@ export const EVENT_ATTRIBUTES = [
   'conference_name',
   'event_url',
   'hash_tag',
+  'tags',
 
   'language',
   'location',
