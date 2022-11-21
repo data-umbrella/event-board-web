@@ -1,37 +1,38 @@
-import React from 'react';
+import React from "react";
 
 // Third-party dependencies
-import { withFormik, Form, Field } from 'formik';
-import * as Yup from 'yup';
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
 
 // Constants
-import timezones from 'constants/timezones';
-import { eventProperties } from 'constants/events';
-import formStyleClasses from 'styles/forms';
+import timezones from "constants/timezones";
+import { eventProperties } from "constants/events";
+import formStyleClasses from "styles/forms";
 
 // Components
-import DatePickerField from 'components/elements/DatePickerField';
-import ValidatedInput from 'components/elements/ValidatedInput';
-import ValidatedTextArea from './ValidatedTextArea';
-import EventTypeField from 'components/elements/EventTypeField';
-import DiscountField from 'components/elements/DiscountField';
-import AccessibilityDetailField from 'components/elements/AccessibilityDetailField';
-import SpeakersField from 'components/elements/SpeakersField';
-import LanguageField from 'components/elements/LanguageField';
-import TextField from 'components/elements/TextField';
-import CitySelect from 'components/elements/CitySelect';
-import TimeSlotField from 'components/elements/TimeSlotField';
+import DatePickerField from "components/elements/DatePickerField";
+import ValidatedInput from "components/elements/ValidatedInput";
+import ValidatedTextArea from "./ValidatedTextArea";
+import EventTypeField from "components/elements/EventTypeField";
+import DiscountField from "components/elements/DiscountField";
+import AccessibilityDetailField from "components/elements/AccessibilityDetailField";
+import SpeakersField from "components/elements/SpeakersField";
+import LanguageField from "components/elements/LanguageField";
+import TextField from "components/elements/TextField";
+import CitySelect from "components/elements/CitySelect";
+import TimeSlotField from "components/elements/TimeSlotField";
+import EventHashtagField from "./EventHashtagField";
 // import SocialMediaField from 'components/elements/SocialMediaField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
+import EventTagsField from './EventTagsField';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
-
-  async function handleImageChange (e) {
+  async function handleImageChange(e) {
     const imageFile = e.target.files[0];
-    setFieldValue('imageFile', await imageFileToDataURL(imageFile));
+    setFieldValue("imageFile", await imageFileToDataURL(imageFile));
   }
 
   return (
@@ -266,51 +267,21 @@ function PostEventFormComponent(props) {
                   />
                 </div>
 
-                <div className="container mx-auto mb-4">
-                  <label>Tags</label>
-                  <div className="relative text-gray-600 focus-within:text-gray-400">
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                      <button
-                        type="submit"
-                        className={`
-                          p-1
-                          focus:outline-none
-                          focus:shadow-outline
-                          text-du-purple-500
-                          font-bold
-                        `}
-                      >
-                        <svg
-                          fill="none"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="3"
-                          viewBox="0 0 24 24"
-                          className="w-6 h-6"
-                        >
-                          <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                      </button>
-                    </span>
-
-                    <Field
-                      type="search"
-                      name="search"
-                      className={`${formStyleClasses.searchInput} pl-10 focus:outline-none`}
-                      placeholder="Search"
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
                 <div className="mb-6">
-                  <label>Event Hashtag(s)</label>
-                  <Field
-                    name="event-hashtags"
-                    type="text"
-                    className={formStyleClasses.input}
-                    placeholder="#PyCon2022"
-                    autoComplete="new-password"
+                  <EventTagsField 
+                    value={values.tags}
+                    onChange={(...args) => {
+                      return setFieldValue(...args);
+                    }}  
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <EventHashtagField
+                    value={values.hashTag}
+                    onChange={(...args) => {
+                      return setFieldValue(...args);
+                    }}
                   />
                 </div>
               </div>
@@ -422,8 +393,8 @@ function PostEventFormComponent(props) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues (props) {
-  const defaultValues = props.defaultValues || {}
+export function mapPropsToValues(props) {
+  const defaultValues = props.defaultValues || {};
 
   return Object.keys(eventProperties).reduce((accumulator, key) => {
     accumulator[key] = props[key] || defaultValues[key] || eventProperties[key];
@@ -462,8 +433,8 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  eventName: Yup.string().required('Field is required'),
-  description: Yup.string().required('Field is required'),
+  eventName: Yup.string().required("Field is required"),
+  description: Yup.string().required("Field is required"),
 });
 
 /**
