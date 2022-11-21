@@ -186,6 +186,7 @@ function PostEventFormComponent(props) {
                   />
                 </div>
               </section>
+
               <section
                 role="group"
                 aria-labelledby="virtual-option-radio-group"
@@ -193,7 +194,7 @@ function PostEventFormComponent(props) {
                 <div>
                   <label className="mr-6">
                     <Field
-                      name="in-person"
+                      name="meetingType"
                       type="radio"
                       value="in-person"
                       className={formStyleClasses.radioButtonValues}
@@ -202,16 +203,16 @@ function PostEventFormComponent(props) {
                   </label>
                   <label className="mr-6">
                     <Field
-                      name="in-person"
+                      name="meetingType"
                       type="radio"
-                      value="virutal"
+                      value="virtual"
                       className={formStyleClasses.radioButtonValues}
                     />
                     Virtual
                   </label>
                   <label className="mr-6">
                     <Field
-                      name="in-person"
+                      name="meetingType"
                       type="radio"
                       value="both"
                       className={formStyleClasses.radioButtonValues}
@@ -408,6 +409,20 @@ export function mapPropsToValues(props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
+  switch (values["meetingType"]) {
+  case "in-person":
+    values["in_person"] = true;
+    break;
+  case "virtual":
+    values["virtual"] = true;
+    break;
+  case "both":
+    values["in_person"] = true;
+    values["virtual"] = true;
+    break;
+  default:
+    break;
+  }
   props.handleFormSubmit(values);
 }
 
