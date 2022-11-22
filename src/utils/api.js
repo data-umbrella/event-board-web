@@ -4,10 +4,11 @@ import { DEFAULT_HEADERS } from 'constants/api';
 import { getUserToken } from 'utils/sessions';
 
 export function buildAuthenticatedHeaders() {
-  const headers = DEFAULT_HEADERS;
+  const headers = { ...DEFAULT_HEADERS };
+  const userToken = getUserToken();
 
-  if (iOSPlatform()) {
-    headers['Authorization'] = `Token ${getUserToken()}`;
+  if (iOSPlatform() && userToken) {
+    headers['Authorization'] = `Token ${userToken}`;
   }
 
   return headers;

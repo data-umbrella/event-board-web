@@ -81,6 +81,8 @@ export async function fetchSignOut() {
       throw (new Error('Bad request'));
     }
 
+    setUserToken(null);
+
     return true;
   } catch (e) {
     throw (new Error('Bad request'));
