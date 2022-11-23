@@ -57,11 +57,13 @@ export function makeServer({ environment = 'test' } = {}) {
           }
         } else {
           return {
+            count: schema.events.all().models.length,
+            next: null,
+            previous: null,
             results: schema.events.all().models,
           }
         }
       });
-      
 
       this.post('/auth/email/', () => {
         return new Response(200, { status: 'success' });
