@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import SearchResultViewSelector from 'components/elements/SearchResultViewSelector';
-import EventListView from 'components/elements/EventListView';
-import EventGridView from 'components/elements/EventGridView';
-import EventCalendarView from 'components/elements/EventCalendarView';
-import EventMapView from 'components/elements/EventMapView';
+import React, { useState } from "react";
+import SearchResultViewSelector from "components/elements/SearchResultViewSelector";
+import EventListView from "components/elements/EventListView";
+import EventGridView from "components/elements/EventGridView";
+import EventCalendarView from "components/elements/EventCalendarView";
+import EventMapView from "components/elements/EventMapView";
+import ReactPaginate from "react-paginate";
+import { useSearchParams } from "react-router-dom";
 
 const styleClasses = {
   searchResultsHeading: `
@@ -14,29 +16,36 @@ const styleClasses = {
     dark:text-slate-50
     md:pt-0
   `,
-}
+};
 
 export function SearchView({ events, viewName }) {
-  switch(viewName) {
-  case 'GRID':
-    return <EventGridView events={events} />
-  case 'LIST':
-    return <EventListView events={events} />
-  case 'CALENDAR':
-    return <EventCalendarView events={events} />
-  case 'MAP':
-    return <EventMapView events={events} />
+  switch (viewName) {
+  case "GRID":
+    return <EventGridView events={events} />;
+  case "LIST":
+    return <EventListView events={events} />;
+  case "CALENDAR":
+    return <EventCalendarView events={events} />;
+  case "MAP":
+    return <EventMapView events={events} />;
   default:
-    return <EventGridView events={events} />
+    return <EventGridView events={events} />;
   }
 }
 
-function SearchEvents({ events }) {
-  const [searchView, setSearchView] = useState('GRID');
+function SearchEvents({ events, eventsMetadata, handlePageChange }) {
+  const [searchView, setSearchView] = useState("GRID");
+  let [searchParams] = useSearchParams();
+  const pageSize = searchParams.get("pageSize") || 20;
+  function handleChange(event) {
+    handlePageChange(event.selected + 1);
+  }
 
   function updateSearchView(e) {
     setSearchView(e.target.id);
   }
+
+  const totalPagesAvailable = Math.ceil(eventsMetadata.count / pageSize);
 
   return (
     <div>
@@ -47,15 +56,29 @@ function SearchEvents({ events }) {
 
       <div>
         <h3 className={styleClasses.searchResultsHeading}>
-          Search Results ({ events.length })
+          Search Results ({eventsMetadata.count})
         </h3>
       </div>
 
       <div>
         <SearchView events={events} viewName={searchView} />
       </div>
+
+      <div className="flex justify-center">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">>"
+          pageRangeDisplayed={4}
+          marginPagesDisplayed={0}
+          onPageChange={handleChange}
+          pageCount={totalPagesAvailable}
+          previousLabel="<<"
+          renderOnZeroPageCount={null}
+          className={"pagination-navigation"}
+        />
+      </div>
     </div>
-  )
+  );
 }
 
 export default SearchEvents;

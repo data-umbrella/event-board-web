@@ -69,7 +69,8 @@ nav li {
   padding: 3em;
 }
 
-.fc { /* the calendar root */
+.fc {
+  /* the calendar root */
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -80,7 +81,6 @@ nav li {
 }
 
 .react-multi-carousel-dot-list {
-
 }
 
 .expandable {
@@ -96,14 +96,73 @@ nav li {
   border: none !important;
 }
 
-.fc-event-time, .fc-event-title {
+.fc-event-time,
+.fc-event-title {
+}
 
+.fc-h-event {
+  border: none !important;
+  background-color: none !important;
+}
+.card-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 12rem;
+  height: 60%;
+}
+
+
+ .event-tooltip {
+  pointer-events: all !important;
+  border-radius: 5px;
+  opacity: 1 !important;
+  color: black !important;
+  border: #282c34 !important;
+  font-size: small !important;
+  background-color: #ffff !important;
+  border: 1px solid #000 !important;
+  border-radius: 20px !important;
+  background:#fff !important;
+  
+} 
+
+.event-tooltip-navigate {
+ color: #315790;
+ text-decoration: underline;
+ text-align: right;
 }
 
 .card-img {
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center center;
-   min-height: 12rem;
-   height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 12rem;
+  height: 60%;
+}
+
+.pagination-navigation {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.pagination-navigation > li {
+  padding: 1rem;
+  
+}
+
+.pagination-navigation > li:hover, .pagination-navigation > li {
+  color:#4B4B4B;
+}
+
+.pagination-navigation > li:hover, .pagination-navigation > li.selected {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-decoration-color: #6B26FF;
+  color:#6B26FF;
+}
+
+.pagination-navigation .previous, .pagination-navigation .next {
+  color: #6B26FF;
 }

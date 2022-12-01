@@ -1,34 +1,50 @@
-import queryString from 'query-string';
-import moment from 'moment';
-import { parseAPIJSON } from 'utils/api';
-import { EVENTS_URL } from 'constants/urls';
-import { DEFAULT_DATE_FORMAT } from 'constants/dates';
+import queryString from "query-string";
+import moment from "moment";
+import { parseAPIJSON } from "utils/api";
+import { EVENTS_URL } from "constants/urls";
+import { DEFAULT_DATE_FORMAT } from "constants/dates";
+import camelcaseKeys from "camelcase-keys";
 
 export function fetchEventsForSearchFilters(searchFilters) {
+  const offset =
+    searchFilters.page === 1 ? 0 : ((searchFilters.pageSize * searchFilters.page) - searchFilters.pageSize);
   const query = queryString.stringify({
     event_type: searchFilters.eventType,
     region: searchFilters.region,
     search: searchFilters.search,
-    start_date__gte: moment(searchFilters.startDate).format(DEFAULT_DATE_FORMAT),
+    start_date__gte: moment(searchFilters.startDate).format(
+      DEFAULT_DATE_FORMAT
+    ),
     start_date__lte: moment(searchFilters.endDate).format(DEFAULT_DATE_FORMAT),
     tags: searchFilters.topic,
     price: searchFilters.price,
     language: searchFilters.language,
+    limit: searchFilters.pageSize,
+    offset,
   });
-  
+
   return fetch(`${EVENTS_URL}?${query}`)
-    .then(response => response.json())
-    .then(json => parseAPIJSON(json));
+    .then((response) => response.json())
+    .then((res) => {
+      const { results, ...meta } = res;
+      return { results: camelcaseKeys(results), ...meta };
+    });
+}
+
+export function fetchEventResultsForSearchFilters(searchFilters) {
+  return fetchEventsForSearchFilters(searchFilters).then((response) =>
+    parseAPIJSON(response)
+  );
 }
 
 export function fetchFeaturedEvents() {
   const query = queryString.stringify({
     featured: true,
     start_date__gte: moment().format(DEFAULT_DATE_FORMAT),
-    start_date__lte: moment().add(5, 'months').format(DEFAULT_DATE_FORMAT),
+    start_date__lte: moment().add(5, "months").format(DEFAULT_DATE_FORMAT),
   });
 
   return fetch(`${EVENTS_URL}?${query}`)
-    .then(response => response.json())
-    .then(json => parseAPIJSON(json));
+    .then((response) => response.json())
+    .then((json) => parseAPIJSON(json));
 }

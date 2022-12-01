@@ -21,6 +21,8 @@ export function formatEventsForCalendar(events) {
       start: evt.startDate,
       end: evt.endDate,
       title: evt.eventName,
+      type: evt.eventType,
+      description: evt.description
     };
   });
 }

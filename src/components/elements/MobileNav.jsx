@@ -8,12 +8,15 @@ import closeSymbol from 'assets/ui/HamX.png';
 import { HamBars } from 'assets/ui/HamBars';
 import logoDark from 'assets/du_sc_logos/logoDark.png';
 import { DONATE_URL } from 'constants/urls';
+import { useAuth } from 'hooks/authentication';
 
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [colorTheme, setTheme] = useDarkMode();
   const location = useLocation();
   const closeButton = useRef(null);
+  const auth = useAuth();
+  const signOut = () => auth.signOutCurrentUser();
 
   useEffect(() => {
     setMenuOpen(false);
@@ -73,17 +76,22 @@ function MobileNav() {
                 alt="logo"
               />
             </div>
-            <Link to="/sign-in">Sign In</Link><br />
+
+            {auth.currentUser.isAuthenticated ? (
+              <a onClick={signOut}>Sign Out</a>
+            ) : (
+              <Link to="/sign-in">Sign In</Link>
+            )}
             <Link to="/events/calendar">Event Calendar</Link><br />
-            <Link to="/events/new">Post Event</Link><br />
-            {/*<Link to="/events/weekly-digest">Weekly Digest</Link><br/>*/}
-            <Link to="/sponsors">Sponsors</Link><br />
-            <a href={DONATE_URL} target="_blank" rel="noreferrer">Donate</a><br />
-            <Link to="/about">About Us</Link><br />
-            <Link to="/contact">Contact Us</Link><br />
-            <Link to="/FAQs">FAQs</Link><br />
-            <Link to="/privacy">Privacy</Link><br />
-            <Link to="/codeofconduct">Terms & Conditions</Link><br />
+            <Link to="/events/new">Post Event</Link><br/>
+            <Link to="/events/weekly-digest">Weekly Digest</Link><br/>
+            <Link to="/sponsors">Sponsors</Link><br/>
+            <a href={DONATE_URL} target="_blank" rel="noreferrer">Donate</a><br/>
+            <Link to="/about">About Us</Link><br/>
+            <Link to="/contact">Contact Us</Link><br/>
+            <Link to="/FAQs">FAQs</Link><br/>
+            <Link to="/privacy">Privacy</Link><br/>
+            <Link to="/codeofconduct">Terms & Conditions</Link><br/>
           </div>
         </div>
       </div>

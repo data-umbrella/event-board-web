@@ -4,17 +4,17 @@ import {
   VERIFY_URL,
   MAGIC_LINK_URL,
 } from 'constants/urls';
-
-const DEFAULT_HEADERS = {
-  'Content-Type': 'application/json',
-}
+import { iOSPlatform } from 'utils/devices';
+import { setUserToken } from 'utils/sessions';
+import { buildAuthenticatedHeaders } from 'utils/api';
+import { DEFAULT_HEADERS } from 'constants/api';
 
 export function fetchCurrentUser() {
   return fetch(CURRENT_USER_URL, {
     method: 'POST',
     credentials: 'include',
     mode: 'cors',
-    headers: DEFAULT_HEADERS,
+    headers: buildAuthenticatedHeaders(),
   });
 }
 
@@ -31,14 +31,16 @@ export async function fetchVerification(token, email) {
     }
 
     const verificationJSON = await verifyResponse.json();
+
+    if (iOSPlatform()) {
+      setUserToken(verificationJSON.token);
+    }
+
     const currentUserResponse = await fetch(CURRENT_USER_URL, {
       method: 'POST',
       credentials: 'include',
       mode: 'cors',
-      headers: {
-        ...DEFAULT_HEADERS,
-        'Authorization': `Token ${verificationJSON.token}`,
-      },
+      headers: buildAuthenticatedHeaders(),
     });
 
     return currentUserResponse.json();
@@ -59,7 +61,8 @@ export async function fetchMagicLink(email) {
       throw (new Error('Bad request'));
     }
 
-    window.localStorage.setItem('USERNAME', email);
+    window.sessionStorage.setItem('USERNAME', email);
+
     return true;
   } catch (e) {
     throw (new Error('Bad request'));
@@ -77,6 +80,8 @@ export async function fetchSignOut() {
     if (response.status !== 204) {
       throw (new Error('Bad request'));
     }
+
+    setUserToken(null);
 
     return true;
   } catch (e) {
