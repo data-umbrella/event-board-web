@@ -2,12 +2,21 @@ import React from 'react';
 import sponsorsStyleClasses from 'styles/sponsors';
 import CZIImg from 'assets/CZIlogo.png';
 import DigitalOceanImg from 'assets/Digitaloceanlogo.png';
+import GoogleImg from 'assets/sponsors/Google_FullColor.png';
+
 
 const sponsorsList = [
   {
     name:'CZI',
     sponsorImg: CZIImg,
     url: 'https://chanzuckerberg.com/science/programs-resources/open-science/communitiesofpractice/data-umbrella/' },
+  
+  {
+    name:'Google Open Source',
+    sponsorImg: GoogleImg,
+    url: 'https://opensource.google/'
+  },
+  
   {
     name: 'Digital Ocean',
     sponsorImg: DigitalOceanImg,
