@@ -3,6 +3,8 @@ import sponsorsStyleClasses from 'styles/sponsors';
 import CZIImg from 'assets/CZIlogo.png';
 import DigitalOceanImg from 'assets/Digitaloceanlogo.png';
 import GoogleImg from 'assets/sponsors/Google_FullColor.png';
+import GoogleBlackImg from 'assets/sponsors/Google_OneColor.png';
+import GoogleWhiteImg from 'assets/sponsors/Google_Reverse.png';
 
 
 const sponsorsList = [
@@ -14,6 +16,18 @@ const sponsorsList = [
   {
     name:'Google Open Source',
     sponsorImg: GoogleImg,
+    url: 'https://opensource.google/'
+  },
+  
+  {
+    name:'Google Open Source',
+    sponsorImg: GoogleBlackImg,
+    url: 'https://opensource.google/'
+  },
+  
+  {
+    name:'Google Open Source',
+    sponsorImg: GoogleWhiteImg,
     url: 'https://opensource.google/'
   },
   
