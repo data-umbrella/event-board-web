@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from 'assets/du_sc_logos/logo_du_color.svg';
 import { DONATE_URL } from 'constants/urls';
 import ExternalLinkIcon from 'assets/ui/externalLink.svg'
 import githubWhite from 'assets/social_media/githubWhite.svg'
 import twitterWhite from 'assets/social_media/twitterWhite.svg'
+import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png'
 
 function Footer() {
   return (
     <footer className="block bg-du-indigo-900 min-h-10 md:min-h-60 text-white md:px-40 pt-9 pb-7">
       <div className="hidden md:grid grid-cols-4 text-left">
-        <div className="flex flex-col items-left">
-          <div>
-            <img src={logoImg} alt="logo" className="h-32 w-40" />
+        <div className="flex flex-col items-center">
+          <div className="content-center">
+            <img src={logoDark} alt="logo" />
           </div>
-          <div className="flex flex-row ml-9">
+          <div className="flex flex-row items-center">
             <a href="https://github.com/data-umbrella/event-board-web">
-              <img className="m-2 mb-1 h-7 w-" src={githubWhite} />
+              <img className="m-2 mb-1 h-7 w-7" src={githubWhite} />
             </a>
             <a href="https://twitter.com/DataEventsBoard">
               <img className="m-2 mb-1 h-7 w-7" src={twitterWhite} />

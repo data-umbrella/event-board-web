@@ -21,6 +21,10 @@ jest.mock('hooks/events', () => ({
 }));
 
 describe('Event Calendar Page', () => {
+  beforeAll(() => {
+    jest.useFakeTimers().setSystemTime(new Date('2022-09-01'));
+  });
+  
   it('renders events on page load', () => {
     render(
       <MemoryRouter>
@@ -29,7 +33,8 @@ describe('Event Calendar Page', () => {
     );
 
     expect(screen.getByText(/Advanced Filters/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/Example event name/i)).toHaveLength(2);
+    expect(screen.getAllByText(/Example event name/i)).toHaveLength(3);
+    //updated expectation toHaveLength as 3 to accommodate for popup info
   });
 
   describe('Search', () => {

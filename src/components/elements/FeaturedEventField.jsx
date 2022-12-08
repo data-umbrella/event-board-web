@@ -1,4 +1,5 @@
 import { React } from 'react';
+import { eventStyleClasses } from 'styles/events';
 
 function FeaturedEventField({ value, onChange }) {
   const handleChange = () => {
@@ -8,13 +9,22 @@ function FeaturedEventField({ value, onChange }) {
   return (
     <div className="rounded">
       <p>
-        If you would like this event to be featured,
-        check the box below and follow the link to make
-        a donation to this Event Board on Open Collective.
+        If you would like this event to be featured, check the box below and
+        follow the link to make a donation to this Event Board on Open
+        Collective.
       </p>
-      <br></br>
+
+      <div 
+        id="featured-event-donation-info"
+        className={eventStyleClasses.donationPillBox}
+      >
+        <p>
+          $1-99: General Donation
+          <span className="pl-6">$100+: Featured Event</span>
+        </p>
+      </div>
       <div>
-        <input 
+        <input
           id="featured-event"
           name="feature-event"
           type="checkbox"
@@ -28,7 +38,7 @@ function FeaturedEventField({ value, onChange }) {
       </div>
       <br></br>
       <div>
-        <a 
+        <a
           target="_blank"
           rel="noreferrer"
           className="font-medium underline"
@@ -38,7 +48,7 @@ function FeaturedEventField({ value, onChange }) {
         </a>
       </div>
     </div>
-  )
+  );
 }
 
 export default FeaturedEventField;

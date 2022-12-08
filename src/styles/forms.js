@@ -4,7 +4,7 @@ const formStyleClasses = {
     border
     border-black
     dark:border-teal-400
-    dark:bg-transparent
+    dark:bg-du-deepPurple
     w-full
     rounded-md
     h-14
@@ -56,9 +56,10 @@ const formStyleClasses = {
   textarea: `
     block
     border
-    border-zinc-300
+    border-black
     dark:border-teal-400
     dark:bg-transparent
+    dark:text-white
     w-full
     h-40
     rounded
@@ -122,14 +123,20 @@ const formStyleClasses = {
   `,
   sendButton: `
     bg-du-purple-500
+    hover:shadow-2xl
+    hover:bg-blend-darken 
     text-white
     w-20
     mb-3
     p-2
-    rounded
+    rounded-[10px]
     text-lg
     font-normal
     float-right
+    active:bg-white 
+    active:border 
+    active:border-du-purple-500
+    active:text-du-purple-500
   `,
   loginButton: `
     container
@@ -141,6 +148,28 @@ const formStyleClasses = {
     text-lg
     font-normal
   `,
+  radioButtonValues:`
+    rounded-md
+    mx-2
+    p-2
+    md:row-start-2
+    md:col-span-2
+  `,
+  organizationDetail: `
+  grid 
+  grid-cols-1 
+  rounded 
+  border 
+  border-slate-300 
+  bg-white 
+  p-6 
+  marker:mb-6 
+  dark:border-teal-400 
+  dark:bg-transparent 
+  md:grid-cols-2 
+  md:grid-rows-1 
+  md:gap-6
+`,
 };
 
 export default formStyleClasses;

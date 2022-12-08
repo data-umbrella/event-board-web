@@ -1,28 +1,27 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import AccessibilitySection from 'components/elements/AccessibilitySection';
-import DescriptionSection from 'components/elements/DescriptionSection';
-import EventPlanningSection from 'components/elements/EventPlanningSection';
-import NotesSection from 'components/elements/NotesSection';
-import ReviewEventActionsSection from 'components/elements/ReviewEventActionsSection';
-import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
-import SpeakersSection from 'components/elements/SpeakersSection';
+import AccessibilitySection from "components/elements/AccessibilitySection";
+import DescriptionSection from "components/elements/DescriptionSection";
+import EventPlanningSection from "components/elements/EventPlanningSection";
+import NotesSection from "components/elements/NotesSection";
+import ReviewEventActionsSection from "components/elements/ReviewEventActionsSection";
+import ReviewEventMainSection from "components/elements/ReviewEventMainSection";
+import SpeakersSection from "components/elements/SpeakersSection";
 
-import { useEvent } from 'hooks/events';
-import { api } from 'services/api';
+import { useEvent } from "hooks/events";
+import { api } from "services/api";
 
 function ReviewEventPage() {
   const { eventId } = useParams();
   const navigate = useNavigate();
   const evt = useEvent(eventId);
 
-  async function handleSubmit () {
+  async function handleSubmit() {
     const eventData = JSON.parse(sessionStorage.getItem(eventId));
-
     if (eventData.id) {
       try {
-        await api('PUT', `events/${eventData.id}/`, eventData);
+        await api("PUT", `events/${eventData.id}/`, eventData);
         navigate(`/events/${eventData.id}/details`);
       } catch (e) {
         // TODO: Gracefully handle error messages.
@@ -30,8 +29,8 @@ function ReviewEventPage() {
       }
     } else {
       try {
-        await api('POST', 'events', eventData);
-        navigate('/events/confirmation');
+        await api("POST", "events", eventData);
+        navigate("/events/confirmation");
       } catch (e) {
         // TODO: Gracefully handle error messages.
         window.alert(e.message);
@@ -40,11 +39,11 @@ function ReviewEventPage() {
     }
   }
 
-  function editEvent () {
-    navigate(`/events/${eventId}/edit`)
+  function editEvent() {
+    navigate(`/events/${eventId}/edit`);
   }
 
-  if (!evt) return 'Loading...'
+  if (!evt) return "Loading...";
 
   return (
     <div className="container mx-auto pt-16 mb-24">
@@ -60,7 +59,7 @@ function ReviewEventPage() {
         evt={evt}
       />
     </div>
-  )
+  );
 }
 
 export default ReviewEventPage;

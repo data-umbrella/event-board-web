@@ -21,7 +21,7 @@ function DiscountField () {
           })}
         </Field>
       </div>
-      <div className="md:col-span-2 md:ml-4">
+      <div className="md:col-span-2 md:mx-4">
         <label>Amount</label>
         <Field
           name="discountValue"

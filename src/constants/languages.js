@@ -7,6 +7,14 @@ export const LANGUAGE_OPTIONS = [
     "value": "es",
     "label": "Spanish"
   },
+  {
+    "value": "pt",
+    "label": "Portuguese"
+  },
+  {
+    "value": "other",
+    "label": "Other"
+  },
   // {
   //   "value": "ab",
   //   "label": "Abkhaz"
