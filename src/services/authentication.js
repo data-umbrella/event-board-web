@@ -4,7 +4,6 @@ import {
   VERIFY_URL,
   MAGIC_LINK_URL,
 } from 'constants/urls';
-import { iOSPlatform } from 'utils/devices';
 import { setUserToken } from 'utils/sessions';
 import { buildAuthenticatedHeaders } from 'utils/api';
 import { DEFAULT_HEADERS } from 'constants/api';

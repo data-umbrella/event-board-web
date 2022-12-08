@@ -1,5 +1,4 @@
 import camelcaseKeys from 'camelcase-keys';
-import { iOSPlatform } from 'utils/devices';
 import { DEFAULT_HEADERS } from 'constants/api';
 import { getUserToken } from 'utils/sessions';
 
