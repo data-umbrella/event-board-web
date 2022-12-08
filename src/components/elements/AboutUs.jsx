@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import aboutStyleClasses from 'styles/about';
-import DULogo from 'assets/du_sc_logos/data-umbr-full-transp-logo.png';
-import SPECLogo from 'assets/du_sc_logos/speclogoname.png';
+import DULogo from 'assets/du_sc_logos/logo_data_umbrella_full.png';
+import SPECLogo from 'assets/du_sc_logos/logo_spec_with_name.png';
 import twitter from 'assets/social_media/twitter.svg';
 import linkedin from 'assets/social_media/linkedin.svg';
 import github from 'assets/social_media/github.svg';

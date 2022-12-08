@@ -4,7 +4,7 @@ import twitter from 'assets/social_media/twitter.svg';
 import linkedin from 'assets/social_media/linkedin.svg';
 import github from 'assets/social_media/github.svg';
 import website from 'assets/social_media/website.svg';
-import logo from 'assets/du_sc_logos/logo.svg';
+import logo from 'assets/du_sc_logos/logo_event_board.svg';
 import Reshama from 'assets/people/reshama.png'
 import Joe from 'assets/people/joe.png'
 import Ilia from 'assets/people/ilia.png'

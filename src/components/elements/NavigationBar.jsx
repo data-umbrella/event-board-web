@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
 import useDarkMode from 'hooks/dark-mode';
 import DropdownMenu from 'components/elements/DropdownMenu';
-import logoImg from 'assets/du_sc_logos/logo.svg';
-import logoDark from 'assets/du_sc_logos/logoDark.png'
+import logoImg from 'assets/du_sc_logos/logo_event_board.svg';
+import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png'
 import darkMode from 'assets/ui/dark-mode.svg';
 import lightMode from 'assets/ui/light-mode.svg';
 import { navStyleClasses } from 'styles/navbar';

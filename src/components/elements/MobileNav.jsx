@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from "react-router-dom";
 import useDarkMode from 'hooks/dark-mode';
-import Logo from 'assets/du_sc_logos/logo.png';
+import Logo from 'assets/du_sc_logos/logo_event_board.svg';
 import lightMode from 'assets/ui/light-mode.svg';
 import darkMode from 'assets/ui/dark-mode.svg';
 import closeSymbol from 'assets/ui/HamX.png';
 import { HamBars } from 'assets/ui/HamBars';
-import logoDark from 'assets/du_sc_logos/logoDark.png';
+import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png';
 import { DONATE_URL } from 'constants/urls';
 
 function MobileNav() {
