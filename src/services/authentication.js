@@ -32,9 +32,7 @@ export async function fetchVerification(token, email) {
 
     const verificationJSON = await verifyResponse.json();
 
-    if (iOSPlatform()) {
-      setUserToken(verificationJSON.token);
-    }
+    setUserToken(verificationJSON.token);
 
     const currentUserResponse = await fetch(CURRENT_USER_URL, {
       method: 'POST',
