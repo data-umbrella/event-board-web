@@ -7,7 +7,7 @@ function EventTopicField () {
   return (
     <div>
       <label>Topics</label>
-      <Field name="topic" component="select" className={`${formStyleClasses.select}  dark:bg-[#151A35]`}>
+      <Field name="topic" component="select" className={`${formStyleClasses.select}`}>
         { TOPIC_OPTIONS.map(({ value, label }) => {
           return <option key={value} value={value}>{ label }</option>
         })}
