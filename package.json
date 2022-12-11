@@ -35,6 +35,7 @@
     "pigeon-maps": "^0.21.0",
     "query-string": "^7.1.1",
     "react": "^18.0.0",
+    "react-country-region-selector": "^3.6.1",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.0.0",
     "react-ga": "^3.3.1",

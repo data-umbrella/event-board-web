@@ -49,7 +49,9 @@ export const eventProperties = {
   'socialMediaHashTag': '',
   'discount': '',
   'location': '',
-  'published': false
+  'published': false,
+  'country': null,
+  'region': null,
 };
 
 export const CALENDAR_EVENTS = [

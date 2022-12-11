@@ -27,6 +27,7 @@ import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
+import CountryRegionField from "./CountryRegionField";
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
@@ -151,8 +152,8 @@ function PostEventFormComponent(props) {
                   })}
                 </Field>
               </section>
-              <section className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                <CitySelect />
+              <section>
+                <CountryRegionField />
               </section>
               <section>
                 <LanguageField />
@@ -409,20 +410,6 @@ export function mapPropsToValues(props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  switch (values["meetingType"]) {
-  case "in-person":
-    values["in_person"] = true;
-    break;
-  case "virtual":
-    values["virtual"] = true;
-    break;
-  case "both":
-    values["in_person"] = true;
-    values["virtual"] = true;
-    break;
-  default:
-    break;
-  }
   props.handleFormSubmit(values);
 }
 
@@ -434,7 +421,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required("Field is required"),
-  description: Yup.string().required("Field is required"),
+  startDate: Yup.string().required("Field is required"),
 });
 
 /**
