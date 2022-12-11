@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import timezones from "constants/timezones";
 import { eventProperties } from "constants/events";
 import formStyleClasses from "styles/forms";
+import TimezoneSelect from 'react-timezone-select'
 
 // Components
 import DatePickerField from "components/elements/DatePickerField";
@@ -19,7 +20,6 @@ import AccessibilityDetailField from "components/elements/AccessibilityDetailFie
 import SpeakersField from "components/elements/SpeakersField";
 import LanguageField from "components/elements/LanguageField";
 import TextField from "components/elements/TextField";
-import CitySelect from "components/elements/CitySelect";
 import TimeSlotField from "components/elements/TimeSlotField";
 import EventHashtagField from "./EventHashtagField";
 // import SocialMediaField from 'components/elements/SocialMediaField';
@@ -28,26 +28,6 @@ import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
 import CountryRegionField from "./CountryRegionField";
-
-// <Field
-//   autoComplete="new-password"
-//   className={formStyleClasses.input}
-//   component={ValidatedInput}
-//   label="Organization Name"
-//   name="organizationName"
-//   type="text"
-//   id="organizationName"
-// />
-// <section className="mt-4 md:mt-0">
-//   <label htmlFor="organizationUrl">Organization URL</label>
-//   <Field
-//     autoComplete="new-password"
-//     id="organizationUrl"
-//     name="organizationUrl"
-//     className={formStyleClasses.input}
-//   />
-//   {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
-// </section>
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
@@ -67,7 +47,7 @@ function PostEventFormComponent(props) {
           admins.
         </p>
       </section>
-      {/* Organization details section */}
+      {/* Event Information Section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
           Event Information
@@ -103,7 +83,9 @@ function PostEventFormComponent(props) {
 
       {/* Event Details Section */}
       <section>
-        <h2 className="pb-4 text-xl font-bold md:text-2xl">Event Details</h2>
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">
+          Event Details
+        </h2>
         <section className="rounded border border-slate-300 bg-white p-6 dark:bg-transparent dark:border-teal-400">
           <section className="flex flex-col">
             <div>
@@ -117,6 +99,33 @@ function PostEventFormComponent(props) {
               />
             </div>
           </section>
+          
+          <section className="grid grid-cols-2 gap-6 py-6">
+            <section>
+              <Field
+                autoComplete="new-password"
+                className={formStyleClasses.input}
+                component={ValidatedInput}
+                label="Organization Name"
+                name="organizationName"
+                type="text"
+                id="organizationName"
+              />
+            </section>
+            <section>
+              <Field
+                autoComplete="new-password"
+                id="organizationUrl"
+                component={ValidatedInput}
+                label="Organization URL"
+                name="organizationUrl"
+                type="text"
+                className={formStyleClasses.input}
+              />
+              {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
+            </section>
+          </section>
+
           <section className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2">
             <section className="grid gap-6">
               <section className="grid grid-cols-2 gap-2">
@@ -138,20 +147,19 @@ function PostEventFormComponent(props) {
               </section>
               <section>
                 <label>Time Zone*</label>
-                <Field
-                  name="timezone"
-                  component="select"
+                <TimezoneSelect
                   className={formStyleClasses.select}
-                >
-                  <option value={null}>Select a time zone</option>
-                  {timezones.map(({ name, text }) => {
-                    return (
-                      <option key={text} value={text}>
-                        {name}
-                      </option>
-                    );
-                  })}
-                </Field>
+                  value={values.timezone}
+                  styles={{
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: 'none',
+                    }),
+                  }}
+                  onChange={(val) => setFieldValue('timezone', val)}
+                />
               </section>
               <section>
                 <CountryRegionField />

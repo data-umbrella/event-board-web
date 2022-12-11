@@ -20,6 +20,7 @@ const DatePickerField = ({ ...props }) => {
       </label>
 
       <DatePicker
+        id={props.name}
         {...field}
         {...props}
         placeholderText={new Date().toLocaleDateString()}
