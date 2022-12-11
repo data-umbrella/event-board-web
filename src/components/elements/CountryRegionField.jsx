@@ -7,21 +7,22 @@ import formStyleClasses from 'styles/forms';
 
 function CountryRegionField ({ ...props }) {
   const { setFieldValue } = useFormikContext();
-  const [field] = useField(props);
+  const [countryField] = useField({ ...props, name: 'country' });
+  const [regionField] = useField({ ...props, name: 'region' });
 
   return (
     <div className="grid grid-cols-2 gap-2">
       <CountryDropdown
         className="block w-full"
         classes={formStyleClasses.select}
-        value={field.value.country}
+        value={countryField.value || ''}
         onChange={(val) => setFieldValue('country', val)}
       />
       <RegionDropdown
         className="block w-full"
-        country={field.value.country}
-        value={field.value.region}
-        classes={formStyleClasses.select}
+        country={countryField.value}
+        value={regionField.value}
+        classes={formStyleClasses.select || ''}
         onChange={(val) => setFieldValue('region', val)}
       />
     </div>

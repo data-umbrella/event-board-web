@@ -19,7 +19,7 @@ export const eventProperties = {
   'cfpDeadline': '',
   'city': '',
   'description': '',
-  'endDate': new Date(),
+  'endDate': null,
   'endTime': '',
   'eventName': '',
   'eventType': '',
@@ -40,7 +40,7 @@ export const eventProperties = {
   'eventRegistrationUrl': '',
   'codeOfConductUrl': '',
   'speakers': [],
-  'startDate': new Date(),
+  'startDate': '',
   'startTime': '',
   'state': '',
   'tags': "",
@@ -50,8 +50,8 @@ export const eventProperties = {
   'discount': '',
   'location': '',
   'published': false,
-  'country': null,
-  'region': null,
+  'country': '',
+  'region': '',
 };
 
 export const CALENDAR_EVENTS = [

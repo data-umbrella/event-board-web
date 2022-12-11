@@ -29,6 +29,26 @@ import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
 import CountryRegionField from "./CountryRegionField";
 
+// <Field
+//   autoComplete="new-password"
+//   className={formStyleClasses.input}
+//   component={ValidatedInput}
+//   label="Organization Name"
+//   name="organizationName"
+//   type="text"
+//   id="organizationName"
+// />
+// <section className="mt-4 md:mt-0">
+//   <label htmlFor="organizationUrl">Organization URL</label>
+//   <Field
+//     autoComplete="new-password"
+//     id="organizationUrl"
+//     name="organizationUrl"
+//     className={formStyleClasses.input}
+//   />
+//   {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
+// </section>
+
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
   async function handleImageChange(e) {
@@ -50,27 +70,33 @@ function PostEventFormComponent(props) {
       {/* Organization details section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
-          Organization Details
+          Event Information
         </h2>
+
         <section className={formStyleClasses.organizationDetail}>
-          <Field
-            autoComplete="new-password"
-            className={formStyleClasses.input}
-            component={ValidatedInput}
-            label="Organization Name"
-            name="organizationName"
-            type="text"
-            id="organizationName"
-          />
-          <section className="mt-4 md:mt-0">
-            <label htmlFor="organizationUrl">Organization URL</label>
+          <div className="pb-4">
             <Field
               autoComplete="new-password"
-              id="organizationUrl"
-              name="organizationUrl"
+              className={formStyleClasses.input}
+              component={ValidatedInput}
+              label="Event Name*"
+              name="eventName"
+              type="text"
+              id="eventName"
+            />
+          </div>
+          <section className="grid grid-cols-2 gap-6">
+            <DatePickerField
+              name="startDate"
+              className={formStyleClasses.input}
+              label="Start Date*"
+            />
+
+            <DatePickerField
+              name="endDate"
+              label="End Date"
               className={formStyleClasses.input}
             />
-            {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
           </section>
         </section>
       </section>
@@ -80,44 +106,19 @@ function PostEventFormComponent(props) {
         <h2 className="pb-4 text-xl font-bold md:text-2xl">Event Details</h2>
         <section className="rounded border border-slate-300 bg-white p-6 dark:bg-transparent dark:border-teal-400">
           <section className="flex flex-col">
-            <div className="max-w-sm pb-4">
-              <Field
-                autoComplete="new-password"
-                className={formStyleClasses.input}
-                component={ValidatedInput}
-                label="Event Name*"
-                name="eventName"
-                type="text"
-                id="eventName"
-              />
-            </div>
             <div>
               <Field
                 component={ValidatedTextArea}
                 type="textarea"
                 id="description"
                 name="description"
-                label="Event Description*"
+                label="Event Description"
                 className={formStyleClasses.textarea}
               />
             </div>
           </section>
           <section className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2">
             <section className="grid gap-6">
-              <section className="grid grid-cols-2 gap-6">
-                <DatePickerField
-                  name="startDate"
-                  className={formStyleClasses.input}
-                  label="Start Date*"
-                />
-
-                <DatePickerField
-                  name="endDate"
-                  label="End Date*"
-                  className={formStyleClasses.input}
-                />
-              </section>
-
               <section className="grid grid-cols-2 gap-2">
                 <div className="col-span-1">
                   <TimeSlotField
@@ -422,6 +423,7 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required("Field is required"),
   startDate: Yup.string().required("Field is required"),
+  organizationUrl: Yup.string().url('Field must be a valid URL'),
 });
 
 /**
