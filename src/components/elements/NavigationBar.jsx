@@ -78,6 +78,11 @@ function NavigationBar() {
               </a>
             </div>
             <div>
+              <a href="/events/weekly-digest" className={navStyleClasses.navLink}>
+                Weekly Digest
+              </a>
+            </div>
+            <div>
               <a href="/sponsors" className={navStyleClasses.navLink}>
                 Sponsors
               </a>
