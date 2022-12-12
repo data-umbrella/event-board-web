@@ -17,7 +17,7 @@ function EditEventButton({ evt }) {
   }
 
   if (!isAuthenticated) return;
-  if (!isStaff && authorId !== userId) return;
+  // if (!isStaff && authorId !== userId) return;
 
   return (
     <div className="text-right">

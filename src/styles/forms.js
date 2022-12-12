@@ -7,7 +7,7 @@ const formStyleClasses = {
     dark:bg-du-deepPurple
     w-full
     rounded-md
-    h-14
+    min-h-14
     p-2
     text-xl
     text-[#545454]
@@ -31,7 +31,7 @@ const formStyleClasses = {
     block
     w-full
     rounded-md
-    h-14
+    min-h-14
     border
     border-black
     dark:border-teal-400
