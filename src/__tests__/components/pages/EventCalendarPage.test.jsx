@@ -6,6 +6,8 @@ import { act } from 'react-dom/test-utils';
 import moment from 'moment';
 import { DATE_PICKER_STRING_FORMAT } from  'constants/dates';
 
+const MOCK_DEFAULT_START_DATE = '08/17/2022';
+
 const EXAMPLE_EVENT = {
   id: 1,
   eventName: 'Example event name',
@@ -19,7 +21,7 @@ jest.mock('hooks/events', () => ({
     { results: [EXAMPLE_EVENT] },
     jest.fn(),
     jest.fn(),
-    { startDate: '08/17/2022', endDate: '08/17/2022' },
+    { startDate: MOCK_DEFAULT_START_DATE, endDate: MOCK_DEFAULT_START_DATE },
   ]),
 }));
 
@@ -49,7 +51,7 @@ describe('Event Calendar Page', () => {
           { results: [EXAMPLE_EVENT] },
           mockSetSearch,
           jest.fn(),
-          { startDate: '08/17/2022', endDate: '08/17/2022' },
+          { startDate: MOCK_DEFAULT_START_DATE, endDate: MOCK_DEFAULT_START_DATE },
         ]
       }
     });
@@ -71,10 +73,7 @@ describe('Event Calendar Page', () => {
       });
 
       expect(mockSetSearch.mock.calls[0][0]['search']).toEqual('test query');
-      expect(mockSetSearch.mock.calls[0][0]['startDate'])
-        .toEqual(moment().subtract(2, 'weeks').format(
-          DATE_PICKER_STRING_FORMAT
-        ));
+      expect(mockSetSearch.mock.calls[0][0]['startDate']).toEqual(MOCK_DEFAULT_START_DATE);
     });
   });
 });
