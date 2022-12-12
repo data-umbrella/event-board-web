@@ -44,7 +44,7 @@ describe('Event Calendar Page', () => {
     beforeEach(() => {
       require('hooks/events').useSearchEvents = () => {
         return [
-          {results: [EXAMPLE_EVENT] },
+          { results: [EXAMPLE_EVENT] },
           mockSetSearch,
         ]
       }
