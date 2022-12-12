@@ -5,9 +5,9 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 // Constants
-import timezones from "constants/timezones";
 import { eventProperties } from "constants/events";
 import formStyleClasses from "styles/forms";
+import TimezoneSelect from 'react-timezone-select';
 
 // Components
 import DatePickerField from "components/elements/DatePickerField";
@@ -19,7 +19,6 @@ import AccessibilityDetailField from "components/elements/AccessibilityDetailFie
 import SpeakersField from "components/elements/SpeakersField";
 import LanguageField from "components/elements/LanguageField";
 import TextField from "components/elements/TextField";
-import CitySelect from "components/elements/CitySelect";
 import TimeSlotField from "components/elements/TimeSlotField";
 import EventHashtagField from "./EventHashtagField";
 // import SocialMediaField from 'components/elements/SocialMediaField';
@@ -27,6 +26,7 @@ import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
+import CountryRegionField from "./CountryRegionField";
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
@@ -46,77 +46,87 @@ function PostEventFormComponent(props) {
           admins.
         </p>
       </section>
-      {/* Organization details section */}
+      {/* Event Information Section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
-          Organization Details
+          Event Information
         </h2>
+
         <section className={formStyleClasses.organizationDetail}>
-          <Field
-            autoComplete="new-password"
-            className={formStyleClasses.input}
-            component={ValidatedInput}
-            label="Organization Name"
-            name="organizationName"
-            type="text"
-            id="organizationName"
-          />
-          <section className="mt-4 md:mt-0">
-            <label htmlFor="organizationUrl">Organization URL</label>
+          <div className="pb-4">
             <Field
               autoComplete="new-password"
-              id="organizationUrl"
-              name="organizationUrl"
+              className={formStyleClasses.input}
+              component={ValidatedInput}
+              label="Event Name*"
+              name="eventName"
+              type="text"
+              id="eventName"
+            />
+          </div>
+          <section className="grid grid-cols-2 gap-6">
+            <DatePickerField
+              name="startDate"
+              className={formStyleClasses.input}
+              label="Start Date*"
+            />
+
+            <DatePickerField
+              name="endDate"
+              label="End Date"
               className={formStyleClasses.input}
             />
-            {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
           </section>
         </section>
       </section>
 
       {/* Event Details Section */}
       <section>
-        <h2 className="pb-4 text-xl font-bold md:text-2xl">Event Details</h2>
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">
+          Event Details
+        </h2>
         <section className="rounded border border-slate-300 bg-white p-6 dark:bg-transparent dark:border-teal-400">
           <section className="flex flex-col">
-            <div className="max-w-sm pb-4">
-              <Field
-                autoComplete="new-password"
-                className={formStyleClasses.input}
-                component={ValidatedInput}
-                label="Event Name*"
-                name="eventName"
-                type="text"
-                id="eventName"
-              />
-            </div>
             <div>
               <Field
                 component={ValidatedTextArea}
                 type="textarea"
                 id="description"
                 name="description"
-                label="Event Description*"
+                label="Event Description"
                 className={formStyleClasses.textarea}
               />
             </div>
           </section>
+          
+          <section className="grid grid-cols-2 gap-6 py-6">
+            <section>
+              <Field
+                autoComplete="new-password"
+                className={formStyleClasses.input}
+                component={ValidatedInput}
+                label="Organization Name"
+                name="organizationName"
+                type="text"
+                id="organizationName"
+              />
+            </section>
+            <section>
+              <Field
+                autoComplete="new-password"
+                id="organizationUrl"
+                component={ValidatedInput}
+                label="Organization URL"
+                name="organizationUrl"
+                type="text"
+                className={formStyleClasses.input}
+              />
+              {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
+            </section>
+          </section>
+
           <section className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2">
             <section className="grid gap-6">
-              <section className="grid grid-cols-2 gap-6">
-                <DatePickerField
-                  name="startDate"
-                  className={formStyleClasses.input}
-                  label="Start Date*"
-                />
-
-                <DatePickerField
-                  name="endDate"
-                  label="End Date*"
-                  className={formStyleClasses.input}
-                />
-              </section>
-
               <section className="grid grid-cols-2 gap-2">
                 <div className="col-span-1">
                   <TimeSlotField
@@ -136,23 +146,22 @@ function PostEventFormComponent(props) {
               </section>
               <section>
                 <label>Time Zone*</label>
-                <Field
-                  name="timezone"
-                  component="select"
+                <TimezoneSelect
                   className={formStyleClasses.select}
-                >
-                  <option value={null}>Select a time zone</option>
-                  {timezones.map(({ name, text }) => {
-                    return (
-                      <option key={text} value={text}>
-                        {name}
-                      </option>
-                    );
-                  })}
-                </Field>
+                  value={values.timezone}
+                  styles={{
+                    control: (baseStyles) => ({
+                      ...baseStyles,
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: 'none',
+                    }),
+                  }}
+                  onChange={(val) => setFieldValue('timezone', val)}
+                />
               </section>
-              <section className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                <CitySelect />
+              <section>
+                <CountryRegionField />
               </section>
               <section>
                 <LanguageField />
@@ -176,8 +185,7 @@ function PostEventFormComponent(props) {
                     className={formStyleClasses.input}
                   />
                 </div>
-              </section>
-              <section className="grid grid-cols-2 gap-6">
+
                 <div>
                   <label>Registration Start Date</label>
                   <DatePickerField
@@ -186,7 +194,6 @@ function PostEventFormComponent(props) {
                   />
                 </div>
               </section>
-
               <section
                 role="group"
                 aria-labelledby="virtual-option-radio-group"
@@ -409,20 +416,6 @@ export function mapPropsToValues(props) {
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  switch (values["meetingType"]) {
-  case "in-person":
-    values["in_person"] = true;
-    break;
-  case "virtual":
-    values["virtual"] = true;
-    break;
-  case "both":
-    values["in_person"] = true;
-    values["virtual"] = true;
-    break;
-  default:
-    break;
-  }
   props.handleFormSubmit(values);
 }
 
@@ -434,7 +427,8 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required("Field is required"),
-  description: Yup.string().required("Field is required"),
+  startDate: Yup.string().required("Field is required"),
+  organizationUrl: Yup.string().url('Field must be a valid URL'),
 });
 
 /**
