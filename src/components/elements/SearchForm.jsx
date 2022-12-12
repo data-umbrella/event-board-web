@@ -17,6 +17,8 @@ import LanguageField from 'components/elements/LanguageField';
 import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
 
+import { DATE_PICKER_STRING_FORMAT } from 'constants/dates';
+
 function SearchFormComponent({ clearFilters }) {
   return (
     <>
@@ -121,11 +123,12 @@ function SearchFormComponent({ clearFilters }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
+
 export function mapPropsToValues (props) {
   return {
     search: props.search || '',
-    startDate: props.startDate || moment().format('MM/DD/YYYY'),
-    endDate: props.endDate || moment().add(6, 'months').format('MM/DD/YYYY'),
+    startDate: props.startDate || moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT),
+    endDate: props.endDate || moment().add(6, 'months').format(DATE_PICKER_STRING_FORMAT),
     price: props.price || '',
     eventType: props.eventType || '',
     topic: props.topic || '',

@@ -58,9 +58,9 @@ export function useFeaturedEvents() {
 
 export function useSearchEvents({ pageSize, page }) {
   const [searchFilters, setSearchFilters] = useState({
-    startDate: moment().format(DEFAULT_DATE_FORMAT),
-    endDate: moment().add(5, "months").format(DEFAULT_DATE_FORMAT),
-    search: "",
+    startDate: moment().subtract(2, 'weeks').format(DEFAULT_DATE_FORMAT),
+    endDate: moment().add(6, 'months').format(DEFAULT_DATE_FORMAT),
+    search: '',
     pageSize,
     page,
   });

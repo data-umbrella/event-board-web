@@ -186,8 +186,7 @@ function PostEventFormComponent(props) {
                     className={formStyleClasses.input}
                   />
                 </div>
-              </section>
-              <section className="grid grid-cols-2 gap-6">
+
                 <div>
                   <label>Registration Start Date</label>
                   <DatePickerField
@@ -196,7 +195,6 @@ function PostEventFormComponent(props) {
                   />
                 </div>
               </section>
-
               <section
                 role="group"
                 aria-labelledby="virtual-option-radio-group"

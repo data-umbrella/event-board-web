@@ -1,1 +1,2 @@
 export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
+export const DATE_PICKER_STRING_FORMAT = 'MM/DD/YYYY';

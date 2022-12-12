@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
 import { act } from 'react-dom/test-utils';
 import moment from 'moment';
+import { DATE_PICKER_STRING_FORMAT } from  'constants/dates';
 
 const EXAMPLE_EVENT = {
   id: 1,
@@ -66,7 +67,10 @@ describe('Event Calendar Page', () => {
       });
 
       expect(mockSetSearch.mock.calls[0][0]['search']).toEqual('test query');
-      expect(mockSetSearch.mock.calls[0][0]['startDate']).toEqual(moment().format('MM/DD/YYYY'));
+      expect(mockSetSearch.mock.calls[0][0]['startDate'])
+        .toEqual(moment().subtract(2, 'weeks').format(
+          DATE_PICKER_STRING_FORMAT
+        ));
     });
   });
 });
