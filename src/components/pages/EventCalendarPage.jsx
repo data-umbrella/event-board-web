@@ -3,18 +3,14 @@ import SearchForm from 'components/elements/SearchForm';
 import { useSearchEvents } from 'hooks/events';
 import EventCalendarView from 'components/elements/EventCalendarView';
 import EventListView from 'components/elements/EventListView';
-import { useSearchParams } from 'react-router-dom';
 
 function EventCalendarPage() {
-  let [searchParams, setSearchParams] = useSearchParams();
-  const pageSize = searchParams.get("pageSize") || 20;
-  const page = searchParams.get("page") || 1;
-
-  const [searchResultEvents, setSearchFilters, clearFilters, searchFilters] =
-    useSearchEvents({
-      pageSize,
-      page,
-    });
+  const [
+    searchResultEvents,
+    setSearchFilters,
+    clearFilters,
+    searchFilters,
+  ] = useSearchEvents();
 
   const events = searchResultEvents.results || [];
 
@@ -24,6 +20,8 @@ function EventCalendarPage() {
         <SearchForm
           handleFormSubmit={setSearchFilters}
           clearFilters={clearFilters}
+          startDate={searchFilters.startDate}
+          endDate={searchFilters.endDate}
         />
       </div>
 

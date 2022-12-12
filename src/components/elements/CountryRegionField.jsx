@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { useFormikContext, useField } from 'formik';
 import formStyleClasses from 'styles/forms';
-
-// NOTE: 
 
 function CountryRegionField ({ ...props }) {
   const { setFieldValue } = useFormikContext();

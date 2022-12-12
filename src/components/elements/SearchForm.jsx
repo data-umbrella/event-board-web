@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // Third-party dependencies
-import moment from 'moment';
 
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -16,8 +15,6 @@ import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
 import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
-
-import { DATE_PICKER_STRING_FORMAT } from 'constants/dates';
 
 function SearchFormComponent({ clearFilters }) {
   return (
@@ -123,12 +120,11 @@ function SearchFormComponent({ clearFilters }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-
 export function mapPropsToValues (props) {
   return {
     search: props.search || '',
-    startDate: props.startDate || moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT),
-    endDate: props.endDate || moment().add(6, 'months').format(DATE_PICKER_STRING_FORMAT),
+    startDate: props.startDate,
+    endDate: props.endDate,
     price: props.price || '',
     eventType: props.eventType || '',
     topic: props.topic || '',

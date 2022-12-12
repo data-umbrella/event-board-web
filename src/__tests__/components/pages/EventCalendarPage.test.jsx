@@ -18,6 +18,8 @@ jest.mock('hooks/events', () => ({
   useSearchEvents: () => ([
     { results: [EXAMPLE_EVENT] },
     jest.fn(),
+    jest.fn(),
+    { startDate: '08/17/2022', endDate: '08/17/2022' },
   ]),
 }));
 
@@ -46,6 +48,8 @@ describe('Event Calendar Page', () => {
         return [
           { results: [EXAMPLE_EVENT] },
           mockSetSearch,
+          jest.fn(),
+          { startDate: '08/17/2022', endDate: '08/17/2022' },
         ]
       }
     });

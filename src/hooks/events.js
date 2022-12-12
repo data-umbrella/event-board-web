@@ -1,13 +1,15 @@
 import { EVENTS_URL } from "constants/urls";
 import camelcaseKeys from "camelcase-keys";
 import moment from "moment";
+import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { arrayifyTags } from "utils/strings";
 import {
   fetchEventsForSearchFilters,
   fetchFeaturedEvents,
 } from "services/events";
-import { DEFAULT_DATE_FORMAT } from "constants/dates";
+import { DATE_PICKER_STRING_FORMAT, DEFAULT_DATE_FORMAT } from "constants/dates";
+import { useSearchParams } from "react-router-dom";
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();
@@ -56,10 +58,15 @@ export function useFeaturedEvents() {
   return featuredEvents;
 }
 
-export function useSearchEvents({ pageSize, page }) {
+export function useSearchEvents() {
+  const [searchParams] = useSearchParams();
+  const pageSize = searchParams.get('pageSize') || 20;
+  const page = searchParams.get('page') || 1;
+  const startDate = searchParams.get('startDate') || moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT);
+  const endDate = searchParams.get('endDate') || moment().add(6, 'months').format(DATE_PICKER_STRING_FORMAT);
   const [searchFilters, setSearchFilters] = useState({
-    startDate: moment().subtract(2, 'weeks').format(DEFAULT_DATE_FORMAT),
-    endDate: moment().add(6, 'months').format(DEFAULT_DATE_FORMAT),
+    startDate,
+    endDate,
     search: '',
     pageSize,
     page,
@@ -67,19 +74,42 @@ export function useSearchEvents({ pageSize, page }) {
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
   function handleSearchFiltersChange(newSearchFilters) {
-    setSearchFilters({
+    const newFilters = {
       ...newSearchFilters,
+      pageSize,
+      startDate: moment(newSearchFilters.startDate).format(DATE_PICKER_STRING_FORMAT),
+      endDate: moment(newSearchFilters.endDate).format(DATE_PICKER_STRING_FORMAT),
+    }
+    setSearchFilters({ ...newFilters });
+    // NOTE: preventResetScroll is not working as expected.
+    // setSearchParams({ ...newFilters }, { preventResetScroll: true });
+    const urlParams = queryString.stringify({
+      ...newFilters,
       startDate: moment(newSearchFilters.startDate).format(DEFAULT_DATE_FORMAT),
       endDate: moment(newSearchFilters.endDate).format(DEFAULT_DATE_FORMAT),
     });
+
+    window.history.replaceState(null, null, `?${urlParams}`);
   }
 
   function clearFilters() {
-    setSearchFilters({
-      startDate: moment().format(DEFAULT_DATE_FORMAT),
-      endDate: moment().add(5, "months").format(DEFAULT_DATE_FORMAT),
-      search: "",
+    const clearedFilters = {
+      page: 1,
+      pageSize: 20,
+      startDate: moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT),
+      endDate: moment().add(5, 'months').format(DATE_PICKER_STRING_FORMAT),
+      search: '',
+    }
+
+    setSearchFilters({ ...clearedFilters });
+
+    // NOTE: preventResetScroll is not working as expected.
+    const urlParams = queryString.stringify({
+      ...clearedFilters,
+      startDate: moment(clearedFilters.startDate).format(DEFAULT_DATE_FORMAT),
+      endDate: moment(clearedFilters.endDate).format(DEFAULT_DATE_FORMAT),
     });
+    window.history.replaceState(null, null, `?${urlParams}`);
   }
 
   useEffect(() => {

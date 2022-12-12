@@ -5,10 +5,9 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 // Constants
-import timezones from "constants/timezones";
 import { eventProperties } from "constants/events";
 import formStyleClasses from "styles/forms";
-import TimezoneSelect from 'react-timezone-select'
+import TimezoneSelect from 'react-timezone-select';
 
 // Components
 import DatePickerField from "components/elements/DatePickerField";
@@ -151,7 +150,7 @@ function PostEventFormComponent(props) {
                   className={formStyleClasses.select}
                   value={values.timezone}
                   styles={{
-                    control: (baseStyles, state) => ({
+                    control: (baseStyles) => ({
                       ...baseStyles,
                       border: 'none',
                       outline: 'none',

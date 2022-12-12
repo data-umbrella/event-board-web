@@ -16,7 +16,7 @@ const styles = {
 function GridView({ events }) {
   return (
     <div className={`${styles.searchEventGroup}`}>
-      {events.sort((evt) => evt.startDate).map(eventData => {
+      {events.map(eventData => {
         return (
           <SearchEventCard key={eventData.id} eventData={eventData} />
         )
