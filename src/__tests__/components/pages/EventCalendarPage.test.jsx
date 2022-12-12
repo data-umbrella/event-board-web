@@ -16,7 +16,7 @@ const EXAMPLE_EVENT = {
 
 jest.mock('hooks/events', () => ({
   useSearchEvents: () => ([
-    [EXAMPLE_EVENT],
+    { results: [EXAMPLE_EVENT] },
     jest.fn(),
   ]),
 }));
@@ -44,7 +44,7 @@ describe('Event Calendar Page', () => {
     beforeEach(() => {
       require('hooks/events').useSearchEvents = () => {
         return [
-          [EXAMPLE_EVENT],
+          {results: [EXAMPLE_EVENT] },
           mockSetSearch,
         ]
       }
