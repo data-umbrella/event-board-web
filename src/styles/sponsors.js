@@ -22,8 +22,8 @@ const sponsorsStyleClasses = {
     underline
   `,
   imageStyle:`
-    h-30
-    w-64
+    h-64
+    w-72
     pb-4
   `,
 };
