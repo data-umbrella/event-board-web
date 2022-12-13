@@ -39,6 +39,7 @@ const formStyleClasses = {
     p-2
     text-xl
     text-[#545454]
+    dark:bg-[#151A35]
   `,
   inputContainer: `
     pr-4

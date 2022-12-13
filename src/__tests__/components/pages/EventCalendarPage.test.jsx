@@ -4,6 +4,9 @@ import { MemoryRouter } from 'react-router-dom';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
 import { act } from 'react-dom/test-utils';
 import moment from 'moment';
+import { DATE_PICKER_STRING_FORMAT } from  'constants/dates';
+
+const MOCK_DEFAULT_START_DATE = '08/17/2022';
 
 const EXAMPLE_EVENT = {
   id: 1,
@@ -15,8 +18,10 @@ const EXAMPLE_EVENT = {
 
 jest.mock('hooks/events', () => ({
   useSearchEvents: () => ([
-    [EXAMPLE_EVENT],
+    { results: [EXAMPLE_EVENT] },
     jest.fn(),
+    jest.fn(),
+    { startDate: MOCK_DEFAULT_START_DATE, endDate: MOCK_DEFAULT_START_DATE },
   ]),
 }));
 
@@ -43,8 +48,10 @@ describe('Event Calendar Page', () => {
     beforeEach(() => {
       require('hooks/events').useSearchEvents = () => {
         return [
-          [EXAMPLE_EVENT],
+          { results: [EXAMPLE_EVENT] },
           mockSetSearch,
+          jest.fn(),
+          { startDate: MOCK_DEFAULT_START_DATE, endDate: MOCK_DEFAULT_START_DATE },
         ]
       }
     });
@@ -66,7 +73,7 @@ describe('Event Calendar Page', () => {
       });
 
       expect(mockSetSearch.mock.calls[0][0]['search']).toEqual('test query');
-      expect(mockSetSearch.mock.calls[0][0]['startDate']).toEqual(moment().format('MM/DD/YYYY'));
+      expect(mockSetSearch.mock.calls[0][0]['startDate']).toEqual(MOCK_DEFAULT_START_DATE);
     });
   });
 });

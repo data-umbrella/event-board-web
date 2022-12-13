@@ -1,8 +1,8 @@
 import React from 'react';
 import sponsorsStyleClasses from 'styles/sponsors';
-import CZIImg from 'assets/CZIlogo.png';
-import DigitalOceanImg from 'assets/Digitaloceanlogo.png';
 import GoogleImg from 'assets/sponsors/Google_FullColor.png';
+import CZIImg from 'assets/sponsors/CZIlogo.png';
+import DigitalOceanImg from 'assets/sponsors/Digitaloceanlogo.png';
 
 
 const sponsorsList = [

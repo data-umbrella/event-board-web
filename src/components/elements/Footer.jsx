@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DONATE_URL } from 'constants/urls';
-import ExternalLinkIcon from 'assets/externalLink.svg'
-import githubWhite from 'assets/githubWhite.svg'
-import twitterWhite from 'assets/twitterWhite.svg'
-import logoDark from 'assets/logoDark.png'
-
+import ExternalLinkIcon from 'assets/ui/externalLink.svg'
+import githubWhite from 'assets/social_media/githubWhite.svg'
+import twitterWhite from 'assets/social_media/twitterWhite.svg'
+import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png'
 
 function Footer() {
   return (

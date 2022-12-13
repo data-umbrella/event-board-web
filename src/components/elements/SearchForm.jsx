@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // Third-party dependencies
-import moment from 'moment';
 
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -124,8 +123,8 @@ function SearchFormComponent({ clearFilters }) {
 export function mapPropsToValues (props) {
   return {
     search: props.search || '',
-    startDate: props.startDate || moment().format('MM/DD/YYYY'),
-    endDate: props.endDate || moment().add(6, 'months').format('MM/DD/YYYY'),
+    startDate: props.startDate,
+    endDate: props.endDate,
     price: props.price || '',
     eventType: props.eventType || '',
     topic: props.topic || '',

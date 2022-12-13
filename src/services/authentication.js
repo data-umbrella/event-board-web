@@ -4,7 +4,6 @@ import {
   VERIFY_URL,
   MAGIC_LINK_URL,
 } from 'constants/urls';
-import { iOSPlatform } from 'utils/devices';
 import { setUserToken } from 'utils/sessions';
 import { buildAuthenticatedHeaders } from 'utils/api';
 import { DEFAULT_HEADERS } from 'constants/api';
@@ -32,9 +31,7 @@ export async function fetchVerification(token, email) {
 
     const verificationJSON = await verifyResponse.json();
 
-    if (iOSPlatform()) {
-      setUserToken(verificationJSON.token);
-    }
+    setUserToken(verificationJSON.token);
 
     const currentUserResponse = await fetch(CURRENT_USER_URL, {
       method: 'POST',
