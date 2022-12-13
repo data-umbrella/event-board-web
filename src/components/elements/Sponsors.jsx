@@ -14,17 +14,20 @@ function Sponsors() {
     {
       name: 'CZI',
       sponsorImg: colorTheme == 'light' ? CZLILight : CZLIDark,
-      url: 'https://chanzuckerberg.com/science/programs-resources/open-science/communitiesofpractice/data-umbrella/'
+      url: 'https://chanzuckerberg.com/science/programs-resources/open-science/communitiesofpractice/data-umbrella/',
+      css: sponsorsStyleClasses.cziLogoCSS
     },
     {
       name: 'Google Open Source',
       sponsorImg: GoogleImg,
-      url: 'https://opensource.google/'
+      url: 'https://opensource.google/',
+      css: sponsorsStyleClasses.googleLogoCSS
     },
     {
       name: 'Digital Ocean',
       sponsorImg: colorTheme == 'light' ? DigitalOceanLight : DigitalOceanDark,
-      url: 'https://www.digitalocean.com/'
+      url: 'https://www.digitalocean.com/',
+      css: sponsorsStyleClasses.digitalOceanLogoCSS
     },
   ];
 
@@ -32,10 +35,12 @@ function Sponsors() {
     <div className={sponsorsStyleClasses.sponsorsGrid}>
       {sponsorsList.map(sponsorInfo => {
         return (
-          <a key={sponsorInfo.name} href={sponsorInfo.url} className="rounded flex flex-col justify-center items-center">
-            <img src={sponsorInfo.sponsorImg} alt="logo" className={sponsorsStyleClasses.imageStyle} />
+          <div key={sponsorInfo.name} className={sponsorsStyleClasses.logoContainer}>
+            <a key={sponsorInfo.name} href={sponsorInfo.url} className="rounded flex flex-col justify-center items-center h-64">
+              <img src={sponsorInfo.sponsorImg} alt="logo" className={sponsorInfo.css} />
+            </a>
             {sponsorInfo.name}
-          </a>
+          </div>
         )
       })}
     </div>

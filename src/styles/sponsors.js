@@ -1,19 +1,16 @@
 const sponsorsStyleClasses = {
   sponsorsGroup: `
     container
+    h-fit
   `,
   sponsorsGrid:`
-    grid
+    flex
+    justify-evenly
+    items-center
+    flex-wrap
     gap-4
-    md:gap-16
-    lg:gap-24
-    md:grid-cols-3
-    py-5
-    md:py-16
-    px-14
-    mx-auto
-    sm:grid-cols-none
     text-center
+    h-auto
   `,
   hyperlinks:`
     text-blue-500
@@ -21,9 +18,24 @@ const sponsorsStyleClasses = {
     dark:text-[#0A66C2]
     underline
   `,
-  imageStyle:`
+  logoContainer:`
+    h-54
+    w-72  
+    flex-col
+    items-center
+    justify-center
+  `,
+  cziLogoCSS:`
     h-64
     w-72
+    pb-4
+  `,
+  googleLogoCSS:`
+    h-54
+    pb-4
+  `,
+  digitalOceanLogoCSS:`
+    h-64
     pb-4
   `,
 };
