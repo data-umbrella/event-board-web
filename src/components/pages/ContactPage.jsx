@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import contactMobile from 'assets/contact-mobile.png'
-import contact from 'assets/contact-image.png';
+import contactMobile from 'assets/ui/contact-mobile.png'
+import contact from 'assets/ui/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
 import { postContactEmail } from 'services/contact-emails';
 
@@ -78,7 +78,7 @@ function ContactUsFormComponent() {
             <Field
               component="textarea"
               name="message"
-              className={`${formStyleClasses.textarea} border-black`}
+              className={`${formStyleClasses.textarea}`}
             />
           </div>
 
@@ -89,7 +89,12 @@ function ContactUsFormComponent() {
               {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
                 Code of Conduct
               </Link>* */}
-              <a href="https://www.dataumbrella.org/about/code-of-conduct" className={formStyleClasses.hyperlinks}>
+              <a 
+                href="https://www.dataumbrella.org/about/code-of-conduct" 
+                target="_blank" 
+                rel="noreferrer"
+                className={`${formStyleClasses.hyperlinks} dark:text-white`}
+              >
                 Code of Conduct
               </a>*
             </label>

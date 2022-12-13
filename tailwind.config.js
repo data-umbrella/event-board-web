@@ -13,10 +13,13 @@ module.exports = {
       },
       colors: {
         'du-purple': {
+          100:'#5C456E',
           200: '#E7E1F6',
+          300: '#EEEAF8',
           500: '#6B26FF',
           600: '#783D86',
           700: '#6216F8',
+          800: '#9747FF'
         },
         'du-gray': '#F7FAFC',
         'du-indigo': {

@@ -8,7 +8,7 @@ const styleClasses = {
     mb-10
   `,
   eventBoardHeading: `
-    text-4xl
+    text-[40px]
     font-extrabold
     dark:text-slate-50
   `,
@@ -29,7 +29,9 @@ function IntroductionSection() {
         <div>
           <a
             href={DONATE_URL}
-            className="font-medium bg-du-deepPurple text-white px-12 py-2 text-lg rounded-lg hidden lg:float-right lg:block"
+            target="_blank" 
+            rel="noreferrer"
+            className="font-medium bg-du-deepPurple dark:bg-du-purple-500 text-white px-12 py-2 text-lg rounded-lg hidden lg:float-right lg:block"
           >
               Donate
           </a>

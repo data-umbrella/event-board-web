@@ -8,11 +8,23 @@ import { useFeaturedEvents, useSearchEvents } from 'hooks/events';
 
 function HomePage() {
   const featuredEvents = useFeaturedEvents();
-  const [searchResultEvents, setSearchFilters, clearFilters] = useSearchEvents();
 
-  function handleSearch (values) {
+  const [
+    searchResultEvents,
+    setSearchFilters,
+    clearFilters,
+    searchFilters
+  ] = useSearchEvents({});
+
+  function handlePageChange(page) {
+    setSearchFilters({ ...searchFilters, page });
+  }
+
+  function handleSearch(values) {
     setSearchFilters(values);
   }
+
+  const { results, ...meta } = searchResultEvents;
 
   return (
     <div className="mb-10">
@@ -21,10 +33,16 @@ function HomePage() {
       <SearchForm
         handleFormSubmit={handleSearch}
         clearFilters={clearFilters}
+        startDate={searchFilters.startDate}
+        endDate={searchFilters.endDate}
       />
-      <SearchEvents events={searchResultEvents} />
+      <SearchEvents
+        events={results || []}
+        eventsMetadata={meta}
+        handlePageChange={handlePageChange}
+      />
     </div>
-  )
+  );
 }
 
 export default HomePage;

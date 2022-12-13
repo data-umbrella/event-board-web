@@ -13,6 +13,7 @@ function formatDate(date) {
 
 export function buildFormDataObject(body) {
   body.tags = stringifyTags(body.tags);
+  body.hash_tag = stringifyTags(body.hashTag);
   body.speakers = stringifyTags(body.speakers);
   body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
 
@@ -23,8 +24,6 @@ export function buildFormDataObject(body) {
   formDataPayload.start_date = formatDate(formDataPayload.start_date);
   formDataPayload.end_date = formatDate(formDataPayload.end_date);
   formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
-  formDataPayload.in_person = null;
-  formDataPayload.virtual = null;
 
   return formDataPayload;
 }
@@ -32,7 +31,6 @@ export function buildFormDataObject(body) {
 export function buildFormData(rawData) {
   const formData = new FormData();
   const formDataPayload = buildFormDataObject(rawData);
-
   EVENT_ATTRIBUTES.forEach(attributeKey => {
     if (attributeKey === 'image_file' && formDataPayload.image_file) {
       formData.append(
@@ -50,7 +48,6 @@ export function buildFormData(rawData) {
 
 export async function api(method, resource, body) {
   let json;
-
   try {
     const response = await fetch(`${API_URL}/api/v1/${resource}`, {
       method,

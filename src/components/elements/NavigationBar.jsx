@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
 import useDarkMode from 'hooks/dark-mode';
 import DropdownMenu from 'components/elements/DropdownMenu';
-import logoImg from 'assets/logo.svg';
-import logoDark from 'assets/logoDark.png'
-import darkMode from 'assets/dark-mode.svg';
-import lightMode from 'assets/light-mode.svg';
+import logoImg from 'assets/du_sc_logos/logo_event_board.svg';
+import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png'
+import darkMode from 'assets/ui/dark-mode.svg';
+import lightMode from 'assets/ui/light-mode.svg';
 import { navStyleClasses } from 'styles/navbar';
 import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
-import ExternalLink from 'assets/externalLink.svg'
-import ExternalLinkDark from 'assets/externalLinkDark.svg'
+import ExternalLink from 'assets/ui/externalLink.svg'
+import ExternalLinkDark from 'assets/ui/externalLinkDark.svg'
 
 function NavigationBar() {
   const auth = useAuth();
@@ -33,50 +33,68 @@ function NavigationBar() {
       >
         <div className="flex">
           <div className="">
-            <Link to="/"><img src={colorTheme === 'dark' ? logoImg : logoDark} alt="logo" /></Link>
+            <Link to="/">
+              <img
+                src={colorTheme === "dark" ? logoImg : logoDark}
+                alt="logo"
+              />
+            </Link>
           </div>
 
-          <div className=""></div>
           <div className="flex w-full flex-row-reverse">
             <div>
               <img
-                src={colorTheme === 'dark' ? darkMode : lightMode}
+                src={colorTheme === "dark" ? darkMode : lightMode}
                 onClick={() => setTheme(colorTheme)}
                 className={navStyleClasses.modeImage}
                 alt="logo"
               />
             </div>
             <div className={navStyleClasses.navLink}>
-              {auth.currentUser.isAuthenticated
-                ? <button onClick={signOut}>Sign Out</button>
-                : <Link to="/sign-in">Sign In</Link>
-              }
+              {auth.currentUser.isAuthenticated ? (
+                <button onClick={signOut}>Sign Out</button>
+              ) : (
+                <Link
+                  to="/sign-in"
+                  className="dark:text-slate-50 dark:hover:text-teal-400"
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
-            <div className={navStyleClasses.navLink}>
+            <div>
               <a
                 href="https://www.dataumbrella.org"
                 target="_blank"
                 rel="noreferrer"
+                className={navStyleClasses.navLink}
               >
                 Data Umbrella
                 <img
-                  src={colorTheme === 'dark' ? ExternalLinkDark : ExternalLink}
+                  src={colorTheme === "dark" ? ExternalLinkDark : ExternalLink}
                   className="inline pl-1"
                   alt="externalLink"
                 />
               </a>
             </div>
-            <div className={navStyleClasses.navLink}>
-              <a href="/sponsors">
+            <div>
+              <a href="/events/weekly-digest" className={navStyleClasses.navLink}>
+                Weekly Digest
+              </a>
+            </div>
+            <div>
+              <a href="/sponsors" className={navStyleClasses.navLink}>
                 Sponsors
               </a>
             </div>
-            <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
+            <span className="inline-block font-medium hover:underline hover:text-du-purple-500 dark:text-slate-50dark:hover:text-teal-40">
+              <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
+            </span>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default NavigationBar;

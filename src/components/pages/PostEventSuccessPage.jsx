@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import confetti from 'assets/confetti.png';
+import confetti from 'assets/ui/confetti.png';
 
 function PostEventSuccessPage() {
   return (

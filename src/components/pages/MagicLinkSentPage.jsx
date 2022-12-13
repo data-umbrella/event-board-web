@@ -12,7 +12,7 @@ function MagicLinkSentPage() {
           We&apos;ve sent you a magic link to login!
         </h1>
 
-        <p className="mt-10 text-2xl">
+        <p className="mt-10 text-xl md:text-2xl">
           Please check your email <span className="font-bold">{ email }</span>
         </p>
 

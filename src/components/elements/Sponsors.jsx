@@ -5,7 +5,6 @@ import CZLIDark from 'assets/CZLILogoDark.svg';
 import DigitalOceanLight from 'assets/digitaloceanlight.svg';
 import DigitalOceanDark from 'assets/digitaloceandark.svg';
 
-
 function Sponsors() {
   const [colorTheme, setTheme] = useState(localStorage.theme);
   window.addEventListener("themeChanged", () => setTheme(localStorage.theme))

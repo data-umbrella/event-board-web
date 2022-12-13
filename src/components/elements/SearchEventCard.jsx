@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { imageUrlForEvent } from "utils/urls";
 import moment from "moment";
-import defaultThumbnail from "assets/thumbnail.png";
+import defaultThumbnail from "assets/ui/thumbnail.png";
 
 const styleClasses = {
   searchEventCard: `
@@ -49,14 +49,16 @@ function SearchEventCard({ eventData }) {
       className={styleClasses.searchEventCard}
     >
       <div
-        className="card-img"
+        className="bg-center bg-contain min-h-[192px] h-[60%] bg-no-repeat"
         style={{ backgroundImage: `url('${imageUrl}')` }}
       >
-        {/**
-         * This is a hidden image that loads the same background image for the card,
-         * but allows us to listen for an error event. Upon an error, we can set the
-         * image URL used to the default image.
-         */}
+        {
+          /**
+           * This is a hidden image that loads the same background image for the card,
+           * but allows us to listen for an error event. Upon an error, we can set the
+           * image URL used to the default image.
+           */
+        }
         <img
           src={imageUrl}
           onError={handleImageError}
@@ -76,8 +78,8 @@ function SearchEventCard({ eventData }) {
           </p>
         </div>
 
-        <div>
-          <p className="mt-6 font-bold text-base md:text-xl dark:text-du-gray">
+        <div className="grid">
+          <p className="mt-6 font-bold text-base md:text-xl max-w-prose dark:text-du-gray truncate text-left">
             {eventData.eventName}
           </p>
         </div>
