@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import aboutStyleClasses from "styles/about";
-import DULogo from "assets/data-umbr-full-transp-logo.png";
-import SPECLogo from "assets/speclogoname.png";
-import twitter from "assets/twitter.svg";
-import linkedin from "assets/linkedin.svg";
-import github from "assets/github.svg";
-import website from "assets/website.svg";
-import websiteWhite from "assets/websiteWhite.svg";
-import twitterWhite from "assets/twitterWhite.svg";
-import linkedInWhite from "assets/linkedInWhite.svg";
-import githubWhite from "assets/githubWhite.svg";
+import React, { useState } from 'react';
+import aboutStyleClasses from 'styles/about';
+import DULogo from 'assets/du_sc_logos/logo_data_umbrella_full.png';
+import SPECLogo from 'assets/du_sc_logos/logo_spec_with_name.png';
+import twitter from 'assets/social_media/twitter.svg';
+import linkedin from 'assets/social_media/linkedin.svg';
+import github from 'assets/social_media/github.svg';
+import website from 'assets/social_media/website.svg';
+import websiteWhite from 'assets/social_media/websiteWhite.svg';
+import twitterWhite from 'assets/social_media/twitterWhite.svg';
+import linkedInWhite from 'assets/social_media/linkedInWhite.svg';
+import githubWhite from 'assets/social_media/githubWhite.svg';
 
 const IMAGE_MAP = {
   twitter,

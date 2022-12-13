@@ -1,4 +1,4 @@
-import defaultThumbnail from 'assets/thumbnail.png';
+import defaultThumbnail from 'assets/ui/thumbnail.png';
 
 export function isValidURL(string) {
   /* eslint-disable */

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from "react-router-dom";
 import useDarkMode from 'hooks/dark-mode';
-import Logo from 'assets/logo.png';
-import lightMode from 'assets/light-mode.svg';
-import darkMode from 'assets/dark-mode.svg';
-import closeSymbol from 'assets/HamX.png';
-import { HamBars } from 'assets/HamBars';
-import logoDark from 'assets/logoDark.png';
+import Logo from 'assets/du_sc_logos/logo_event_board.svg';
+import lightMode from 'assets/ui/light-mode.svg';
+import darkMode from 'assets/ui/dark-mode.svg';
+import closeSymbol from 'assets/ui/HamX.png';
+import { HamBars } from 'assets/ui/HamBars';
+import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png';
 import { DONATE_URL } from 'constants/urls';
 import { useAuth } from 'hooks/authentication';
 
@@ -52,7 +52,7 @@ function MobileNav() {
         <button className="col-start-4 pl-9" onClick={() => setMenuOpen((prev) => !prev)}>
           <span className="text-black dark:text-white">
             <HamBars />
-          </span> 
+          </span>
         </button>
       </div>
       <div className={menuOpen ? 'relative' : 'invisible'}>
@@ -76,6 +76,7 @@ function MobileNav() {
                 alt="logo"
               />
             </div>
+
             {auth.currentUser.isAuthenticated ? (
               <a onClick={signOut}>Sign Out</a>
             ) : (
