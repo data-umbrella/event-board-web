@@ -34,6 +34,7 @@ export function useEvent(eventId) {
     }
     const result = camelcaseKeys(json);
     result.tags = arrayifyTags(result.tags);
+    result.hashTag = arrayifyTags(result.hashTag);
     result.speakers = arrayifyTags(result.speakers);
     result.accessibilityOptions = arrayifyTags(result.accessibilityOptions);
 
