@@ -27,15 +27,28 @@ import EventTagsField from './EventTagsField';
 import CountryRegionField from './CountryRegionField';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
+/**
+ * Stop enter submitting the form.
+ * @param keyEvent Event triggered when the user presses a key.
+ */
+ function onKeyDown(keyEvent) {
+  if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
+    keyEvent.preventDefault();
+  }
+}
+
 function PostEventFormComponent(props) {
-  const { values, setFieldValue } = props;
+  const { values, setFieldValue, errors } = props;
   async function handleImageChange(e) {
     const imageFile = e.target.files[0];
     setFieldValue('imageFile', await imageFileToDataURL(imageFile));
   }
 
   return (
-    <Form className="container mx-auto grid gap-6 p-0 md:mb-10 md:px-10 md:pb-10">
+    <Form
+      onKeyDown={onKeyDown}
+      className="container mx-auto grid gap-6 p-0 md:mb-10 md:px-10 md:pb-10"
+    >
       <section className="pt-6">
         <h1 className="text-2xl font-bold md:text-4xl">
           Event Submission Form
@@ -388,6 +401,13 @@ function PostEventFormComponent(props) {
           <button className={formStyleClasses.reviewButton} type="submit">
             Review
           </button>
+          <ul>
+            {Object.keys(errors).map(key => {
+              return <li key={key} className="text-red-500">
+                { errors[key] }
+              </li>
+            })}
+          </ul>
         </div>
       </section>
     </Form>
@@ -426,8 +446,8 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  eventName: Yup.string().required("Field is required"),
-  startDate: Yup.string().required("Field is required"),
+  eventName: Yup.string().required('Field is required'),
+  startDate: Yup.string().required('Field is required'),
   organizationUrl: Yup.string().url('Field must be a valid URL'),
 });
 

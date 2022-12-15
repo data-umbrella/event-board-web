@@ -68,44 +68,38 @@ export const CALENDAR_EVENTS = [
 ];
 
 export const EVENT_ATTRIBUTES = [
-  'id',
-  // Required fields
-  'event_name',
-  'description',
-  'organization_name',
-  'event_type',
-  'description',
-  'featured',
-  'published',
-  // Dates
-  'start_date',
-  'end_date',
-  'start_time',
-  'end_time',
-  'cfp_due_date',
-  // Meta data
+  'accessibility_options',
   'acronym',
+  'cfp_due_date',
   'code_of_conduct_url',
   'conference_name',
+  'country',
+  'description',
+  'description',
+  'end_date',
+  'end_time',
+  'event_name',
+  'event_notes',
+  'event_type',
   'event_url',
+  'featured',
   'hash_tag',
-  'tags',
-
+  'id',
+  'image_file',
+  'in_person',
   'language',
   'location',
-  'region',
-
+  'organization_name',
   'organization_name',
   'organization_url',
-
+  'published',
+  'region',
+  'region',
+  'start_date',
+  'start_time',
+  'tags',
   'virtual',
-  'in_person',
-
-  'accessibility_options',
   'volunteer_notes',
-  'event_notes',
-
-  'image_file'
 ];
 
 export const EVENT_TYPES = [
