@@ -3,8 +3,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import EventCalendarPage from 'components/pages/EventCalendarPage';
 import { act } from 'react-dom/test-utils';
-import moment from 'moment';
-import { DATE_PICKER_STRING_FORMAT } from  'constants/dates';
 
 const MOCK_DEFAULT_START_DATE = '08/17/2022';
 

@@ -28,7 +28,7 @@ export const eventProperties = {
   'discountCode': '',
   'discountValue': '',
   'socialMediaLinks': [],
-  'hashTag': "",
+  'hashTag': [],
   'imageAltText': '',
   'imageUrl': '',
   'imageFile': '',
@@ -43,7 +43,7 @@ export const eventProperties = {
   'startDate': '',
   'startTime': '',
   'state': '',
-  'tags': "",
+  'tags': [],
   'timezone': '',
   'volunteeringNotes': '',
   'socialMediaHashTag': '',
@@ -121,12 +121,12 @@ export const EVENT_TYPES = [
 
 // TODO: Replace with tagging functionality
 export const TOPIC_OPTIONS = [
-  { label: 'All', value: '' },
   { label: 'Artificial Intelligence', value: 'ai' },
   { label: 'Bayes', value: 'bayes' },
   { label: 'Computer Vision', value: 'computer-vision' },
   { label: 'CV', value: 'cv' },
   { label: 'Data', value: 'data' },
+  { label: 'Data Science', value: 'data-science' },
   { label: 'Django', value: 'django' },
   { label: 'Education', value: 'education' },
   { label: 'Ethics', value: 'ethics' },

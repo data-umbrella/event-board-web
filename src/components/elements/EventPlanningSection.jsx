@@ -60,7 +60,7 @@ function EventPlanningSection({ evt }) {
           value={evt.language || 'English'}
         />
 
-        <EventHashTags hashTags={evt.hashTag ? evt.hashTag.split(",") : ""} />
+        <EventHashTags hashTags={evt.hashTag} />
 
         <EventPlanningDetail
           label="Organization URL"

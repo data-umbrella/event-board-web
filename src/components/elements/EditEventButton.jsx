@@ -7,8 +7,7 @@ import { sessionStore } from 'utils/sessions';
 function EditEventButton({ evt }) {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
-  const { isStaff, isAuthenticated, id: userId } = currentUser;
-  const { author: authorId } = evt;
+  const { isStaff, isAuthenticated } = currentUser;
 
   function editEvent () {
     const tmpId = uuidv4();
@@ -16,8 +15,7 @@ function EditEventButton({ evt }) {
     navigate(`/events/${tmpId}/edit`);
   }
 
-  if (!isAuthenticated) return;
-  // if (!isStaff && authorId !== userId) return;
+  if (!isAuthenticated || !isStaff) return;
 
   return (
     <div className="text-right">

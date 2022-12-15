@@ -1,38 +1,37 @@
-import React from "react";
+import React from 'react';
 
 // Third-party dependencies
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+import { withFormik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 // Constants
-import { eventProperties } from "constants/events";
-import formStyleClasses from "styles/forms";
+import { eventProperties, TOPIC_OPTIONS } from 'constants/events';
+import formStyleClasses from 'styles/forms';
 import TimezoneSelect from 'react-timezone-select';
 
 // Components
-import DatePickerField from "components/elements/DatePickerField";
-import ValidatedInput from "components/elements/ValidatedInput";
-import ValidatedTextArea from "./ValidatedTextArea";
-import EventTypeField from "components/elements/EventTypeField";
-import DiscountField from "components/elements/DiscountField";
-import AccessibilityDetailField from "components/elements/AccessibilityDetailField";
-import SpeakersField from "components/elements/SpeakersField";
-import LanguageField from "components/elements/LanguageField";
-import TextField from "components/elements/TextField";
-import TimeSlotField from "components/elements/TimeSlotField";
-import EventHashtagField from "./EventHashtagField";
-// import SocialMediaField from 'components/elements/SocialMediaField';
+import DatePickerField from 'components/elements/DatePickerField';
+import ValidatedInput from 'components/elements/ValidatedInput';
+import ValidatedTextArea from './ValidatedTextArea';
+import EventTypeField from 'components/elements/EventTypeField';
+import DiscountField from 'components/elements/DiscountField';
+import AccessibilityDetailField from 'components/elements/AccessibilityDetailField';
+import SpeakersField from 'components/elements/SpeakersField';
+import LanguageField from 'components/elements/LanguageField';
+import TextField from 'components/elements/TextField';
+import TimeSlotField from 'components/elements/TimeSlotField';
 import ImagePreview from 'components/elements/ImagePreview';
 import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
-import CountryRegionField from "./CountryRegionField";
+import CountryRegionField from './CountryRegionField';
+// import SocialMediaField from 'components/elements/SocialMediaField';
 
 function PostEventFormComponent(props) {
   const { values, setFieldValue } = props;
   async function handleImageChange(e) {
     const imageFile = e.target.files[0];
-    setFieldValue("imageFile", await imageFileToDataURL(imageFile));
+    setFieldValue('imageFile', await imageFileToDataURL(imageFile));
   }
 
   return (
@@ -275,20 +274,21 @@ function PostEventFormComponent(props) {
                 </div>
 
                 <div className="mb-6">
-                  <EventTagsField 
-                    value={values.tags}
-                    onChange={(...args) => {
-                      return setFieldValue(...args);
-                    }}  
+                  <label>Topic Tags</label>
+                  <EventTagsField
+                    name="tags"
+                    placeholder="Python, Data Science, AI"
+                    options={TOPIC_OPTIONS}
+                    encodeTags={true}
                   />
                 </div>
 
                 <div className="mb-6">
-                  <EventHashtagField
-                    value={values.hashTag}
-                    onChange={(...args) => {
-                      return setFieldValue(...args);
-                    }}
+                  <label>Social Media Hashtags</label>
+                  <EventTagsField
+                    name="hashTag"
+                    placeholder="#myevent, #myevent2"
+                    options={[]}
                   />
                 </div>
               </div>
