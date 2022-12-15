@@ -9,6 +9,7 @@ const creatableSelectControlStyles = {
   outline: 'none',
   boxShadow: 'none',
   backgroundColor: 'transparent',
+  padding: '0.85px',
 }
 
 function EventTagsField(props) {
@@ -24,7 +25,7 @@ function EventTagsField(props) {
   return (
     <CreatableSelect
       isMulti
-      className={formStyleClasses.input}
+      className={formStyleClasses.reactSelect}
       placeholder={props.placeholder}
       styles={{
         control: (baseStyles) => ({

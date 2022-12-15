@@ -27,14 +27,46 @@ import EventTagsField from './EventTagsField';
 import CountryRegionField from './CountryRegionField';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
+const EVENT_FORM_LABELS = {
+  eventName: 'Event name',
+  startDate: 'Start date',
+  organizationUrl: 'Organization URL',
+}
+
 /**
  * Stop enter submitting the form.
  * @param keyEvent Event triggered when the user presses a key.
  */
- function onKeyDown(keyEvent) {
+function onKeyDown(keyEvent) {
   if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
     keyEvent.preventDefault();
   }
+}
+
+function FormErrors({ errors }) {
+  const errorKeys = Object.keys(errors)
+  return (
+    <div className="list-disc">
+      {errorKeys.length > 0 && (
+        <label className="block font-bold pb-4">
+          Resolve the errors above to proceed:
+        </label>
+      )}
+      <ul>
+        {errorKeys.map(key => {
+          const errorMessage = errors[key].toLowerCase();
+          return (
+            <li key={key}>
+              •
+              <span className="text-red-500 pl-2">
+                { `${EVENT_FORM_LABELS[key]} ${errorMessage}` }
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
 }
 
 function PostEventFormComponent(props) {
@@ -58,6 +90,7 @@ function PostEventFormComponent(props) {
           admins.
         </p>
       </section>
+
       {/* Event Information Section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
@@ -115,7 +148,58 @@ function PostEventFormComponent(props) {
           </section>
         </section>
       </section>
+      <section>
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">
+          Event Image
+        </h2>
+        <section className="p-6 bg-white rounded border border-slate-300">
+          <div className="grid grid-cols-3">
+            <div className="col-span-2">
+              <div
+                className="border-1 grid place-content-center rounded border border-black pt-2 mr-10 text-center dark:border-teal-400 md:col-span-1"
+                style={{
+                  minHeight: "6rem",
+                  minWidth: "6rem",
+                }}
+              >
+                <ImagePreview url={values.imageFile} />
+              </div>
 
+              <div className="mb-6 h-16">
+                <br />
+                <input
+                  style={{ maxWidth: "80%" }}
+                  type="file"
+                  name="imageFile"
+                  id="image"
+                  accept="image/png, image/jpeg"
+                  onChange={handleImageChange}
+                />
+              </div>
+            </div>
+            <div className="col-span-1">
+              <div className="mb-6">
+                <label>Image Alt Text</label>
+                <Field
+                  name="imageAltText"
+                  type="text"
+                  className={formStyleClasses.input}
+                  autoComplete="new-password"
+                />
+              </div>
+              <div className="mb-6">
+                <label>Enter Image URL</label>
+                <Field
+                  name="imageUrl"
+                  type="text"
+                  className={formStyleClasses.input}
+                  autoComplete="new-password"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
       {/* Event Details Section */}
       <section>
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
@@ -134,35 +218,30 @@ function PostEventFormComponent(props) {
               />
             </div>
           </section>
-          
-          <section className="grid grid-cols-2 gap-6 py-6">
-            <section>
-              <Field
-                autoComplete="new-password"
-                className={formStyleClasses.input}
-                component={ValidatedInput}
-                label="Organization Name"
-                name="organizationName"
-                type="text"
-                id="organizationName"
-              />
-            </section>
-            <section>
-              <Field
-                autoComplete="new-password"
-                id="organizationUrl"
-                component={ValidatedInput}
-                label="Organization URL"
-                name="organizationUrl"
-                type="text"
-                className={formStyleClasses.input}
-              />
-              {/* <SocialMediaField value={values.socialMediaLinks} onChange={setFieldValue} /> */}
-            </section>
-          </section>
-
           <section className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2">
             <section className="grid gap-6">
+              <section>
+                <Field
+                  autoComplete="new-password"
+                  className={formStyleClasses.input}
+                  component={ValidatedInput}
+                  label="Organization Name"
+                  name="organizationName"
+                  type="text"
+                  id="organizationName"
+                />
+              </section>
+              <section>
+                <Field
+                  autoComplete="new-password"
+                  id="organizationUrl"
+                  component={ValidatedInput}
+                  label="Organization URL"
+                  name="organizationUrl"
+                  type="text"
+                  className={formStyleClasses.input}
+                />
+              </section>
               <section className="grid grid-cols-2 gap-2">
                 <div className="col-span-1">
                   <TimeSlotField
@@ -171,7 +250,6 @@ function PostEventFormComponent(props) {
                     label="Start Time*"
                   />
                 </div>
-
                 <div className="col-span-1">
                   <TimeSlotField
                     id="endTime"
@@ -183,7 +261,7 @@ function PostEventFormComponent(props) {
               <section>
                 <label>Time Zone*</label>
                 <TimezoneSelect
-                  className={formStyleClasses.select}
+                  className={formStyleClasses.reactSelect}
                   value={values.timezone}
                   styles={{
                     control: (baseStyles) => ({
@@ -197,13 +275,29 @@ function PostEventFormComponent(props) {
                 />
               </section>
               <section>
-                <CountryRegionField />
-              </section>
-              <section>
                 <LanguageField />
               </section>
+            </section>
+            <section className="grid gap-6">
               <section>
                 <EventTypeField />
+              </section>
+              <section>
+                <label>Social Media Hashtags</label>
+                <EventTagsField
+                  name="hashTag"
+                  placeholder="#myevent, #myevent2"
+                  options={[]}
+                />
+              </section>
+              <section>
+                <label>Topic Tags</label>
+                <EventTagsField
+                  name="tags"
+                  placeholder="Python, Data Science, AI"
+                  options={TOPIC_OPTIONS}
+                  encodeTags={true}
+                />
               </section>
               <section>
                 <label>CFP Deadline Date</label>
@@ -213,96 +307,30 @@ function PostEventFormComponent(props) {
                   className={formStyleClasses.input}
                 />
               </section>
-              <section className="grid grid-cols-2 gap-6">
-                <div>
-                  <label>Registration Start Date</label>
+              <section className="grid grid-cols-2 gap-2">
+                <div className="col-span-1">
                   <DatePickerField
+                    label="Registration Start Date"
                     name="registrationStartDate"
                     className={formStyleClasses.input}
                   />
                 </div>
-
-                <div>
-                  <label>Registration Start Date</label>
+                <div className="col-span-1">
                   <DatePickerField
-                    name="registrationStartDate"
+                    label="Registration Start Date"
+                    name="registrationEndDate"
                     className={formStyleClasses.input}
                   />
                 </div>
               </section>
             </section>
-            <section>
-              <div
-                className="border-1 col-span-2 grid place-content-center rounded border border-black pt-2 text-center dark:border-teal-400 md:col-span-1"
-                style={{
-                  minHeight: "6rem",
-                  minWidth: "6rem",
-                }}
-              >
-                <ImagePreview url={values.imageFile} />
-              </div>
-
-              <div className="col-span-2 rounded py-6">
-                <div className="mb-6 h-16">
-                  <label>Upload Image</label>
-                  <br />
-                  <input
-                    style={{ maxWidth: "80%" }}
-                    type="file"
-                    name="imageFile"
-                    id="image"
-                    accept="image/png, image/jpeg"
-                    onChange={handleImageChange}
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label>Image Alt Text</label>
-                  <Field
-                    name="imageAltText"
-                    type="text"
-                    className={formStyleClasses.input}
-                    autoComplete="new-password"
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label>Enter Image URL</label>
-                  <Field
-                    name="imageUrl"
-                    type="text"
-                    className={formStyleClasses.input}
-                    autoComplete="new-password"
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label>Topic Tags</label>
-                  <EventTagsField
-                    name="tags"
-                    placeholder="Python, Data Science, AI"
-                    options={TOPIC_OPTIONS}
-                    encodeTags={true}
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label>Social Media Hashtags</label>
-                  <EventTagsField
-                    name="hashTag"
-                    placeholder="#myevent, #myevent2"
-                    options={[]}
-                  />
-                </div>
-              </div>
-            </section>
           </section>
         </section>
       </section>
-
       {/* Speakers section */}
-      {/*<section>
-        <SpeakersField value={values.speakers} onChange={setFieldValue} />
+      {/*
+        <section>
+          <SpeakersField value={values.speakers} onChange={setFieldValue} />
         </section>
       */}
 
@@ -386,20 +414,14 @@ function PostEventFormComponent(props) {
 
       <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end">
         <div className="grid grid-cols-1 md:block">
-          <button className="p-2 mr-2 underline dark:text-white">
-            Clear Form
-          </button>
           <button className={formStyleClasses.reviewButton} type="submit">
             Review
           </button>
-          <ul>
-            {Object.keys(errors).map(key => {
-              return <li key={key} className="text-red-500">
-                { errors[key] }
-              </li>
-            })}
-          </ul>
         </div>
+      </section>
+
+      <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end">
+        <FormErrors errors={errors} />
       </section>
     </Form>
   );
