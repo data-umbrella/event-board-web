@@ -13,5 +13,5 @@ export default function useDarkMode() {
     window.dispatchEvent(new Event('themeChanged'))
   }, [theme, colorTheme]);
 
-  return [colorTheme, setTheme];
+  return [colorTheme, setTheme, theme];
 }

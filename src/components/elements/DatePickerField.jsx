@@ -14,12 +14,15 @@ const DatePickerField = ({ ...props }) => {
   return (
     <div>
       <label htmlFor={props.name}>
-        <span className="pr-2 inline-block">{ props.label }</span>
+        <span className="pr-2 inline-block">
+          { props.label }
+        </span>
         { showErrors && <span className="text-[#FB2F2F] dark:text-[#FB2F2F]">{fieldErrors}</span> }
       </label>
 
       <DatePicker
         id={props.name}
+        name={props.name}
         {...field}
         {...props}
         autoComplete="off"

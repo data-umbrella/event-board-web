@@ -21,7 +21,7 @@ function ReviewEventPage() {
     const eventData = JSON.parse(sessionStorage.getItem(eventId));
     if (eventData.id) {
       try {
-        await api("PUT", `events/${eventData.id}/`, eventData);
+        await api('PUT', `events/${eventData.id}/`, eventData);
         navigate(`/events/${eventData.id}/details`);
       } catch (e) {
         // TODO: Gracefully handle error messages.
@@ -29,8 +29,8 @@ function ReviewEventPage() {
       }
     } else {
       try {
-        await api("POST", "events", eventData);
-        navigate("/events/confirmation");
+        await api('POST', 'events', eventData);
+        navigate('/events/confirmation');
       } catch (e) {
         // TODO: Gracefully handle error messages.
         window.alert(e.message);
@@ -43,7 +43,7 @@ function ReviewEventPage() {
     navigate(`/events/${eventId}/edit`);
   }
 
-  if (!evt) return "Loading...";
+  if (!evt) return 'Loading...';
 
   return (
     <div className="container mx-auto pt-16 mb-24">

@@ -47,6 +47,16 @@ function EventPlanningSection({ evt }) {
           value={evt.eventUrl}
           type="link"
         />
+
+        <EventPlanningDetail
+          label="Country"
+          value={evt.country}
+        />
+
+        <EventPlanningDetail
+          label="Region"
+          value={evt.region}
+        />
       </div>
 
       <div className="">
@@ -60,7 +70,7 @@ function EventPlanningSection({ evt }) {
           value={evt.language || 'English'}
         />
 
-        <EventHashTags hashTags={evt.hashTag ? evt.hashTag.split(",") : ""} />
+        <EventHashTags hashTags={evt.hashTag} />
 
         <EventPlanningDetail
           label="Organization URL"
@@ -70,8 +80,6 @@ function EventPlanningSection({ evt }) {
         />
 
         <EventTags tags={evt.tags} />
-
-
       </div>
     </div>
   )
