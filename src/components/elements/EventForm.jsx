@@ -89,6 +89,30 @@ function PostEventFormComponent(props) {
               className={formStyleClasses.input}
             />
           </section>
+
+          <section
+            role="group"
+            aria-labelledby="virtual-option-radio-group"
+          >
+            <div>
+              <label className="mr-6">
+                <Field
+                  name="inPerson"
+                  type="checkbox"
+                  className={formStyleClasses.radioButtonValues}
+                />
+                In-person
+              </label>
+              <label className="mr-6">
+                <Field
+                  name="virtual"
+                  type="checkbox"
+                  className={formStyleClasses.radioButtonValues}
+                />
+                Virtual
+              </label>
+            </div>
+          </section>
         </section>
       </section>
 
@@ -206,40 +230,6 @@ function PostEventFormComponent(props) {
                   />
                 </div>
               </section>
-              <section
-                role="group"
-                aria-labelledby="virtual-option-radio-group"
-              >
-                <div>
-                  <label className="mr-6">
-                    <Field
-                      name="meetingType"
-                      type="radio"
-                      value="in-person"
-                      className={formStyleClasses.radioButtonValues}
-                    />
-                    In-person
-                  </label>
-                  <label className="mr-6">
-                    <Field
-                      name="meetingType"
-                      type="radio"
-                      value="virtual"
-                      className={formStyleClasses.radioButtonValues}
-                    />
-                    Virtual
-                  </label>
-                  <label className="mr-6">
-                    <Field
-                      name="meetingType"
-                      type="radio"
-                      value="both"
-                      className={formStyleClasses.radioButtonValues}
-                    />
-                    Both
-                  </label>
-                </div>
-              </section>
             </section>
             <section>
               <div
@@ -311,9 +301,10 @@ function PostEventFormComponent(props) {
       </section>
 
       {/* Speakers section */}
-      <section>
+      {/*<section>
         <SpeakersField value={values.speakers} onChange={setFieldValue} />
-      </section>
+        </section>
+      */}
 
       {/* Notes section */}
       <section>
