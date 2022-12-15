@@ -16,7 +16,6 @@ import ValidatedTextArea from './ValidatedTextArea';
 import EventTypeField from 'components/elements/EventTypeField';
 import DiscountField from 'components/elements/DiscountField';
 import AccessibilityDetailField from 'components/elements/AccessibilityDetailField';
-import SpeakersField from 'components/elements/SpeakersField';
 import LanguageField from 'components/elements/LanguageField';
 import TextField from 'components/elements/TextField';
 import TimeSlotField from 'components/elements/TimeSlotField';
@@ -25,6 +24,7 @@ import { imageFileToDataURL } from 'utils/files';
 import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
 import CountryRegionField from './CountryRegionField';
+import RegionField from './RegionField';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
 const EVENT_FORM_LABELS = {
@@ -111,12 +111,14 @@ function PostEventFormComponent(props) {
           </div>
           <section className="grid grid-cols-2 gap-6">
             <DatePickerField
+              id="startDate"
               name="startDate"
               className={formStyleClasses.input}
               label="Start Date*"
             />
 
             <DatePickerField
+              id="endDate"
               name="endDate"
               label="End Date"
               className={formStyleClasses.input}
@@ -277,6 +279,10 @@ function PostEventFormComponent(props) {
               <section>
                 <LanguageField />
               </section>
+              <section>
+                <label>Country</label>
+                <CountryRegionField />
+              </section>
             </section>
             <section className="grid gap-6">
               <section>
@@ -317,11 +323,14 @@ function PostEventFormComponent(props) {
                 </div>
                 <div className="col-span-1">
                   <DatePickerField
-                    label="Registration Start Date"
+                    label="Registration End Date"
                     name="registrationEndDate"
                     className={formStyleClasses.input}
                   />
                 </div>
+              </section>
+              <section>
+                <RegionField />
               </section>
             </section>
           </section>

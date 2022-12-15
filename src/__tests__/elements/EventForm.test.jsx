@@ -12,7 +12,6 @@ describe('Event Form', () => {
     );
     
     expect(screen.getByText(/Review/i)).toBeInTheDocument();
-    expect(screen.getByText(/Clear Form/i)).toBeInTheDocument();
 
     await act(() => {
       fireEvent.click(screen.getByText('Review'))
@@ -32,8 +31,10 @@ describe('Event Form', () => {
     );
 
     const eventNameInput = screen.getByLabelText(/Event Name/i);
-    const startDateInput = screen.getByLabelText(/Start Date*/i);
+    const startDateInput = screen.getAllByLabelText(/Start Date/i)[0];
+
     expect(eventNameInput).toBeInTheDocument();
+    expect(startDateInput).toBeInTheDocument();
 
     await act(() => {
       fireEvent.change(eventNameInput, { target: { value: 'Example name' } });
