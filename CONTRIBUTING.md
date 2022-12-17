@@ -10,11 +10,11 @@ There are two parts:
 ## Getting started
 
 ### Requirements & Installation
-- git
-- node.js
-- npm
+- [Git](https://git-scm.com/): an open source version control system
+- [Node​.js​](https://www.techtarget.com/whatis/definition/Nodejs)​: is an open source, cross-platform runtime environment for executing JavaScript code
+- [npm](https://docs.npmjs.com/cli/v6/commands/npm): is the JavaScript package manager
 
-### (Fork &) Clone the repo
+### Fork & Clone the repo
 
 ```bash
 git clone git@github.com:data-umbrella/event-board-web.git
@@ -22,14 +22,19 @@ git clone git@github.com:data-umbrella/event-board-web.git
 
 You can simply clone the repository to the get code with the command above. To make code contributions there are two options.
 
-1. If you have joined our community and already added as a contributor to the project, then you can clone the code as described above.
-2. If have an idea for a feature or solution to a bug, and want to make open source contribution you can fork the repository and open a pull request. See Github's [Fork a Repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) tutorial for more information about forking repositories.
+1. If you have joined our community and have already been added as a contributor to the project, then you can clone the code as described above.
+2. If have an idea for a feature or solution to a bug, and want to make open source contribution you can fork the repository and open a pull request. See GitHub's [Fork a Repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) tutorial for more information about forking repositories.
 
 ## Setting up development environment
 
 ### Install correct Node.js version
 
-This application depends on NodeJS and npm. We recommend using a [Node Version Manager](https://github.com/nvm-sh/nvm) for managing node versions. This application is current being developed on Node 18.4.0.
+This application depends on Node.js and `npm`. We recommend using a [Node Version Manager](https://github.com/nvm-sh/nvm) for managing node versions. This application is current being developed on **Node 18.4.0**.
+
+To check the version of node:  
+```
+node -v
+```
 
 ### Install Dependencies
 
@@ -82,29 +87,31 @@ npm lint
 ```
 ### Pull Request & Code Review
 
-Please create branches for new features and bug fixes and open a pull requests on Github to make contributions to the project. All pull requests will be reviewed by the project maintainers before being merged into the main branch. Maintainers may request changes to be made to pull requests before your code is approved. The repository is configured to automatatically run tests and static code analysis via Github Actions when a pull request is opened or a branch is updated. All tests and linter checks must all pass in order to merge pull request.
+For all contributions (documentation, bug fixes, new features), it is required to create a feature branch and then to submit a pull request. All pull requests will be reviewed by the project maintainers before being merged into the main branch. Maintainers may request changes to be made to pull requests before your code is approved. The repository is configured to automatically run tests and static code analysis via GitHub Actions when a pull request is opened or a branch is updated. All tests and linter checks must pass in order to merge the pull request.
 
 ## Deployment
 
-This application is deployed to Digital Ocean App Platform as a static application. For more information about deploying React applications on DO App Platform see the tutorial [How To Deploy a React Application to DigitalOcean App Platform](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-to-digitalocean-app-platform).
+This application is deployed on Digital Ocean App Platform as a static application. For more information about deploying React applications on DO App Platform see the tutorial [How To Deploy a React Application to DigitalOcean App Platform](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-to-digitalocean-app-platform).
 
 ---
 
 ## Resources
 
 This is a playlist of 3 videos, [Intro to React Tutorial](https://www.youtube.com/playlist?list=PLBKcU7Ik-ir9bAT2eXmQ4Ojn2--hT3O87):  
-1. React Tutorial Part 1: Background
-1. React Tutorial Part 2: JavaScript, Node.js
-1. React Tutorial Part 3: React Fundamentals, Build Your First React Front-end Application
+1. React Tutorial Part 1: [Background](https://youtu.be/jNO-pPR7zkg)
+1. React Tutorial Part 2: [JavaScript, Node.js](https://youtu.be/JWt4Z4sAlxk)
+1. React Tutorial Part 3: [React Fundamentals, Build Your First React Front-end Application](https://youtu.be/MSAbOBHGkhw)
 
 This is a playlist of 3 videos, [Intro to Django](https://www.youtube.com/playlist?list=PLBKcU7Ik-ir9HhpZQr3WolhYgbqtZSJZr):  
-1. Django Tutorial Part 1: Python for Beginners
-1. Django Tutorial Part 2: Intro to Web Development Frameworks
-1. Djamgp Tutorial Part 3: Building Your First Django Application
+1. Django Tutorial Part 1: [Python for Beginners](https://youtu.be/Yr1ewxg8os8)
+1. Django Tutorial Part 2: [Intro to Web Development Frameworks](https://youtu.be/K4NQmrGEWGM)
+1. Django Tutorial Part 3: [Building Your First Django Application](https://www.youtube.com/watch?v=QTQSzirDs8E&list=PLBKcU7Ik-ir9HhpZQr3WolhYgbqtZSJZr&index=3&t=1s)
 
 ---
-## Important Points
+## Contributing Guidelines
 
-### 1) Please don't wait to get assigned on an issue, just comment "I am working on it" and then you can start working on it.
+1) To claim an issue, "I am working on it" and then you can start working on it; there is no need to wait to be assigned on an issue.
+2) A pull request should be submitted within two weeks or someone else can work on the issue.
 
-### 2) A pull request should be submitted within two weeks or someone else can work on the issue.
+## Thank you
+Thank you for contributing to the Data Umbrella Event Board.
