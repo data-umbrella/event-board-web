@@ -59,15 +59,17 @@ npm install
 
 This web application depends on an API defined by [https://github.com/data-umbrella/event-board-api](https://github.com/data-umbrella/event-board-api) which has instructions for running the backend API locally via docker. To quickly get started with web application without the need for the backend running locally, you can run the development server with a fake backend powered by [mirage.js](https://miragejs.com) by running the start command with the dev modifier.
 
+### Set up environment variable
+
+To test the web application with the [event-board-api](https://github.com/data-umbrella/event-board-api) backend running locally, create a `.env` file with the following config.
+
 ```
 npm run start:dev
 ```
 
 The React app will start up in development mode and be accessible at [http://localhost:3000](http://localhost:3000). The page will reload when you make changes. You may also see any lint errors in the console.
 
-### Testing backend in development
 
-To test the web application with the [event-board-api](https://github.com/data-umbrella/event-board-api) backend running locally, create a `.env` file with the following config.
 
 ```
 REACT_APP_API_URL=http://localhost:8000
@@ -78,6 +80,7 @@ After starting up `event-board-api` server, simply run the start command.
 ```
 npm start
 ```
+
 
 ### Running tests
 
