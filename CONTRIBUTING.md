@@ -29,11 +29,21 @@ You can simply clone the repository to the get code with the command above. To m
 
 ### Install correct Node.js version
 
-This application depends on Node.js and `npm`. We recommend using a [Node Version Manager](https://github.com/nvm-sh/nvm) for managing node versions. This application is current being developed on **Node 18.4.0**.
+This application depends on Node.js and `npm`. We recommend using a [Node Version Manager](https://github.com/nvm-sh/nvm) (`nvm`) for managing node versions. This application is current being developed on **Node 18.4.0**. 
 
 To check the version of node:  
 ```
 node -v
+```
+
+To switch to the correct version of node, use:
+```
+nvm use
+```
+
+If you don't have the correct version of node installed, use:
+```
+nvm install 18.4.0
 ```
 
 ### Install Dependencies
