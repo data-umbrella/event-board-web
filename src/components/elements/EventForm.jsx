@@ -265,6 +265,7 @@ function PostEventFormComponent(props) {
                 <TimezoneSelect
                   className={formStyleClasses.reactSelect}
                   value={values.timezone}
+                  labelStyle="abbrev"
                   styles={{
                     control: (baseStyles) => ({
                       ...baseStyles,
@@ -273,7 +274,7 @@ function PostEventFormComponent(props) {
                       boxShadow: 'none',
                     }),
                   }}
-                  onChange={(val) => setFieldValue('timezone', val)}
+                  onChange={(val) => setFieldValue('timezone', val.value)}
                 />
               </section>
               <section>

@@ -43,6 +43,8 @@ function ReviewEventPage() {
     navigate(`/events/${eventId}/edit`);
   }
 
+  console.log(evt);
+
   if (!evt) return 'Loading...';
 
   return (

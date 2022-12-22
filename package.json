@@ -49,6 +49,7 @@
     "react-toastify": "^9.1.1",
     "react-tooltip": "^4.5.0",
     "snakecase-keys": "^5.4.2",
+    "timezone-soft": "^1.4.1",
     "tw-elements": "^1.0.0-alpha12",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4",
