@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import sponsorsStyleClasses from 'styles/sponsors';
-import GoogleImg from 'assets/sponsors/Google_FullColor.png';
+/*import GoogleImg from 'assets/sponsors/Google_FullColor.png';*/
 import CZLILight from 'assets/CZLILogoLight.svg';
 import CZLIDark from 'assets/CZLILogoDark.svg';
 import DigitalOceanLight from 'assets/digitaloceanlight.svg';
@@ -17,12 +17,12 @@ function Sponsors() {
       url: 'https://chanzuckerberg.com/science/programs-resources/open-science/communitiesofpractice/data-umbrella/',
       css: sponsorsStyleClasses.cziLogoCSS
     },
-    {
+    /*{
       name: 'Google Open Source',
       sponsorImg: GoogleImg,
       url: 'https://opensource.google/',
       css: sponsorsStyleClasses.googleLogoCSS
-    },
+    },*/
     {
       name: 'Digital Ocean',
       sponsorImg: colorTheme == 'light' ? DigitalOceanLight : DigitalOceanDark,
