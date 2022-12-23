@@ -108,7 +108,7 @@ This application is deployed on Digital Ocean App Platform as a static applicati
 
 ---
 
-## Resources
+## Video Resources
 
 This is a playlist of 3 videos, [Intro to React Tutorial](https://www.youtube.com/playlist?list=PLBKcU7Ik-ir9bAT2eXmQ4Ojn2--hT3O87):  
 1. React Tutorial Part 1: [Background](https://youtu.be/jNO-pPR7zkg)
@@ -119,6 +119,9 @@ This is a playlist of 3 videos, [Intro to Django](https://www.youtube.com/playli
 1. Django Tutorial Part 1: [Python for Beginners](https://youtu.be/Yr1ewxg8os8)
 1. Django Tutorial Part 2: [Intro to Web Development Frameworks](https://youtu.be/K4NQmrGEWGM)
 1. Django Tutorial Part 3: [Building Your First Django Application](https://www.youtube.com/watch?v=QTQSzirDs8E&list=PLBKcU7Ik-ir9HhpZQr3WolhYgbqtZSJZr&index=3&t=1s)
+
+### Resources
+- [Django REST Framework](https://www.django-rest-framework.org/)
 
 ---
 ## Contributing Guidelines
