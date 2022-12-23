@@ -1,6 +1,17 @@
+
+## PR Overview
+
+#### Type of contribution
+- [ ] Code
+- [ ] Documentation
+
+#### Reference: Issue or Pull Request (PR)
+- [ ] Towards #xxx   [this will keep reference issue or PR open]  <=== _When in doubt, pick this one._
+- [ ] Fixes #xxx. See also #xxx.   [this will close the referenced issue or PR]
+- [ ] Resolves #xxx, #xxx [for multiple issues, this will close them]
+
 ## Ticket Description
 <-- Copy and paste or write the tickets description here-->
-
 
 ## Description of Changes
 <-- Brief description of the changes you made, files you touched, etc -->
