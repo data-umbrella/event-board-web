@@ -115,7 +115,7 @@ export const EVENT_TYPES = [
 
 // TODO: Replace with tagging functionality
 export const TOPIC_OPTIONS = [
-  { label: 'All', value: '' }
+  { label: 'All', value: '' },
   { label: 'Artificial Intelligence', value: 'ai' },
   { label: 'Bayes', value: 'bayes' },
   { label: 'Computer Vision', value: 'computer-vision' },
