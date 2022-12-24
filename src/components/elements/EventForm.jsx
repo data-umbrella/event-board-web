@@ -154,7 +154,7 @@ function PostEventFormComponent(props) {
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
           Event Image
         </h2>
-        <section className="p-6 bg-white rounded border border-slate-300">
+        <section className="p-6 bg-white rounded border border-slate-300 dark:bg-transparent">
           <div className="grid grid-cols-3">
             <div className="col-span-2">
               <div

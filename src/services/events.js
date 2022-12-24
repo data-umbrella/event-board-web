@@ -41,6 +41,7 @@ export function fetchEventsForSearchFilters(searchFilters) {
     .then((response) => response.json())
     .then((res) => {
       const { results, ...meta } = res;
+      console.log(results);
       return { results: camelcaseKeys(results), ...meta };
     });
 }
