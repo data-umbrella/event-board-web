@@ -1,6 +1,8 @@
 import soft from 'timezone-soft'
 
 export function formatTimezone(timezone) {
+  if (!timezone) return '';
+
   const softTimezone = soft(timezone)[0]
 
   return softTimezone ? softTimezone.standard.abbr : timezone

@@ -100,6 +100,7 @@ export const EVENT_ATTRIBUTES = [
   'tags',
   'virtual',
   'volunteer_notes',
+  'timezone',
 ];
 
 export const EVENT_TYPES = [

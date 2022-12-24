@@ -25,6 +25,7 @@ import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
 import CountryRegionField from './CountryRegionField';
 import RegionField from './RegionField';
+import moment from 'moment';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
 const EVENT_FORM_LABELS = {
@@ -115,6 +116,11 @@ function PostEventFormComponent(props) {
               name="startDate"
               className={formStyleClasses.input}
               label="Start Date*"
+              onChange={value => {
+                if (!values.endDate || moment(value).isAfter(moment(values.endDate))) {
+                  setFieldValue('endDate', value)
+                }
+              }}
             />
 
             <DatePickerField
@@ -122,6 +128,11 @@ function PostEventFormComponent(props) {
               name="endDate"
               label="End Date"
               className={formStyleClasses.input}
+              onChange={value => {
+                if (!values.startDate || moment(value).isBefore(moment(values.startDate))) {
+                  setFieldValue('startDate', value)
+                }
+              }}
             />
           </section>
 
