@@ -1,6 +1,3 @@
-export const today = 'Friday July, 1, 2022';
-const todayStr = new Date().toISOString().replace(/T.*$/, '');
-
 export const REGION_OPTIONS = [
   { label: 'All', value: '' },
   { label: 'USA / Canada', value: 'usa-canada' },
@@ -54,19 +51,6 @@ export const eventProperties = {
   'region': '',
 };
 
-export const CALENDAR_EVENTS = [
-  {
-    id: 100,
-    title: 'Example All-Day Event',
-    start: todayStr
-  },
-  {
-    id: 101,
-    title: 'Example Timed event',
-    start: todayStr + 'T12:00:00'
-  }
-];
-
 export const EVENT_ATTRIBUTES = [
   'accessibility_options',
   'acronym',
@@ -100,6 +84,7 @@ export const EVENT_ATTRIBUTES = [
   'tags',
   'virtual',
   'volunteer_notes',
+  'timezone',
 ];
 
 export const EVENT_TYPES = [

@@ -25,6 +25,7 @@ import FeaturedEventField from './FeaturedEventField';
 import EventTagsField from './EventTagsField';
 import CountryRegionField from './CountryRegionField';
 import RegionField from './RegionField';
+import moment from 'moment';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
 const EVENT_FORM_LABELS = {
@@ -115,6 +116,11 @@ function PostEventFormComponent(props) {
               name="startDate"
               className={formStyleClasses.input}
               label="Start Date*"
+              onChange={value => {
+                if (!values.endDate || moment(value).isAfter(moment(values.endDate))) {
+                  setFieldValue('endDate', value)
+                }
+              }}
             />
 
             <DatePickerField
@@ -122,6 +128,11 @@ function PostEventFormComponent(props) {
               name="endDate"
               label="End Date"
               className={formStyleClasses.input}
+              onChange={value => {
+                if (!values.startDate || moment(value).isBefore(moment(values.startDate))) {
+                  setFieldValue('startDate', value)
+                }
+              }}
             />
           </section>
 
@@ -154,7 +165,7 @@ function PostEventFormComponent(props) {
         <h2 className="pb-4 text-xl font-bold md:text-2xl">
           Event Image
         </h2>
-        <section className="p-6 bg-white rounded border border-slate-300">
+        <section className="p-6 bg-white rounded border border-slate-300 dark:bg-transparent">
           <div className="grid grid-cols-3">
             <div className="col-span-2">
               <div
@@ -263,17 +274,21 @@ function PostEventFormComponent(props) {
               <section>
                 <label>Time Zone*</label>
                 <TimezoneSelect
-                  className={formStyleClasses.reactSelect}
+                  className={`${formStyleClasses.reactSelect} timezone-select-container`}
+                  classNamePrefix="timezone-select"
                   value={values.timezone}
+                  labelStyle="abbrev"
                   styles={{
                     control: (baseStyles) => ({
                       ...baseStyles,
                       border: 'none',
                       outline: 'none',
                       boxShadow: 'none',
+                      backgroundColor: 'transparent',
+                      color: 'white',
                     }),
                   }}
-                  onChange={(val) => setFieldValue('timezone', val)}
+                  onChange={(val) => setFieldValue('timezone', val.value)}
                 />
               </section>
               <section>

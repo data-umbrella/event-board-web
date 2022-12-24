@@ -26,3 +26,13 @@ export function formatEventsForCalendar(events) {
     };
   });
 }
+
+export function eventTimeSort(a, b) {
+  if (moment(a.startDate).isBefore(moment(b.startDate))) {
+    return -1;
+  }
+  if (moment(a.startDate).isAfter(moment(b.startDate))) {
+    return 1;
+  }
+  return 0;
+}
