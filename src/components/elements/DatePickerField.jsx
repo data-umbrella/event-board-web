@@ -7,24 +7,14 @@ import moment from 'moment';
 const DatePickerField = ({ ...props }) => {
   const { setFieldValue, touched, errors } = useFormikContext();
   const [field] = useField(props);
-  const [dirty, setDirty] = useState(false);
 
   const fieldTouched = touched[field.name];
   const fieldErrors = errors[field.name];
   const showErrors = fieldTouched && fieldErrors;
 
-  // console.log('field.value', field.value);
-
-  // value={field.value ? moment(field.value).format('YYYY/MM/DD') : ''}
-
   function handleDateChange(date) {
-    setDirty(true);
     setFieldValue(field.name, date);
     if (props.onChange) { props.onChange(date); }
-  }
-
-  if (!dirty) {
-    props.value = field.value ? moment(field.value).format('YYYY/MM/DD') : '';
   }
 
   return (
@@ -42,7 +32,6 @@ const DatePickerField = ({ ...props }) => {
         id={props.name}
         name={props.name}
         autoComplete="off"
-        dateFormat="yyyy/MM/dd"
         onChange={handleDateChange}
         selected={field.value ? moment(field.value).toDate() : null}
       />
