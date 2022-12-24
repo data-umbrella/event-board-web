@@ -3,7 +3,6 @@ import { useFormikContext, useField } from 'formik';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
-import { parserOptions } from 'eslint-plugin-import/config/react';
 
 const DatePickerField = ({ ...props }) => {
   const { setFieldValue, touched, errors } = useFormikContext();
