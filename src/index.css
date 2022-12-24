@@ -27,3 +27,36 @@
 .no-scroll {
   overflow: hidden;
 }
+
+@layer components {
+  /* .timezone-select-container {
+  } */
+  .timezone-select-container .timezone-select__control {
+    @apply bg-white dark:bg-transparent border-2 border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500;
+  }
+
+  .timezone-select-container .timezone-select__control--is-focused {
+    @apply border-neutral-500 hover:border-neutral-500 dark:border-neutral-400 dark:hover:border-neutral-400 shadow-none;
+  }
+
+  .timezone-select-container .timezone-select__menu {
+    @apply bg-neutral-100 dark:bg-neutral-700 border-2 border-neutral-300 dark:border-neutral-600;
+  }
+
+  .timezone-select-container .timezone-select__option {
+    @apply text-neutral-600 dark:text-neutral-200 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-800;
+  }
+  .timezone-select-container .timezone-select__option--is-focused {
+    @apply bg-neutral-200 dark:bg-neutral-800;
+  }
+
+  .timezone-select-container .timezone-select__indicator-separator {
+    @apply bg-neutral-400;
+  }
+
+  .timezone-select-container .timezone-select__input-container,
+  .timezone-select-container .timezone-select__placeholder,
+  .timezone-select-container .timezone-select__single-value {
+    @apply text-neutral-600 dark:text-neutral-200;
+  }
+}
