@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchEventCard from 'components/elements/SearchEventCard';
+import { eventTimeSort } from 'utils/events';
 
 const styles = {
   searchEventGroup: `
@@ -16,7 +17,7 @@ const styles = {
 function GridView({ events }) {
   return (
     <div className={`${styles.searchEventGroup}`}>
-      {events.map(eventData => {
+      {events.sort(eventTimeSort).map(eventData => {
         return (
           <SearchEventCard key={eventData.id} eventData={eventData} />
         )
