@@ -118,7 +118,7 @@ function PostEventFormComponent(props) {
               label="Start Date*"
               onChange={value => {
                 if (!values.endDate || moment(value).isAfter(moment(values.endDate))) {
-                  setFieldValue('endDate', value)
+                  setFieldValue('endDate', value);
                 }
               }}
             />
@@ -360,7 +360,9 @@ function PostEventFormComponent(props) {
 
       {/* Notes section */}
       <section>
-        <h2 className="pb-4 text-xl font-bold md:text-2xl">Notes</h2>
+        <h2 className="pb-4 text-xl font-bold md:text-2xl">
+          Notes
+        </h2>
         <div className="grid grid-cols-1 gap-6 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent dark:border-teal-400 md:grid-cols-2">
           <div>
             <TextField
