@@ -13,9 +13,12 @@ function TimeSlotField (props) {
         component="select"
         className={formStyleClasses.select}
       >
-        {timeSlots.map(timeSlot => {
-          return <option key={timeSlot} value={timeSlot}>{ timeSlot }</option>
-        })}
+        <>
+          <option value=""></option>
+          {timeSlots.map(timeSlot => {
+            return <option key={timeSlot} value={timeSlot}>{ timeSlot }</option>
+          })}
+        </>
       </Field>
     </>
   )
