@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useFormikContext, useField } from 'formik';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
 
 const DatePickerField = ({ ...props }) => {
   const [field] = useField(props);
