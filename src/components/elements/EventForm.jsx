@@ -118,7 +118,6 @@ function PostEventFormComponent(props) {
               label="Start Date*"
               onChange={value => {
                 if (!values.endDate || moment(value).isAfter(moment(values.endDate))) {
-                  console.log(value);
                   setFieldValue('endDate', value);
                 }
               }}
