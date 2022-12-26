@@ -1,11 +1,20 @@
 import React from 'react';
 import { formatEventTimeFrame } from 'utils/time';
 import { formatEventDetail } from 'utils/dates';
+import { LANGUAGE_OPTIONS } from 'constants/languages';
 import EventPlanningDetail from 'components/elements/EventPlanningDetail';
 import EventTags from 'components/elements/EventTags';
 import EventHashTags from 'components/elements/EventHashTags';
 
+function languageOptionForEvent(languageAbbreviation) {
+  return LANGUAGE_OPTIONS.find(option => {
+    return option.value === languageAbbreviation;
+  });
+}
+
 function EventPlanningSection({ evt }) {
+  const languageOption = languageOptionForEvent(evt.language);
+
   return (
     <div className="grid md:grid-cols-2 gap-x-20 mb-10">
       <div className="dark:text-slate-50">
@@ -47,6 +56,16 @@ function EventPlanningSection({ evt }) {
           value={evt.eventUrl}
           type="link"
         />
+
+        <EventPlanningDetail
+          label="Country"
+          value={evt.country}
+        />
+
+        <EventPlanningDetail
+          label="Region"
+          value={evt.region}
+        />
       </div>
 
       <div className="">
@@ -57,10 +76,10 @@ function EventPlanningSection({ evt }) {
 
         <EventPlanningDetail
           label="Language"
-          value={evt.language || 'English'}
+          value={languageOption && languageOption.label}
         />
 
-        <EventHashTags hashTags={evt.hashTag ? evt.hashTag.split(",") : ""} />
+        <EventHashTags hashTags={evt.hashTag} />
 
         <EventPlanningDetail
           label="Organization URL"
@@ -70,8 +89,6 @@ function EventPlanningSection({ evt }) {
         />
 
         <EventTags tags={evt.tags} />
-
-
       </div>
     </div>
   )

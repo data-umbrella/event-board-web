@@ -17,12 +17,12 @@ function Sponsors() {
       url: 'https://chanzuckerberg.com/science/programs-resources/open-science/communitiesofpractice/data-umbrella/',
       css: sponsorsStyleClasses.cziLogoCSS
     },
-    {
+    /*{
       name: 'Google Open Source',
       sponsorImg: GoogleImg,
       url: 'https://opensource.google/',
       css: sponsorsStyleClasses.googleLogoCSS
-    },
+    },*/
     {
       name: 'Digital Ocean',
       sponsorImg: colorTheme == 'light' ? DigitalOceanLight : DigitalOceanDark,

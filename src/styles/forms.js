@@ -7,8 +7,21 @@ const formStyleClasses = {
     dark:bg-du-deepPurple
     w-full
     rounded-md
-    h-14
+    min-h-10
     p-2
+    text-xl
+    text-[#545454]
+    md:row-start-2
+    md:col-span-2
+  `,
+  reactSelect: `
+    block
+    border
+    border-black
+    dark:border-teal-400
+    dark:bg-du-deepPurple
+    w-full
+    rounded-md
     text-xl
     text-[#545454]
     md:row-start-2
@@ -31,7 +44,7 @@ const formStyleClasses = {
     block
     w-full
     rounded-md
-    h-14
+    min-h-14
     border
     border-black
     dark:border-teal-400
@@ -74,6 +87,7 @@ const formStyleClasses = {
     rounded
     text-lg
     font-normal
+    focus:bg-du-lightPurple
   `,
   searchInputGroup: `
     block
@@ -157,19 +171,19 @@ const formStyleClasses = {
     md:col-span-2
   `,
   organizationDetail: `
-  grid 
-  grid-cols-1 
-  rounded 
-  border 
-  border-slate-300 
-  bg-white 
-  p-6 
-  marker:mb-6 
-  dark:border-teal-400 
-  dark:bg-transparent 
-  md:grid-cols-2 
-  md:grid-rows-1 
-  md:gap-6
+    grid
+    grid-cols-1
+    rounded
+    border
+    border-slate-300
+    bg-white
+    p-6
+    marker:mb-6
+    dark:border-teal-400
+    dark:bg-transparent
+    md:grid-cols-2
+    md:grid-rows-1
+    md:gap-6
 `,
 };
 

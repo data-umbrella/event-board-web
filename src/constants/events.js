@@ -1,6 +1,3 @@
-export const today = 'Friday July, 1, 2022';
-const todayStr = new Date().toISOString().replace(/T.*$/, '');
-
 export const REGION_OPTIONS = [
   { label: 'All', value: '' },
   { label: 'USA / Canada', value: 'usa-canada' },
@@ -28,7 +25,7 @@ export const eventProperties = {
   'discountCode': '',
   'discountValue': '',
   'socialMediaLinks': [],
-  'hashTag': "",
+  'hashTag': [],
   'imageAltText': '',
   'imageUrl': '',
   'imageFile': '',
@@ -43,7 +40,7 @@ export const eventProperties = {
   'startDate': '',
   'startTime': '',
   'state': '',
-  'tags': "",
+  'tags': [],
   'timezone': '',
   'volunteeringNotes': '',
   'socialMediaHashTag': '',
@@ -54,58 +51,40 @@ export const eventProperties = {
   'region': '',
 };
 
-export const CALENDAR_EVENTS = [
-  {
-    id: 100,
-    title: 'Example All-Day Event',
-    start: todayStr
-  },
-  {
-    id: 101,
-    title: 'Example Timed event',
-    start: todayStr + 'T12:00:00'
-  }
-];
-
 export const EVENT_ATTRIBUTES = [
-  'id',
-  // Required fields
-  'event_name',
-  'description',
-  'organization_name',
-  'event_type',
-  'description',
-  'featured',
-  'published',
-  // Dates
-  'start_date',
-  'end_date',
-  'start_time',
-  'end_time',
-  'cfp_due_date',
-  // Meta data
+  'accessibility_options',
   'acronym',
+  'cfp_due_date',
   'code_of_conduct_url',
   'conference_name',
+  'country',
+  'description',
+  'description',
+  'end_date',
+  'end_time',
+  'event_name',
+  'event_notes',
+  'event_type',
   'event_url',
+  'featured',
   'hash_tag',
-  'tags',
-
+  'id',
+  'image_file',
+  'in_person',
   'language',
   'location',
-  'region',
-
+  'organization_name',
   'organization_name',
   'organization_url',
-
+  'published',
+  'region',
+  'region',
+  'start_date',
+  'start_time',
+  'tags',
   'virtual',
-  'in_person',
-
-  'accessibility_options',
   'volunteer_notes',
-  'event_notes',
-
-  'image_file'
+  'timezone',
 ];
 
 export const EVENT_TYPES = [
@@ -127,6 +106,7 @@ export const TOPIC_OPTIONS = [
   { label: 'Computer Vision', value: 'computer-vision' },
   { label: 'CV', value: 'cv' },
   { label: 'Data', value: 'data' },
+  { label: 'Data Science', value: 'data-science' },
   { label: 'Django', value: 'django' },
   { label: 'Education', value: 'education' },
   { label: 'Ethics', value: 'ethics' },

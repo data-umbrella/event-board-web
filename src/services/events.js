@@ -32,6 +32,7 @@ export function fetchEventsForSearchFilters(searchFilters) {
     price: searchFilters.price,
     language: searchFilters.language,
     limit: searchFilters.pageSize,
+    published: true,
     offset: calcuateOffset(searchFilters.page, searchFilters.pageSize),
     ...buildDateFields(searchFilters),
   });

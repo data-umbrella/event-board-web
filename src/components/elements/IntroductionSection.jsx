@@ -1,5 +1,6 @@
 import { DONATE_URL } from 'constants/urls';
 import React from 'react';
+import ExternalLinkIcon from 'assets/ui/externalLink.svg'
 
 const styleClasses = {
   introSection: `
@@ -33,7 +34,7 @@ function IntroductionSection() {
             rel="noreferrer"
             className="font-medium bg-du-deepPurple dark:bg-du-purple-500 text-white px-12 py-2 text-lg rounded-lg hidden lg:float-right lg:block"
           >
-              Donate
+            Donate<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/>
           </a>
         </div>
       </div>

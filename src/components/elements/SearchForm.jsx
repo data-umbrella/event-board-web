@@ -15,8 +15,9 @@ import EventTypeField from 'components/elements/EventTypeField';
 import LanguageField from 'components/elements/LanguageField';
 import PriceField from 'components/elements/PriceField';
 import RegionField from 'components/elements/RegionField';
+import moment from 'moment';
 
-function SearchFormComponent({ clearFilters }) {
+function SearchFormComponent({ clearFilters, setFieldValue, values }) {
   return (
     <>
       <section className="flex justify-between items-end py-9 md:py-1.5">
@@ -79,8 +80,26 @@ function SearchFormComponent({ clearFilters }) {
 
           <div>
             <div className={formStyleClasses.searchInputColumnsOne}>
-              <DatePickerField name="startDate" label="Start Date" className={formStyleClasses.searchInput} />
-              <DatePickerField name="endDate" label="End Date" className={formStyleClasses.searchInput} />
+              <DatePickerField
+                name="startDate"
+                label="Start Date"
+                className={formStyleClasses.searchInput}
+                onChange={value => {
+                  if (!values.endDate || moment(value).isAfter(moment(values.endDate))) {
+                    setFieldValue('endDate', value)
+                  }
+                }}
+              />
+              <DatePickerField
+                name="endDate"
+                label="End Date"
+                className={formStyleClasses.searchInput}
+                onChange={value => {
+                  if (!values.startDate || moment(value).isBefore(moment(values.startDate))) {
+                    setFieldValue('startDate', value)
+                  }
+                }}
+              />
               <EventTypeField />
               <EventTopicField/>
             </div>
@@ -149,7 +168,9 @@ export function handleSubmit(values, { props }) {
  * @constant
  * @type {object}
  */
-export const validationSchema = Yup.object().shape({});
+export const validationSchema = Yup.object().shape({
+  startDate: Yup.string().required('Field is required'),
+});
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component

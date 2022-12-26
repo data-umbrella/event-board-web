@@ -2,7 +2,7 @@ import React from 'react';
 
 function ImagePreview({ url }) {
   if (!url) return (
-    <p>Add Image</p>
+    <p className="text-black dark:text-white">Add Image</p>
   )
 
   return <img src={url} alt="preview" />
