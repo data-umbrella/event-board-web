@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import sponsorsStyleClasses from 'styles/sponsors';
-import GoogleImg from 'assets/sponsors/Google_FullColor.png';
+/*import GoogleImg from 'assets/sponsors/Google_FullColor.png';*/
 import CZLILight from 'assets/sponsors/CZLILogoLight.svg';
 import CZLIDark from 'assets/sponsors/CZLILogoDark.svg';
 import DigitalOceanLight from 'assets/sponsors/digitaloceanlight.svg';
