@@ -57,6 +57,7 @@ function ReviewEventPage() {
         handleSubmit={handleSubmit}
         editEvent={editEvent}
         evt={evt}
+        href={evt.eventUrl}
       />
     </div>
   );
