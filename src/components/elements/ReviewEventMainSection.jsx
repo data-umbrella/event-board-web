@@ -46,7 +46,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
           <div className="pt-4">
             <div className="grid lg:grid-cols-2 flex justify-center">
               <div className={styleClasses.eventTypePillbox}>
-                { evt.eventType }
+                {evt.eventType}
               </div>
 
               {editEvent && (
@@ -82,20 +82,20 @@ function ReviewEventMainSection({ evt, editEvent }) {
             </div>
 
             <h1 className="font-bold text-xl md:text-3xl mb-4 dark:text-slate-50">
-              { evt.eventName }
+              {evt.eventName}
             </h1>
 
             <h2 className="mb-2 dark:text-slate-50">
-              { evt.organizationName }
+              {evt.organizationName}
             </h2>
           </div>
 
           <div>
-            <div className="bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0">
-              <a href={evt.eventUrl} target="_blank" rel="noreferrer">
+            <a href={evt.eventUrl} target="_blank" rel="noreferrer">
+              <div className="bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0">
                 Register
-              </a>
-            </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
