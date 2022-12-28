@@ -10,17 +10,20 @@ import "tw-elements";
 function BaseSignInForm() {
   return (
     <div className="flex justify-center">
-      <Form className=" w-full md:basis-2/3 mb-6 sm:w-2/3">
-        <label className="block" htmlFor="email">
-          Email address
-        </label>
-        <Field
-          name="email"
-          type="text"
-          autoComplete="off"
-          className={formStyleClasses.input}
-        />
-        <div className= "mt-6">
+      <Form className="lg:basis-1/2">
+        <div className={formStyleClasses.inputContainer}>
+          <label className="block" htmlFor="email">
+            Email address
+          </label>
+          <Field
+            name="email"
+            type="text"
+            autoComplete="off"
+            className={formStyleClasses.input}
+          />
+        </div>
+
+        <div className={formStyleClasses.inputContainer}>
           <button type="submit" className={formStyleClasses.loginButton}>
             Login
           </button>
