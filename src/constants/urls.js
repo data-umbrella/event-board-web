@@ -7,3 +7,4 @@ export const EVENTS_URL = `${API_URL}/api/v1/events`;
 export const CONTACT_EMAILS_URL = `${API_URL}/api/v1/contact_emails`;
 export const WEEKLY_DIGESTS_URL = `${API_URL}/api/v1/weekly_digests`;
 export const DONATE_URL = 'https://opencollective.com/data-umbrella/contribute/data-science-event-board-37473/checkout';
+export const DATA_UMBRELLA_URL = 'https://dataumbrella.org';
