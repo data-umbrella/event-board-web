@@ -1,5 +1,3 @@
-//import { DONATE_URL } from 'constants/urls';
-//import { DATA_UMBRELLA_URL } from 'constants/urls';
 import { DONATE_URL, DATA_UMBRELLA_URL } from 'constants/urls';
 import React from 'react';
 import ExternalLinkIcon from 'assets/ui/externalLink.svg'
