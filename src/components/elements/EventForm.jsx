@@ -140,6 +140,17 @@ function PostEventFormComponent(props) {
             role="group"
             aria-labelledby="virtual-option-radio-group"
           >
+            <div className="mb-6">
+              <label htmlFor="eventRegistrationUrl">
+                Event Registration URL
+              </label>
+              <Field
+                autoComplete="new-password"
+                id="eventRegistrationUrl"
+                name="eventRegistrationUrl"
+                className={formStyleClasses.input}
+              />
+            </div>
             <div>
               <label className="mr-6">
                 <Field
@@ -397,17 +408,6 @@ function PostEventFormComponent(props) {
                 autoComplete="new-password"
                 id="codeOfConductUrl"
                 name="codeOfConductUrl"
-                className={formStyleClasses.input}
-              />
-            </div>
-            <div className="mb-6">
-              <label htmlFor="eventRegistrationUrl">
-                Event Registration URL
-              </label>
-              <Field
-                autoComplete="new-password"
-                id="eventRegistrationUrl"
-                name="eventRegistrationUrl"
                 className={formStyleClasses.input}
               />
             </div>
