@@ -1,4 +1,4 @@
-import { DONATE_URL } from 'constants/urls';
+import { DONATE_URL, DATA_UMBRELLA_URL } from 'constants/urls';
 import React from 'react';
 import ExternalLinkIcon from 'assets/ui/externalLink.svg'
 
@@ -24,7 +24,7 @@ function IntroductionSection() {
             Data Events Board
           </h1>
           <small className="italic text-du-purple-600 text-base font-medium  md:pl-36">
-            A <span className="underline">Data Umbrella</span> Initiative
+            A <a className="underline" href={DATA_UMBRELLA_URL} target="_blank" rel="noreferrer">Data Umbrella</a> Initiative
           </small>
         </div>
         <div>
