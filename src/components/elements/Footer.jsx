@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DONATE_URL } from 'constants/urls';
+import { DONATE_URL , DATA_UMBRELLA_URL } from 'constants/urls';
 import ExternalLinkIcon from 'assets/ui/externalLink.svg'
 import githubWhite from 'assets/social_media/githubWhite.svg'
 import twitterWhite from 'assets/social_media/twitterWhite.svg'
@@ -42,7 +42,7 @@ function Footer() {
         <div>
           <ul className="grid lg:grid-rows-3 lg:gap-4">
             <li className="mb-2"><Link to="/contact">Contact Us</Link></li>
-            <li className="mb-2"><a href="https://www.dataumbrella.org">Data Umbrella<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a></li>
+            <li className="mb-2"><a href={ DATA_UMBRELLA_URL}>Data Umbrella<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a></li>
             {/* <li className="mb-2"><Link to="/privacy">Privacy</Link></li> */}
             {/* <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li> */}
           </ul>
