@@ -10,6 +10,7 @@ import websiteWhite from 'assets/social_media/websiteWhite.svg';
 import twitterWhite from 'assets/social_media/twitterWhite.svg';
 import linkedInWhite from 'assets/social_media/linkedInWhite.svg';
 import githubWhite from 'assets/social_media/githubWhite.svg';
+import { DATA_UMBRELLA_URL } from 'constants/urls';
 
 const IMAGE_MAP = {
   twitter,
@@ -26,7 +27,7 @@ const DATA_UMBRELLA_SOCIAL_MEDIA_LINKS = [
   {
     name: "website",
     darkName: "websiteWhite",
-    link: "https://www.dataumbrella.org/",
+    link: { DATA_UMBRELLA_URL },
   },
   {
     name: "twitter",

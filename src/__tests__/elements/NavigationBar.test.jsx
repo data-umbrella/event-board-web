@@ -36,7 +36,7 @@ describe('Navigation bar', () => {
       expect(screen.getByText(/Event Calendar/i).href).toMatch('/events/calendar');
       // TODO: Uncomment when weekly digest is implement.
       // expect(screen.getByText(/Weekly Digest/i).href).toMatch('/events/weekly-digest');
-      expect(screen.getByText(/Data Umbrella/i).href).toMatch({DATA_UMBRELLA_URL});
+      expect(screen.getByText(/Data Umbrella/i).href).toMatch('www.dataumbrella.org'});
       expect(screen.getByText(/Sponsors/i).href).toMatch('/sponsors');
       expect(screen.getByText(/Sign In/i).href).toMatch('/sign-in');
     });
