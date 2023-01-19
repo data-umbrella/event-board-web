@@ -10,7 +10,7 @@ import websiteWhite from 'assets/social_media/websiteWhite.svg';
 import twitterWhite from 'assets/social_media/twitterWhite.svg';
 import linkedInWhite from 'assets/social_media/linkedInWhite.svg';
 import githubWhite from 'assets/social_media/githubWhite.svg';
-import { DATA_UMBRELLA_URL } from 'constants/urls';
+import { DATA_UMBRELLA_URL, SPEC_URL } from 'constants/urls';
 
 const IMAGE_MAP = {
   twitter,
@@ -45,7 +45,7 @@ const SPEC_SOCIAL_MEDIA_LINKS = [
   {
     name: "website",
     darkName: "websiteWhite",
-    link: "https://www.specollective.org/",
+    link: { SPEC_URL },
   },
   {
     name: "twitter",
@@ -125,7 +125,7 @@ function AboutUs() {
         </div>
         <div className="row-span-2 px-4 m-1 object-contain text-left">
           <a
-            href="https://www.specollective.org/"
+            href={SPEC_URL}
             target="_blank"
             rel="noreferrer"
             className="text-du-darkBlue underline dark:text-blue-700"
