@@ -74,7 +74,7 @@ function SearchEventCard({ eventData }) {
             {startDate}
           </time>
           <p className="text-right text-du-purple-600 dark:text-du-lightPurple pr-2 md:col-span-1">
-            Free
+            Paid
           </p>
         </div>
 

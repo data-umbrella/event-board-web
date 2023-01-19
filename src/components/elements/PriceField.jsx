@@ -1,12 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 import formStyleClasses from 'styles/forms';
-
-const PRICE_OPTIONS = [
-  { label: 'All', value: '' },
-  { label: 'Free', value: 'free' },
-  { label: 'Paid', value: 'paid' },
-]
+import { PRICE_OPTIONS } from 'constants/prices';
 
 function PriceField () {
   return (
