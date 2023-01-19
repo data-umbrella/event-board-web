@@ -11,6 +11,7 @@ import { navStyleClasses } from 'styles/navbar';
 import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
 import ExternalLink from 'assets/ui/externalLink.svg'
 import ExternalLinkDark from 'assets/ui/externalLinkDark.svg'
+import { DATA_UMBRELLA_URL } from 'constants/urls';
 
 function NavigationBar() {
   const auth = useAuth();
@@ -64,7 +65,7 @@ function NavigationBar() {
             </div>
             <div>
               <a
-                href="https://www.dataumbrella.org"
+                href={DATA_UMBRELLA_URL}
                 target="_blank"
                 rel="noreferrer"
                 className={navStyleClasses.navLink}
