@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavigationBar from 'components/elements/NavigationBar';
 import authHooks, { AuthProvider } from 'hooks/authentication';
-import { DATA_UMBRELLA_URL } from 'constants/urls';
 
 jest.mock('hooks/authentication', () => ({
   ...jest.requireActual('hooks/authentication'),
@@ -36,7 +35,7 @@ describe('Navigation bar', () => {
       expect(screen.getByText(/Event Calendar/i).href).toMatch('/events/calendar');
       // TODO: Uncomment when weekly digest is implement.
       // expect(screen.getByText(/Weekly Digest/i).href).toMatch('/events/weekly-digest');
-      expect(screen.getByText(/Data Umbrella/i).href).toMatch('www.dataumbrella.org'});
+      expect(screen.getByText(/Data Umbrella/i).href).toMatch('www.dataumbrella.org');
       expect(screen.getByText(/Sponsors/i).href).toMatch('/sponsors');
       expect(screen.getByText(/Sign In/i).href).toMatch('/sign-in');
     });
