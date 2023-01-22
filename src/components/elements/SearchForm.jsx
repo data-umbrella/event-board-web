@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // Third-party dependencies
 
-import { withFormik, Form, Field } from 'formik';
+import { withFormik, Form, Field, useFormikContext } from 'formik';
 import * as Yup from 'yup';
 
 // Constants
@@ -18,6 +18,13 @@ import RegionField from 'components/elements/RegionField';
 import moment from 'moment';
 
 function SearchFormComponent({ clearFilters, setFieldValue, values }) {
+  const context = useFormikContext();
+
+  function resetForm() {
+    context.resetForm();
+    clearFilters();
+  }
+
   return (
     <>
       <section className="flex justify-between items-end py-9 md:py-1.5">
@@ -114,7 +121,7 @@ function SearchFormComponent({ clearFilters, setFieldValue, values }) {
               <button
                 type="button"
                 className="p-2 text-black rounded mb-2 mr-2 font-semibold dark:text-white"
-                onClick={clearFilters}
+                onClick={resetForm}
               >
                 Clear Filters
               </button>
