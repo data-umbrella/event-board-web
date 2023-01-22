@@ -48,6 +48,8 @@ export function AuthProvider({ children }) {
 
   // Triggers a request to the API to verify the user's email.
   const verifyOneTimePassCode = async (token, email, callback) => {
+    await signOutCurrentUser();
+
     try {
       const responseJSON = await fetchVerification(token, email);
       updateCurrentUser({ ...responseJSON, isAuthenticated: true });
