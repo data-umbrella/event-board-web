@@ -20,6 +20,7 @@ const styleClasses = {
   imageContainer: 'col-span-1',
   eventTypePillbox: 'inline-block mb-4 bg-pink-300 px-8 text-center rounded-lg font-light text-xl font-medium capitalize lg:w-min',
   infoTextSection: 'bg-white p-6 border-slate-300 border-solid border rounded mb-6',
+  registerButton: 'block bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0',
 }
 
 function ReviewEventMainSection({ evt, editEvent }) {
@@ -91,7 +92,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
           </div>
 
           <div>
-            <a href={evt.eventUrl} target="_blank" rel="noreferrer" className="block bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0">
+            <a href={evt.eventUrl} target="_blank" rel="noreferrer" className={styleClasses.registerButton}>
               Register
             </a>
           </div>
