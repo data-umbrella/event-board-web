@@ -91,10 +91,8 @@ function ReviewEventMainSection({ evt, editEvent }) {
           </div>
 
           <div>
-            <a href={evt.eventUrl} target="_blank" rel="noreferrer">
-              <div className="bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0">
-                Register
-              </div>
+            <a href={evt.eventUrl} target="_blank" rel="noreferrer" className="block bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0">
+              Register
             </a>
           </div>
         </div>
