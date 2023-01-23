@@ -20,7 +20,11 @@ function ReviewEventPage() {
   async function handleSubmit() {
     try {
       await api('PUT', `events/${evt.id}/`, { submitted: true });
-      navigate(`/events/${evt.id}/details`);
+      if (evt.submitted) {
+        navigate(`/events/${evt.id}/details`);
+      } else {
+        navigate(`/events/confirmation`);
+      }
     } catch (e) {
       // TODO: Gracefully handle error messages.
       window.alert(e.message);

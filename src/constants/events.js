@@ -30,11 +30,11 @@ export const eventProperties = {
   'hashTag': [],
   'id': null,
   'imageAltText': '',
-  'imageFile': '',
-  'imageUrl': '',
+  'imageFile': null,
+  'imageUrl': null,
   'inPerson': false,
   'location': '',
-  'notes': '',
+  'eventNotes': '',
   'organizationName': '',
   'organizationUrl': '',
   'published': false,
@@ -73,6 +73,7 @@ export const EVENT_ATTRIBUTES = [
   'hash_tag',
   'id',
   'image_file',
+  'image_url',
   'in_person',
   'language',
   'location',
@@ -88,7 +89,8 @@ export const EVENT_ATTRIBUTES = [
   'tags',
   'timezone',
   'virtual',
-  'volunteer_notes',
+  'volunteering_notes',
+  'social_media_links',
 ];
 
 export const EVENT_TYPES = [

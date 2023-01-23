@@ -46,7 +46,7 @@ function EventPlanningSection({ evt }) {
 
         <EventPlanningDetail
           label="Code of Conduct"
-          name={`${evt.organizationName} Code of Conduct`}
+          name="Link"
           value={evt.codeOfConductUrl}
           type="link"
         />

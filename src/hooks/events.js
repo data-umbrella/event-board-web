@@ -20,23 +20,29 @@ export function useEvent(eventId) {
 
   async function fetchEvent() {
     let json;
+    let requestURL;
+    let response;
 
-    if (sessionStorage.getItem(eventId)) {
-      json = JSON.parse(sessionStorage.getItem(eventId));
-    } else {
-      try {
-        const requestURL = `${EVENTS_URL}/${eventId}/`;
-        const response = await fetch(requestURL);
-        json = await response.json();
-      } catch (e) {
-        throw new Error('Fetching the events failed.')
-      }
+    try {
+      requestURL = `${EVENTS_URL}/${eventId}/`;
+      response = await fetch(requestURL);
+      json = await response.json();
+    } catch (e) {
+      throw new Error('Fetching the events failed.')
     }
+
     const result = camelcaseKeys(json);
     result.tags = arrayifyTags(result.tags);
     result.hashTag = arrayifyTags(result.hashTag);
     result.speakers = arrayifyTags(result.speakers);
     result.accessibilityOptions = arrayifyTags(result.accessibilityOptions);
+    
+    // NOTE: This is a temporary fix for the API returning the image URL in the 
+    // `image_file` field. This should be removed once the API is fixed.
+    if (result.imageFile) {
+      result.imageUrl = result.imageFile;
+      result.imageFile = null;
+    }
 
     setEvent(result);
   }

@@ -186,7 +186,7 @@ function PostEventFormComponent(props) {
                   minWidth: "6rem",
                 }}
               >
-                <ImagePreview url={values.imageFile} />
+                <ImagePreview url={values.imageFile || values.imageUrl} />
               </div>
 
               <div className="mb-6 h-16">
@@ -300,7 +300,6 @@ function PostEventFormComponent(props) {
                     }),
                   }}
                   onChange={(val) => {
-                    console.log(val.value)
                     setFieldValue('timezone', val.value)
                   }}
                 />
@@ -381,8 +380,8 @@ function PostEventFormComponent(props) {
           <div>
             <TextField
               component="textarea"
-              id="notes"
-              name="notes"
+              id="eventNotes"
+              name="eventNotes"
               className={formStyleClasses.textarea}
               label="Event Notes"
             />
