@@ -30,6 +30,7 @@ function FeaturedEventField({ value, onChange }) {
           type="checkbox"
           className="mr-2"
           value={value}
+          checked={value ? 'checked' : ''}
           onChange={handleChange}
         />
         <span className="text-black dark:text-white font-medium">
