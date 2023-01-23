@@ -82,7 +82,7 @@ function EventPlanningSection({ evt }) {
         <EventHashTags hashTags={evt.hashTag} />
 
         <EventPlanningDetail
-          label="Organization URL"
+          label="Organization"
           name={evt.organizationName}
           value={evt.organizationUrl}
           type="link"

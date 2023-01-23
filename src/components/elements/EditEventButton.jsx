@@ -11,7 +11,7 @@ function EditEventButton({ evt }) {
   return (
     <div className="text-right">
       <Link
-        className="block py-10 underline underline-offset-4 text-xl dark:text-white"
+        className="block underline underline-offset-4 text-xl dark:text-white"
         to={`/events/${evt.id}/edit`}
       >
         Edit Event
