@@ -88,6 +88,16 @@ function EventPlanningSection({ evt }) {
           type="link"
         />
 
+        <EventPlanningDetail
+          label="In Person"
+          value={evt.inPerson ? 'Yes' : 'No'}
+        />
+
+        <EventPlanningDetail
+          label="Virtual"
+          value={evt.virtual ? 'Yes' : 'No'}
+        />
+
         <EventTags tags={evt.tags} />
       </div>
     </div>

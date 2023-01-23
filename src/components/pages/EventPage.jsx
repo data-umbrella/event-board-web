@@ -18,13 +18,13 @@ function EventDetailsPage() {
 
   return (
     <div className="container mx-auto pt-16 dark:bg-du-deepPurple">
-      <EditEventButton evt={evt} />
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />
       <DescriptionSection evt={evt} />
       <SpeakersSection evt={evt} />
       <NotesSection evt={evt} />
       <AccessibilitySection evt={evt} />
+      <EditEventButton evt={evt} />
     </div>
   )
 }

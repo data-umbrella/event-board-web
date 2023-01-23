@@ -29,6 +29,7 @@ function FeaturedEventField({ value, onChange }) {
           name="feature-event"
           type="checkbox"
           className="mr-2"
+          checked={value ? 'checked' : ''}
           value={value}
           checked={value ? 'checked' : ''}
           onChange={handleChange}

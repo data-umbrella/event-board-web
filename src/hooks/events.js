@@ -1,15 +1,15 @@
-import { EVENTS_URL } from "constants/urls";
-import camelcaseKeys from "camelcase-keys";
-import moment from "moment";
-import queryString from "query-string";
-import { useEffect, useState } from "react";
-import { arrayifyTags } from "utils/strings";
+import { EVENTS_URL } from 'constants/urls';
+import camelcaseKeys from 'camelcase-keys';
+import moment from 'moment';
+import queryString from 'query-string';
+import { useEffect, useState } from 'react';
+import { arrayifyTags } from 'utils/strings';
 import {
   fetchEventsForSearchFilters,
   fetchFeaturedEvents,
-} from "services/events";
-import { DATE_PICKER_STRING_FORMAT, DEFAULT_DATE_FORMAT } from "constants/dates";
-import { useSearchParams } from "react-router-dom";
+} from 'services/events';
+import { DATE_PICKER_STRING_FORMAT, DEFAULT_DATE_FORMAT } from 'constants/dates';
+import { useSearchParams } from 'react-router-dom';
 
 export function useEvent(eventId) {
   const [evt, setEvent] = useState();

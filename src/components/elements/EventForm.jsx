@@ -32,6 +32,7 @@ const EVENT_FORM_LABELS = {
   eventName: 'Event name',
   startDate: 'Start date',
   organizationUrl: 'Organization URL',
+  eventUrl: 'Event Registration URL',
 }
 
 /**
@@ -141,13 +142,12 @@ function PostEventFormComponent(props) {
             aria-labelledby="virtual-option-radio-group"
           >
             <div className="mb-6">
-              <label htmlFor="eventRegistrationUrl">
-                Event Registration URL
-              </label>
               <Field
                 autoComplete="new-password"
-                id="eventRegistrationUrl"
-                name="eventRegistrationUrl"
+                id="eventUrl"
+                label="Event Registration URL*"
+                name="eventUrl"
+                component={ValidatedInput}
                 className={formStyleClasses.input}
               />
             </div>
@@ -299,7 +299,10 @@ function PostEventFormComponent(props) {
                       color: 'white',
                     }),
                   }}
-                  onChange={(val) => setFieldValue('timezone', val.value)}
+                  onChange={(val) => {
+                    console.log(val.value)
+                    setFieldValue('timezone', val.value)
+                  }}
                 />
               </section>
               <section>
@@ -487,7 +490,8 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required('Field is required'),
   startDate: Yup.string().required('Field is required'),
-  organizationUrl: Yup.string().url('Field must be a valid URL'),
+  endDate: Yup.string().required('Field is required'),
+  eventUrl: Yup.string().required('Field is required').url('Must be a valid URL'),
 });
 
 /**
