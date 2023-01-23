@@ -25,14 +25,13 @@ function FeaturedEventField({ value, onChange }) {
       </div>
       <div>
         <input
+          checked={value ? 'checked' : ''}
+          className="mr-2"
           id="featured-event"
           name="feature-event"
-          type="checkbox"
-          className="mr-2"
-          checked={value ? 'checked' : ''}
-          value={value}
-          checked={value ? 'checked' : ''}
           onChange={handleChange}
+          type="checkbox"
+          value={value}
         />
         <span className="text-black dark:text-white font-medium">
           I would like my event to be featured
