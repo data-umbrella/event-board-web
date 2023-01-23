@@ -17,7 +17,7 @@ function EventDetailsPage() {
   if (!evt) return <PageLoader />
 
   return (
-    <div className="container mx-auto pt-16 dark:bg-du-deepPurple">
+    <div className="container mx-auto pt-16 pb-10 dark:bg-du-deepPurple">
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />
       <DescriptionSection evt={evt} />

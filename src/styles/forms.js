@@ -35,8 +35,8 @@ const formStyleClasses = {
     dark:bg-[#151A35]
     w-full
     rounded-md
-    h-14
-    p-2
+    h-11
+    px-3
     text-xl
     text-[#545454]
   `,
