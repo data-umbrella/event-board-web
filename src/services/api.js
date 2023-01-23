@@ -16,14 +16,18 @@ export function buildFormDataObject(body) {
   body.hash_tag = stringifyTags(body.hashTag);
   body.speakers = stringifyTags(body.speakers);
   body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
-
+  
   const formDataPayload = snakecaseKeys(body);
-
   formDataPayload.image_file = dataURLtoImageFile(body.imageFile, 'new-name.png');
-  formDataPayload.event_url = formDataPayload.event_url || '';
   formDataPayload.start_date = formatDate(formDataPayload.start_date);
   formDataPayload.end_date = formatDate(formDataPayload.end_date);
   formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
+  formDataPayload.volunteering_notes = formDataPayload.volunteering_notes || '';
+  formDataPayload.event_notes = formDataPayload.event_notes || '';
+
+  formDataPayload.social_media_links = JSON.stringify({
+    twitter: 'https://twitter.com/jtorreggiani',
+  });
 
   return formDataPayload;
 }
@@ -31,6 +35,7 @@ export function buildFormDataObject(body) {
 export function buildFormData(rawData) {
   const formData = new FormData();
   const formDataPayload = buildFormDataObject(rawData);
+  
   EVENT_ATTRIBUTES.forEach(attributeKey => {
     if (attributeKey === 'image_file' && formDataPayload.image_file) {
       formData.append(
@@ -38,7 +43,7 @@ export function buildFormData(rawData) {
         formDataPayload.image_file,
         formDataPayload.image_file.name
       );
-    } else if (formDataPayload[attributeKey]) {
+    } else if (formDataPayload[attributeKey] || formDataPayload[attributeKey] === '') {
       formData.append(attributeKey, formDataPayload[attributeKey]);
     }
   });

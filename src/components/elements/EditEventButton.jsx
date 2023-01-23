@@ -1,30 +1,21 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 import { useAuth } from 'hooks/authentication';
-import { sessionStore } from 'utils/sessions';
 
 function EditEventButton({ evt }) {
-  const navigate = useNavigate();
   const { currentUser } = useAuth();
   const { isStaff, isAuthenticated } = currentUser;
-
-  function editEvent () {
-    const tmpId = uuidv4();
-    sessionStore(tmpId, evt);
-    navigate(`/events/${tmpId}/edit`);
-  }
 
   if (!isAuthenticated || !isStaff) return;
 
   return (
     <div className="text-right">
-      <button
-        className="p-2 bg-blue-600 text-white rounded mb-2"
-        onClick={editEvent}
+      <Link
+        className="block underline underline-offset-4 text-xl dark:text-white"
+        to={`/events/${evt.id}/edit`}
       >
         Edit Event
-      </button>
+      </Link>
     </div>
   )
 }

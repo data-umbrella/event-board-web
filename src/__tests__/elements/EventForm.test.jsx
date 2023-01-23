@@ -2,6 +2,7 @@ import React from 'react';
 import { act, render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import EventForm from 'components/elements/EventForm';
+import moment from 'moment';
 
 describe('Event Form', () => {
   it('validates required fields', async () => {
@@ -22,7 +23,7 @@ describe('Event Form', () => {
 
   it('submits valid event', async () => {
     const mockHandleFormSubmit = jest.fn();
-    const todayISOString = new Date().toISOString();
+    const dateString = moment().format('YYYY-MM-DD');
     
     render(
       <MemoryRouter>
@@ -32,13 +33,16 @@ describe('Event Form', () => {
 
     const eventNameInput = screen.getByLabelText(/Event Name/i);
     const startDateInput = screen.getAllByLabelText(/Start Date/i)[0];
+    const eventUrlInput = screen.getAllByLabelText(/Event Registration URL/i)[0];
 
     expect(eventNameInput).toBeInTheDocument();
     expect(startDateInput).toBeInTheDocument();
+    expect(eventUrlInput).toBeInTheDocument();
 
     await act(() => {
       fireEvent.change(eventNameInput, { target: { value: 'Example name' } });
-      fireEvent.change(startDateInput, { target: { value: todayISOString } });
+      fireEvent.change(startDateInput, { target: { value: dateString } });
+      fireEvent.change(eventUrlInput, { target: { value: 'http://www.example.com' } });
       fireEvent.click(screen.getByText('Review'));
     });
 
@@ -47,6 +51,6 @@ describe('Event Form', () => {
     const formSubmitArgs = mockHandleFormSubmit.mock.calls[0][0];
 
     expect(formSubmitArgs['eventName']).toBe('Example name');
-    expect(formSubmitArgs['startDate'].toISOString()).toMatch(todayISOString);
+    expect(formSubmitArgs['startDate'].toISOString()).toMatch(dateString);
   });
 });

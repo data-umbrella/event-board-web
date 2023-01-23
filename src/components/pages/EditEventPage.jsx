@@ -5,16 +5,20 @@ import { useNavigate, useParams } from 'react-router-dom';
 // Components
 import EventForm from 'components/elements/EventForm';
 import { useEvent } from 'hooks/events';
-import { sessionStore } from 'utils/sessions';
+import { api } from 'services/api';
 
 function EditEventPage() {
   const navigate = useNavigate();
   const { eventId } = useParams();
   const evt = useEvent(eventId);
 
-  function handleFormSubmit(values) {
-    sessionStore(eventId, values);
-    navigate(`/events/${eventId}/review`);
+  async function handleFormSubmit(values) {
+    try {
+      await api('PUT', `events/${evt.id}/`, values);
+      navigate(`/events/${evt.id}/review`);
+    } catch (e) {
+      window.alert(e);
+    }
   }
 
   if (!evt) return 'Loading...'

@@ -18,24 +18,16 @@ function ReviewEventPage() {
   const evt = useEvent(eventId);
 
   async function handleSubmit() {
-    const eventData = JSON.parse(sessionStorage.getItem(eventId));
-    if (eventData.id) {
-      try {
-        await api('PUT', `events/${eventData.id}/`, eventData);
-        navigate(`/events/${eventData.id}/details`);
-      } catch (e) {
-        // TODO: Gracefully handle error messages.
-        window.alert(e.message);
+    try {
+      await api('PUT', `events/${evt.id}/`, { submitted: true });
+      if (evt.submitted) {
+        navigate(`/events/${evt.id}/details`);
+      } else {
+        navigate(`/events/confirmation`);
       }
-    } else {
-      try {
-        await api('POST', 'events', eventData);
-        navigate('/events/confirmation');
-      } catch (e) {
-        // TODO: Gracefully handle error messages.
-        window.alert(e.message);
-        return;
-      }
+    } catch (e) {
+      // TODO: Gracefully handle error messages.
+      window.alert(e.message);
     }
   }
 

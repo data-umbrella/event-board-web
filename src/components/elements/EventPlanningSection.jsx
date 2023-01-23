@@ -46,7 +46,7 @@ function EventPlanningSection({ evt }) {
 
         <EventPlanningDetail
           label="Code of Conduct"
-          name={`${evt.organizationName} Code of Conduct`}
+          name="Link"
           value={evt.codeOfConductUrl}
           type="link"
         />
@@ -82,10 +82,20 @@ function EventPlanningSection({ evt }) {
         <EventHashTags hashTags={evt.hashTag} />
 
         <EventPlanningDetail
-          label="Organization URL"
+          label="Organization"
           name={evt.organizationName}
           value={evt.organizationUrl}
           type="link"
+        />
+
+        <EventPlanningDetail
+          label="In Person"
+          value={evt.inPerson ? 'Yes' : 'No'}
+        />
+
+        <EventPlanningDetail
+          label="Virtual"
+          value={evt.virtual ? 'Yes' : 'No'}
         />
 
         <EventTags tags={evt.tags} />
