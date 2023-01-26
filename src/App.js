@@ -26,22 +26,22 @@ function CurrentUser({ children }) {
 export default function App() {
   return (
     <div className="bg-du-gray dark:bg-du-indigo-900 transition duration-300">
-      <AuthProvider>
-        <CurrentUser>
+      {/* <AuthProvider> */}
+        {/* <CurrentUser> */}
           <section className="flex flex-col min-h-screen justify-between">
-            <section className="md:hidden">
+            {/* <section className="md:hidden">
               <MobileNav />
-            </section>
+            </section> */}
             <section className="container mx-auto px-4 py-2 md:w-10/12 dark:border-b">
-              <div className="hidden md:block">
+              {/* <div className="hidden md:block">
                 <NavigationBar />
-              </div>
+              </div> */}
               <AppRoutes />
             </section>
             <Footer />
           </section>
-        </CurrentUser>
-      </AuthProvider>
+        {/* </CurrentUser> */}
+      {/* </AuthProvider> */}
     </div>
   );
 }

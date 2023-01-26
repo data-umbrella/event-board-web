@@ -55,9 +55,9 @@ function AppRoutes() {
       <Route
         path="/events/new"
         element={
-          <RequireAuth>
+          // <RequireAuth>
             <NewEventPage />
-          </RequireAuth>
+          // </RequireAuth>
         }
       />
       <Route path="/events/weekly-digest" element={<WeeklyDigestPage />} />

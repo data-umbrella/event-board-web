@@ -39,6 +39,12 @@ export const eventStyleClasses = {
     font-normal
   `,
   donationPillBox: `
+    flex
+    flex-col
+    w-3/4
+    lg:flex-row
+    lg:w-1/2
+    justify-around
     border 
     border-black
     block 
@@ -46,7 +52,6 @@ export const eventStyleClasses = {
     bg-du-lightBlue 
     px-1 
     py-2 
-    w-2/5 
     text-center 
     rounded 
     text-medium
