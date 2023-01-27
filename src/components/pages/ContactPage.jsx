@@ -58,7 +58,7 @@ function ContactUsFormComponent( { errors } ) {
               type="text"
               name="name"
               component={ValidatedInput}
-              className={`${formStyleClasses.input}`}
+              className={formStyleClasses.input}
             />
           </div>
 
@@ -68,7 +68,7 @@ function ContactUsFormComponent( { errors } ) {
               type="email"
               name="email"
               component={ValidatedInput}
-              className={`${formStyleClasses.input}`}
+              className={formStyleClasses.input}
             />
           </div>
 
@@ -84,7 +84,7 @@ function ContactUsFormComponent( { errors } ) {
             <Field
               type="text"
               name="reference"
-              className={`${formStyleClasses.input} border-black`}
+              className={formStyleClasses.input}
             />
           </div>
 
