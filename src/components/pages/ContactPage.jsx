@@ -7,12 +7,16 @@ import contactMobile from 'assets/ui/contact-mobile.png'
 import contact from 'assets/ui/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
 import { postContactEmail } from 'services/contact-emails';
+import ValidatedInput from 'components/elements/ValidatedInput';
 
 /**
  * Defines the form component for the contact page
  * @returns {React.Component} - returns a react component
  */
-function ContactUsFormComponent() {
+function ContactUsFormComponent(props) {
+  // const errorKeys = Object.keys(errors)
+  // console.log(errorKeys)
+  const { values, setFieldValue, errors } = props;
   return (
     <div className="container my-5 md:p-20 md:mb-10 text-sm md:text-xl">
       <section>
@@ -36,14 +40,17 @@ function ContactUsFormComponent() {
       <Form>
         <div className="grid grid-cols-2 space-y-2.5 md:space-y-5">
           <div className="col-span-2 md:col-span-1">
-            <label className="block" htmlFor="name">
+            {/* <label className="block" htmlFor="name">
               Name*
-            </label>
+            </label> */}
             <Field
+              label="Name*"
               type="text"
               name="name"
-              className={`${formStyleClasses.input} border-black`}
+              component={ValidatedInput}
+              className={`${formStyleClasses.input}`}
             />
+            {/* {errors.name && <span className="text-[#FA0000] text-sm">{errors.name}</span>} */}
           </div>
 
           <div className="row-start-2">
@@ -53,8 +60,9 @@ function ContactUsFormComponent() {
             <Field
               type="email"
               name="email"
-              className={`${formStyleClasses.input} border-black`}
+              className={`${formStyleClasses.input} ${errors.email ? "border-2 border-[#FA0000]" : "border-black"}`}
             />
+            {errors.email && <span className="text-[#FA0000] text-sm">{errors.email}</span>}
           </div>
 
           <div className="row-start-2 ml-4">
@@ -105,6 +113,7 @@ function ContactUsFormComponent() {
               Send
             </button>
           </div>
+          {/* {errors && <span className="text-sm text-[#FA0000]">Some of the fields are required</span>} */}
         </div>
       </Form>
     </div>
