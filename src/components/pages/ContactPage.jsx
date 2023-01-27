@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import contactMobile from 'assets/ui/contact-mobile.png'
 import contact from 'assets/ui/contact-image.png';
 import ContactTopicField from 'components/elements/ContactTopicField';
+import FormErrors from 'components/elements/FormErrors';
 import { postContactEmail } from 'services/contact-emails';
 import ValidatedInput from 'components/elements/ValidatedInput';
 
@@ -16,36 +17,36 @@ const CONTACT_FORM_LABELS = {
   message: 'Message'
 }
 
-function FormErrors({ errors }) {
-  const errorKeys = Object.keys(errors)
-  return (
-    <div className="list-disc">
-      {errorKeys.length > 0 && (
-        <label className="block font-bold pb-4">
-          Resolve the errors above to proceed:
-        </label>
-      )}
-      <ul>
-        {errorKeys.map(key => {
-          const errorMessage = errors[key].toLowerCase();
-          return (
-            <li key={key}>
-              •
-              <span className="text-red-500 pl-2">
-                { `${CONTACT_FORM_LABELS[key]} ${errorMessage}` }
-              </span>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
-}
+// function FormErrors({ errors }) {
+//   const errorKeys = Object.keys(errors)
+//   return (
+//     <div className="list-disc">
+//       {errorKeys.length > 0 && (
+//         <label className="block font-bold pb-4">
+//           Resolve the errors above to proceed:
+//         </label>
+//       )}
+//       <ul>
+//         {errorKeys.map(key => {
+//           const errorMessage = errors[key].toLowerCase();
+//           return (
+//             <li key={key}>
+//               •
+//               <span className="text-red-500 pl-2">
+//                 { `${CONTACT_FORM_LABELS[key]} ${errorMessage}` }
+//               </span>
+//             </li>
+//           )
+//         })}
+//       </ul>
+//     </div>
+//   )
+// }
 /**
  * Defines the form component for the contact page
  * @returns {React.Component} - returns a react component
  */
-function ContactUsFormComponent( {errors} ) {
+function ContactUsFormComponent( { errors } ) {
   // const errorKeys = Object.keys(errors)
   // console.log(errorKeys)
   // const { values, setFieldValue, errors } = props;
@@ -148,7 +149,7 @@ function ContactUsFormComponent( {errors} ) {
         </div>
       </Form>
       <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end text-sm">
-              <FormErrors errors={errors} />
+        <FormErrors labels={CONTACT_FORM_LABELS} errors={errors} />
       </section>
     </div>
   );
