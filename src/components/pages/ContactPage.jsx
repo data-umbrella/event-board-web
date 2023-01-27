@@ -1,10 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import formStyleClasses from 'styles/forms';
+
+// Third-party dependencies
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import contactMobile from 'assets/ui/contact-mobile.png'
+
+// Constants
+import formStyleClasses from 'styles/forms';
+
+// Images
 import contact from 'assets/ui/contact-image.png';
+import contactMobile from 'assets/ui/contact-mobile.png';
+
+// Components
 import ContactTopicField from 'components/elements/ContactTopicField';
 import FormErrors from 'components/elements/FormErrors';
 import { postContactEmail } from 'services/contact-emails';
