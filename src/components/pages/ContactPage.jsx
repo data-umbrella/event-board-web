@@ -9,47 +9,19 @@ import ContactTopicField from 'components/elements/ContactTopicField';
 import FormErrors from 'components/elements/FormErrors';
 import { postContactEmail } from 'services/contact-emails';
 import ValidatedInput from 'components/elements/ValidatedInput';
+import ValidatedTextArea from 'components/elements/ValidatedTextArea';
 
 const CONTACT_FORM_LABELS = {
   name: 'Contact name',
   email: 'Contact email',
-  findOut: 'Discover Event Board',
   message: 'Message'
 }
 
-// function FormErrors({ errors }) {
-//   const errorKeys = Object.keys(errors)
-//   return (
-//     <div className="list-disc">
-//       {errorKeys.length > 0 && (
-//         <label className="block font-bold pb-4">
-//           Resolve the errors above to proceed:
-//         </label>
-//       )}
-//       <ul>
-//         {errorKeys.map(key => {
-//           const errorMessage = errors[key].toLowerCase();
-//           return (
-//             <li key={key}>
-//               •
-//               <span className="text-red-500 pl-2">
-//                 { `${CONTACT_FORM_LABELS[key]} ${errorMessage}` }
-//               </span>
-//             </li>
-//           )
-//         })}
-//       </ul>
-//     </div>
-//   )
-// }
 /**
  * Defines the form component for the contact page
  * @returns {React.Component} - returns a react component
  */
 function ContactUsFormComponent( { errors } ) {
-  // const errorKeys = Object.keys(errors)
-  // console.log(errorKeys)
-  // const { values, setFieldValue, errors } = props;
   return (
     <div className="container my-5 md:p-20 md:mb-10 text-sm md:text-xl">
       <section>
@@ -73,9 +45,6 @@ function ContactUsFormComponent( { errors } ) {
       <Form>
         <div className="grid grid-cols-2 space-y-2.5 md:space-y-5">
           <div className="col-span-2 md:col-span-1">
-            {/* <label className="block" htmlFor="name">
-              Name*
-            </label> */}
             <Field
               label="Name*"
               type="text"
@@ -83,19 +52,16 @@ function ContactUsFormComponent( { errors } ) {
               component={ValidatedInput}
               className={`${formStyleClasses.input}`}
             />
-            {/* {errors.name && <span className="text-[#FA0000] text-sm">{errors.name}</span>} */}
           </div>
 
           <div className="row-start-2">
-            <label className="block" htmlFor="email">
-              Email*
-            </label>
             <Field
+              label="Email*"
               type="email"
               name="email"
-              className={`${formStyleClasses.input} ${errors.email ? "border-2 border-[#FA0000]" : "border-black"}`}
+              component={ValidatedInput}
+              className={`${formStyleClasses.input}`}
             />
-            {errors.email && <span className="text-[#FA0000] text-sm">{errors.email}</span>}
           </div>
 
           <div className="row-start-2 ml-4">
@@ -115,11 +81,13 @@ function ContactUsFormComponent( { errors } ) {
           </div>
 
           <div className="row-start-4 col-span-2">
-            <label className="block" htmlFor="name">Message*</label>
             <Field
-              component="textarea"
+              label="Message*"
+              component={ValidatedTextArea}
+              type="textarea"
               name="message"
-              className={`${formStyleClasses.textarea}`}
+              id="message"
+              className={formStyleClasses.textarea}
             />
           </div>
 
@@ -127,6 +95,7 @@ function ContactUsFormComponent( { errors } ) {
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
+              {/* To be uncommented when Event Board Code of Conduct is set up */}
               {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
                 Code of Conduct
               </Link>* */}
@@ -148,9 +117,11 @@ function ContactUsFormComponent( { errors } ) {
           </div>
         </div>
       </Form>
+
       <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end text-sm">
         <FormErrors labels={CONTACT_FORM_LABELS} errors={errors} />
       </section>
+
     </div>
   );
 }

@@ -13,7 +13,7 @@ function ValidatedTextArea({
     <div>
       <label htmlFor={props.id}>
         <span className="pr-2">{ props.label }</span>
-        { showErrors && <span className="inline-block text-[#FB2F2F] dark:text-[#FB2F2F]">{fieldErrors}</span> }
+        { showErrors && <span className="inline-block text-[#FB2F2F] dark:text-[#FB2F2F] text-sm">{fieldErrors}</span> }
       </label>
       <textarea {...field} {...props} />
     </div>
