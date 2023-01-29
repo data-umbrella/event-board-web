@@ -18,10 +18,8 @@ function FeaturedEventField({ value, onChange }) {
         id="featured-event-donation-info"
         className={eventStyleClasses.donationPillBox}
       >
-        <p>
-          $1-99: General Donation
-          <span className="pl-6">$100+: Featured Event</span>
-        </p>
+        <p> $1-99: General Donation </p>
+        <p>$100+: Featured Event</p>
       </div>
       <div>
         <input
