@@ -26,6 +26,7 @@ import EventTagsField from './EventTagsField';
 import CountryRegionField from './CountryRegionField';
 import RegionField from './RegionField';
 import moment from 'moment';
+import FormErrors from './FormErrors';
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
 const EVENT_FORM_LABELS = {
@@ -43,32 +44,6 @@ function onKeyDown(keyEvent) {
   if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
     keyEvent.preventDefault();
   }
-}
-
-function FormErrors({ errors }) {
-  const errorKeys = Object.keys(errors)
-  return (
-    <div className="list-disc">
-      {errorKeys.length > 0 && (
-        <label className="block font-bold pb-4">
-          Resolve the errors above to proceed:
-        </label>
-      )}
-      <ul>
-        {errorKeys.map(key => {
-          const errorMessage = errors[key].toLowerCase();
-          return (
-            <li key={key}>
-              •
-              <span className="text-red-500 pl-2">
-                { `${EVENT_FORM_LABELS[key]} ${errorMessage}` }
-              </span>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
 }
 
 function PostEventFormComponent(props) {
@@ -449,7 +424,7 @@ function PostEventFormComponent(props) {
       </section>
 
       <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end">
-        <FormErrors errors={errors} />
+        <FormErrors labels={EVENT_FORM_LABELS} errors={errors} />
       </section>
     </Form>
   );

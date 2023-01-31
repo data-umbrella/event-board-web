@@ -1,18 +1,35 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import formStyleClasses from 'styles/forms';
+
+// Third-party dependencies
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import contactMobile from 'assets/ui/contact-mobile.png'
+
+// Constants
+import formStyleClasses from 'styles/forms';
+
+// Images
 import contact from 'assets/ui/contact-image.png';
+import contactMobile from 'assets/ui/contact-mobile.png';
+
+// Components
 import ContactTopicField from 'components/elements/ContactTopicField';
+import FormErrors from 'components/elements/FormErrors';
 import { postContactEmail } from 'services/contact-emails';
+import ValidatedInput from 'components/elements/ValidatedInput';
+import ValidatedTextArea from 'components/elements/ValidatedTextArea';
+
+const CONTACT_FORM_LABELS = {
+  name: 'Contact name',
+  email: 'Contact email',
+  message: 'Message'
+}
 
 /**
  * Defines the form component for the contact page
  * @returns {React.Component} - returns a react component
  */
-function ContactUsFormComponent() {
+function ContactUsFormComponent( { errors } ) {
   return (
     <div className="container my-5 md:p-20 md:mb-10 text-sm md:text-xl">
       <section>
@@ -36,24 +53,22 @@ function ContactUsFormComponent() {
       <Form>
         <div className="grid grid-cols-2 space-y-2.5 md:space-y-5">
           <div className="col-span-2 md:col-span-1">
-            <label className="block" htmlFor="name">
-              Name*
-            </label>
             <Field
+              label="Name*"
               type="text"
               name="name"
-              className={`${formStyleClasses.input} border-black`}
+              component={ValidatedInput}
+              className={formStyleClasses.input}
             />
           </div>
 
           <div className="row-start-2">
-            <label className="block" htmlFor="email">
-              Email*
-            </label>
             <Field
+              label="Email*"
               type="email"
               name="email"
-              className={`${formStyleClasses.input} border-black`}
+              component={ValidatedInput}
+              className={formStyleClasses.input}
             />
           </div>
 
@@ -69,16 +84,18 @@ function ContactUsFormComponent() {
             <Field
               type="text"
               name="reference"
-              className={`${formStyleClasses.input} border-black`}
+              className={formStyleClasses.input}
             />
           </div>
 
           <div className="row-start-4 col-span-2">
-            <label className="block" htmlFor="name">Message*</label>
             <Field
-              component="textarea"
+              label="Message*"
+              component={ValidatedTextArea}
+              type="textarea"
               name="message"
-              className={`${formStyleClasses.textarea}`}
+              id="message"
+              className={formStyleClasses.textarea}
             />
           </div>
 
@@ -86,6 +103,7 @@ function ContactUsFormComponent() {
             <label>
               <Field type="checkbox" name="toggle" />&nbsp;
               All communication must adhere to our&nbsp;
+              {/* To be uncommented when Event Board Code of Conduct is set up */}
               {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
                 Code of Conduct
               </Link>* */}
@@ -107,6 +125,11 @@ function ContactUsFormComponent() {
           </div>
         </div>
       </Form>
+
+      <section className="mb-6 grid gap-1 md:grid-rows-1 md:justify-end text-sm">
+        <FormErrors labels={CONTACT_FORM_LABELS} errors={errors} />
+      </section>
+
     </div>
   );
 }
