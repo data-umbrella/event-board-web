@@ -100,8 +100,8 @@ function ContactUsFormComponent( { errors } ) {
           </div>
 
           <div className="row-start-5 col-span-2">
-            <label>
-              <Field type="checkbox" name="toggle" />&nbsp;
+            <label className="flex items-center">
+              <Field type="checkbox" name="toggle" className="h-5 w-5" />&nbsp;
               All communication must adhere to our&nbsp;
               {/* To be uncommented when Event Board Code of Conduct is set up */}
               {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
