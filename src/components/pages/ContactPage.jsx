@@ -22,6 +22,7 @@ import ValidatedTextArea from 'components/elements/ValidatedTextArea';
 const CONTACT_FORM_LABELS = {
   name: 'Contact name',
   email: 'Contact email',
+  reference: 'Reference',
   message: 'Message'
 }
 
@@ -78,13 +79,12 @@ function ContactUsFormComponent( { errors } ) {
           </div>
 
           <div className="row-start-3 col-start-1 col-end-3">
-            <label className="block" htmlFor="name">
-              How did you find out about this Event Board?*
-            </label>
             <Field
               type="text"
               name="reference"
+              component={ValidatedTextArea}
               className={formStyleClasses.input}
+              label="How did you find out about this Event Board?*"
             />
           </div>
 
@@ -100,7 +100,7 @@ function ContactUsFormComponent( { errors } ) {
           </div>
 
           <div className="row-start-5 col-span-2">
-            <label className="flex items-center">
+            <div className="flex flex-col items-center">
               <Field type="checkbox" name="toggle" className="h-5 w-5" />&nbsp;
               All communication must adhere to our&nbsp;
               {/* To be uncommented when Event Board Code of Conduct is set up */}
@@ -115,7 +115,7 @@ function ContactUsFormComponent( { errors } ) {
               >
                 Code of Conduct
               </a>*
-            </label>
+            </div>
           </div>
 
           <div className="actions row-start-6 col-start-2">
@@ -170,7 +170,7 @@ export const validationSchema = Yup.object().shape({
   name: Yup.string().required('Field is required'),
   email: Yup.string().required('Field is required'),
   topic: Yup.string(),
-  reference: Yup.string(),
+  reference: Yup.string().required('Field is required'),
   message: Yup.string().required('Field is required'),
 });
 
