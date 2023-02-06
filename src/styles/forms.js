@@ -4,13 +4,13 @@ const formStyleClasses = {
     border
     border-black
     dark:border-teal-400
-    dark:bg-du-deepPurple
+    dark:bg-transparent
     w-full
     rounded-md
     min-h-10
     p-2
     text-xl
-    text-[#545454]
+    text-white
     md:row-start-2
     md:col-span-2
   `,
