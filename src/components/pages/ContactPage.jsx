@@ -23,7 +23,8 @@ const CONTACT_FORM_LABELS = {
   name: 'Contact name',
   email: 'Contact email',
   reference: 'Reference',
-  message: 'Message'
+  message: 'Message',
+  conduct: 'Code of Conduct'
 }
 
 /**
@@ -100,22 +101,30 @@ function ContactUsFormComponent( { errors } ) {
           </div>
 
           <div className="row-start-5 col-span-2">
-            <div className="flex flex-col items-center">
-              <Field type="checkbox" name="toggle" className="h-5 w-5" />&nbsp;
-              All communication must adhere to our&nbsp;
+            <div className="flex flex-row-1 flex-col-2 items-center gap-x-2">
+              <Field type="checkbox" name="conduct" className="h-5 w-5" /> 
+              <p>
+                All communication must adhere to our&nbsp; 
+                <a 
+                  href="https://www.dataumbrella.org/about/code-of-conduct" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className={`${formStyleClasses.hyperlinks} dark:text-white`}
+                >
+                  Code of Conduct
+                </a>
+                *
+              </p>
               {/* To be uncommented when Event Board Code of Conduct is set up */}
               {/*<Link to="/codeofconduct" className={formStyleClasses.hyperlinks}>
                 Code of Conduct
               </Link>* */}
-              <a 
-                href="https://www.dataumbrella.org/about/code-of-conduct" 
-                target="_blank" 
-                rel="noreferrer"
-                className={`${formStyleClasses.hyperlinks} dark:text-white`}
-              >
-                Code of Conduct
-              </a>*
             </div>
+            {errors.conduct && 
+              <p className="text-[#FB2F2F] dark:text-[#FB2F2F] text-sm">
+                {errors.conduct}
+              </p> 
+            }
           </div>
 
           <div className="actions row-start-6 col-start-2">
@@ -172,6 +181,7 @@ export const validationSchema = Yup.object().shape({
   topic: Yup.string(),
   reference: Yup.string().required('Field is required'),
   message: Yup.string().required('Field is required'),
+  conduct: Yup.boolean().required('Field is required').oneOf([true], 'Field must be checked')
 });
 
 /**
