@@ -10,7 +10,8 @@ const formStyleClasses = {
     min-h-10
     p-2
     text-xl
-    text-white
+    text-black
+    dark:text-white
     md:row-start-2
     md:col-span-2
   `,
