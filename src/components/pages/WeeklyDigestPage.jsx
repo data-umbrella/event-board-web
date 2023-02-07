@@ -10,8 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
  * Defines the form component for the weekly digest
  * @returns {React.Component} - returns a react component
  */
-function WeeklyDigestFormComponent( {errors, touched} ) {
-  console.log(errors)
+function WeeklyDigestFormComponent( { errors, touched } ) {
   return (
     <Form className="container mx-auto my-8 text-center">
       <div className="grid grid-rows-2 md:grid-cols-3 md:grid-rows-2">
@@ -70,12 +69,11 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   email: Yup.string()
-        // .required('Field is required'),
-        .matches(
-        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        "Invalid email address"
-        )
-      .required("Email is required")
+    .matches(
+      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      "Invalid email address"
+    )
+    .required("Email is required")
 });
 
 /**
