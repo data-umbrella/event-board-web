@@ -31,6 +31,7 @@ import FormErrors from './FormErrors';
 
 const EVENT_FORM_LABELS = {
   eventName: 'Event name',
+  description: 'Event Description',
   startDate: 'Start date',
   organizationUrl: 'Organization URL',
   eventUrl: 'Event Registration URL',
@@ -212,7 +213,7 @@ function PostEventFormComponent(props) {
                 type="textarea"
                 id="description"
                 name="description"
-                label="Event Description"
+                label="Event Description*"
                 className={formStyleClasses.textarea}
               />
             </div>
@@ -463,6 +464,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required('Field is required'),
+  description: Yup.string().required('Field is required'),
   startDate: Yup.string().required('Field is required'),
   endDate: Yup.string().required('Field is required'),
   eventUrl: Yup.string().required('Field is required').url('Must be a valid URL'),
