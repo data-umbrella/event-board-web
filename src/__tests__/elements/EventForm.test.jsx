@@ -23,7 +23,11 @@ describe('Event Form', () => {
 
   it('submits valid event', async () => {
     const mockHandleFormSubmit = jest.fn();
-    const dateString = moment().format('YYYY-MM-DD');
+    // const dateString = moment().format('YYYY-MM-DD');
+    const frozenDate = new Date('2030-01-04')
+    const frozenMoment = moment(frozenDate)
+    const expectedDateFormat = 'YYYY-MM-DD'
+    const dateString = moment(frozenMoment).format(expectedDateFormat);
     
     render(
       <MemoryRouter>
@@ -32,15 +36,18 @@ describe('Event Form', () => {
     );
 
     const eventNameInput = screen.getByLabelText(/Event Name/i);
+    const eventDescriptionInput = screen.getByLabelText(/Event Description/i);
     const startDateInput = screen.getAllByLabelText(/Start Date/i)[0];
     const eventUrlInput = screen.getAllByLabelText(/Event Registration URL/i)[0];
 
     expect(eventNameInput).toBeInTheDocument();
+    expect(eventDescriptionInput).toBeInTheDocument();
     expect(startDateInput).toBeInTheDocument();
     expect(eventUrlInput).toBeInTheDocument();
 
     await act(() => {
       fireEvent.change(eventNameInput, { target: { value: 'Example name' } });
+      fireEvent.change(eventDescriptionInput, { target: { value: 'Example Description of the Event' } });
       fireEvent.change(startDateInput, { target: { value: dateString } });
       fireEvent.change(eventUrlInput, { target: { value: 'http://www.example.com' } });
       fireEvent.click(screen.getByText('Review'));
@@ -51,6 +58,7 @@ describe('Event Form', () => {
     const formSubmitArgs = mockHandleFormSubmit.mock.calls[0][0];
 
     expect(formSubmitArgs['eventName']).toBe('Example name');
+    expect(formSubmitArgs['description']).toBe('Example Description of the Event');
     expect(formSubmitArgs['startDate'].toISOString()).toMatch(dateString);
   });
 });
