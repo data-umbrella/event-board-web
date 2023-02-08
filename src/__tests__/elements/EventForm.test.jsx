@@ -23,11 +23,7 @@ describe('Event Form', () => {
 
   it('submits valid event', async () => {
     const mockHandleFormSubmit = jest.fn();
-    // const dateString = moment().format('YYYY-MM-DD');
-    const frozenDate = new Date('2030-01-04')
-    const frozenMoment = moment(frozenDate)
-    const expectedDateFormat = 'YYYY-MM-DD'
-    const dateString = moment(frozenMoment).format(expectedDateFormat);
+    const dateString = moment().format('YYYY-MM-DD');
     
     render(
       <MemoryRouter>
@@ -58,7 +54,7 @@ describe('Event Form', () => {
     const formSubmitArgs = mockHandleFormSubmit.mock.calls[0][0];
 
     expect(formSubmitArgs['eventName']).toBe('Example name');
-    expect(formSubmitArgs['description']).toBe('Example Description of the Event');
     expect(formSubmitArgs['startDate'].toISOString()).toMatch(dateString);
+    expect(formSubmitArgs['description']).toBe('Example Description of the Event');
   });
 });
