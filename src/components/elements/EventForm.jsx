@@ -462,7 +462,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required('Field is required'),
-  startDate: Yup.string().required('Field is required'),
+  startDate: Yup.string().required('Field is required').typeError('Field is required'),
   eventUrl: Yup.string().required('Field is required').url('Must be a valid URL'),
 });
 
