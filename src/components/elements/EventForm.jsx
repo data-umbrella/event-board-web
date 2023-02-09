@@ -31,10 +31,8 @@ import FormErrors from './FormErrors';
 
 const EVENT_FORM_LABELS = {
   eventName: 'Event name',
-  description: 'Event Description',
   startDate: 'Start date',
-  organizationUrl: 'Organization URL',
-  eventUrl: 'Event Registration URL',
+  eventUrl: 'Event URL',
 }
 
 /**
@@ -121,7 +119,7 @@ function PostEventFormComponent(props) {
               <Field
                 autoComplete="new-password"
                 id="eventUrl"
-                label="Event Registration URL*"
+                label="Event URL*"
                 name="eventUrl"
                 component={ValidatedInput}
                 className={formStyleClasses.input}
@@ -213,7 +211,7 @@ function PostEventFormComponent(props) {
                 type="textarea"
                 id="description"
                 name="description"
-                label="Event Description*"
+                label="Event Description"
                 className={formStyleClasses.textarea}
               />
             </div>
@@ -247,19 +245,19 @@ function PostEventFormComponent(props) {
                   <TimeSlotField
                     id="startTime"
                     name="startTime"
-                    label="Start Time*"
+                    label="Start Time"
                   />
                 </div>
                 <div className="col-span-1">
                   <TimeSlotField
                     id="endTime"
                     name="endTime"
-                    label="End Time*"
+                    label="End Time"
                   />
                 </div>
               </section>
               <section>
-                <label>Time Zone*</label>
+                <label>Time Zone</label>
                 <TimezoneSelect
                   className={`${formStyleClasses.reactSelect} timezone-select-container`}
                   classNamePrefix="timezone-select"
@@ -464,9 +462,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   eventName: Yup.string().required('Field is required'),
-  description: Yup.string().required('Field is required'),
   startDate: Yup.string().required('Field is required'),
-  endDate: Yup.string().required('Field is required'),
   eventUrl: Yup.string().required('Field is required').url('Must be a valid URL'),
 });
 
