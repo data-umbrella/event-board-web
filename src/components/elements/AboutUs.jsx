@@ -94,7 +94,8 @@ function AboutUs() {
     <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsCards}>
       <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-du-indigo-900 rounded bg-white">
         <div className="py-4">
-          <img src={DULogo} alt="logo" className={`mx-auto`} />
+          { colorTheme === 'light' && <img src={DULogo} alt="logo" className={`mx-auto`} /> }
+          { colorTheme === 'dark' && <img src={DUDarkLogo} alt="logo" className={`mx-auto`} />}
         </div>
         <div className="row-span-2 px-4 m-1 object-contain text-left">
           <a
