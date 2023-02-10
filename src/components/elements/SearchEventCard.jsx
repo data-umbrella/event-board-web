@@ -35,13 +35,19 @@ function formatDate(date) {
   return moment(date).format("ll");
 }
 
+function formatPrice(price) {
+  return price.charAt(0).toUpperCase() + price.slice(1)
+}
+
 function SearchEventCard({ eventData }) {
   const [imageUrl, setImageUrl] = useState(imageUrlForEvent(eventData));
   const startDate = formatDate(eventData.startDate);
+  const eventPrice = formatPrice(eventData.price);
 
   const handleImageError = () => {
     setImageUrl(defaultThumbnail);
   };
+  // console.log(Object.keys(eventData))
 
   return (
     <Link
@@ -74,7 +80,7 @@ function SearchEventCard({ eventData }) {
             {startDate}
           </time>
           <p className="text-right text-du-purple-600 dark:text-du-lightPurple pr-2 md:col-span-1">
-            Free
+            {eventPrice}
           </p>
         </div>
 

@@ -80,6 +80,7 @@ export const EVENT_ATTRIBUTES = [
   'organization_name',
   'organization_name',
   'organization_url',
+  'price',
   'published',
   'region',
   'region',
