@@ -47,7 +47,6 @@ function SearchEventCard({ eventData }) {
   const handleImageError = () => {
     setImageUrl(defaultThumbnail);
   };
-  // console.log(Object.keys(eventData))
 
   return (
     <Link
