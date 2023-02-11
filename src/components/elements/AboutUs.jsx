@@ -61,8 +61,6 @@ const SPEC_SOCIAL_MEDIA_LINKS = [
 ];
 
 function ContributorSocialMediaLinks({ socialMediaLinks, colorTheme }) {
-  // const [colorTheme, setTheme] = useState(localStorage.theme);
-  // window.addEventListener("themeChanged", () => setTheme(localStorage.theme));
 
   return (
     <div className="mt-4">
