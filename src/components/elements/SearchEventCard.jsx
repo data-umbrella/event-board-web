@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { imageUrlForEvent } from "utils/urls";
+import { formatPrice } from "utils/strings";
 import moment from "moment";
 import defaultThumbnail from "assets/ui/thumbnail.png";
 
@@ -35,9 +36,9 @@ function formatDate(date) {
   return moment(date).format("ll");
 }
 
-function formatPrice(price) {
-  return price.charAt(0).toUpperCase() + price.slice(1)
-}
+// function formatPrice(price) {
+//   return price.charAt(0).toUpperCase() + price.slice(1)
+// }
 
 function SearchEventCard({ eventData }) {
   const [imageUrl, setImageUrl] = useState(imageUrlForEvent(eventData));

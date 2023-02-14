@@ -8,6 +8,10 @@ export function arrayifyTags(tags) {
   }
 }
 
+export function formatPrice(price) {
+  return price.charAt(0).toUpperCase() + price.slice(1);
+}
+
 export function stringifyTags(tags) {
   if (typeof tags === 'object') {
     return tags.join(',');
