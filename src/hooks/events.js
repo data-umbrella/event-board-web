@@ -118,6 +118,12 @@ export function useSearchEvents() {
       startDate: moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT),
       endDate: moment().add(5, 'months').format(DATE_PICKER_STRING_FORMAT),
       search: '',
+      eventType: '',
+      topic: '',
+      language: '',
+      price: '',
+      region: '',
+
     }
 
     setSearchFilters({ ...clearedFilters });
