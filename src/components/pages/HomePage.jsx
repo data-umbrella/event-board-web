@@ -35,6 +35,7 @@ function HomePage() {
         clearFilters={clearFilters}
         startDate={searchFilters.startDate}
         endDate={searchFilters.endDate}
+        search={searchFilters.search}
       />
       <SearchEvents
         events={results || []}

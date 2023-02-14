@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { imageUrlForEvent } from 'utils/urls';
 import defaultThumbnail from 'assets/ui/thumbnail.png';
+import { useNavigate } from 'react-router-dom';
 
 const styleClasses = {
   mainSectionContainer: `
@@ -25,6 +25,7 @@ const styleClasses = {
 
 function ReviewEventMainSection({ evt, editEvent }) {
   const imageUrl = imageUrlForEvent(evt);
+  const navigate = useNavigate();
 
   const handleImageError = (event) => {
     event.target.src = defaultThumbnail;
@@ -34,7 +35,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
     <section>
       <div className="mb-12">
         <p className="text-xl">
-          <Link to="/"> &#8592; Back to Results</Link>
+          <button onClick={() => navigate(-1)}>Back to Results</button>
         </p>
       </div>
 

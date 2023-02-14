@@ -148,7 +148,7 @@ function SearchFormComponent({ clearFilters, setFieldValue, values }) {
  */
 export function mapPropsToValues (props) {
   return {
-    search: props.search || '',
+    search: props.search,
     startDate: props.startDate,
     endDate: props.endDate,
     price: props.price || '',

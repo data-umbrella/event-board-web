@@ -71,12 +71,14 @@ export function useSearchEvents() {
   const page = searchParams.get('page') || 1;
   const startDate = searchParams.get('startDate') || moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT);
   const endDate = searchParams.get('endDate') || moment().add(6, 'months').format(DATE_PICKER_STRING_FORMAT);
+  const search = searchParams.get('search') 
+
   const [searchFilters, setSearchFilters] = useState({
     startDate,
     endDate,
-    search: '',
     pageSize,
     page,
+    search
   });
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
