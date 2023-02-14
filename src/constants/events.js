@@ -37,6 +37,7 @@ export const eventProperties = {
   'eventNotes': '',
   'organizationName': '',
   'organizationUrl': '',
+  'price': '',
   'published': false,
   'region': '',
   'registrationEndDate': '',
