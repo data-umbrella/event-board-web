@@ -36,10 +36,6 @@ function formatDate(date) {
   return moment(date).format("ll");
 }
 
-// function formatPrice(price) {
-//   return price.charAt(0).toUpperCase() + price.slice(1)
-// }
-
 function SearchEventCard({ eventData }) {
   const [imageUrl, setImageUrl] = useState(imageUrlForEvent(eventData));
   const startDate = formatDate(eventData.startDate);
