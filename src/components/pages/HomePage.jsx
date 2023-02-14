@@ -35,6 +35,12 @@ function HomePage() {
         clearFilters={clearFilters}
         startDate={searchFilters.startDate}
         endDate={searchFilters.endDate}
+        eventType={searchFilters.eventType}
+        search={searchFilters.search}
+        topic={searchFilters.topic}
+        language={searchFilters.language}
+        region={searchFilters.region}
+        price={searchFilters.price}
       />
       <SearchEvents
         events={results || []}
