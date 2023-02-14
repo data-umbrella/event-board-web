@@ -151,11 +151,11 @@ export function mapPropsToValues (props) {
     search: props.search,
     startDate: props.startDate,
     endDate: props.endDate,
-    price: props.price || '',
-    eventType: props.eventType || '',
-    topic: props.topic || '',
-    language: props.language || '',
-    region: props.region || '',
+    price: props.price,
+    eventType: props.eventType,
+    topic: props.topic,
+    language: props.language,
+    region: props.region,
   }
 }
 

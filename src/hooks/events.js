@@ -71,14 +71,24 @@ export function useSearchEvents() {
   const page = searchParams.get('page') || 1;
   const startDate = searchParams.get('startDate') || moment().subtract(2, 'weeks').format(DATE_PICKER_STRING_FORMAT);
   const endDate = searchParams.get('endDate') || moment().add(6, 'months').format(DATE_PICKER_STRING_FORMAT);
-  const search = searchParams.get('search') 
+  const search = searchParams.get('search')
+  const eventType = searchParams.get('eventType') 
+  const topic = searchParams.get('topic')
+  const language = searchParams.get('language')
+  const price = searchParams.get('price')
+  const region = searchParams.get('region')
 
   const [searchFilters, setSearchFilters] = useState({
     startDate,
     endDate,
+    eventType,
     pageSize,
     page,
-    search
+    search,
+    topic,
+    language,
+    price,
+    region
   });
   const [searchResultEvents, setSearchResultEvents] = useState([]);
 
