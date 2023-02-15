@@ -2,7 +2,6 @@ import React from 'react';
 import 'add-to-calendar-button';
 
 function AddEventToCalendar({ evt }) {
-  console.log(evt)
   return (
     <section className="grid md:grid-cols-2 gap-x-20 mb-10">
       <add-to-calendar-button
