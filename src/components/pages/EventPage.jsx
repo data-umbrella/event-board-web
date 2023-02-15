@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
 import EventPlanningSection from 'components/elements/EventPlanningSection';
+import AddEventToCalendar from 'components/elements/AddEventToCalendar';
 import AccessibilitySection from 'components/elements/AccessibilitySection';
 import DescriptionSection from 'components/elements/DescriptionSection';
 import SpeakersSection from 'components/elements/SpeakersSection';
@@ -20,6 +21,7 @@ function EventDetailsPage() {
     <div className="container mx-auto pt-16 pb-10 dark:bg-du-deepPurple">
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />
+      <AddEventToCalendar evt={evt} />
       <DescriptionSection evt={evt} />
       <SpeakersSection evt={evt} />
       <NotesSection evt={evt} />
