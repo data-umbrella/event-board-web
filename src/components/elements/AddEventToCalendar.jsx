@@ -5,11 +5,11 @@ function AddEventToCalendar({ evt }) {
   return (
     <section className="grid md:grid-cols-2 gap-x-20 mb-10">
       <add-to-calendar-button
-        name="Title"
+        name={evt.eventName}
         options="'Apple','Google','Yahoo','Outlook.com'"
         location="World Wide Web"
-        startDate="2023-02-17"
-        endDate="2023-02-17"
+        startDate={evt.startDate}
+        endDate={evt.endDate}
         startTime="10:15"
         endTime="23:30"
         timeZone="America/Los_Angeles"
