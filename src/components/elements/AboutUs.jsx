@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import aboutStyleClasses from 'styles/about';
 import DULogo from 'assets/du_sc_logos/logo_data_umbrella_full.png';
+import DUDarkLogo from 'assets/du_sc_logos/logo_dark_data_umbrella_full.png';
 import SPECLogo from 'assets/du_sc_logos/logo_spec_with_name.png';
 import twitter from 'assets/social_media/twitter.svg';
 import linkedin from 'assets/social_media/linkedin.svg';
@@ -59,9 +60,7 @@ const SPEC_SOCIAL_MEDIA_LINKS = [
   },
 ];
 
-function ContributorSocialMediaLinks({ socialMediaLinks }) {
-  const [colorTheme, setTheme] = useState(localStorage.theme);
-  window.addEventListener("themeChanged", () => setTheme(localStorage.theme));
+function ContributorSocialMediaLinks({ socialMediaLinks, colorTheme }) {
 
   return (
     <div className="mt-4">
@@ -86,11 +85,15 @@ function ContributorSocialMediaLinks({ socialMediaLinks }) {
 }
 
 function AboutUs() {
+  const [colorTheme, setTheme] = useState(localStorage.theme);
+  window.addEventListener("themeChanged", () => setTheme(localStorage.theme));
+
   return (
     <div key="aboutUsgrid" className={aboutStyleClasses.aboutUsCards}>
       <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-du-indigo-900 rounded bg-white">
         <div className="py-4">
-          <img src={DULogo} alt="logo" className={`mx-auto`} />
+          { colorTheme === 'light' && <img src={DULogo} alt="logo" className={`mx-auto h-36`} /> }
+          { colorTheme === 'dark' && <img src={DUDarkLogo} alt="logo" className={`mx-auto h-36`} />}
         </div>
         <div className="row-span-2 px-4 m-1 object-contain text-left">
           <a
@@ -116,12 +119,13 @@ function AboutUs() {
         </div>
         <ContributorSocialMediaLinks
           socialMediaLinks={DATA_UMBRELLA_SOCIAL_MEDIA_LINKS}
+          colorTheme={colorTheme}
         />
       </div>
 
       <div className="grid grid-rows-1 md:m-0 p-2 m-6 border-2 border-black dark:border-du-lightAqua dark:text-white dark:bg-du-indigo-900 rounded bg-white">
         <div className="py-4">
-          <img src={SPECLogo} alt="logo" className={`mx-auto`} />
+          <img src={SPECLogo} alt="logo" className={`mx-auto h-36`} />
         </div>
         <div className="row-span-2 px-4 m-1 object-contain text-left">
           <a
@@ -147,6 +151,7 @@ function AboutUs() {
         </div>
         <ContributorSocialMediaLinks
           socialMediaLinks={SPEC_SOCIAL_MEDIA_LINKS}
+          colorTheme={colorTheme}
         />
       </div>
     </div>
