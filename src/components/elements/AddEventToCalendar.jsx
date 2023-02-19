@@ -26,6 +26,7 @@ function AddEventToCalendar({ evt }) {
               startTime={evt.startTime}
               endTime={evt.endTime}
               timeZone={evt.timezone}
+              customCss={customCss}
               inline
               hideBackground
               hideIconButton
