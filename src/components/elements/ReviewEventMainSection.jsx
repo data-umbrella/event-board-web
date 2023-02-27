@@ -31,7 +31,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
   const handleImageError = (event) => {
     event.target.src = defaultThumbnail;
   }
-  console.log('evt', evt)
+
   return (
     <section>
       <div className="mb-12">

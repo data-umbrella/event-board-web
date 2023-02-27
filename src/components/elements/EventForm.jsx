@@ -69,19 +69,15 @@ function PostEventFormComponent(props) {
   }
 
   function updateShareLink(e) {
-    console.log('this was firing')
     const shareLinkId = e.target.id;
-    console.log('id', e.target)
     const shareLinkUrl = e.target.value;
     const shareLinks = values.socialMediaLinks.map((item) => {
-      console.log('item', item.id, shareLinkId)
       if (item.id === shareLinkId) {
         return { ...item, url: shareLinkUrl };
       }
       return item;
     }
     );
-    console.log('this was firing', shareLinks)
     setFieldValue('socialMediaLinks', shareLinks);
   }
 
