@@ -93,7 +93,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
             </h2>
 
             <div className="flex justify-center lg:justify-start m-4 lg:m-0 lg:py-4">
-              {evt.socialMediaLinks.map((socialLink) => (
+              { evt.socialMediaLinks && evt.socialMediaLinks.map((socialLink) => (
                 <a
                   key={socialLink.id} 
                   href={`${socialLink.url}`}
