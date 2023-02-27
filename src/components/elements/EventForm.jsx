@@ -3,7 +3,7 @@ import React from 'react';
 // Third-party dependencies
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
+import { RiDeleteRow } from 'react-icons/ri'
 // Constants
 import { eventProperties, TOPIC_OPTIONS } from 'constants/events';
 import formStyleClasses from 'styles/forms';
@@ -27,6 +27,9 @@ import CountryRegionField from './CountryRegionField';
 import RegionField from './RegionField';
 import moment from 'moment';
 import FormErrors from './FormErrors';
+import { v4 as uuidv4 } from 'uuid';
+import ShareLinkIcon from './ShareLinkIcon';
+
 // import SocialMediaField from 'components/elements/SocialMediaField';
 
 const EVENT_FORM_LABELS = {
@@ -50,6 +53,36 @@ function PostEventFormComponent(props) {
   async function handleImageChange(e) {
     const imageFile = e.target.files[0];
     setFieldValue('imageFile', await imageFileToDataURL(imageFile));
+  }
+
+  function handleAddShareLink(e) {
+    e.preventDefault();
+
+    setFieldValue('socialMediaLinks', [...values.socialMediaLinks, {
+      id: uuidv4(),
+      url: 'https://www.example.com'
+    }])
+  }
+
+  function removeShareLink(shareLink) {
+    setFieldValue('socialMediaLinks', values.socialMediaLinks.filter((item) => item.id !== shareLink.id))
+  }
+
+  function updateShareLink(e) {
+    console.log('this was firing')
+    const shareLinkId = e.target.id;
+    console.log('id', e.target)
+    const shareLinkUrl = e.target.value;
+    const shareLinks = values.socialMediaLinks.map((item) => {
+      console.log('item', item.id, shareLinkId)
+      if (item.id === shareLinkId) {
+        return { ...item, url: shareLinkUrl };
+      }
+      return item;
+    }
+    );
+    console.log('this was firing', shareLinks)
+    setFieldValue('socialMediaLinks', shareLinks);
   }
 
   return (
@@ -344,6 +377,57 @@ function PostEventFormComponent(props) {
           <SpeakersField value={values.speakers} onChange={setFieldValue} />
         </section>
       */}
+
+      {/* Share Links section */}
+      <section>
+        <div className="flex flex-row justify-between">
+          <h2 className="pb-4 text-xl font-bold md:text-2xl">
+            Share Links
+          </h2>
+          <button className={formStyleClasses.addShareLinkButton} onClick={handleAddShareLink}>+ Add Link</button>
+        </div>
+        <div className="grid grid-cols-1 rounded border border-zinc-300 bg-white p-4 dark:bg-transparent dark:border-teal-400">
+          {
+            values.socialMediaLinks.length === 0 && (
+              <div className="text-center">
+                <p className="text-gray-500">No share links added yet.</p>
+                <button className={formStyleClasses.addShareLinkButton} onClick={handleAddShareLink}>+ Add Link</button>
+              </div>
+            )
+          }
+          {
+            values.socialMediaLinks.map((shareLink, index) => (
+              <section key={`${shareLink}-${index}`} className="flex items-center">
+                <ShareLinkIcon url={shareLink.url} />
+                <input
+                  type="text"
+                  defaultValue={shareLink.url}
+                  onChange={updateShareLink}
+                  id={shareLink.id}
+                  className="
+                  border
+                  border-black
+                  dark:border-teal-400
+                  dark:bg-transparent
+                  rounded-md
+                  min-h-10
+                  w-full
+                  p-2
+                  mb-2
+                  mx-4
+                  text-xl
+                  text-black
+                  dark:text-white
+                  "
+                />
+                <RiDeleteRow className="ml-2" size={24} color="#FB2F2F" onClick={() => removeShareLink(shareLink)}/>
+              </section>
+            )
+            )
+          }
+          
+        </div>
+      </section>
 
       {/* Notes section */}
       <section>

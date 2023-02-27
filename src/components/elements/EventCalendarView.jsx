@@ -1,3 +1,4 @@
+/* eslint react/no-unknown-property: 0 */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react';

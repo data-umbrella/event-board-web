@@ -52,7 +52,7 @@ export const eventProperties = {
   'tags': [],
   'timezone': '',
   'virtual': false,
-  'volunteeringNotes': '',
+  'volunteeringNotes': ''
 };
 
 export const EVENT_ATTRIBUTES = [

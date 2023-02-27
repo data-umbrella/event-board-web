@@ -2,6 +2,7 @@ import React from 'react';
 import { imageUrlForEvent } from 'utils/urls';
 import defaultThumbnail from 'assets/ui/thumbnail.png';
 import { useNavigate } from 'react-router-dom';
+import ShareLinkIcon from './ShareLinkIcon';
 
 const styleClasses = {
   mainSectionContainer: `
@@ -30,7 +31,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
   const handleImageError = (event) => {
     event.target.src = defaultThumbnail;
   }
-
+  console.log('evt', evt)
   return (
     <section>
       <div className="mb-12">
@@ -90,6 +91,20 @@ function ReviewEventMainSection({ evt, editEvent }) {
             <h2 className="mb-2 dark:text-slate-50">
               {evt.organizationName}
             </h2>
+
+            <div className="flex justify-center lg:justify-start m-4 lg:m-0 lg:py-4">
+              {evt.socialMediaLinks.map((socialLink) => (
+                <a
+                  key={socialLink.id} 
+                  href={`${socialLink.url}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-1 hover:text-du-purple-500"
+                >
+                  <ShareLinkIcon url={socialLink.url} size={36} />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
