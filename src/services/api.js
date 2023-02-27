@@ -25,9 +25,7 @@ export function buildFormDataObject(body) {
   formDataPayload.volunteering_notes = formDataPayload.volunteering_notes || '';
   formDataPayload.event_notes = formDataPayload.event_notes || '';
 
-  formDataPayload.social_media_links = JSON.stringify({
-    twitter: 'https://twitter.com/jtorreggiani',
-  });
+  formDataPayload.social_media_links = JSON.stringify(formDataPayload.social_media_links);
 
   return formDataPayload;
 }

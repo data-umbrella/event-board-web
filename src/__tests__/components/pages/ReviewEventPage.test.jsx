@@ -16,6 +16,7 @@ jest.mock('hooks/events', () => ({
     tags: [],
     speakers: [],
     accessibilityOptions: [],
+    socialMediaLinks:[]
   })
 }));
 

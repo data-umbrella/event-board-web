@@ -90,6 +90,14 @@ const formStyleClasses = {
     font-normal
     focus:bg-du-lightPurple
   `,
+  addShareLinkButton: `
+    text-du-purple-500
+    py-2
+    px-8
+    rounded
+    text-lg
+    font-normal
+  `,
   searchInputGroup: `
     block
     container
