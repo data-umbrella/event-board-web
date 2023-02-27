@@ -1,6 +1,6 @@
 import React from 'react';
 import { atcb_action } from "add-to-calendar-button";
-import calendarIcon from '../../assets/ui/calendarIcon.png';
+import { FaRegCalendarPlus } from 'react-icons/fa'
 
 const calendars = {
   'Google': 'Google',
@@ -43,7 +43,8 @@ function AddEventToCalendar({ evt }) {
 
   return (
     <section className="w-2/5 flex mb-10 gap-2 content-center items-center">
-      <img src={calendarIcon} alt="calendarIcon" className="w-10 h-10 dark:text-whitet"/>   
+      <FaRegCalendarPlus className="ml-2 dark:text-white" size={40}/>
+      
       {calendarKeys.map( (calendar, i) => {
         return(
           <div key={i}>
