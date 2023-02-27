@@ -10,6 +10,7 @@ describe('Event map view', () => {
       eventType: 'Test Type',
       description: 'Test Description',
       eventUrl: 'https://www.test.com',
+      socialMediaLinks: []
     }
     
     render(<ReviewEventMainSection evt={event} />, { wrapper: BrowserRouter });
