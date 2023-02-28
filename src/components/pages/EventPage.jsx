@@ -22,7 +22,7 @@ function EventDetailsPage() {
     <div className="container mx-auto pt-16 pb-10 dark:du-indigo-900">
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col md:flex-row gap-2 justify-between">
         <AddEventToCalendar evt={evt} />
         <CopyEventLink />
       </div>

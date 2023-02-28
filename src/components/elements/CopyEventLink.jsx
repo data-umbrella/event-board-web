@@ -25,18 +25,18 @@ function CopyEventLink() {
   }
 
   return (
-    <section className="relative flex flex-row gap-x-7 items-center text-xl dark:text-white font-medium">
+    <section className="relative flex flex-row gap-x-7 justify-center items-center md:text-xl dark:text-white font-medium">
       Copy Link
-      <button onClick={()=> {handleCopyClick()}}>
+      <button onClick={()=> {handleCopyClick()}} className="flex-none">
         <img 
           src={colorTheme === 'light' ? copyLinkIcon : copyLinkIconDark} 
           alt="copyLinkIcon" 
-          className="h-11"/> 
+          className="flex-none h-8 md:h-11"/> 
       </button>
       { copyConfirmed && 
-        <div className="absolute inset-y-0 right-0"> 
+        <span className="md:absolute md:top-0 md:right-0"> 
           { <FcCheckmark/> } 
-        </div> 
+        </span> 
       }
     </section>
   );
