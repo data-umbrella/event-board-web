@@ -19,9 +19,20 @@ const styleClasses = {
     dark:bg-du-indigo-900
   `,
   imageContainer: 'col-span-1',
-  eventTypePillbox: 'inline-block mb-4 bg-pink-300 px-8 text-center rounded-lg font-light text-xl font-medium capitalize lg:w-min',
+  eventTypePillbox: 'inline-block mb-4 px-8 text-center rounded-lg font-light text-xl font-medium capitalize lg:w-min',
   infoTextSection: 'bg-white p-6 border-slate-300 border-solid border rounded mb-6',
   registerButton: 'block bg-du-darkBlue text-xl text-center font-medium text-white rounded p-1 m-4 lg:m-0 lg:w-1/2 bottom-0',
+}
+
+const colorVariants = {
+  'conference': 'bg-event-tags-conference',
+  'training': 'bg-event-tags-training',
+  'meetup': 'bg-event-tags-meetup',
+  'hackathon': 'bg-event-tags-hackathon',
+  'other': 'bg-event-tags-other',
+  'webinar': 'bg-event-tags-webinar',
+  'session': 'bg-event-tags-session',
+  'workshop': 'bg-event-tags-workshop',
 }
 
 function ReviewEventMainSection({ evt, editEvent }) {
@@ -48,7 +59,7 @@ function ReviewEventMainSection({ evt, editEvent }) {
         <div className="col-span-1">
           <div className="pt-4">
             <div className="grid lg:grid-cols-2 flex justify-center">
-              <div className={styleClasses.eventTypePillbox}>
+              <div className={`${colorVariants[evt.eventType]} ${styleClasses.eventTypePillbox}`}>
                 {evt.eventType}
               </div>
 
