@@ -38,6 +38,8 @@ module.exports = {
           'hackathon': '#5FA3C4',
           'other': '#5675C3',
           'webinar': '#E2B1FF',
+          'session': '#05BFB4',
+          'workshop': '#E1B1FF',
         },
       },
     },
