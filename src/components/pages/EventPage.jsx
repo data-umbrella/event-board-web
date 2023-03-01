@@ -9,6 +9,7 @@ import SpeakersSection from 'components/elements/SpeakersSection';
 import NotesSection from 'components/elements/NotesSection';
 import PageLoader from 'components/elements/PageLoader';
 import EditEventButton from 'components/elements/EditEventButton';
+import CopyEventLink from 'components/elements/CopyEventLink';
 import { useEvent } from 'hooks/events';
 
 function EventDetailsPage() {
@@ -18,10 +19,13 @@ function EventDetailsPage() {
   if (!evt) return <PageLoader />
 
   return (
-    <div className="container mx-auto pt-16 pb-10 dark:bg-du-deepPurple">
+    <div className="container mx-auto pt-16 pb-10 dark:du-indigo-900">
       <ReviewEventMainSection evt={evt} />
       <EventPlanningSection evt={evt} />
-      <AddEventToCalendar evt={evt} />
+      <div className="flex flex-col md:flex-row gap-2 justify-between">
+        <AddEventToCalendar evt={evt} />
+        <CopyEventLink />
+      </div>
       <DescriptionSection evt={evt} />
       <SpeakersSection evt={evt} />
       <NotesSection evt={evt} />

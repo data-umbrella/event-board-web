@@ -42,7 +42,7 @@ function AddEventToCalendar({ evt }) {
   const calendarKeys = Object.keys(calendars)
 
   return (
-    <section className="flex flex-col md:flex-row mb-10 gap-2 md:gap-6 justify-center content-center md:justify-start">
+    <section className="flex flex-col md:flex-row gap-2 md:gap-6 justify-center content-center md:justify-start">
       <FaRegCalendarPlus className="h-8 md:h-20 w-8 md:h-20 ml-2 dark:text-white self-center md:self-start"/>
       <div className="flex flex-row self-center md:self-startr">
         {calendarKeys.map( (calendar, i) => {

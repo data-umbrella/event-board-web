@@ -16,7 +16,7 @@ const styleClasses = {
     grid-cols-none
     text-center
     lg:text-left
-    dark:bg-du-deepPurple
+    dark:bg-du-indigo-900
   `,
   imageContainer: 'col-span-1',
   eventTypePillbox: 'inline-block mb-4 bg-pink-300 px-8 text-center rounded-lg font-light text-xl font-medium capitalize lg:w-min',
