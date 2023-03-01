@@ -36,7 +36,7 @@ function EventContent({ eventInfo }) {
                 <div className= "font-bold py-2">{eventInfo.event.title}</div>
                 <div className={`h-5 w-5 flex rounded-md bg-event-tags-${eventType}`}></div>
               </div>
-              <p className= "pb-4">{formattedStart} - {formattedEnd}</p>
+              <p className= "pb-4 dark:text-black">{formattedStart} - {formattedEnd}</p>
               <div className="event-tooltip-navigate cursor-pointer" onClick={handleNavigate}>{"Go to Event Page >>>"}</div>
             </>)
         }}/>
