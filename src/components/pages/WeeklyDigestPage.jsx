@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { postWeeklyDigestEmail } from 'services/weekly-digests';
+import { postWeeklyDigestEmail, updateWeeklyDigestEmail } from 'services/weekly-digests';
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from 'hooks/authentication';
+
 
 
 /**
@@ -87,33 +89,49 @@ export const WeeklyDigestForm = withFormik({
 
 
 function WeeklyDigestPage() {
-  const [subscribeError, setSubscribeError] = useState('')
+  const [subscribedStatus, setSubscribedStatus] = useState('')
+  const { currentUser, refetchUser } = useAuth();
+  const { isAuthenticated } = currentUser;
 
+  const isSubscribed = currentUser.weeklyDigest ? currentUser.weeklyDigest.subscribed : false;
   /**
  * Defines the toastify container when the user successfully submits their email.
  */
-
   const EmailSubscribeSuccessToastify = () => {
     toast(
       <div className="bg-white rounded-lg border-2 border-du-purple-500">
         <div className="text-center rounded-lg py-8">
-          <h2 className="font-bold text-xl">Thank you for signing up!</h2>
-          <p>We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
+          <h2 className="font-bold text-xl dark:text-black">Thank you for signing up!</h2>
+          <p className="dark:text-black">We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
         </div>
       </div>
     )
   }
 
-  function handleSubmit(values) {
-    postWeeklyDigestEmail(values).then((response) => {
-      if (response === true) {
-        return (toast(EmailSubscribeSuccessToastify), setSubscribeError(''))
-      } else {
-        return setSubscribeError(response.email[0]) 
-      }
-    })
+  async function updateSubscription() {
+    // if user exists, but has no existing weekly digest, create a new one with post
+    const toggled_subscribed_status = currentUser.weeklyDigest ? currentUser.weeklyDigest.subscribed ? "False" : "True" : "True";
+    if(!currentUser.weeklyDigest) return handleSubmit({ "email": currentUser.email, "subscribed": toggled_subscribed_status })
+    
+    // if user exists but already has an existing weekly digest, update existing one with patch/update
+    const res = await updateWeeklyDigestEmail({ "subscribed": toggled_subscribed_status, "id": currentUser.weeklyDigest.id })
+    
+    // eslint-disable-next-line no-console
+    if(!res) console.log(currentUser.email, res) 
+    
+    refetchUser()
   }
 
+  async function handleSubmit(values) {
+    const res = await postWeeklyDigestEmail({ "email": values.email, "subscribed": "True" })
+    if(!res) return setSubscribedStatus(res.email[0]) 
+    
+    toast(EmailSubscribeSuccessToastify)
+    setSubscribedStatus('')
+    setTimeout(() => {
+      location.reload();
+    }, 10000)
+  }
   return (
     <>
       <ToastContainer />
@@ -121,9 +139,27 @@ function WeeklyDigestPage() {
         <div className="container mx-auto text-center">
           <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
           <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
+        </div>  
+        <p className="pt-4 text-red-700 text-center">{subscribedStatus}</p>
+        <div className="text-center">
+          {currentUser.weeklyDigest && currentUser.weeklyDigest.subscribed === true && (
+            <>
+              <p className="text-red-700">You are already subscribed. Unsubscribe?</p>
+              <button className="px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500" onClick={updateSubscription}>Unsubscribe</button>
+            </>
+          )}
+          {
+            isSubscribed === false && isAuthenticated && (
+              <>
+                <button className="px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500" onClick={updateSubscription}>Subscribe</button>
+              </>
+            )
+          }
         </div>
-        <p className="pt-4 text-red-700 text-center">{subscribeError}</p>
-        <WeeklyDigestForm handleSubmit={handleSubmit} />
+        
+        {isSubscribed === false && !isAuthenticated &&
+          <WeeklyDigestForm handleSubmit={handleSubmit} />
+        }
       </div>
     </>
   )
