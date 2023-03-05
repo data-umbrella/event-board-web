@@ -70,11 +70,27 @@ export function AuthProvider({ children }) {
     }
   }
 
+  // Trigger a request to the API to sign out the user.
+  const refetchUser = async () => {
+    try {
+      const currentUserResponse = await fetchCurrentUser();
+      const responseJSON = await currentUserResponse.json();
+
+      if (currentUserResponse.status !== 200) {
+        throw (new Error('Bad request'));
+      }
+      updateCurrentUser({ ...responseJSON, isAuthenticated: currentUser.isAuthenticated });
+    } catch (e) {
+      window.alert('Something went wrong');
+    }
+  }
+
   const value = {
     currentUser,
     sendMagicLink,
     verifyOneTimePassCode,
     fetchCurrentUser,
+    refetchUser,
     authenticateUser,
     signOutCurrentUser,
   };

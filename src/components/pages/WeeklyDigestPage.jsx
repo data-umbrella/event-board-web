@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import formStyleClasses from 'styles/forms';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { postWeeklyDigestEmail, unsubscribeWeeklyDigestEmail } from 'services/weekly-digests';
+import { postWeeklyDigestEmail, updateWeeklyDigestEmail } from 'services/weekly-digests';
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from 'hooks/authentication';
 
@@ -90,10 +90,10 @@ export const WeeklyDigestForm = withFormik({
 
 function WeeklyDigestPage() {
   const [subscribedStatus, setSubscribedStatus] = useState('')
-  const { currentUser } = useAuth();
+  const { currentUser, refetchUser } = useAuth();
   const { isAuthenticated } = currentUser;
 
-
+  const isSubscribed = currentUser.weeklyDigest ? currentUser.weeklyDigest.subscribed : false;
   /**
  * Defines the toastify container when the user successfully submits their email.
  */
@@ -101,46 +101,35 @@ function WeeklyDigestPage() {
     toast(
       <div className="bg-white rounded-lg border-2 border-du-purple-500">
         <div className="text-center rounded-lg py-8">
-          <h2 className="font-bold text-xl">Thank you for signing up!</h2>
-          <p>We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
+          <h2 className="font-bold text-xl dark:text-black">Thank you for signing up!</h2>
+          <p className="dark:text-black">We are excited to share the latest with you. <br /> Our newsletters go out every Tuesday at 9am ET.</p>
         </div>
       </div>
     )
   }
 
-  const unsubscribeEmailOnClick = () => {
-    unsubscribeWeeklyDigestEmail({ "subscribed": "False", "id": currentUser.id }).then((response) => {
-      if (response === true) {
-        setSubscribedStatus("You've successfully unsubscribed.")
-      } else {
-        return console.log(currentUser.email, response) 
-      }
-    })
+  async function updateSubscription() {
+    // if user exists, but has no existing weekly digest, create a new one with post
+    const toggled_subscribed_status = currentUser.weeklyDigest ? currentUser.weeklyDigest.subscribed ? "False" : "True" : "True";
+    if(!currentUser.weeklyDigest) return handleSubmit({ "email": currentUser.email, "subscribed": toggled_subscribed_status })
+    
+    // if user exists but already has an existing weekly digest, update existing one with patch/update
+    const res = await updateWeeklyDigestEmail({ "subscribed": toggled_subscribed_status, "id": currentUser.weeklyDigest.id })
+    if(!res) console.log(currentUser.email, res) 
+    
+    refetchUser()
   }
 
-  const UnsubscribeButton = () => {
-    if(currentUser.weeklyDigest === true){
-      return (
-        <>
-          <p className="text-red-700">You are already subscribed. Unsubscribe?</p>
-          <button className="px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500" onClick={unsubscribeEmailOnClick}>Unsubscribe</button>
-        </>
-      )
-    } else {
-      return null
-    }
+  async function handleSubmit(values) {
+    const res = await postWeeklyDigestEmail({ "email": values.email, "subscribed": "True" })
+    if(!res) return setSubscribedStatus(res.email[0]) 
+    
+    toast(EmailSubscribeSuccessToastify)
+    setSubscribedStatus('')
+    setTimeout(() => {
+      location.reload();
+    }, 10000)
   }
-
-  function handleSubmit(values) {
-    postWeeklyDigestEmail({ "email": values.email, "subscribed": "True" }).then((response) => {
-      if (response === true) {
-        return (toast(EmailSubscribeSuccessToastify), setSubscribedStatus(''))
-      } else {
-        return setSubscribedStatus(response.email[0]) 
-      }
-    })
-  }
-
   return (
     <>
       <ToastContainer />
@@ -151,12 +140,24 @@ function WeeklyDigestPage() {
         </div>  
         <p className="pt-4 text-red-700 text-center">{subscribedStatus}</p>
         <div className="text-center">
-          <UnsubscribeButton />
+          {currentUser.weeklyDigest && currentUser.weeklyDigest.subscribed === true && (
+            <>
+              <p className="text-red-700">You are already subscribed. Unsubscribe?</p>
+              <button className="px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500" onClick={updateSubscription}>Unsubscribe</button>
+            </>
+          )}
+          {
+            isSubscribed === false && isAuthenticated && (
+              <>
+                <button className="px-4 py-4 mt-2 font-semibold text-sm text-white rounded-md shadow-sm bg-du-purple-500" onClick={updateSubscription}>Subscribe</button>
+              </>
+            )
+          }
         </div>
-        {currentUser.weeklyDigest === false | !isAuthenticated &&
+        
+        {isSubscribed === false && !isAuthenticated &&
           <WeeklyDigestForm handleSubmit={handleSubmit} />
         }
-        <button onClick={() => console.log(currentUser)}>User</button>
       </div>
     </>
   )
