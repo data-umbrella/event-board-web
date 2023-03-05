@@ -130,7 +130,7 @@ function WeeklyDigestPage() {
     setSubscribedStatus('')
     setTimeout(() => {
       location.reload();
-    }, 10000)
+    }, 1200)
   }
   return (
     <>
