@@ -115,6 +115,8 @@ function WeeklyDigestPage() {
     
     // if user exists but already has an existing weekly digest, update existing one with patch/update
     const res = await updateWeeklyDigestEmail({ "subscribed": toggled_subscribed_status, "id": currentUser.weeklyDigest.id })
+    
+    // eslint-disable-next-line no-console
     if(!res) console.log(currentUser.email, res) 
     
     refetchUser()
