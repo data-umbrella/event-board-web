@@ -148,5 +148,10 @@ export const TOPIC_TYPES = [
   { label: 'Other', value: 'other' }
 ];
 
+export const EVENT_PRICES = [
+  { label: '', value: '' },
+  { label: 'Free', value: 'free'},
+  { label: 'Paid', value: 'paid'},
+];
 
 

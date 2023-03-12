@@ -14,6 +14,7 @@ import DatePickerField from 'components/elements/DatePickerField';
 import ValidatedInput from 'components/elements/ValidatedInput';
 import ValidatedTextArea from './ValidatedTextArea';
 import EventTypeField from 'components/elements/EventTypeField';
+import EventPriceField from 'components/elements/EventPriceField';
 import DiscountField from 'components/elements/DiscountField';
 import AccessibilityDetailField from 'components/elements/AccessibilityDetailField';
 import LanguageField from 'components/elements/LanguageField';
@@ -307,8 +308,13 @@ function PostEventFormComponent(props) {
                   }}
                 />
               </section>
-              <section>
-                <LanguageField />
+              <section className="grid grid-cols-2 gap-2">
+                <section>
+                  <LanguageField />
+                </section>
+                <section>
+                  <EventPriceField />
+              </section>
               </section>
               <section>
                 <label>Country</label>
