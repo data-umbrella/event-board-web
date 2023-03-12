@@ -47,6 +47,22 @@ function SearchEvents({ events, eventsMetadata, handlePageChange }) {
 
   const totalPagesAvailable = Math.ceil(eventsMetadata.count / pageSize);
 
+  const PaginationComponent = searchView !== "CALENDAR" && (
+    <div className="flex justify-center">
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">>"
+        pageRangeDisplayed={4}
+        marginPagesDisplayed={0}
+        onPageChange={handleChange}
+        pageCount={totalPagesAvailable}
+        previousLabel="<<"
+        renderOnZeroPageCount={null}
+        className={"pagination-navigation"}
+      />
+    </div>
+  );
+
   return (
     <div>
       <SearchResultViewSelector
@@ -64,19 +80,8 @@ function SearchEvents({ events, eventsMetadata, handlePageChange }) {
         <SearchView events={events} viewName={searchView} />
       </div>
 
-      <div className="flex justify-center">
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel=">>"
-          pageRangeDisplayed={4}
-          marginPagesDisplayed={0}
-          onPageChange={handleChange}
-          pageCount={totalPagesAvailable}
-          previousLabel="<<"
-          renderOnZeroPageCount={null}
-          className={"pagination-navigation"}
-        />
-      </div>
+      { PaginationComponent }
+
     </div>
   );
 }
