@@ -150,8 +150,8 @@ export const TOPIC_TYPES = [
 
 export const EVENT_PRICES = [
   { label: '', value: '' },
-  { label: 'Free', value: 'free'},
-  { label: 'Paid', value: 'paid'},
+  { label: 'Free', value: 'free' },
+  { label: 'Paid', value: 'paid' },
 ];
 
 

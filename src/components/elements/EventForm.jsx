@@ -314,7 +314,7 @@ function PostEventFormComponent(props) {
                 </section>
                 <section>
                   <EventPriceField />
-              </section>
+                </section>
               </section>
               <section>
                 <label>Country</label>
