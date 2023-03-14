@@ -1,7 +1,7 @@
 export const REGION_OPTIONS = [
   { label: 'All', value: '' },
-  { label: 'Asia', value: 'asia' },
   { label: 'Africa', value: 'africa' },
+  { label: 'Asia', value: 'asia' },
   { label: 'Canada / USA', value: 'canada-usa' },
   { label: 'Europe', value: 'europe' },
   { label: 'Latin America', value: 'latin-america' },
