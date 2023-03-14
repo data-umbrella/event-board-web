@@ -1,11 +1,11 @@
 export const REGION_OPTIONS = [
   { label: 'All', value: '' },
-  { label: 'USA / Canada', value: 'usa-canada' },
-  { label: 'Europe', value: 'europe' },
-  { label: 'Africa', value: 'africa' },
-  { label: 'Middle East', value: 'middle-east' },
-  { label: 'Latin America / Caribbean', value: 'latin-america-caribbean' },
   { label: 'Asia', value: 'asia' },
+  { label: 'Africa', value: 'africa' },
+  { label: 'Canada / USA', value: 'canada-usa' },
+  { label: 'Europe', value: 'europe' },
+  { label: 'Latin America', value: 'latin-america' },
+  { label: 'Middle East', value: 'middle-east' },
   { label: 'Oceania', value: 'oceania' },
   { label: 'Online', value: 'online' },
 ];
