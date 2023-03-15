@@ -1,4 +1,16 @@
-# Contributing to the Data Umbrella Event Board
+# Contributing to the Data Umbrella Events Board
+
+## Table of Contents
+- [About](#about)
+- [Getting started](#getting-started)
+- [Setting up the development environment](#setting-up-development-environment)
+- [Returning to work](#returning-to-work)
+- [Tips for debugging](#tips-for-debugging)
+- [Deployment](#deployment)
+- [Video resources](#video-resources)
+- [Best practices](#best-practices)
+- [Contributing guidelines](#contributing-guidelines)
+- [Thank you](#thank-you)
 
 ## About
 This event board application is built with [ReactJS](https://reactjs.org/) and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,8 +81,6 @@ npm run start:dev
 
 The React app will start up in development mode and be accessible at [http://localhost:3000](http://localhost:3000). The page will reload when you make changes. You may also see any lint errors in the console.
 
-
-
 ```
 REACT_APP_API_URL=http://localhost:8000
 ```
@@ -80,7 +90,6 @@ After starting up `event-board-api` server, simply run the start command.
 ```
 npm start
 ```
-
 
 ### Running tests
 
@@ -102,13 +111,26 @@ npm lint
 
 For all contributions (documentation, bug fixes, new features), it is required to create a feature branch and then to submit a pull request. All pull requests will be reviewed by the project maintainers before being merged into the main branch. Maintainers may request changes to be made to pull requests before your code is approved. The repository is configured to automatically run tests and static code analysis via GitHub Actions when a pull request is opened or a branch is updated. All tests and linter checks must pass in order to merge the pull request.
 
+## Returning to work
+
+Once your development environment has been set up, and you have submitted a pull request, these next steps are helpful for returning to work:  
+
+- On the `main` branch, sync your repo before creating a new feature branch
+- If you are returning to work on a `feature-branch`, sync the repo so you are working with the latest code updates with `git pull`
+
+## Tips for debugging
+
+- [How to fix bugs, step by step](http://www.yacoset.com/Home/how-to-fix-bugs-step-by-step)
+- Look at the debugger for root cause analysis
+- For code debugging, in the browser, select "Inspect element" to examine the code
+
 ## Deployment
 
 This application is deployed on Digital Ocean App Platform as a static application. For more information about deploying React applications on DO App Platform see the tutorial [How To Deploy a React Application to DigitalOcean App Platform](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-to-digitalocean-app-platform).
 
 ---
 
-## Video Resources
+## Video resources
 
 This is a playlist of 3 videos, [Intro to React Tutorial](https://www.youtube.com/playlist?list=PLBKcU7Ik-ir9bAT2eXmQ4Ojn2--hT3O87):  
 1. React Tutorial Part 1: [Background](https://youtu.be/jNO-pPR7zkg)
@@ -124,10 +146,30 @@ This is a playlist of 3 videos, [Intro to Django](https://www.youtube.com/playli
 - [Django REST Framework](https://www.django-rest-framework.org/)
 
 ---
-## Contributing Guidelines
+
+## Best practices
+
+1) **Project name**: consistently use the project name, which is "Data Events Board"
+2) **Link text**: use descriptive text in link in lieu of "here". 
+
+- *Do use* links with descriptive text:
+    ```
+    To support Data Umbrella and keep it running, please donate to the [Data Umbrella Collective](https://opencollective.com/data-umbrella)
+    ```
+
+- *Do not* include links in this format:
+    ```
+    [here][https://xxx.xxx.xxx/]
+    ```
+
+    Reference: [Descriptive text in hyperlinks](https://github.com/scikit-learn/scikit-learn/issues/21214#issuecomment-949678477) provides access to all users and people who have low/blind vision.
+
+
+## Contributing guidelines
 
 1) To claim an issue, "I am working on it" and then you can start working on it; there is no need to wait to be assigned on an issue.
 2) A pull request should be submitted within two weeks or someone else can work on the issue.
+
 
 ## Thank you
 Thank you for contributing to the Data Umbrella Event Board.
