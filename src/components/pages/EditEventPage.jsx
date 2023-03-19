@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // Components
 import EventForm from 'components/elements/EventForm';
 import { useEvent } from 'hooks/events';
-import { updateEvent } from 'services/api';
+import { updateEvent } from 'services/events';
 
 function EditEventPage() {
   const navigate = useNavigate();

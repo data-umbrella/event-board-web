@@ -10,7 +10,7 @@ import ReviewEventMainSection from "components/elements/ReviewEventMainSection";
 import SpeakersSection from "components/elements/SpeakersSection";
 
 import { useEvent } from "hooks/events";
-import { submitEvent } from "services/api";
+import { submitEvent } from "services/events";
 
 function ReviewEventPage() {
   const { eventId } = useParams();

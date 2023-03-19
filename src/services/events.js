@@ -1,9 +1,14 @@
-import queryString from "query-string";
-import moment from "moment";
-import { parseAPIJSON } from "utils/api";
-import { EVENTS_URL } from "constants/urls";
-import { DEFAULT_DATE_FORMAT } from "constants/dates";
-import camelcaseKeys from "camelcase-keys";
+import moment from 'moment';
+import queryString from 'query-string';
+import { parseAPIJSON } from 'utils/api';
+import { EVENTS_URL } from 'constants/urls';
+import { DEFAULT_DATE_FORMAT } from 'constants/dates';
+import camelcaseKeys from 'camelcase-keys';
+import { EVENT_ATTRIBUTES } from 'constants/events';
+import snakecaseKeys from 'snakecase-keys';
+import { dataURLtoImageFile } from 'utils/files';
+import { stringifyTags } from 'utils/strings';
+import { formatDate } from 'utils/dates';
 
 export function buildDateFields(searchFilters) {
   const startDate = moment(searchFilters.startDate).format(DEFAULT_DATE_FORMAT);
@@ -61,4 +66,85 @@ export function fetchFeaturedEvents() {
   return fetch(`${EVENTS_URL}?${query}`)
     .then((response) => response.json())
     .then((json) => parseAPIJSON(json));
+}
+
+export function buildFormDataObject(body) {
+  body.tags = stringifyTags(body.tags);
+  body.hash_tag = stringifyTags(body.hashTag);
+  body.speakers = stringifyTags(body.speakers);
+  body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
+  body.social_media_links = JSON.stringify(body.social_media_links);
+
+  const formDataPayload = snakecaseKeys(body);
+  formDataPayload.image_file = dataURLtoImageFile(body.imageFile, 'new-name.png');
+  formDataPayload.start_date = formatDate(formDataPayload.start_date);
+  formDataPayload.end_date = formatDate(formDataPayload.end_date);
+  formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
+  formDataPayload.volunteering_notes = formDataPayload.volunteering_notes || '';
+  formDataPayload.event_notes = formDataPayload.event_notes || '';
+
+
+  return formDataPayload;
+}
+
+export function buildFormData(rawData) {
+  const formData = new FormData();
+  const formDataPayload = buildFormDataObject(rawData);
+
+  EVENT_ATTRIBUTES.forEach(attributeKey => {
+    if (attributeKey === 'image_file' && formDataPayload.image_file) {
+      formData.append(
+        'image_file',
+        formDataPayload.image_file,
+        formDataPayload.image_file.name
+      );
+    } else if (formDataPayload[attributeKey] || formDataPayload[attributeKey] === '') {
+      formData.append(attributeKey, formDataPayload[attributeKey]);
+    }
+  });
+
+  return formData;
+}
+
+// This function is used to make all the requests to the API.
+// TODO: Refactor to use axios.
+export async function makeRequest(url, options) {
+  const response = await fetch(url, { credentials: 'include', ...options });
+  const jsonObject = await response.json();
+
+  if (![200, 201, 204].includes(response.status)) {
+    throw(new Error('Bad Request'));
+  }
+
+  return jsonObject;
+}
+
+// This function creates a new event and uses theq
+// buildFormData to build the data includes rich media.
+export async function createEvent(body) {
+  return makeRequest(EVENTS_URL, {
+    method: 'POST',
+    body: buildFormData(body)
+  });
+}
+
+// This function updates the entire event and uses the
+// buildFormData to build the data includes rich media.
+export async function updateEvent(id, body) {
+  return makeRequest(`${EVENTS_URL}/${id}/`, {
+    method: 'PUT',
+    body: buildFormData(body)
+  });
+}
+
+// This function only patches the submitted field
+// so, we can just use JSON to send the data.
+export async function submitEvent(id, body) {
+  return makeRequest(`${EVENTS_URL}/${id}/`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ submitted: true }),
+  });
 }
