@@ -10,7 +10,7 @@ import ReviewEventMainSection from "components/elements/ReviewEventMainSection";
 import SpeakersSection from "components/elements/SpeakersSection";
 
 import { useEvent } from "hooks/events";
-import { api } from "services/api";
+import { submitEvent } from "services/api";
 
 function ReviewEventPage() {
   const { eventId } = useParams();
@@ -19,7 +19,7 @@ function ReviewEventPage() {
 
   async function handleSubmit() {
     try {
-      await api('PUT', `events/${evt.id}/`, { submitted: true });
+      await submitEvent(evt.id);
       if (evt.submitted) {
         navigate(`/events/${evt.id}/details`);
       } else {

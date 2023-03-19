@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // Components
 import EventForm from 'components/elements/EventForm';
 import { useEvent } from 'hooks/events';
-import { api } from 'services/api';
+import { updateEvent } from 'services/api';
 
 function EditEventPage() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function EditEventPage() {
 
   async function handleFormSubmit(values) {
     try {
-      await api('PUT', `events/${evt.id}/`, values);
+      await updateEvent(evt.id, values);
       navigate(`/events/${evt.id}/review`);
     } catch (e) {
       window.alert(e);
