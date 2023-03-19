@@ -1,5 +1,12 @@
 import moment from 'moment';
 
+// TODO: Refactor to use dayjs.
+export function formatDate(date) {
+  if (!date || date === '') return '';
+
+  return moment(date).format('YYYY-MM-DD');
+}
+
 export function formatEventDetail(date) {
   if (!date) return;
 
