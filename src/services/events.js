@@ -75,7 +75,7 @@ export function buildFormDataObject(body) {
   body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
 
   const formDataPayload = snakecaseKeys(body);
-  formDataPayload.image_file = dataURLtoImageFile(body.imageFile, 'new-name.png');
+  formDataPayload.image_file = dataURLtoImageFile(body.imageFile);
   formDataPayload.start_date = formatDate(formDataPayload.start_date);
   formDataPayload.end_date = formatDate(formDataPayload.end_date);
   formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
