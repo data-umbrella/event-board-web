@@ -1,14 +1,14 @@
+import { dataURLtoImageFile } from 'utils/files';
+import { DEFAULT_DATE_FORMAT } from 'constants/dates';
+import { EVENT_ATTRIBUTES } from 'constants/events';
+import { EVENTS_URL } from 'constants/urls';
+import { formatDate } from 'utils/dates';
+import { parseAPIJSON } from 'utils/api';
+import { stringifyTags } from 'utils/strings';
+import camelcaseKeys from 'camelcase-keys';
 import moment from 'moment';
 import queryString from 'query-string';
-import { parseAPIJSON } from 'utils/api';
-import { EVENTS_URL } from 'constants/urls';
-import { DEFAULT_DATE_FORMAT } from 'constants/dates';
-import camelcaseKeys from 'camelcase-keys';
-import { EVENT_ATTRIBUTES } from 'constants/events';
 import snakecaseKeys from 'snakecase-keys';
-import { dataURLtoImageFile } from 'utils/files';
-import { stringifyTags } from 'utils/strings';
-import { formatDate } from 'utils/dates';
 
 export function buildDateFields(searchFilters) {
   const startDate = moment(searchFilters.startDate).format(DEFAULT_DATE_FORMAT);
@@ -138,7 +138,7 @@ export async function updateEvent(id, body) {
 
 // This function only patches the submitted field
 // so, we can just use JSON to send the data.
-export async function submitEvent(id, body) {
+export async function submitEvent(id) {
   return makeRequest(`${EVENTS_URL}/${id}/`, {
     method: 'PUT',
     headers: {
