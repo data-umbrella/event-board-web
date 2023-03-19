@@ -73,7 +73,6 @@ export function buildFormDataObject(body) {
   body.hash_tag = stringifyTags(body.hashTag);
   body.speakers = stringifyTags(body.speakers);
   body.accessibilityOptions = stringifyTags(body.accessibilityOptions);
-  body.social_media_links = JSON.stringify(body.social_media_links);
 
   const formDataPayload = snakecaseKeys(body);
   formDataPayload.image_file = dataURLtoImageFile(body.imageFile, 'new-name.png');
@@ -82,7 +81,7 @@ export function buildFormDataObject(body) {
   formDataPayload.cfp_due_date = formatDate(formDataPayload.cfp_due_date);
   formDataPayload.volunteering_notes = formDataPayload.volunteering_notes || '';
   formDataPayload.event_notes = formDataPayload.event_notes || '';
-
+  formDataPayload.social_media_links = JSON.stringify(formDataPayload.social_media_links);
 
   return formDataPayload;
 }
