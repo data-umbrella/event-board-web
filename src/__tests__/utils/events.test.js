@@ -1,4 +1,4 @@
-import { groupEventsByMonth  } from 'utils/events';
+import { groupEventsByMonth } from 'utils/events';
 
 describe('groupEventsByMonth', () => {
   it('returns an object with the correct keys and values', () => {
