@@ -1,16 +1,16 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import AccessibilitySection from "components/elements/AccessibilitySection";
-import DescriptionSection from "components/elements/DescriptionSection";
-import EventPlanningSection from "components/elements/EventPlanningSection";
-import NotesSection from "components/elements/NotesSection";
-import ReviewEventActionsSection from "components/elements/ReviewEventActionsSection";
-import ReviewEventMainSection from "components/elements/ReviewEventMainSection";
-import SpeakersSection from "components/elements/SpeakersSection";
+import AccessibilitySection from 'components/elements/AccessibilitySection';
+import DescriptionSection from 'components/elements/DescriptionSection';
+import EventPlanningSection from 'components/elements/EventPlanningSection';
+import NotesSection from 'components/elements/NotesSection';
+import ReviewEventActionsSection from 'components/elements/ReviewEventActionsSection';
+import ReviewEventMainSection from 'components/elements/ReviewEventMainSection';
+import SpeakersSection from 'components/elements/SpeakersSection';
 
-import { useEvent } from "hooks/events";
-import { submitEvent } from "services/events";
+import { useEvent } from 'hooks/events';
+import { submitEvent } from 'services/events';
 
 function ReviewEventPage() {
   const { eventId } = useParams();
