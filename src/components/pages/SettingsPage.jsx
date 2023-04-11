@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import formStyleClasses from "styles/forms";
-import { withFormik, Form, Field, useFormik } from "formik";
+import { withFormik, Form, Field } from "formik";
 import { Link } from 'react-router-dom';
 import { useAuth } from "hooks/authentication";
 import trashIcon from 'assets/ui/carbon_trash-can.svg';
 import trashIconDark from 'assets/ui/carbon_trash-can_dark_mode.svg';
 import DeleteModal from 'components/elements/DeleteAccountModal'
-import * as Yup from "yup";
-import { ToastContainer, toast } from "react-toastify";
+// import * as Yup from "yup";
+// import { ToastContainer, toast } from "react-toastify";
 
 
 function SettingsPageFormComponent({ errors, touched }) {

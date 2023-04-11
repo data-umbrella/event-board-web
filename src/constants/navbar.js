@@ -17,7 +17,7 @@ export const NAVBAR_PROFILE_OPTIONS = [
     label: "Sign Out",
     value: "sign-out",
     route: "/sign-in",
-    onclick: () => console.log("sign out complete"),
+   
     // const signOut = () => auth.signOutCurrentUser();
   },
 ];
