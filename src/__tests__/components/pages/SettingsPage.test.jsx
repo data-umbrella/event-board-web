@@ -4,7 +4,7 @@ import SettingsPage from 'components/pages/SettingsPage';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Settings Page', () => {
-  it('renders delete action buttons', () => {
+  it('renders placeholder text', () => {
     render(
       <MemoryRouter>
         <SettingsPage />
