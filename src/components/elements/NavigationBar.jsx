@@ -70,7 +70,8 @@ function NavigationBar() {
               ) : (
                 <Link
                   to="/sign-in"
-                  className="dark:text-slate-50 dark:hover:text-teal-400"
+                  className={navStyleClasses.navLink}
+                  // "dark:text-slate-50 dark:hover:text-teal-400"
                 >
                   Sign In
                 </Link>
