@@ -93,7 +93,7 @@ function SettingsPage() {
 
           
           <img src={trashIcon} alt="logo" />
-          {/* add event listener for pop up confirmation*/}
+         
           <Link
             className="block  text-lg pt-8 dark:text-white"
             to={``}

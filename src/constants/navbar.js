@@ -18,6 +18,5 @@ export const NAVBAR_PROFILE_OPTIONS = [
     value: "sign-out",
     route: "/sign-in",
    
-    // const signOut = () => auth.signOutCurrentUser();
   },
 ];
