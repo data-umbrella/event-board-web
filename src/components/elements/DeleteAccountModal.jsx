@@ -11,6 +11,7 @@ const DeleteModal = ({ setModalOn, setChoice }) => {
     setModalOn(false);
     const auth = useAuth()
     auth.deleteAccount();
+ 
   };
 
   const handleCancelClick = () => {
