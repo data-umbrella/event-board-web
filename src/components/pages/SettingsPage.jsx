@@ -63,7 +63,7 @@ function SettingsPage() {
   const signOut = () => auth.signOutCurrentUser();
 
   const [modalOn, setModalOn] = useState(false);
-  const [choice, setChoice] = useState(false)
+  const [, setChoice] = useState(false)
 
   const clickDelete = () => {
     setModalOn(true)
