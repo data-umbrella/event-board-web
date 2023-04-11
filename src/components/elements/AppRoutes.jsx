@@ -53,7 +53,7 @@ function AppRoutes() {
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/events/calendar" element={<EventCalendarPage />} />
       <Route path="/events/confirmation" element={<PostEventSuccessPage />} />
-       <Route path="/settings" element={<SettingsPage />} />
+      <Route path="/settings" element={<SettingsPage />} />
       <Route
         path="/events/new"
         element={

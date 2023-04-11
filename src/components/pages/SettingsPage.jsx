@@ -4,7 +4,7 @@ import { withFormik, Form, Field } from "formik";
 import { Link } from 'react-router-dom';
 import { useAuth } from "hooks/authentication";
 import trashIcon from 'assets/ui/carbon_trash-can.svg';
-import trashIconDark from 'assets/ui/carbon_trash-can_dark_mode.svg';
+// import trashIconDark from 'assets/ui/carbon_trash-can_dark_mode.svg';
 import DeleteModal from 'components/elements/DeleteAccountModal'
 // import * as Yup from "yup";
 // import { ToastContainer, toast } from "react-toastify";
