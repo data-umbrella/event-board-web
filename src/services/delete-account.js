@@ -3,7 +3,7 @@ import {
 } from 'constants/urls';
 import { setUserToken } from 'utils/sessions';
 import { buildAuthenticatedHeaders } from 'utils/api';
-import { DEFAULT_HEADERS } from 'constants/api';
+// import { DEFAULT_HEADERS } from 'constants/api';
 
 export async function fetchDeleteAccount() {
   try {

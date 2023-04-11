@@ -104,6 +104,7 @@ export function AuthProvider({ children }) {
     refetchUser,
     authenticateUser,
     signOutCurrentUser,
+    deleteAccount,
   };
 
   return (
