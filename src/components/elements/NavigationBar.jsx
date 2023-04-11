@@ -105,7 +105,7 @@ function NavigationBar() {
                 Sponsors
               </a>
             </div>
-            <span className="inline-block font-medium hover:underline hover:text-du-purple-500 dark:text-slate-50dark:hover:text-teal-40">
+            <span className= "inline-block font-medium hover:underline hover:text-du-purple-500 dark:text-slate-50dark:hover:text-teal-40">
               <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
             </span>
           </div>

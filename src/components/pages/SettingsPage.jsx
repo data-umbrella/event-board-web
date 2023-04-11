@@ -20,27 +20,7 @@ function SettingsPageFormComponent({ errors, touched }) {
 
   return (
     <Form>
-      <div className="w-1/2 grid grid-rows-2 md:grid-cols-1 md:grid-rows-2">
-        <label className="col-span-3 pt-8 text-left text-lg" htmlFor="username">
-          UserName
-          {touched.email && errors.email && (
-            <span className="px-2 inline-block text-[#FB2F2F] dark:text-[#FB2F2F] text-sm">
-              {errors.username}
-            </span>
-          )}
-        </label>
-        <Field
-          type="userName"
-          name="userName"
-          className={formStyleClasses.input2}
-        />
-        <a
-          className=" col-span-3 pt-8 text-right underline underline-offset-4 text-lg dark:text-white"
-          // onClick = {toggleFunction}
-        >
-          Edit UserName
-        </a>
-      </div>
+   
       <div className="w-1/2 grid grid-rows-2 md:grid-cols-1 md:grid-rows-2">
         <label className="col-span-3 pt-8 text-left text-lg" htmlFor="email">
           Email address
