@@ -1,6 +1,7 @@
 import CloseBtn from 'assets/ui/close-icon.svg'
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "hooks/authentication";
 // import React, { Component }  from 'react';
 
 
@@ -8,16 +9,8 @@ const DeleteModal = ({ setModalOn, setChoice }) => {
   const handleDeleteClick = () => {
     setChoice(true);
     setModalOn(false);
-    
-    
-    // const deleteAccount = await deleteUserAccount(values);
-    //navigates back to settings page if user account is successfully deleted, else error message
-    // if (deleteAccount) {
-    //   navigate('/settings');
-    // } else {
-    //   // TODO: Add error handling
-    //   window.alert('Something went wrong');
-    // }
+    const auth = useAuth()
+    auth.deleteAccount();
   };
 
   const handleCancelClick = () => {
