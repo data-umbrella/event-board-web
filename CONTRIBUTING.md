@@ -164,12 +164,20 @@ This is a playlist of 3 videos, [Intro to Django](https://www.youtube.com/playli
 
     Reference: [Descriptive text in hyperlinks](https://github.com/scikit-learn/scikit-learn/issues/21214#issuecomment-949678477) provides access to all users and people who have low/blind vision.
 
+### Management dependencies and security vunerabilities
+
+It's essential to keep the project's dependencies up to date to ensure the application is secure, performant, and compatible with the latest features of the language and libraries it uses. Below are general guidelines and practices for managing dependencies for JavaScript projects:
+
+- Update dependencies regularly: Keep your dependencies up to date by regularly updating them to the latest version. You can use the npm outdated command to see which packages are out of date and need to be updated.
+- Use a lockfile: Always commit changes to the package-lock.json to ensure that dependencies are installed with the same versions across different environments.
+- Use [npm audit](https://docs.npmjs.com/cli/v9/commands/npm-audit): Use `npm audit` to identify any known security vulnerabilities in your project's dependencies. If any issues are found, update the affected packages to the latest version or find alternative packages that are not vulnerable. Using `npm audit fix` will automatically update packages that won't cause breaking changes
+- Use `npm audit fix --force` with caution as it will upgrade packages that may break the application or cause bugs
+- Resolve conflicts: If you encounter conflicts between different dependencies, resolve them by updating or removing the conflicting package.
 
 ## Contributing guidelines
 
 1) To claim an issue, "I am working on it" and then you can start working on it; there is no need to wait to be assigned on an issue.
 2) A pull request should be submitted within two weeks or someone else can work on the issue.
-
 
 ## Thank you
 Thank you for contributing to the Data Umbrella Event Board.
