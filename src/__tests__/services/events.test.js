@@ -3,8 +3,11 @@ import {
   createEvent,
   updateEvent,
   submitEvent,
+  fetchFeaturedEvents,
 } from 'services/events'
 import { EVENTS_URL } from 'constants/urls';
+import dayjs from 'dayjs';
+import { DEFAULT_DATE_FORMAT } from 'constants/dates';
 
 describe('makeRequest', () => {
   let fetchMock;
@@ -52,11 +55,11 @@ describe('createEvent', () => {
 
   beforeEach(() => {
     fetchMock = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(body),
-      status: 200,
-    })
-  );
+      Promise.resolve({
+        json: () => Promise.resolve(body),
+        status: 200,
+      })
+    );
     global.fetch = fetchMock;
   });
 
@@ -85,11 +88,11 @@ describe('updateEvent', () => {
 
   beforeEach(() => {
     fetchMock = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(body),
-      status: 200,
-    })
-  );
+      Promise.resolve({
+        json: () => Promise.resolve(body),
+        status: 200,
+      })
+    );
     global.fetch = fetchMock;
   });
 
@@ -118,11 +121,11 @@ describe('submitEvent', () => {
 
   beforeEach(() => {
     fetchMock = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve({ ...body, submitted: true }),
-      status: 200,
-    })
-  );
+      Promise.resolve({
+        json: () => Promise.resolve({ ...body, submitted: true }),
+        status: 200,
+      })
+    );
     global.fetch = fetchMock;
   });
 
@@ -145,5 +148,39 @@ describe('submitEvent', () => {
       },
     );
     expect(response).toEqual({ ...body, submitted: true });
+  });
+});
+
+describe('fetchFeaturedEvents', () => {
+  let fetchMock;
+  let mockEvent = { id: 1, eventName: 'Test Event' };
+
+  beforeEach(() => {
+    fetchMock = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve([mockEvent]),
+        status: 200,
+      })
+    );
+    global.fetch = fetchMock;
+  });
+
+  afterEach(() => {
+    fetchMock.mockReset();
+    delete global.fetch;
+  });
+
+  it('sends a PATCH request to the events API', async () => {
+    const response = await fetchFeaturedEvents();
+    expect(fetchMock).toHaveBeenCalled();
+
+    const url = fetchMock.mock.calls[0][0];
+    const startDate = encodeURIComponent(dayjs().format(DEFAULT_DATE_FORMAT));
+    const endDate = encodeURIComponent(dayjs().add(5, 'month').format(DEFAULT_DATE_FORMAT));
+
+    expect(url).toContain(`${EVENTS_URL}?featured=true&published=true`);
+    expect(url).toContain(`start_date__gte=${startDate}`);
+    expect(url).toContain(`start_date__lte=${endDate}`);
+    expect(response).toEqual([mockEvent]);
   });
 });
