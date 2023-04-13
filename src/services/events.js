@@ -59,6 +59,7 @@ export function fetchEventResultsForSearchFilters(searchFilters) {
 export function fetchFeaturedEvents() {
   const query = queryString.stringify({
     featured: true,
+    published: true,
     start_date__gte: moment().format(DEFAULT_DATE_FORMAT),
     start_date__lte: moment().add(5, "months").format(DEFAULT_DATE_FORMAT),
   });
