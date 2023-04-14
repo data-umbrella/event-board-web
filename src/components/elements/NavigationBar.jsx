@@ -55,11 +55,13 @@ function NavigationBar() {
               />
             </div>
             <span
-              className=" flex flex-row-reverse
-              dark:text-slate-50 dark:hover:text-teal-40"
+              // className=" flex flex-row-reverse
+              // dark:text-slate-50 dark:hover:text-teal-40 "
             >
               {auth.currentUser.isAuthenticated ? (
+                
                 <CustomDropdownMenu
+                  
                   label={
                     <img
                       src={colorTheme === "dark" ? UserProfile : userProfileDark}
@@ -68,15 +70,18 @@ function NavigationBar() {
                 >
                   <Link
                     to="/settings"
+                    className={navStyleClasses.navDropdownItem}
                   >
                     Profile
                   </Link>
                   <button
                     onClick={signOut}
+                    className={navStyleClasses.navDropdownItem}
                   >
                     Sign Out
                   </button>
                 </CustomDropdownMenu >
+                  
               ) : (
                 <Link
                   to="/sign-in"

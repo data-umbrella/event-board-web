@@ -18,7 +18,7 @@ function CustomDropdownMenu({ label, children }) {
           </a>
 
           <ul
-            className={navStyleClasses.navSelectMenu}
+            className={navStyleClasses.navSelectMenu}    
             aria-labelledby="dropdownMenuButton2"
           >
             {children}
