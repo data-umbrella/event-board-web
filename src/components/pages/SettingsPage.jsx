@@ -6,8 +6,7 @@ import { useAuth } from "hooks/authentication";
 import trashIcon from 'assets/ui/carbon_trash-can.svg';
 // import trashIconDark from 'assets/ui/carbon_trash-can_dark_mode.svg';
 import DeleteModal from 'components/elements/DeleteAccountModal'
-// import * as Yup from "yup";
-// import { ToastContainer, toast } from "react-toastify";
+
 
 
 function SettingsPageFormComponent({ errors, touched }) {
@@ -58,12 +57,10 @@ export const SettingsPageForm = withFormik({
 })(SettingsPageFormComponent);
 
 function SettingsPage() {
-
   const auth = useAuth()
   const signOut = () => auth.signOutCurrentUser();
-
   const [modalOn, setModalOn] = useState(false);
-  const [, setChoice] = useState(false)
+  const [, setChoice] = useState(false);
 
   const clickDelete = () => {
     setModalOn(true)
