@@ -6,10 +6,10 @@ import { useAuth } from "hooks/authentication";
 
 
 const DeleteModal = ({ setModalOn, setChoice }) => {
+  const auth = useAuth()
   const handleDeleteClick = () => {
     setChoice(true);
     setModalOn(false);
-    const auth = useAuth()
     auth.deleteAccount();
   };
 

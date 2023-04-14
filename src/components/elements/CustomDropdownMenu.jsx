@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { Link } from 'react-router-dom';
 import { navStyleClasses } from 'styles/navbar';
 import DownArrowIcon from 'components/elements/DownArrowIcon';
 
-function DropdownMenu({ label, options, onClick }) {
+function CustomDropdownMenu({ label, children}) {
   return (
     <div className="flex justify-center mt-4 mr-10">
       <div>
@@ -22,19 +22,7 @@ function DropdownMenu({ label, options, onClick }) {
             className={navStyleClasses.navSelectMenu}
             aria-labelledby="dropdownMenuButton2"
           >
-            {options.map(({ value, label, route }) => {
-              return (
-                <li key={value}>
-                  <Link
-                    to={route}
-                    value={value}
-                    className={navStyleClasses.navDropdownItem}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              )
-            })}
+            {children}
           </ul>
         </div>
       </div>
@@ -42,4 +30,4 @@ function DropdownMenu({ label, options, onClick }) {
   )
 }
 
-export default DropdownMenu;
+export default CustomDropdownMenu;

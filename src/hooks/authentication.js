@@ -6,7 +6,7 @@ import {
   fetchMagicLink,
   fetchSignOut,
 } from 'services/authentication';
-import { fetchDeleteAccount } from 'services/delete-account';
+import { fetchDeleteAccount } from 'services/users';
 
 const AuthContext = createContext();
 

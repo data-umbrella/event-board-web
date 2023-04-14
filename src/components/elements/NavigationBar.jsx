@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "hooks/authentication";
 import useDarkMode from "hooks/dark-mode";
 import DropdownMenu from "components/elements/DropdownMenu";
+import CustomDropdownMenu from "components/elements/CustomDropdownMenu";
 import logoImg from "assets/du_sc_logos/logo_event_board.svg";
 import logoDark from "assets/du_sc_logos/logo_dark_event_board.png";
 import darkMode from "assets/ui/dark-mode.svg";
@@ -58,15 +59,24 @@ function NavigationBar() {
               dark:text-slate-50 dark:hover:text-teal-40"
             >
               {auth.currentUser.isAuthenticated ? (
-                <DropdownMenu
+                <CustomDropdownMenu
                   label={
                     <img
                       src={colorTheme === "dark" ? UserProfile : userProfileDark}
                     />
                   }
-                  options={NAVBAR_PROFILE_OPTIONS}
-                  onClick={signOut}
-                />
+                >
+                  <Link
+                    to="/settings"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={signOut}
+                  >
+                    Sign Out
+                  </button>
+                </CustomDropdownMenu >
               ) : (
                 <Link
                   to="/sign-in"
