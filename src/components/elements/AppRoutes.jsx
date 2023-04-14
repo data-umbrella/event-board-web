@@ -23,6 +23,7 @@ import ContactPage from 'components/pages/ContactPage';
 import PrivacyPage from 'components/pages/PrivacyPolicyPage';
 import ContactSuccessPage from 'components/pages/ContactSuccessPage';
 import TermsPage from 'components/pages/TermsPage';
+import SettingsPage from 'components/pages/SettingsPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
@@ -52,6 +53,14 @@ function AppRoutes() {
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/events/calendar" element={<EventCalendarPage />} />
       <Route path="/events/confirmation" element={<PostEventSuccessPage />} />
+      <Route
+        path="/settings"
+        element={
+          <RequireAuth>
+            <SettingsPage />
+          </RequireAuth>
+        }
+      />
       <Route
         path="/events/new"
         element={

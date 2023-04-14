@@ -1,17 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from 'hooks/authentication';
-import useDarkMode from 'hooks/dark-mode';
-import DropdownMenu from 'components/elements/DropdownMenu';
-import logoImg from 'assets/du_sc_logos/logo_event_board.svg';
-import logoDark from 'assets/du_sc_logos/logo_dark_event_board.png'
-import darkMode from 'assets/ui/dark-mode.svg';
-import lightMode from 'assets/ui/light-mode.svg';
-import { navStyleClasses } from 'styles/navbar';
-import { NAVBAR_EVENT_OPTIONS } from 'constants/navbar';
-import ExternalLink from 'assets/ui/externalLink.svg'
-import ExternalLinkDark from 'assets/ui/externalLinkDark.svg'
-import { DATA_UMBRELLA_URL } from 'constants/urls';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "hooks/authentication";
+import useDarkMode from "hooks/dark-mode";
+import DropdownMenu from "components/elements/DropdownMenu";
+import CustomDropdownMenu from "components/elements/CustomDropdownMenu";
+import logoImg from "assets/du_sc_logos/logo_event_board.svg";
+import logoDark from "assets/du_sc_logos/logo_dark_event_board.png";
+import darkMode from "assets/ui/dark-mode.svg";
+import lightMode from "assets/ui/light-mode.svg";
+import { navStyleClasses } from "styles/navbar";
+import { NAVBAR_EVENT_OPTIONS } from "constants/navbar";
+import ExternalLink from "assets/ui/externalLink.svg";
+import ExternalLinkDark from "assets/ui/externalLinkDark.svg";
+import UserProfile from "assets/ui/user-profile.svg";
+import userProfileDark from "assets/ui/Profile_dark_mode.svg";
+import { DATA_UMBRELLA_URL } from "constants/urls";
 
 function NavigationBar() {
   const auth = useAuth();
@@ -51,18 +54,40 @@ function NavigationBar() {
                 alt="logo"
               />
             </div>
-            <div className={navStyleClasses.navLink}>
+            <span
+              className=" flex flex-row-reverse
+              dark:text-slate-50 dark:hover:text-teal-40"
+            >
               {auth.currentUser.isAuthenticated ? (
-                <button onClick={signOut}>Sign Out</button>
+                <CustomDropdownMenu
+                  label={
+                    <img
+                      src={colorTheme === "dark" ? UserProfile : userProfileDark}
+                    />
+                  }
+                >
+                  <Link
+                    to="/settings"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={signOut}
+                  >
+                    Sign Out
+                  </button>
+                </CustomDropdownMenu >
               ) : (
                 <Link
                   to="/sign-in"
-                  className="dark:text-slate-50 dark:hover:text-teal-400"
+                  className={navStyleClasses.navLink}
+                  // "dark:text-slate-50 dark:hover:text-teal-400"
                 >
                   Sign In
                 </Link>
               )}
-            </div>
+            </span>
+          
             <div>
               <a
                 href={DATA_UMBRELLA_URL}
@@ -79,7 +104,10 @@ function NavigationBar() {
               </a>
             </div>
             <div>
-              <a href="/events/weekly-digest" className={navStyleClasses.navLink}>
+              <a
+                href="/events/weekly-digest"
+                className={navStyleClasses.navLink}
+              >
                 Weekly Digest
               </a>
             </div>
@@ -88,7 +116,7 @@ function NavigationBar() {
                 Sponsors
               </a>
             </div>
-            <span className="inline-block font-medium hover:underline hover:text-du-purple-500 dark:text-slate-50dark:hover:text-teal-40">
+            <span className= "inline-block font-medium hover:underline hover:text-du-purple-500 dark:text-slate-50dark:hover:text-teal-40">
               <DropdownMenu label="Events" options={NAVBAR_EVENT_OPTIONS} />
             </span>
           </div>

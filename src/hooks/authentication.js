@@ -6,6 +6,7 @@ import {
   fetchMagicLink,
   fetchSignOut,
 } from 'services/authentication';
+import { fetchDeleteAccount } from 'services/users';
 
 const AuthContext = createContext();
 
@@ -84,6 +85,16 @@ export function AuthProvider({ children }) {
       window.alert('Something went wrong');
     }
   }
+  
+  const deleteAccount = async () => {
+    try {
+      await fetchDeleteAccount();
+      updateCurrentUser({ isAuthenticated: false });
+    } catch (e) {
+      window.alert('Something went wrong');
+    }
+  }
+
 
   const value = {
     currentUser,
@@ -93,6 +104,7 @@ export function AuthProvider({ children }) {
     refetchUser,
     authenticateUser,
     signOutCurrentUser,
+    deleteAccount,
   };
 
   return (
