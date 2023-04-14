@@ -1,9 +1,8 @@
-import React, { Children } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { navStyleClasses } from 'styles/navbar';
 import DownArrowIcon from 'components/elements/DownArrowIcon';
 
-function CustomDropdownMenu({ label, children}) {
+function CustomDropdownMenu({ label, children }) {
   return (
     <div className="flex justify-center mt-4 mr-10">
       <div>

@@ -9,7 +9,7 @@ import logoDark from "assets/du_sc_logos/logo_dark_event_board.png";
 import darkMode from "assets/ui/dark-mode.svg";
 import lightMode from "assets/ui/light-mode.svg";
 import { navStyleClasses } from "styles/navbar";
-import { NAVBAR_EVENT_OPTIONS, NAVBAR_PROFILE_OPTIONS } from "constants/navbar";
+import { NAVBAR_EVENT_OPTIONS } from "constants/navbar";
 import ExternalLink from "assets/ui/externalLink.svg";
 import ExternalLinkDark from "assets/ui/externalLinkDark.svg";
 import UserProfile from "assets/ui/user-profile.svg";

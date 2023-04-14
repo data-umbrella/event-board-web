@@ -52,11 +52,11 @@ describe('createEvent', () => {
 
   beforeEach(() => {
     fetchMock = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(body),
-      status: 200,
-    })
-  );
+      Promise.resolve({
+        json: () => Promise.resolve(body),
+        status: 200,
+      })
+    );
     global.fetch = fetchMock;
   });
 
@@ -85,11 +85,11 @@ describe('updateEvent', () => {
 
   beforeEach(() => {
     fetchMock = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(body),
-      status: 200,
-    })
-  );
+      Promise.resolve({
+        json: () => Promise.resolve(body),
+        status: 200,
+      })
+    );
     global.fetch = fetchMock;
   });
 
@@ -118,11 +118,11 @@ describe('submitEvent', () => {
 
   beforeEach(() => {
     fetchMock = jest.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve({ ...body, submitted: true }),
-      status: 200,
-    })
-  );
+      Promise.resolve({
+        json: () => Promise.resolve({ ...body, submitted: true }),
+        status: 200,
+      })
+    );
     global.fetch = fetchMock;
   });
 
