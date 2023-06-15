@@ -26,6 +26,9 @@ There are two parts:
 - [Node​.js​](https://www.techtarget.com/whatis/definition/Nodejs)​: is an open source, cross-platform runtime environment for executing JavaScript code
 - [npm](https://docs.npmjs.com/cli/v6/commands/npm): is the JavaScript package manager
 
+### Installing Node
+- [node.js package manager](https://nodejs.dev/en/download/package-manager/)
+
 ### Fork & Clone the repo
 
 ```bash
