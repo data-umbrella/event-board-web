@@ -25,6 +25,11 @@ There are two parts:
 - [Git](https://git-scm.com/): an open source version control system
 - [Node​.js​](https://www.techtarget.com/whatis/definition/Nodejs)​: is an open source, cross-platform runtime environment for executing JavaScript code
 - [npm](https://docs.npmjs.com/cli/v6/commands/npm): is the JavaScript package manager
+- [nvm](https://github.com/nvm-sh/nvm) Node Version Manager (NVM), as the name implies, is a tool for managing Node versions on your device. Different projects on your device may be using different versions of Node. Using only one version (the one installed by npm) for these different projects may not give you accurate execution results.
+
+### Installing Node
+- [node.js package manager](https://nodejs.dev/en/download/package-manager/)
+- [nvm install guide](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
 
 ### Fork & Clone the repo
 
