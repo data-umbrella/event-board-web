@@ -29,6 +29,7 @@ There are two parts:
 
 ### Installing Node
 - [node.js package manager](https://nodejs.dev/en/download/package-manager/)
+- [nvm install guide](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
 
 ### Fork & Clone the repo
 
