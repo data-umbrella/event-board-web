@@ -16,8 +16,8 @@
 This event board application is built with [ReactJS](https://reactjs.org/) and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 There are two parts:  
-1. front-end: [event-board-web](https://github.com/data-umbrella/event-board-web) repository
-1. back-end: [event-board-api](https://github.com/data-umbrella/event-board-api) repository
+1. front-end: [event-board-web](https://github.com/data-umbrella/event-board-web) repository; [CONTRIBUTING.md](https://github.com/data-umbrella/event-board-web/blob/main/CONTRIBUTING.md)
+1. back-end: [event-board-api](https://github.com/data-umbrella/event-board-api) repository; [CONTRIBUTING.md](https://github.com/data-umbrella/event-board-api/blob/main/CONTRIBUTING.md)
 
 ## Getting started
 
