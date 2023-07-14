@@ -33,6 +33,14 @@ There are two parts:
 
 ### Fork & Clone the repo
 
+Note: You will want to create a project folder and clone both the "event-board-web" and "event-board-api" repositories in to that folder.
+
+Suggested folder name:  du-event-board
+  ```console
+  mkdir du-event-board
+  cd du-event-board
+  ```
+
 ```console
 git clone git@github.com:data-umbrella/event-board-web.git
 ```
