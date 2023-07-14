@@ -49,17 +49,17 @@ You can simply clone the repository to the get code with the command above. To m
 This application depends on Node.js and `npm`. We recommend using a [Node Version Manager](https://github.com/nvm-sh/nvm) (`nvm`) for managing node versions. This application is current being developed on **Node 18.4.0**. 
 
 To check the version of node:  
-```
+```console
 node -v
 ```
 
 To switch to the correct version of node, use:
-```
+```console
 nvm use
 ```
 
 If you don't have the correct version of node installed, use:
-```
+```console
 nvm install 18.4.0
 ```
 
@@ -91,13 +91,13 @@ npm run start:dev
 
 The React app will start up in development mode and be accessible at [http://localhost:3000](http://localhost:3000). The page will reload when you make changes. You may also see any lint errors in the console.
 
-```
+```console
 REACT_APP_API_URL=http://localhost:8000
 ```
 
 After starting up `event-board-api` server, simply run the start command.
 
-```
+```console
 npm start
 ```
 
@@ -106,7 +106,7 @@ npm start
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```
+```console
 npm test
 ```
 
@@ -114,9 +114,10 @@ npm test
 
 Runs [ESlist](https://eslint.org/docs/latest/user-guide/command-line-interface) for static code analysis. Particularly helpful when you are debugging react-scripts build issues due to linter errors.
 
-```
+```console
 npm lint
 ```
+
 ### Pull Request & Code Review
 
 For all contributions (documentation, bug fixes, new features), it is required to create a feature branch and then to submit a pull request. All pull requests will be reviewed by the project maintainers before being merged into the main branch. Maintainers may request changes to be made to pull requests before your code is approved. The repository is configured to automatically run tests and static code analysis via GitHub Actions when a pull request is opened or a branch is updated. All tests and linter checks must pass in order to merge the pull request.
