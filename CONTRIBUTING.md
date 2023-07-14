@@ -33,7 +33,7 @@ There are two parts:
 
 ### Fork & Clone the repo
 
-```bash
+```console
 git clone git@github.com:data-umbrella/event-board-web.git
 ```
 
@@ -65,10 +65,15 @@ nvm install 18.4.0
 
 ### Install Dependencies
 
+#### Ensure you are in the project repository:
+
+```console
+cd event-board-web
+```
+
 Install the dependencies defined in the `package.json` file by running 
 
-```
-cd event-board-web
+```console
 npm install
 ```
 
@@ -80,7 +85,7 @@ This web application depends on an API defined by [https://github.com/data-umbre
 
 To test the web application with the [event-board-api](https://github.com/data-umbrella/event-board-api) backend running locally, create a `.env` file with the following config.
 
-```
+```console
 npm run start:dev
 ```
 
