@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Pages
@@ -27,10 +27,23 @@ import SettingsPage from 'components/pages/SettingsPage';
 
 // Elements
 import RequireAuth from 'components/elements/RequireAuth';
+import Loading from './Loading';
 
 function AppRoutes() {
   let location = useLocation();
+  const [isLoading, setisLoading] = useState(false);
+  const startLoading = ()=>{setisLoading(true)};
+  const stopLoading = ()=>{setisLoading(false)};
+  useEffect(() => {
 
+    window.addEventListener('load', stopLoading);
+    window.addEventListener('beforeunload', startLoading);
+
+    return () => {
+      window.removeEventListener('load', stopLoading);
+      window.removeEventListener('beforeunload', startLoading);
+    };
+  }, []);
   useEffect(() => {
     const { NODE_ENV } = process.env;
     // TODO: Look into NODE_ENV being set by DO in production.
@@ -45,7 +58,8 @@ function AppRoutes() {
     });
   }, [location]);
 
-  return (
+  return (<>
+    {isLoading && <Loading/>}
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/codeofconduct" element={<CodeOfConductPage />} />
@@ -110,6 +124,7 @@ function AppRoutes() {
       />
       <Route path="/contact-success" element={<ContactSuccessPage />} />
     </Routes>
+  </>
   );
 }
 
