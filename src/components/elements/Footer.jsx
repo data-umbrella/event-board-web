@@ -44,7 +44,7 @@ function Footer() {
             <li className="mb-2"><Link to="/contact">Contact Us</Link></li>
             <li className="mb-2"><a href={ DATA_UMBRELLA_URL}>Data Umbrella<img className="pl-1 inline" src={ExternalLinkIcon} alt="external-link"/></a></li>
             {/* <li className="mb-2"><Link to="/privacy">Privacy</Link></li> */}
-            {/* <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li> */}
+            <li className="mb-2"><Link to="/terms">Terms & Conditions</Link></li>
           </ul>
         </div>
       </div>
