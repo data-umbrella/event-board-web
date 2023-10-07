@@ -195,7 +195,7 @@ It's essential to keep the project's dependencies up to date to ensure the appli
 
 ## Contributing guidelines
 
-1) To claim an issue, "I am working on it" and then you can start working on it; there is no need to wait to be assigned on an issue.
+1) To claim an issue, write "I am working on it" in a comment and then you can start working on it; there is no need to wait to be assigned on an issue.
 2) A pull request should be submitted within two weeks or someone else can work on the issue.
 
 ## Thank you
