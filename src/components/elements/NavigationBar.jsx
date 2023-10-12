@@ -110,10 +110,10 @@ function NavigationBar() {
             </div>
             <div>
               <a
-                href="/events/weekly-digest"
+                href="/events/email-digest"
                 className={navStyleClasses.navLink}
               >
-                Weekly Digest
+                Email Digest
               </a>
             </div>
             <div>

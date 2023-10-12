@@ -69,7 +69,7 @@ function AppRoutes() {
           </RequireAuth>
         }
       />
-      <Route path="/events/weekly-digest" element={<WeeklyDigestPage />} />
+      <Route path="/events/email-digest" element={<WeeklyDigestPage />} />
       <Route
         path="/events/:eventId/review"
         element={
