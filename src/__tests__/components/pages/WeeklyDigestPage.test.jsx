@@ -9,11 +9,11 @@ jest.mock('hooks/authentication', () => ({
   }),
 }));
 
-describe('Weekly digest sign up', () => {
+describe('Email digest sign up', () => {
   it('renders heading', () => {
     render(<WeeklyDigestPage />);
 
-    expect(screen.getByText(/Subscribe to our Weekly Digest/i))
+    expect(screen.getByText(/Subscribe to our Email Digest/i))
       .toBeInTheDocument();
   });
 });

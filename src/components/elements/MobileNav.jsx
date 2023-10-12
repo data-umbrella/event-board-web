@@ -84,7 +84,7 @@ function MobileNav() {
             )}
             <Link to="/events/calendar">Event Calendar</Link><br />
             <Link to="/events/new">Post Event</Link><br/>
-            <Link to="/events/weekly-digest">Weekly Digest</Link><br/>
+            <Link to="/events/email-digest">Email Digest</Link><br/>
             <Link to="/sponsors">Sponsors</Link><br/>
             <a href={DONATE_URL} target="_blank" rel="noreferrer">Donate</a><br/>
             <Link to="/about">About Us</Link><br/>

@@ -137,7 +137,7 @@ function WeeklyDigestPage() {
       <ToastContainer />
       <div className="xs:mb-40 lg:mt-12 lg:mx-28 xl:mx-40">
         <div className="container mx-auto text-center">
-          <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Weekly Digest</h2>
+          <h2 className="font-bold text-lg md:pt-12 lg:text-4xl lg:pb-3 text-left lg:text-center">Subscribe to our Email Digest</h2>
           <h3 className="text-left lg:text-center">Sign up to learn about upcoming Data Science events.</h3>
         </div>  
         <p className="pt-4 text-red-700 text-center">{subscribedStatus}</p>
